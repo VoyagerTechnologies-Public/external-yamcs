@@ -1,0 +1,189 @@
+---
+timeService:
+  class: org.yamcs.time.SimulationTimeService
+services:
+  - class: org.yamcs.archive.XtceTmRecorder
+  - class: org.yamcs.archive.ParameterRecorder
+  - class: org.yamcs.archive.AlarmRecorder
+  - class: org.yamcs.archive.EventRecorder
+  - class: org.yamcs.archive.ReplayServer
+  - class: org.yamcs.ProcessorCreatorService
+    args:
+      name: realtime
+      type: realtime
+  - class: org.yamcs.archive.CommandHistoryRecorder
+  - class: org.yamcs.parameterarchive.ParameterArchive
+    args:
+      realtimeFiller:
+        enabled: true
+      backFiller:
+        enabled: false
+        warmupTime: 60
+  - class: org.yamcs.plists.ParameterListService
+  - class: org.yamcs.timeline.TimelineService
+  - class: org.yamcs.cfdp.CfdpService
+    name: cfdp
+    args:
+      inactivityTimeout: 30000
+      sequenceNrLength: 4
+      entityIdLength: 4
+      maxPduSize: 480
+      incomingBucket: "cfdpDown"
+      allowRemoteProvidedBucket: false
+      allowRemoteProvidedSubdirectory: false
+      allowDownloadOverwrites: false
+      maxExistingFileRenames: 1000
+      eofAckTimeout: 3000
+      eofAckLimit: 3
+      sleepBetweenPdus: 100
+      maxNumPendingUploads: 1
+      localEntities:
+        - name: GSW
+          id: 23
+          bucket: cfdpDown
+      remoteEntities:
+        - name: FSW
+          id: 25
+          bucket: cfdpUp
+      senderFaultHandlers:
+        AckLimitReached: suspend
+      receiverFaultHandlers:
+        AckLimitReached: suspend
+      fileListingParserClassName: org.yamcs.filetransfer.CsvListingParser
+      fileListingParserArgs:
+        timestampMultiplier: 1
+dataLinks:
+  - name: radio-in
+    class: org.yamcs.tctm.UdpTmDataLink
+    stream: tm_realtime
+    port: 12346
+    packetPreprocessorClassName: org.yamcs.tctm.cfs.CfsPacketPreprocessor
+    packetPreprocessorArgs:
+      useLocalGenerationTime: true
+  - name: radio-out
+    class: org.yamcs.tctm.UdpTcDataLink
+    stream: tc_realtime
+    host: shire-cryptolib
+    port: 12345
+    commandPostprocessorClassName: org.yamcs.tctm.cfs.CfsCommandPostprocessor
+  - name: debug-in
+    class: org.yamcs.tctm.UdpTmDataLink
+    stream: tm_realtime
+    port: 1235
+    packetPreprocessorClassName: org.yamcs.tctm.cfs.CfsPacketPreprocessor
+    packetPreprocessorArgs:
+      useLocalGenerationTime: true
+  - name: debug-out
+    class: org.yamcs.tctm.UdpTcDataLink
+    stream: tc_realtime
+    host: shire-fsw
+    port: 1234
+    commandPostprocessorClassName: org.yamcs.tctm.cfs.CfsCommandPostprocessor
+  - name: sim-backdoor
+    class: org.yamcs.tctm.UdpTcDataLink
+    stream: tc_backdoor
+    host: shire-director
+    port: 50060
+  - name: truth42-in
+    class: org.yamcs.tctm.UdpTmDataLink
+    stream: truth42_data
+    port: 50042
+    updateSimulationTime: true
+    packetPreprocessorClassName: org.yamcs.shire.Truth42PacketPreprocessor
+mdb:
+  - type: xtce
+    args:
+      file: mdb/ccsds.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cf.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cfe_es.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cfe_evs.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cfe_hk.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cfe_sb.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cfe_tbl.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/cfe_time.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/ci.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/cs.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/ds.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/fm.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/hk.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/hs.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/lc.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/md.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/mm.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/sc.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/sch.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/cfs/to.xtce
+  - type: xtce
+    args:
+      file: mdb/sim_42_truth.xtce
+  - type: xtce
+    args:
+      file: mdb/components/adcs/adcs.xtce
+  - type: xtce
+    args:
+      file: mdb/components/demo/demo.xtce
+  - type: xtce
+    args:
+      file: mdb/components/eps/eps.xtce
+  - type: xtce
+    args:
+      file: mdb/components/radio/radio.xtce
+# Configuration for streams created at server startup
+streamConfig:
+  tm:
+    - name: "tm_realtime"
+      processor: "realtime"
+      rootContainer: "/CCSDS/CCSDS_TM"
+    - name: "truth42_data"
+      processor: "realtime"
+      rootContainer: "/SIM_42_TRUTH/SIM_42_TRUTH_DATA"
+    - name: "tm_dump"
+  cmdHist: ["cmdhist_realtime", "cmdhist_dump"]
+  event: ["events_realtime", "events_dump"]
+  param: ["pp_realtime", "pp_dump", "sys_param", "proc_param"]
+  parameterAlarm: ["alarms_realtime"]
+  tc:
+    - name: "tc_realtime"
+      processor: "realtime"
+      rootContainer: "/CCSDS/CCSDS_TC"
+    - name: "tc_backdoor"
+      processor: "realtime"
+  sqlFile: "etc/extra_streams.sql"

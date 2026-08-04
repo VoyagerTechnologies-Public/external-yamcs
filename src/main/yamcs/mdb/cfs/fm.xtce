@@ -1,0 +1,2448 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="FM" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="FM_OPENFILESPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="NUMOPENFILES_Type" shortDescription="Number of files opened via cFE." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_1_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_1_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_2_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_2_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_3_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_3_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_4_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_4_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_5_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_5_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_6_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_6_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_7_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_7_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_8_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_8_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_9_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_9_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_10_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_10_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_11_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_11_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_12_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_12_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_13_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_13_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_14_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_14_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_15_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_15_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_16_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_16_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_17_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_17_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_18_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_18_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_19_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_19_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_20_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_20_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_21_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_21_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_22_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_22_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_23_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_23_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_24_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_24_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_25_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_25_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_26_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_26_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_27_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_27_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_28_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_28_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_29_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_29_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_30_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_30_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_31_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_31_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_32_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_32_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_33_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_33_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_34_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_34_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_35_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_35_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_36_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_36_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_37_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_37_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_38_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_38_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_39_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_39_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_40_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_40_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_41_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_41_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_42_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_42_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_43_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_43_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_44_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_44_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_45_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_45_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_46_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_46_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_47_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_47_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_48_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_48_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_49_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_49_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LOGICAL_NAME_50_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_NAME_50_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="NUMOPENFILES" parameterTypeRef="NUMOPENFILES_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_1" parameterTypeRef="LOGICAL_NAME_1_Type" />
+        <xtce:Parameter name="APP_NAME_1" parameterTypeRef="APP_NAME_1_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_2" parameterTypeRef="LOGICAL_NAME_2_Type" />
+        <xtce:Parameter name="APP_NAME_2" parameterTypeRef="APP_NAME_2_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_3" parameterTypeRef="LOGICAL_NAME_3_Type" />
+        <xtce:Parameter name="APP_NAME_3" parameterTypeRef="APP_NAME_3_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_4" parameterTypeRef="LOGICAL_NAME_4_Type" />
+        <xtce:Parameter name="APP_NAME_4" parameterTypeRef="APP_NAME_4_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_5" parameterTypeRef="LOGICAL_NAME_5_Type" />
+        <xtce:Parameter name="APP_NAME_5" parameterTypeRef="APP_NAME_5_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_6" parameterTypeRef="LOGICAL_NAME_6_Type" />
+        <xtce:Parameter name="APP_NAME_6" parameterTypeRef="APP_NAME_6_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_7" parameterTypeRef="LOGICAL_NAME_7_Type" />
+        <xtce:Parameter name="APP_NAME_7" parameterTypeRef="APP_NAME_7_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_8" parameterTypeRef="LOGICAL_NAME_8_Type" />
+        <xtce:Parameter name="APP_NAME_8" parameterTypeRef="APP_NAME_8_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_9" parameterTypeRef="LOGICAL_NAME_9_Type" />
+        <xtce:Parameter name="APP_NAME_9" parameterTypeRef="APP_NAME_9_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_10" parameterTypeRef="LOGICAL_NAME_10_Type" />
+        <xtce:Parameter name="APP_NAME_10" parameterTypeRef="APP_NAME_10_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_11" parameterTypeRef="LOGICAL_NAME_11_Type" />
+        <xtce:Parameter name="APP_NAME_11" parameterTypeRef="APP_NAME_11_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_12" parameterTypeRef="LOGICAL_NAME_12_Type" />
+        <xtce:Parameter name="APP_NAME_12" parameterTypeRef="APP_NAME_12_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_13" parameterTypeRef="LOGICAL_NAME_13_Type" />
+        <xtce:Parameter name="APP_NAME_13" parameterTypeRef="APP_NAME_13_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_14" parameterTypeRef="LOGICAL_NAME_14_Type" />
+        <xtce:Parameter name="APP_NAME_14" parameterTypeRef="APP_NAME_14_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_15" parameterTypeRef="LOGICAL_NAME_15_Type" />
+        <xtce:Parameter name="APP_NAME_15" parameterTypeRef="APP_NAME_15_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_16" parameterTypeRef="LOGICAL_NAME_16_Type" />
+        <xtce:Parameter name="APP_NAME_16" parameterTypeRef="APP_NAME_16_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_17" parameterTypeRef="LOGICAL_NAME_17_Type" />
+        <xtce:Parameter name="APP_NAME_17" parameterTypeRef="APP_NAME_17_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_18" parameterTypeRef="LOGICAL_NAME_18_Type" />
+        <xtce:Parameter name="APP_NAME_18" parameterTypeRef="APP_NAME_18_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_19" parameterTypeRef="LOGICAL_NAME_19_Type" />
+        <xtce:Parameter name="APP_NAME_19" parameterTypeRef="APP_NAME_19_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_20" parameterTypeRef="LOGICAL_NAME_20_Type" />
+        <xtce:Parameter name="APP_NAME_20" parameterTypeRef="APP_NAME_20_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_21" parameterTypeRef="LOGICAL_NAME_21_Type" />
+        <xtce:Parameter name="APP_NAME_21" parameterTypeRef="APP_NAME_21_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_22" parameterTypeRef="LOGICAL_NAME_22_Type" />
+        <xtce:Parameter name="APP_NAME_22" parameterTypeRef="APP_NAME_22_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_23" parameterTypeRef="LOGICAL_NAME_23_Type" />
+        <xtce:Parameter name="APP_NAME_23" parameterTypeRef="APP_NAME_23_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_24" parameterTypeRef="LOGICAL_NAME_24_Type" />
+        <xtce:Parameter name="APP_NAME_24" parameterTypeRef="APP_NAME_24_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_25" parameterTypeRef="LOGICAL_NAME_25_Type" />
+        <xtce:Parameter name="APP_NAME_25" parameterTypeRef="APP_NAME_25_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_26" parameterTypeRef="LOGICAL_NAME_26_Type" />
+        <xtce:Parameter name="APP_NAME_26" parameterTypeRef="APP_NAME_26_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_27" parameterTypeRef="LOGICAL_NAME_27_Type" />
+        <xtce:Parameter name="APP_NAME_27" parameterTypeRef="APP_NAME_27_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_28" parameterTypeRef="LOGICAL_NAME_28_Type" />
+        <xtce:Parameter name="APP_NAME_28" parameterTypeRef="APP_NAME_28_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_29" parameterTypeRef="LOGICAL_NAME_29_Type" />
+        <xtce:Parameter name="APP_NAME_29" parameterTypeRef="APP_NAME_29_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_30" parameterTypeRef="LOGICAL_NAME_30_Type" />
+        <xtce:Parameter name="APP_NAME_30" parameterTypeRef="APP_NAME_30_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_31" parameterTypeRef="LOGICAL_NAME_31_Type" />
+        <xtce:Parameter name="APP_NAME_31" parameterTypeRef="APP_NAME_31_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_32" parameterTypeRef="LOGICAL_NAME_32_Type" />
+        <xtce:Parameter name="APP_NAME_32" parameterTypeRef="APP_NAME_32_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_33" parameterTypeRef="LOGICAL_NAME_33_Type" />
+        <xtce:Parameter name="APP_NAME_33" parameterTypeRef="APP_NAME_33_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_34" parameterTypeRef="LOGICAL_NAME_34_Type" />
+        <xtce:Parameter name="APP_NAME_34" parameterTypeRef="APP_NAME_34_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_35" parameterTypeRef="LOGICAL_NAME_35_Type" />
+        <xtce:Parameter name="APP_NAME_35" parameterTypeRef="APP_NAME_35_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_36" parameterTypeRef="LOGICAL_NAME_36_Type" />
+        <xtce:Parameter name="APP_NAME_36" parameterTypeRef="APP_NAME_36_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_37" parameterTypeRef="LOGICAL_NAME_37_Type" />
+        <xtce:Parameter name="APP_NAME_37" parameterTypeRef="APP_NAME_37_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_38" parameterTypeRef="LOGICAL_NAME_38_Type" />
+        <xtce:Parameter name="APP_NAME_38" parameterTypeRef="APP_NAME_38_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_39" parameterTypeRef="LOGICAL_NAME_39_Type" />
+        <xtce:Parameter name="APP_NAME_39" parameterTypeRef="APP_NAME_39_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_40" parameterTypeRef="LOGICAL_NAME_40_Type" />
+        <xtce:Parameter name="APP_NAME_40" parameterTypeRef="APP_NAME_40_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_41" parameterTypeRef="LOGICAL_NAME_41_Type" />
+        <xtce:Parameter name="APP_NAME_41" parameterTypeRef="APP_NAME_41_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_42" parameterTypeRef="LOGICAL_NAME_42_Type" />
+        <xtce:Parameter name="APP_NAME_42" parameterTypeRef="APP_NAME_42_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_43" parameterTypeRef="LOGICAL_NAME_43_Type" />
+        <xtce:Parameter name="APP_NAME_43" parameterTypeRef="APP_NAME_43_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_44" parameterTypeRef="LOGICAL_NAME_44_Type" />
+        <xtce:Parameter name="APP_NAME_44" parameterTypeRef="APP_NAME_44_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_45" parameterTypeRef="LOGICAL_NAME_45_Type" />
+        <xtce:Parameter name="APP_NAME_45" parameterTypeRef="APP_NAME_45_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_46" parameterTypeRef="LOGICAL_NAME_46_Type" />
+        <xtce:Parameter name="APP_NAME_46" parameterTypeRef="APP_NAME_46_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_47" parameterTypeRef="LOGICAL_NAME_47_Type" />
+        <xtce:Parameter name="APP_NAME_47" parameterTypeRef="APP_NAME_47_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_48" parameterTypeRef="LOGICAL_NAME_48_Type" />
+        <xtce:Parameter name="APP_NAME_48" parameterTypeRef="APP_NAME_48_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_49" parameterTypeRef="LOGICAL_NAME_49_Type" />
+        <xtce:Parameter name="APP_NAME_49" parameterTypeRef="APP_NAME_49_Type" />
+        <xtce:Parameter name="LOGICAL_NAME_50" parameterTypeRef="LOGICAL_NAME_50_Type" />
+        <xtce:Parameter name="APP_NAME_50" parameterTypeRef="APP_NAME_50_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="FM_OPENFILESPKT" shortDescription="Get Open Files telemetry packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="NUMOPENFILES" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_1" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_1" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_2" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_2" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_3" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_3" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_4" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_4" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_5" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_5" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_6" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_6" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_7" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_7" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_8" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_8" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_9" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_9" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_10" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_10" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_11" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_11" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_12" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_12" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_13" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_13" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_14" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_14" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_15" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_15" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_16" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_16" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_17" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_17" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_18" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_18" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_19" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_19" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_20" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_20" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_21" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_21" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_22" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_22" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_23" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_23" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_24" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_24" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_25" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_25" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_26" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_26" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_27" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_27" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_28" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_28" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_29" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_29" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_30" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_30" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_31" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_31" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_32" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_32" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_33" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_33" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_34" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_34" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_35" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_35" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_36" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_36" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_37" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_37" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_38" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_38" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_39" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_39" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_40" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_40" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_41" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_41" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_42" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_42" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_43" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_43" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_44" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_44" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_45" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_45" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_46" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_46" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_47" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_47" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_48" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_48" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_49" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_49" />
+            <xtce:ParameterRefEntry parameterRef="LOGICAL_NAME_50" />
+            <xtce:ParameterRefEntry parameterRef="APP_NAME_50" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2189" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="FM_HOUSEKEEPINGPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="COMMANDCOUNTER_Type" shortDescription="Application command counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="COMMANDERRCOUNTER_Type" shortDescription="Application command error counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_Type" shortDescription="Placeholder for unused command warning counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NUMOPENFILES_Type" shortDescription="Number of open files in the system." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDCMDCOUNTER_Type" shortDescription="Child task command counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDCMDERRCOUNTER_Type" shortDescription="Child task command error counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDCMDWARNCOUNTER_Type" shortDescription="Child task command warning counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDQUEUECOUNT_Type" shortDescription="Number of pending commands in queue." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDCURRENTCC_Type" shortDescription="Command code currently executing." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDPREVIOUSCC_Type" shortDescription="Command code previously executed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="COMMANDCOUNTER" parameterTypeRef="COMMANDCOUNTER_Type" />
+        <xtce:Parameter name="COMMANDERRCOUNTER" parameterTypeRef="COMMANDERRCOUNTER_Type" />
+        <xtce:Parameter name="SPARE" parameterTypeRef="SPARE_Type" />
+        <xtce:Parameter name="NUMOPENFILES" parameterTypeRef="NUMOPENFILES_Type" />
+        <xtce:Parameter name="CHILDCMDCOUNTER" parameterTypeRef="CHILDCMDCOUNTER_Type" />
+        <xtce:Parameter name="CHILDCMDERRCOUNTER" parameterTypeRef="CHILDCMDERRCOUNTER_Type" />
+        <xtce:Parameter name="CHILDCMDWARNCOUNTER" parameterTypeRef="CHILDCMDWARNCOUNTER_Type" />
+        <xtce:Parameter name="CHILDQUEUECOUNT" parameterTypeRef="CHILDQUEUECOUNT_Type" />
+        <xtce:Parameter name="CHILDCURRENTCC" parameterTypeRef="CHILDCURRENTCC_Type" />
+        <xtce:Parameter name="CHILDPREVIOUSCC" parameterTypeRef="CHILDPREVIOUSCC_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="FM_HOUSEKEEPINGPKT" shortDescription="Housekeeping telemetry packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="COMMANDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="COMMANDERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="SPARE" />
+            <xtce:ParameterRefEntry parameterRef="NUMOPENFILES" />
+            <xtce:ParameterRefEntry parameterRef="CHILDCMDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CHILDCMDERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CHILDCMDWARNCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CHILDQUEUECOUNT" />
+            <xtce:ParameterRefEntry parameterRef="CHILDCURRENTCC" />
+            <xtce:ParameterRefEntry parameterRef="CHILDPREVIOUSCC" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2186" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="FM_FREESPACEPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="FREESPACE1A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE1B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME1_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE2A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE2B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME2_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE3A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE3B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME3_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE4A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE4B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME4_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE5A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE5B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME5_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE6A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE6B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME6_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE7A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE7B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME7_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FREESPACE8A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FREESPACE8B_Type" shortDescription="Second 32 bit portion of a 64 bit value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME8_Type" characterWidth="8" shortDescription="File system name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="FREESPACE1A" parameterTypeRef="FREESPACE1A_Type" />
+        <xtce:Parameter name="FREESPACE1B" parameterTypeRef="FREESPACE1B_Type" />
+        <xtce:Parameter name="NAME1" parameterTypeRef="NAME1_Type" />
+        <xtce:Parameter name="FREESPACE2A" parameterTypeRef="FREESPACE2A_Type" />
+        <xtce:Parameter name="FREESPACE2B" parameterTypeRef="FREESPACE2B_Type" />
+        <xtce:Parameter name="NAME2" parameterTypeRef="NAME2_Type" />
+        <xtce:Parameter name="FREESPACE3A" parameterTypeRef="FREESPACE3A_Type" />
+        <xtce:Parameter name="FREESPACE3B" parameterTypeRef="FREESPACE3B_Type" />
+        <xtce:Parameter name="NAME3" parameterTypeRef="NAME3_Type" />
+        <xtce:Parameter name="FREESPACE4A" parameterTypeRef="FREESPACE4A_Type" />
+        <xtce:Parameter name="FREESPACE4B" parameterTypeRef="FREESPACE4B_Type" />
+        <xtce:Parameter name="NAME4" parameterTypeRef="NAME4_Type" />
+        <xtce:Parameter name="FREESPACE5A" parameterTypeRef="FREESPACE5A_Type" />
+        <xtce:Parameter name="FREESPACE5B" parameterTypeRef="FREESPACE5B_Type" />
+        <xtce:Parameter name="NAME5" parameterTypeRef="NAME5_Type" />
+        <xtce:Parameter name="FREESPACE6A" parameterTypeRef="FREESPACE6A_Type" />
+        <xtce:Parameter name="FREESPACE6B" parameterTypeRef="FREESPACE6B_Type" />
+        <xtce:Parameter name="NAME6" parameterTypeRef="NAME6_Type" />
+        <xtce:Parameter name="FREESPACE7A" parameterTypeRef="FREESPACE7A_Type" />
+        <xtce:Parameter name="FREESPACE7B" parameterTypeRef="FREESPACE7B_Type" />
+        <xtce:Parameter name="NAME7" parameterTypeRef="NAME7_Type" />
+        <xtce:Parameter name="FREESPACE8A" parameterTypeRef="FREESPACE8A_Type" />
+        <xtce:Parameter name="FREESPACE8B" parameterTypeRef="FREESPACE8B_Type" />
+        <xtce:Parameter name="NAME8" parameterTypeRef="NAME8_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="FM_FREESPACEPKT" shortDescription="Get Free Space telemetry packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="FREESPACE1A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE1B" />
+            <xtce:ParameterRefEntry parameterRef="NAME1" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE2A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE2B" />
+            <xtce:ParameterRefEntry parameterRef="NAME2" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE3A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE3B" />
+            <xtce:ParameterRefEntry parameterRef="NAME3" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE4A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE4B" />
+            <xtce:ParameterRefEntry parameterRef="NAME4" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE5A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE5B" />
+            <xtce:ParameterRefEntry parameterRef="NAME5" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE6A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE6B" />
+            <xtce:ParameterRefEntry parameterRef="NAME6" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE7A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE7B" />
+            <xtce:ParameterRefEntry parameterRef="NAME7" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE8A" />
+            <xtce:ParameterRefEntry parameterRef="FREESPACE8B" />
+            <xtce:ParameterRefEntry parameterRef="NAME8" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2190" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="FM_FILEINFOPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="FILESTATUS_Type" shortDescription="Status indicating whether the file is open or closed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CRCCOMPUTED_Type" shortDescription="Flag indicating whether a CRC was computed or not." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE1_Type" shortDescription="Structure padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE2_Type" shortDescription="Structure padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CRC_Type" shortDescription="CRC value if computed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE_Type" shortDescription="File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTMODIFIEDTIME_Type" shortDescription="Last Modification Time of File." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME_Type" characterWidth="8" shortDescription="Name of File.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="FILESTATUS" parameterTypeRef="FILESTATUS_Type" />
+        <xtce:Parameter name="CRCCOMPUTED" parameterTypeRef="CRCCOMPUTED_Type" />
+        <xtce:Parameter name="SPARE1" parameterTypeRef="SPARE1_Type" />
+        <xtce:Parameter name="SPARE2" parameterTypeRef="SPARE2_Type" />
+        <xtce:Parameter name="CRC" parameterTypeRef="CRC_Type" />
+        <xtce:Parameter name="FILESIZE" parameterTypeRef="FILESIZE_Type" />
+        <xtce:Parameter name="LASTMODIFIEDTIME" parameterTypeRef="LASTMODIFIEDTIME_Type" />
+        <xtce:Parameter name="MODE" parameterTypeRef="MODE_Type" />
+        <xtce:Parameter name="FILENAME" parameterTypeRef="FILENAME_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="FM_FILEINFOPKT" shortDescription="Get File Info telemetry packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="FILESTATUS" />
+            <xtce:ParameterRefEntry parameterRef="CRCCOMPUTED" />
+            <xtce:ParameterRefEntry parameterRef="SPARE1" />
+            <xtce:ParameterRefEntry parameterRef="SPARE2" />
+            <xtce:ParameterRefEntry parameterRef="CRC" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE" />
+            <xtce:ParameterRefEntry parameterRef="LASTMODIFIEDTIME" />
+            <xtce:ParameterRefEntry parameterRef="MODE" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2187" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="FM_DIRLISTPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:StringParameterType name="DIRNAME_Type" characterWidth="8" shortDescription="Directory Name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="TOTALFILES_Type" shortDescription="Number of files in the directory." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PACKETFILES_Type" shortDescription="Number of files in this packet." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FIRSTFILE_Type" shortDescription="Index into directory files of first packet file." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME1_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE1_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME1_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE1_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME2_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE2_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME2_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE2_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME3_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE3_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME3_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE3_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME4_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE4_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME4_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE4_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME5_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE5_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME5_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE5_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME6_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE6_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME6_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE6_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME7_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE7_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME7_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE7_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME8_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE8_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME8_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE8_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME9_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE9_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME9_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE9_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME10_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE10_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME10_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE10_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME11_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE11_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME11_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE11_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME12_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE12_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME12_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE12_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME13_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE13_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME13_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE13_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME14_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE14_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME14_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE14_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME15_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE15_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME15_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE15_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME16_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE16_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME16_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE16_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME17_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE17_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME17_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE17_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME18_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE18_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME18_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE18_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME19_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE19_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME19_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE19_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME20_Type" characterWidth="8" shortDescription="Directory Listing Filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILESIZE20_Type" shortDescription="Directory Listing File Size." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODIFYTIME20_Type" shortDescription="Directory Listing File Last Modification Times." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MODE20_Type" shortDescription="Mode of the file (Permissions)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="DIRNAME" parameterTypeRef="DIRNAME_Type" />
+        <xtce:Parameter name="TOTALFILES" parameterTypeRef="TOTALFILES_Type" />
+        <xtce:Parameter name="PACKETFILES" parameterTypeRef="PACKETFILES_Type" />
+        <xtce:Parameter name="FIRSTFILE" parameterTypeRef="FIRSTFILE_Type" />
+        <xtce:Parameter name="FILENAME1" parameterTypeRef="FILENAME1_Type" />
+        <xtce:Parameter name="FILESIZE1" parameterTypeRef="FILESIZE1_Type" />
+        <xtce:Parameter name="MODIFYTIME1" parameterTypeRef="MODIFYTIME1_Type" />
+        <xtce:Parameter name="MODE1" parameterTypeRef="MODE1_Type" />
+        <xtce:Parameter name="FILENAME2" parameterTypeRef="FILENAME2_Type" />
+        <xtce:Parameter name="FILESIZE2" parameterTypeRef="FILESIZE2_Type" />
+        <xtce:Parameter name="MODIFYTIME2" parameterTypeRef="MODIFYTIME2_Type" />
+        <xtce:Parameter name="MODE2" parameterTypeRef="MODE2_Type" />
+        <xtce:Parameter name="FILENAME3" parameterTypeRef="FILENAME3_Type" />
+        <xtce:Parameter name="FILESIZE3" parameterTypeRef="FILESIZE3_Type" />
+        <xtce:Parameter name="MODIFYTIME3" parameterTypeRef="MODIFYTIME3_Type" />
+        <xtce:Parameter name="MODE3" parameterTypeRef="MODE3_Type" />
+        <xtce:Parameter name="FILENAME4" parameterTypeRef="FILENAME4_Type" />
+        <xtce:Parameter name="FILESIZE4" parameterTypeRef="FILESIZE4_Type" />
+        <xtce:Parameter name="MODIFYTIME4" parameterTypeRef="MODIFYTIME4_Type" />
+        <xtce:Parameter name="MODE4" parameterTypeRef="MODE4_Type" />
+        <xtce:Parameter name="FILENAME5" parameterTypeRef="FILENAME5_Type" />
+        <xtce:Parameter name="FILESIZE5" parameterTypeRef="FILESIZE5_Type" />
+        <xtce:Parameter name="MODIFYTIME5" parameterTypeRef="MODIFYTIME5_Type" />
+        <xtce:Parameter name="MODE5" parameterTypeRef="MODE5_Type" />
+        <xtce:Parameter name="FILENAME6" parameterTypeRef="FILENAME6_Type" />
+        <xtce:Parameter name="FILESIZE6" parameterTypeRef="FILESIZE6_Type" />
+        <xtce:Parameter name="MODIFYTIME6" parameterTypeRef="MODIFYTIME6_Type" />
+        <xtce:Parameter name="MODE6" parameterTypeRef="MODE6_Type" />
+        <xtce:Parameter name="FILENAME7" parameterTypeRef="FILENAME7_Type" />
+        <xtce:Parameter name="FILESIZE7" parameterTypeRef="FILESIZE7_Type" />
+        <xtce:Parameter name="MODIFYTIME7" parameterTypeRef="MODIFYTIME7_Type" />
+        <xtce:Parameter name="MODE7" parameterTypeRef="MODE7_Type" />
+        <xtce:Parameter name="FILENAME8" parameterTypeRef="FILENAME8_Type" />
+        <xtce:Parameter name="FILESIZE8" parameterTypeRef="FILESIZE8_Type" />
+        <xtce:Parameter name="MODIFYTIME8" parameterTypeRef="MODIFYTIME8_Type" />
+        <xtce:Parameter name="MODE8" parameterTypeRef="MODE8_Type" />
+        <xtce:Parameter name="FILENAME9" parameterTypeRef="FILENAME9_Type" />
+        <xtce:Parameter name="FILESIZE9" parameterTypeRef="FILESIZE9_Type" />
+        <xtce:Parameter name="MODIFYTIME9" parameterTypeRef="MODIFYTIME9_Type" />
+        <xtce:Parameter name="MODE9" parameterTypeRef="MODE9_Type" />
+        <xtce:Parameter name="FILENAME10" parameterTypeRef="FILENAME10_Type" />
+        <xtce:Parameter name="FILESIZE10" parameterTypeRef="FILESIZE10_Type" />
+        <xtce:Parameter name="MODIFYTIME10" parameterTypeRef="MODIFYTIME10_Type" />
+        <xtce:Parameter name="MODE10" parameterTypeRef="MODE10_Type" />
+        <xtce:Parameter name="FILENAME11" parameterTypeRef="FILENAME11_Type" />
+        <xtce:Parameter name="FILESIZE11" parameterTypeRef="FILESIZE11_Type" />
+        <xtce:Parameter name="MODIFYTIME11" parameterTypeRef="MODIFYTIME11_Type" />
+        <xtce:Parameter name="MODE11" parameterTypeRef="MODE11_Type" />
+        <xtce:Parameter name="FILENAME12" parameterTypeRef="FILENAME12_Type" />
+        <xtce:Parameter name="FILESIZE12" parameterTypeRef="FILESIZE12_Type" />
+        <xtce:Parameter name="MODIFYTIME12" parameterTypeRef="MODIFYTIME12_Type" />
+        <xtce:Parameter name="MODE12" parameterTypeRef="MODE12_Type" />
+        <xtce:Parameter name="FILENAME13" parameterTypeRef="FILENAME13_Type" />
+        <xtce:Parameter name="FILESIZE13" parameterTypeRef="FILESIZE13_Type" />
+        <xtce:Parameter name="MODIFYTIME13" parameterTypeRef="MODIFYTIME13_Type" />
+        <xtce:Parameter name="MODE13" parameterTypeRef="MODE13_Type" />
+        <xtce:Parameter name="FILENAME14" parameterTypeRef="FILENAME14_Type" />
+        <xtce:Parameter name="FILESIZE14" parameterTypeRef="FILESIZE14_Type" />
+        <xtce:Parameter name="MODIFYTIME14" parameterTypeRef="MODIFYTIME14_Type" />
+        <xtce:Parameter name="MODE14" parameterTypeRef="MODE14_Type" />
+        <xtce:Parameter name="FILENAME15" parameterTypeRef="FILENAME15_Type" />
+        <xtce:Parameter name="FILESIZE15" parameterTypeRef="FILESIZE15_Type" />
+        <xtce:Parameter name="MODIFYTIME15" parameterTypeRef="MODIFYTIME15_Type" />
+        <xtce:Parameter name="MODE15" parameterTypeRef="MODE15_Type" />
+        <xtce:Parameter name="FILENAME16" parameterTypeRef="FILENAME16_Type" />
+        <xtce:Parameter name="FILESIZE16" parameterTypeRef="FILESIZE16_Type" />
+        <xtce:Parameter name="MODIFYTIME16" parameterTypeRef="MODIFYTIME16_Type" />
+        <xtce:Parameter name="MODE16" parameterTypeRef="MODE16_Type" />
+        <xtce:Parameter name="FILENAME17" parameterTypeRef="FILENAME17_Type" />
+        <xtce:Parameter name="FILESIZE17" parameterTypeRef="FILESIZE17_Type" />
+        <xtce:Parameter name="MODIFYTIME17" parameterTypeRef="MODIFYTIME17_Type" />
+        <xtce:Parameter name="MODE17" parameterTypeRef="MODE17_Type" />
+        <xtce:Parameter name="FILENAME18" parameterTypeRef="FILENAME18_Type" />
+        <xtce:Parameter name="FILESIZE18" parameterTypeRef="FILESIZE18_Type" />
+        <xtce:Parameter name="MODIFYTIME18" parameterTypeRef="MODIFYTIME18_Type" />
+        <xtce:Parameter name="MODE18" parameterTypeRef="MODE18_Type" />
+        <xtce:Parameter name="FILENAME19" parameterTypeRef="FILENAME19_Type" />
+        <xtce:Parameter name="FILESIZE19" parameterTypeRef="FILESIZE19_Type" />
+        <xtce:Parameter name="MODIFYTIME19" parameterTypeRef="MODIFYTIME19_Type" />
+        <xtce:Parameter name="MODE19" parameterTypeRef="MODE19_Type" />
+        <xtce:Parameter name="FILENAME20" parameterTypeRef="FILENAME20_Type" />
+        <xtce:Parameter name="FILESIZE20" parameterTypeRef="FILESIZE20_Type" />
+        <xtce:Parameter name="MODIFYTIME20" parameterTypeRef="MODIFYTIME20_Type" />
+        <xtce:Parameter name="MODE20" parameterTypeRef="MODE20_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="FM_DIRLISTPKT" shortDescription="Get Directory Listing telemetry packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="DIRNAME" />
+            <xtce:ParameterRefEntry parameterRef="TOTALFILES" />
+            <xtce:ParameterRefEntry parameterRef="PACKETFILES" />
+            <xtce:ParameterRefEntry parameterRef="FIRSTFILE" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME1" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE1" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME1" />
+            <xtce:ParameterRefEntry parameterRef="MODE1" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME2" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE2" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME2" />
+            <xtce:ParameterRefEntry parameterRef="MODE2" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME3" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE3" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME3" />
+            <xtce:ParameterRefEntry parameterRef="MODE3" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME4" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE4" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME4" />
+            <xtce:ParameterRefEntry parameterRef="MODE4" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME5" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE5" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME5" />
+            <xtce:ParameterRefEntry parameterRef="MODE5" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME6" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE6" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME6" />
+            <xtce:ParameterRefEntry parameterRef="MODE6" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME7" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE7" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME7" />
+            <xtce:ParameterRefEntry parameterRef="MODE7" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME8" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE8" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME8" />
+            <xtce:ParameterRefEntry parameterRef="MODE8" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME9" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE9" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME9" />
+            <xtce:ParameterRefEntry parameterRef="MODE9" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME10" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE10" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME10" />
+            <xtce:ParameterRefEntry parameterRef="MODE10" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME11" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE11" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME11" />
+            <xtce:ParameterRefEntry parameterRef="MODE11" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME12" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE12" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME12" />
+            <xtce:ParameterRefEntry parameterRef="MODE12" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME13" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE13" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME13" />
+            <xtce:ParameterRefEntry parameterRef="MODE13" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME14" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE14" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME14" />
+            <xtce:ParameterRefEntry parameterRef="MODE14" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME15" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE15" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME15" />
+            <xtce:ParameterRefEntry parameterRef="MODE15" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME16" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE16" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME16" />
+            <xtce:ParameterRefEntry parameterRef="MODE16" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME17" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE17" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME17" />
+            <xtce:ParameterRefEntry parameterRef="MODE17" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME18" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE18" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME18" />
+            <xtce:ParameterRefEntry parameterRef="MODE18" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME19" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE19" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME19" />
+            <xtce:ParameterRefEntry parameterRef="MODE19" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME20" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE20" />
+            <xtce:ParameterRefEntry parameterRef="MODIFYTIME20" />
+            <xtce:ParameterRefEntry parameterRef="MODE20" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2188" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="FM_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:StringArgumentType name="DIRECTORY_Type" characterWidth="8" initialValue="default" shortDescription="Directory name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="DIRLISTOFFSET_Type" initialValue="0" shortDescription="Index of 1st dir entry to put in packet." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FILEINFOCRC_Type" initialValue="0" shortDescription="File info CRC method." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="FILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Path and Filename of data to be loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="GETSIZETIMEMODE_Type" initialValue="1" shortDescription="Option to query size, time, and mode of files (CPU intensive)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MODE_Type" initialValue="0" shortDescription="Permissions, passed directly to OS_chmod." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="OVERWRITE_Type" initialValue="0" shortDescription="Allow overwrite." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="SOURCE1_Type" characterWidth="8" initialValue="default" shortDescription="Source 1 filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="SOURCE2_Type" characterWidth="8" initialValue="default" shortDescription="Source 2 filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="SOURCE_Type" characterWidth="8" initialValue="default" shortDescription="Source filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="TABLEENTRYINDEX_Type" initialValue="0" shortDescription="Table entry index." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="TABLEENTRYSTATE_Type" initialValue="0" shortDescription="New table entry state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="TARGET_Type" characterWidth="8" initialValue="default" shortDescription="Target filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="FM_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6285" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_FM_SEND_HK_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_SET_FILE_PERM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+            <xtce:Argument name="MODE" argumentTypeRef="MODE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_SET_FILE_PERM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+              <xtce:ArgumentRefEntry argumentRef="MODE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_SET_TABLE_STATE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TABLEENTRYINDEX" argumentTypeRef="TABLEENTRYINDEX_Type" />
+            <xtce:Argument name="TABLEENTRYSTATE" argumentTypeRef="TABLEENTRYSTATE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_SET_TABLE_STATE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TABLEENTRYINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="TABLEENTRYSTATE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_FM_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_RENAME">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SOURCE" argumentTypeRef="SOURCE_Type" />
+            <xtce:Argument name="TARGET" argumentTypeRef="TARGET_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_RENAME_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SOURCE" />
+              <xtce:ArgumentRefEntry argumentRef="TARGET" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_FM_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_MOVE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="OVERWRITE" argumentTypeRef="OVERWRITE_Type" />
+            <xtce:Argument name="SOURCE" argumentTypeRef="SOURCE_Type" />
+            <xtce:Argument name="TARGET" argumentTypeRef="TARGET_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_MOVE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="OVERWRITE" />
+              <xtce:ArgumentRefEntry argumentRef="SOURCE" />
+              <xtce:ArgumentRefEntry argumentRef="TARGET" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_GET_OPEN_FILES">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_FM_GET_OPEN_FILES_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_GET_FREE_SPACE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_FM_GET_FREE_SPACE_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_GET_FILE_INFO">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+            <xtce:Argument name="FILEINFOCRC" argumentTypeRef="FILEINFOCRC_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_GET_FILE_INFO_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+              <xtce:ArgumentRefEntry argumentRef="FILEINFOCRC" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_GET_DIR_PKT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+            <xtce:Argument name="DIRLISTOFFSET" argumentTypeRef="DIRLISTOFFSET_Type" />
+            <xtce:Argument name="GETSIZETIMEMODE" argumentTypeRef="GETSIZETIMEMODE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_GET_DIR_PKT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+              <xtce:ArgumentRefEntry argumentRef="DIRLISTOFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="GETSIZETIMEMODE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_GET_DIR_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+            <xtce:Argument name="GETSIZETIMEMODE" argumentTypeRef="GETSIZETIMEMODE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_GET_DIR_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+              <xtce:ArgumentRefEntry argumentRef="GETSIZETIMEMODE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_DELETE_INT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="18" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_DELETE_INT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_DELETE_DIR">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_DELETE_DIR_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_DELETE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_DELETE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_DELETE_ALL">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_DELETE_ALL_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_DECOMPRESS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SOURCE" argumentTypeRef="SOURCE_Type" />
+            <xtce:Argument name="TARGET" argumentTypeRef="TARGET_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_DECOMPRESS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SOURCE" />
+              <xtce:ArgumentRefEntry argumentRef="TARGET" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_CREATE_DIR">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_CREATE_DIR_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_COPY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="OVERWRITE" argumentTypeRef="OVERWRITE_Type" />
+            <xtce:Argument name="SOURCE" argumentTypeRef="SOURCE_Type" />
+            <xtce:Argument name="TARGET" argumentTypeRef="TARGET_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_COPY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="OVERWRITE" />
+              <xtce:ArgumentRefEntry argumentRef="SOURCE" />
+              <xtce:ArgumentRefEntry argumentRef="TARGET" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="FM_CONCAT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SOURCE1" argumentTypeRef="SOURCE1_Type" />
+            <xtce:Argument name="SOURCE2" argumentTypeRef="SOURCE2_Type" />
+            <xtce:Argument name="TARGET" argumentTypeRef="TARGET_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_FM_CONCAT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SOURCE1" />
+              <xtce:ArgumentRefEntry argumentRef="SOURCE2" />
+              <xtce:ArgumentRefEntry argumentRef="TARGET" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

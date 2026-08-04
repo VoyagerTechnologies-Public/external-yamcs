@@ -1,0 +1,1196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CFE_SB" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CFE_SB_SUBRPRTMSG">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="SUBTYPE_Type" shortDescription="Subscription or Unsubscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID_Type" shortDescription="MsgId subscribed or unsubscribe to." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="QOS_PRIORITY_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused. (Parent: Quality of Service, used only for interprocessor communication.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="QOS_RELIABILITY_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused. (Parent: Quality of Service, used only for interprocessor communication.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPE_Type" shortDescription="Destination pipe id to send above msg id." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="SUBTYPE" parameterTypeRef="SUBTYPE_Type" />
+        <xtce:Parameter name="MSGID" parameterTypeRef="MSGID_Type" />
+        <xtce:Parameter name="QOS_PRIORITY" parameterTypeRef="QOS_PRIORITY_Type" />
+        <xtce:Parameter name="QOS_RELIABILITY" parameterTypeRef="QOS_RELIABILITY_Type" />
+        <xtce:Parameter name="PIPE" parameterTypeRef="PIPE_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_SB_SUBRPRTMSG" shortDescription="SB Subscription Report Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="SUBTYPE" />
+            <xtce:ParameterRefEntry parameterRef="MSGID" />
+            <xtce:ParameterRefEntry parameterRef="QOS_PRIORITY" />
+            <xtce:ParameterRefEntry parameterRef="QOS_RELIABILITY" />
+            <xtce:ParameterRefEntry parameterRef="PIPE" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2062" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_SB_STATMSG">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="MSGIDSINUSE_Type" shortDescription="Current number of MsgIds with a destination." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PEAKMSGIDSINUSE_Type" shortDescription="Peak number of MsgIds with a destination." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXMSGIDSALLOWED_Type" shortDescription="cFE Cfg Param CFE_SB_MAX_MSG_IDS" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPESINUSE_Type" shortDescription="Number of pipes currently in use." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PEAKPIPESINUSE_Type" shortDescription="Peak number of pipes since last reboot." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXPIPESALLOWED_Type" shortDescription="cFE Cfg Param CFE_SB_MAX_PIPES" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMINUSE_Type" shortDescription="Memory bytes currently in use for SB msg transfers." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PEAKMEMINUSE_Type" shortDescription="Peak memory bytes in use for SB msg transfers." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXMEMALLOWED_Type" shortDescription="cFE Cfg Param CFE_SB_BUF_MEMORY_BYTES" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SUBSCRIPTIONSINUSE_Type" shortDescription="Number of current subscriptions." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PEAKSUBSCRIPTIONSINUSE_Type" shortDescription="Peak number of subscriptions." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXSUBSCRIPTIONSALLOWED_Type" shortDescription="product of CFE_SB_MAX_MSG_IDS and CFE_SB_MAX_DEST_PER_PKT" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SBBUFFERSINUSE_Type" shortDescription="Number of SB message buffers currently in use." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PEAKSBBUFFERSINUSE_Type" shortDescription="Max number of SB message buffers in use." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXPIPEDEPTHALLOWED_Type" shortDescription="cFE Cfg Param CFE_SB_MAX_PIPE_DEPTH" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_1_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_2_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 2" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_3_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 3" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_4_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 4" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_5_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 5" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_6_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 6" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_7_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 7" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_8_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 8" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_9_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 9" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_10_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 10" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_11_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 11" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_12_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 12" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_13_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 13" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_14_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 14" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_15_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 15" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_16_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 16" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_17_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 17" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_18_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 18" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_19_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 19" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_20_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 20" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_21_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 21" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_22_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 22" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_23_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 23" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_24_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 24" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_25_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 25" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_26_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 26" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_27_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 27" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_28_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 28" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_29_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 29" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_30_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 30" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_31_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 31" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_32_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 32" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_33_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 33" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_34_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 34" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_35_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 35" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_36_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 36" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_37_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 37" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_38_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 38" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_39_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 39" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_40_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 40" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_41_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 41" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_42_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 42" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_43_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 43" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_44_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 44" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_45_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 45" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_46_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 46" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_47_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 47" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_48_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 48" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_49_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 49" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_50_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 50" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_51_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 51" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_52_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 52" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_53_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 53" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_54_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 54" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_55_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 55" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_56_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 56" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_57_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 57" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_58_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 58" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_59_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 59" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_60_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 60" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_61_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 61" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_62_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 62" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_63_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 63" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEDEPTHSTATS_64_Type" shortDescription="Pipe Depth Statistics CFE_SB_PipeDepthStats_t. byte 64" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="MSGIDSINUSE" parameterTypeRef="MSGIDSINUSE_Type" />
+        <xtce:Parameter name="PEAKMSGIDSINUSE" parameterTypeRef="PEAKMSGIDSINUSE_Type" />
+        <xtce:Parameter name="MAXMSGIDSALLOWED" parameterTypeRef="MAXMSGIDSALLOWED_Type" />
+        <xtce:Parameter name="PIPESINUSE" parameterTypeRef="PIPESINUSE_Type" />
+        <xtce:Parameter name="PEAKPIPESINUSE" parameterTypeRef="PEAKPIPESINUSE_Type" />
+        <xtce:Parameter name="MAXPIPESALLOWED" parameterTypeRef="MAXPIPESALLOWED_Type" />
+        <xtce:Parameter name="MEMINUSE" parameterTypeRef="MEMINUSE_Type" />
+        <xtce:Parameter name="PEAKMEMINUSE" parameterTypeRef="PEAKMEMINUSE_Type" />
+        <xtce:Parameter name="MAXMEMALLOWED" parameterTypeRef="MAXMEMALLOWED_Type" />
+        <xtce:Parameter name="SUBSCRIPTIONSINUSE" parameterTypeRef="SUBSCRIPTIONSINUSE_Type" />
+        <xtce:Parameter name="PEAKSUBSCRIPTIONSINUSE" parameterTypeRef="PEAKSUBSCRIPTIONSINUSE_Type" />
+        <xtce:Parameter name="MAXSUBSCRIPTIONSALLOWED" parameterTypeRef="MAXSUBSCRIPTIONSALLOWED_Type" />
+        <xtce:Parameter name="SBBUFFERSINUSE" parameterTypeRef="SBBUFFERSINUSE_Type" />
+        <xtce:Parameter name="PEAKSBBUFFERSINUSE" parameterTypeRef="PEAKSBBUFFERSINUSE_Type" />
+        <xtce:Parameter name="MAXPIPEDEPTHALLOWED" parameterTypeRef="MAXPIPEDEPTHALLOWED_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_1" parameterTypeRef="PIPEDEPTHSTATS_1_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_2" parameterTypeRef="PIPEDEPTHSTATS_2_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_3" parameterTypeRef="PIPEDEPTHSTATS_3_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_4" parameterTypeRef="PIPEDEPTHSTATS_4_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_5" parameterTypeRef="PIPEDEPTHSTATS_5_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_6" parameterTypeRef="PIPEDEPTHSTATS_6_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_7" parameterTypeRef="PIPEDEPTHSTATS_7_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_8" parameterTypeRef="PIPEDEPTHSTATS_8_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_9" parameterTypeRef="PIPEDEPTHSTATS_9_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_10" parameterTypeRef="PIPEDEPTHSTATS_10_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_11" parameterTypeRef="PIPEDEPTHSTATS_11_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_12" parameterTypeRef="PIPEDEPTHSTATS_12_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_13" parameterTypeRef="PIPEDEPTHSTATS_13_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_14" parameterTypeRef="PIPEDEPTHSTATS_14_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_15" parameterTypeRef="PIPEDEPTHSTATS_15_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_16" parameterTypeRef="PIPEDEPTHSTATS_16_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_17" parameterTypeRef="PIPEDEPTHSTATS_17_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_18" parameterTypeRef="PIPEDEPTHSTATS_18_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_19" parameterTypeRef="PIPEDEPTHSTATS_19_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_20" parameterTypeRef="PIPEDEPTHSTATS_20_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_21" parameterTypeRef="PIPEDEPTHSTATS_21_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_22" parameterTypeRef="PIPEDEPTHSTATS_22_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_23" parameterTypeRef="PIPEDEPTHSTATS_23_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_24" parameterTypeRef="PIPEDEPTHSTATS_24_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_25" parameterTypeRef="PIPEDEPTHSTATS_25_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_26" parameterTypeRef="PIPEDEPTHSTATS_26_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_27" parameterTypeRef="PIPEDEPTHSTATS_27_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_28" parameterTypeRef="PIPEDEPTHSTATS_28_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_29" parameterTypeRef="PIPEDEPTHSTATS_29_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_30" parameterTypeRef="PIPEDEPTHSTATS_30_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_31" parameterTypeRef="PIPEDEPTHSTATS_31_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_32" parameterTypeRef="PIPEDEPTHSTATS_32_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_33" parameterTypeRef="PIPEDEPTHSTATS_33_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_34" parameterTypeRef="PIPEDEPTHSTATS_34_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_35" parameterTypeRef="PIPEDEPTHSTATS_35_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_36" parameterTypeRef="PIPEDEPTHSTATS_36_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_37" parameterTypeRef="PIPEDEPTHSTATS_37_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_38" parameterTypeRef="PIPEDEPTHSTATS_38_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_39" parameterTypeRef="PIPEDEPTHSTATS_39_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_40" parameterTypeRef="PIPEDEPTHSTATS_40_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_41" parameterTypeRef="PIPEDEPTHSTATS_41_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_42" parameterTypeRef="PIPEDEPTHSTATS_42_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_43" parameterTypeRef="PIPEDEPTHSTATS_43_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_44" parameterTypeRef="PIPEDEPTHSTATS_44_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_45" parameterTypeRef="PIPEDEPTHSTATS_45_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_46" parameterTypeRef="PIPEDEPTHSTATS_46_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_47" parameterTypeRef="PIPEDEPTHSTATS_47_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_48" parameterTypeRef="PIPEDEPTHSTATS_48_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_49" parameterTypeRef="PIPEDEPTHSTATS_49_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_50" parameterTypeRef="PIPEDEPTHSTATS_50_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_51" parameterTypeRef="PIPEDEPTHSTATS_51_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_52" parameterTypeRef="PIPEDEPTHSTATS_52_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_53" parameterTypeRef="PIPEDEPTHSTATS_53_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_54" parameterTypeRef="PIPEDEPTHSTATS_54_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_55" parameterTypeRef="PIPEDEPTHSTATS_55_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_56" parameterTypeRef="PIPEDEPTHSTATS_56_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_57" parameterTypeRef="PIPEDEPTHSTATS_57_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_58" parameterTypeRef="PIPEDEPTHSTATS_58_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_59" parameterTypeRef="PIPEDEPTHSTATS_59_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_60" parameterTypeRef="PIPEDEPTHSTATS_60_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_61" parameterTypeRef="PIPEDEPTHSTATS_61_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_62" parameterTypeRef="PIPEDEPTHSTATS_62_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_63" parameterTypeRef="PIPEDEPTHSTATS_63_Type" />
+        <xtce:Parameter name="PIPEDEPTHSTATS_64" parameterTypeRef="PIPEDEPTHSTATS_64_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_SB_STATMSG" shortDescription="SB Statistics Telemetry Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="MSGIDSINUSE" />
+            <xtce:ParameterRefEntry parameterRef="PEAKMSGIDSINUSE" />
+            <xtce:ParameterRefEntry parameterRef="MAXMSGIDSALLOWED" />
+            <xtce:ParameterRefEntry parameterRef="PIPESINUSE" />
+            <xtce:ParameterRefEntry parameterRef="PEAKPIPESINUSE" />
+            <xtce:ParameterRefEntry parameterRef="MAXPIPESALLOWED" />
+            <xtce:ParameterRefEntry parameterRef="MEMINUSE" />
+            <xtce:ParameterRefEntry parameterRef="PEAKMEMINUSE" />
+            <xtce:ParameterRefEntry parameterRef="MAXMEMALLOWED" />
+            <xtce:ParameterRefEntry parameterRef="SUBSCRIPTIONSINUSE" />
+            <xtce:ParameterRefEntry parameterRef="PEAKSUBSCRIPTIONSINUSE" />
+            <xtce:ParameterRefEntry parameterRef="MAXSUBSCRIPTIONSALLOWED" />
+            <xtce:ParameterRefEntry parameterRef="SBBUFFERSINUSE" />
+            <xtce:ParameterRefEntry parameterRef="PEAKSBBUFFERSINUSE" />
+            <xtce:ParameterRefEntry parameterRef="MAXPIPEDEPTHALLOWED" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_1" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_2" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_3" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_4" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_5" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_6" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_7" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_8" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_9" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_10" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_11" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_12" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_13" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_14" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_15" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_16" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_17" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_18" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_19" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_20" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_21" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_22" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_23" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_24" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_25" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_26" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_27" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_28" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_29" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_30" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_31" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_32" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_33" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_34" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_35" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_36" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_37" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_38" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_39" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_40" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_41" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_42" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_43" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_44" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_45" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_46" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_47" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_48" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_49" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_50" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_51" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_52" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_53" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_54" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_55" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_56" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_57" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_58" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_59" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_60" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_61" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_62" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_63" />
+            <xtce:ParameterRefEntry parameterRef="PIPEDEPTHSTATS_64" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2058" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_SB_PREVSUBMSG">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="PKTSEGMENT_Type" shortDescription="Pkt number(starts at 1) in the series." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TOTALSEGMENTS_Type" shortDescription="Total number of pkts needed to complete the request." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENTRIES_Type" shortDescription="Number of entries in the pkt." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID1_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY1_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY1_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID1_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID2_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY2_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY2_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID2_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID3_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY3_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY3_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID3_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID4_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY4_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY4_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID4_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID5_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY5_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY5_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID5_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID6_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY6_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY6_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID6_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID7_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY7_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY7_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID7_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID8_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY8_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY8_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID8_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID9_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY9_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY9_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID9_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID10_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY10_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY10_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID10_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID11_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY11_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY11_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID11_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID12_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY12_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY12_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID12_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID13_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY13_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY13_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID13_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID14_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY14_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY14_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID14_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID15_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY15_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY15_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID15_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID16_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY16_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY16_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID16_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID17_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY17_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY17_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID17_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID18_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY18_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY18_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID18_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID19_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY19_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY19_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID19_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGID20_Type" shortDescription="MsgId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PRIORITY20_Type" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RELIABILITY20_Type" shortDescription="Specify high(1) or low(0) message transfer reliability for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEID20_Type" shortDescription="PipeId portion of the subscription." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="PKTSEGMENT" parameterTypeRef="PKTSEGMENT_Type" />
+        <xtce:Parameter name="TOTALSEGMENTS" parameterTypeRef="TOTALSEGMENTS_Type" />
+        <xtce:Parameter name="ENTRIES" parameterTypeRef="ENTRIES_Type" />
+        <xtce:Parameter name="MSGID1" parameterTypeRef="MSGID1_Type" />
+        <xtce:Parameter name="PRIORITY1" parameterTypeRef="PRIORITY1_Type" />
+        <xtce:Parameter name="RELIABILITY1" parameterTypeRef="RELIABILITY1_Type" />
+        <xtce:Parameter name="PIPEID1" parameterTypeRef="PIPEID1_Type" />
+        <xtce:Parameter name="MSGID2" parameterTypeRef="MSGID2_Type" />
+        <xtce:Parameter name="PRIORITY2" parameterTypeRef="PRIORITY2_Type" />
+        <xtce:Parameter name="RELIABILITY2" parameterTypeRef="RELIABILITY2_Type" />
+        <xtce:Parameter name="PIPEID2" parameterTypeRef="PIPEID2_Type" />
+        <xtce:Parameter name="MSGID3" parameterTypeRef="MSGID3_Type" />
+        <xtce:Parameter name="PRIORITY3" parameterTypeRef="PRIORITY3_Type" />
+        <xtce:Parameter name="RELIABILITY3" parameterTypeRef="RELIABILITY3_Type" />
+        <xtce:Parameter name="PIPEID3" parameterTypeRef="PIPEID3_Type" />
+        <xtce:Parameter name="MSGID4" parameterTypeRef="MSGID4_Type" />
+        <xtce:Parameter name="PRIORITY4" parameterTypeRef="PRIORITY4_Type" />
+        <xtce:Parameter name="RELIABILITY4" parameterTypeRef="RELIABILITY4_Type" />
+        <xtce:Parameter name="PIPEID4" parameterTypeRef="PIPEID4_Type" />
+        <xtce:Parameter name="MSGID5" parameterTypeRef="MSGID5_Type" />
+        <xtce:Parameter name="PRIORITY5" parameterTypeRef="PRIORITY5_Type" />
+        <xtce:Parameter name="RELIABILITY5" parameterTypeRef="RELIABILITY5_Type" />
+        <xtce:Parameter name="PIPEID5" parameterTypeRef="PIPEID5_Type" />
+        <xtce:Parameter name="MSGID6" parameterTypeRef="MSGID6_Type" />
+        <xtce:Parameter name="PRIORITY6" parameterTypeRef="PRIORITY6_Type" />
+        <xtce:Parameter name="RELIABILITY6" parameterTypeRef="RELIABILITY6_Type" />
+        <xtce:Parameter name="PIPEID6" parameterTypeRef="PIPEID6_Type" />
+        <xtce:Parameter name="MSGID7" parameterTypeRef="MSGID7_Type" />
+        <xtce:Parameter name="PRIORITY7" parameterTypeRef="PRIORITY7_Type" />
+        <xtce:Parameter name="RELIABILITY7" parameterTypeRef="RELIABILITY7_Type" />
+        <xtce:Parameter name="PIPEID7" parameterTypeRef="PIPEID7_Type" />
+        <xtce:Parameter name="MSGID8" parameterTypeRef="MSGID8_Type" />
+        <xtce:Parameter name="PRIORITY8" parameterTypeRef="PRIORITY8_Type" />
+        <xtce:Parameter name="RELIABILITY8" parameterTypeRef="RELIABILITY8_Type" />
+        <xtce:Parameter name="PIPEID8" parameterTypeRef="PIPEID8_Type" />
+        <xtce:Parameter name="MSGID9" parameterTypeRef="MSGID9_Type" />
+        <xtce:Parameter name="PRIORITY9" parameterTypeRef="PRIORITY9_Type" />
+        <xtce:Parameter name="RELIABILITY9" parameterTypeRef="RELIABILITY9_Type" />
+        <xtce:Parameter name="PIPEID9" parameterTypeRef="PIPEID9_Type" />
+        <xtce:Parameter name="MSGID10" parameterTypeRef="MSGID10_Type" />
+        <xtce:Parameter name="PRIORITY10" parameterTypeRef="PRIORITY10_Type" />
+        <xtce:Parameter name="RELIABILITY10" parameterTypeRef="RELIABILITY10_Type" />
+        <xtce:Parameter name="PIPEID10" parameterTypeRef="PIPEID10_Type" />
+        <xtce:Parameter name="MSGID11" parameterTypeRef="MSGID11_Type" />
+        <xtce:Parameter name="PRIORITY11" parameterTypeRef="PRIORITY11_Type" />
+        <xtce:Parameter name="RELIABILITY11" parameterTypeRef="RELIABILITY11_Type" />
+        <xtce:Parameter name="PIPEID11" parameterTypeRef="PIPEID11_Type" />
+        <xtce:Parameter name="MSGID12" parameterTypeRef="MSGID12_Type" />
+        <xtce:Parameter name="PRIORITY12" parameterTypeRef="PRIORITY12_Type" />
+        <xtce:Parameter name="RELIABILITY12" parameterTypeRef="RELIABILITY12_Type" />
+        <xtce:Parameter name="PIPEID12" parameterTypeRef="PIPEID12_Type" />
+        <xtce:Parameter name="MSGID13" parameterTypeRef="MSGID13_Type" />
+        <xtce:Parameter name="PRIORITY13" parameterTypeRef="PRIORITY13_Type" />
+        <xtce:Parameter name="RELIABILITY13" parameterTypeRef="RELIABILITY13_Type" />
+        <xtce:Parameter name="PIPEID13" parameterTypeRef="PIPEID13_Type" />
+        <xtce:Parameter name="MSGID14" parameterTypeRef="MSGID14_Type" />
+        <xtce:Parameter name="PRIORITY14" parameterTypeRef="PRIORITY14_Type" />
+        <xtce:Parameter name="RELIABILITY14" parameterTypeRef="RELIABILITY14_Type" />
+        <xtce:Parameter name="PIPEID14" parameterTypeRef="PIPEID14_Type" />
+        <xtce:Parameter name="MSGID15" parameterTypeRef="MSGID15_Type" />
+        <xtce:Parameter name="PRIORITY15" parameterTypeRef="PRIORITY15_Type" />
+        <xtce:Parameter name="RELIABILITY15" parameterTypeRef="RELIABILITY15_Type" />
+        <xtce:Parameter name="PIPEID15" parameterTypeRef="PIPEID15_Type" />
+        <xtce:Parameter name="MSGID16" parameterTypeRef="MSGID16_Type" />
+        <xtce:Parameter name="PRIORITY16" parameterTypeRef="PRIORITY16_Type" />
+        <xtce:Parameter name="RELIABILITY16" parameterTypeRef="RELIABILITY16_Type" />
+        <xtce:Parameter name="PIPEID16" parameterTypeRef="PIPEID16_Type" />
+        <xtce:Parameter name="MSGID17" parameterTypeRef="MSGID17_Type" />
+        <xtce:Parameter name="PRIORITY17" parameterTypeRef="PRIORITY17_Type" />
+        <xtce:Parameter name="RELIABILITY17" parameterTypeRef="RELIABILITY17_Type" />
+        <xtce:Parameter name="PIPEID17" parameterTypeRef="PIPEID17_Type" />
+        <xtce:Parameter name="MSGID18" parameterTypeRef="MSGID18_Type" />
+        <xtce:Parameter name="PRIORITY18" parameterTypeRef="PRIORITY18_Type" />
+        <xtce:Parameter name="RELIABILITY18" parameterTypeRef="RELIABILITY18_Type" />
+        <xtce:Parameter name="PIPEID18" parameterTypeRef="PIPEID18_Type" />
+        <xtce:Parameter name="MSGID19" parameterTypeRef="MSGID19_Type" />
+        <xtce:Parameter name="PRIORITY19" parameterTypeRef="PRIORITY19_Type" />
+        <xtce:Parameter name="RELIABILITY19" parameterTypeRef="RELIABILITY19_Type" />
+        <xtce:Parameter name="PIPEID19" parameterTypeRef="PIPEID19_Type" />
+        <xtce:Parameter name="MSGID20" parameterTypeRef="MSGID20_Type" />
+        <xtce:Parameter name="PRIORITY20" parameterTypeRef="PRIORITY20_Type" />
+        <xtce:Parameter name="RELIABILITY20" parameterTypeRef="RELIABILITY20_Type" />
+        <xtce:Parameter name="PIPEID20" parameterTypeRef="PIPEID20_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_SB_PREVSUBMSG" shortDescription="SB Previous Subscriptions Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="PKTSEGMENT" />
+            <xtce:ParameterRefEntry parameterRef="TOTALSEGMENTS" />
+            <xtce:ParameterRefEntry parameterRef="ENTRIES" />
+            <xtce:ParameterRefEntry parameterRef="MSGID1" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY1" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY1" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID1" />
+            <xtce:ParameterRefEntry parameterRef="MSGID2" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY2" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY2" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID2" />
+            <xtce:ParameterRefEntry parameterRef="MSGID3" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY3" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY3" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID3" />
+            <xtce:ParameterRefEntry parameterRef="MSGID4" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY4" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY4" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID4" />
+            <xtce:ParameterRefEntry parameterRef="MSGID5" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY5" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY5" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID5" />
+            <xtce:ParameterRefEntry parameterRef="MSGID6" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY6" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY6" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID6" />
+            <xtce:ParameterRefEntry parameterRef="MSGID7" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY7" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY7" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID7" />
+            <xtce:ParameterRefEntry parameterRef="MSGID8" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY8" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY8" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID8" />
+            <xtce:ParameterRefEntry parameterRef="MSGID9" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY9" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY9" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID9" />
+            <xtce:ParameterRefEntry parameterRef="MSGID10" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY10" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY10" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID10" />
+            <xtce:ParameterRefEntry parameterRef="MSGID11" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY11" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY11" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID11" />
+            <xtce:ParameterRefEntry parameterRef="MSGID12" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY12" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY12" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID12" />
+            <xtce:ParameterRefEntry parameterRef="MSGID13" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY13" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY13" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID13" />
+            <xtce:ParameterRefEntry parameterRef="MSGID14" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY14" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY14" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID14" />
+            <xtce:ParameterRefEntry parameterRef="MSGID15" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY15" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY15" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID15" />
+            <xtce:ParameterRefEntry parameterRef="MSGID16" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY16" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY16" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID16" />
+            <xtce:ParameterRefEntry parameterRef="MSGID17" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY17" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY17" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID17" />
+            <xtce:ParameterRefEntry parameterRef="MSGID18" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY18" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY18" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID18" />
+            <xtce:ParameterRefEntry parameterRef="MSGID19" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY19" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY19" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID19" />
+            <xtce:ParameterRefEntry parameterRef="MSGID20" />
+            <xtce:ParameterRefEntry parameterRef="PRIORITY20" />
+            <xtce:ParameterRefEntry parameterRef="RELIABILITY20" />
+            <xtce:ParameterRefEntry parameterRef="PIPEID20" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2061" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_SB_HKMSG">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="COMMANDCNT_Type" shortDescription="Count of valid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CMDERRCNT_Type" shortDescription="Count of invalid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NOSUBSCRIBERSCNT_Type" shortDescription="Count pkts sent with no subscribers." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGSENDERRCNT_Type" shortDescription="Count of message send errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGRECEIVEERRCNT_Type" shortDescription="Count of message receive errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="INTERNALERRCNT_Type" shortDescription="Count of queue read or write errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CREATEPIPEERRCNT_Type" shortDescription="Count of errors in create pipe API." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SUBSCRIBEERRCNT_Type" shortDescription="Count of errors in subscribe API." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_Type" shortDescription="Spare Byte." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DUPSUBSCRIPTIONSCNT_Type" shortDescription="Count of duplicate subscriptions." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE2ALIGN_1_Type" shortDescription="Spare bytes to ensure alignment. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE2ALIGN_2_Type" shortDescription="Spare bytes to ensure alignment. byte 2" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PIPEOVERFLOWERRCNT_Type" shortDescription="Count of pipe overflow errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGLIMERRCNT_Type" shortDescription="Count of msg id to pipe errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMPOOLHANDLE_Type" shortDescription="Handle to SB's Memory Pool." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMINUSE_Type" shortDescription="Memory in use." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="UNMARKEDMEM_Type" shortDescription="cfg param CFE_SB_BUF_MEMORY_BYTES minus Peak Memory in use" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="COMMANDCNT" parameterTypeRef="COMMANDCNT_Type" />
+        <xtce:Parameter name="CMDERRCNT" parameterTypeRef="CMDERRCNT_Type" />
+        <xtce:Parameter name="NOSUBSCRIBERSCNT" parameterTypeRef="NOSUBSCRIBERSCNT_Type" />
+        <xtce:Parameter name="MSGSENDERRCNT" parameterTypeRef="MSGSENDERRCNT_Type" />
+        <xtce:Parameter name="MSGRECEIVEERRCNT" parameterTypeRef="MSGRECEIVEERRCNT_Type" />
+        <xtce:Parameter name="INTERNALERRCNT" parameterTypeRef="INTERNALERRCNT_Type" />
+        <xtce:Parameter name="CREATEPIPEERRCNT" parameterTypeRef="CREATEPIPEERRCNT_Type" />
+        <xtce:Parameter name="SUBSCRIBEERRCNT" parameterTypeRef="SUBSCRIBEERRCNT_Type" />
+        <xtce:Parameter name="SPARE" parameterTypeRef="SPARE_Type" />
+        <xtce:Parameter name="DUPSUBSCRIPTIONSCNT" parameterTypeRef="DUPSUBSCRIPTIONSCNT_Type" />
+        <xtce:Parameter name="SPARE2ALIGN_1" parameterTypeRef="SPARE2ALIGN_1_Type" />
+        <xtce:Parameter name="SPARE2ALIGN_2" parameterTypeRef="SPARE2ALIGN_2_Type" />
+        <xtce:Parameter name="PIPEOVERFLOWERRCNT" parameterTypeRef="PIPEOVERFLOWERRCNT_Type" />
+        <xtce:Parameter name="MSGLIMERRCNT" parameterTypeRef="MSGLIMERRCNT_Type" />
+        <xtce:Parameter name="MEMPOOLHANDLE" parameterTypeRef="MEMPOOLHANDLE_Type" />
+        <xtce:Parameter name="MEMINUSE" parameterTypeRef="MEMINUSE_Type" />
+        <xtce:Parameter name="UNMARKEDMEM" parameterTypeRef="UNMARKEDMEM_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_SB_HKMSG" shortDescription="Software Bus task housekeeping Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="COMMANDCNT" />
+            <xtce:ParameterRefEntry parameterRef="CMDERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="NOSUBSCRIBERSCNT" />
+            <xtce:ParameterRefEntry parameterRef="MSGSENDERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="MSGRECEIVEERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="INTERNALERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="CREATEPIPEERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="SUBSCRIBEERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="SPARE" />
+            <xtce:ParameterRefEntry parameterRef="DUPSUBSCRIPTIONSCNT" />
+            <xtce:ParameterRefEntry parameterRef="SPARE2ALIGN_1" />
+            <xtce:ParameterRefEntry parameterRef="SPARE2ALIGN_2" />
+            <xtce:ParameterRefEntry parameterRef="PIPEOVERFLOWERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="MSGLIMERRCNT" />
+            <xtce:ParameterRefEntry parameterRef="MEMPOOLHANDLE" />
+            <xtce:ParameterRefEntry parameterRef="MEMINUSE" />
+            <xtce:ParameterRefEntry parameterRef="UNMARKEDMEM" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2051" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_SB_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:StringArgumentType name="FILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Path and Filename of data to be loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="MSGID_Type" initialValue="0" shortDescription="Msg Id parameter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="PIPE_Type" initialValue="0" shortDescription="Pipe ID of route to be enabled or disabled CFE_SB_PipeId_t." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="SPARE_Type" initialValue="0" shortDescription="Padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CFE_SB_SEND_SB_STATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_SB_SEND_SB_STATS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_SEND_ROUTING_INFO">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_SB_SEND_ROUTING_INFO_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_SEND_PREV_SUBS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_SB_SEND_PREV_SUBS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_SEND_PIPE_INFO">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_SB_SEND_PIPE_INFO_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_SEND_MAP_INFO">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_SB_SEND_MAP_INFO_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_RESET_CTRS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_SB_RESET_CTRS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_SB_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_ENABLE_SUB_REPORTING">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_SB_ENABLE_SUB_REPORTING_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_ENABLE_ROUTE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MSGID" argumentTypeRef="MSGID_Type" />
+            <xtce:Argument name="PIPE" argumentTypeRef="PIPE_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_SB_ENABLE_ROUTE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MSGID" />
+              <xtce:ArgumentRefEntry argumentRef="PIPE" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_DISABLE_SUB_REPORTING">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_SB_DISABLE_SUB_REPORTING_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_SB_DISABLE_ROUTE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6147" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MSGID" argumentTypeRef="MSGID_Type" />
+            <xtce:Argument name="PIPE" argumentTypeRef="PIPE_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_SB_DISABLE_ROUTE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MSGID" />
+              <xtce:ArgumentRefEntry argumentRef="PIPE" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

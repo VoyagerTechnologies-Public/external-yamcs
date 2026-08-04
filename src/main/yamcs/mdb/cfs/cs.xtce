@@ -1,0 +1,757 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CS" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CS_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="CS Application Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CMDERRCOUNTER_Type" shortDescription="CS Application Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHECKSUMSTATE_Type" shortDescription="CS Application global checksum state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EEPROMCSSTATE_Type" shortDescription="CS Eeprom table checksum state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMORYCSSTATE_Type" shortDescription="CS Memory table checksum state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPCSSTATE_Type" shortDescription="CS App table checksum state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TABLESCSSTATE_Type" shortDescription="CS Tables table checksum state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSCSSTATE_Type" shortDescription="OS code segment checksum state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFECORECSSTATE_Type" shortDescription="cFE Core code segment checksum state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CHILDTASKINUSE_Type" shortDescription="CS 'Child Task In Use' flag." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONESHOTTASKINUSE_Type" shortDescription="CS 'OneShot Task In Use' flag." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILLER8_Type" shortDescription="8 bit padding" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EEPROMCSERRCOUNTER_Type" shortDescription="Eeprom miscompare counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMORYCSERRCOUNTER_Type" shortDescription="Memory miscompare counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPCSERRCOUNTER_Type" shortDescription="App miscompare counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TABLESCSERRCOUNTER_Type" shortDescription="Tables miscompare counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFECORECSERRCOUNTER_Type" shortDescription="cFE core miscompare counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSCSERRCOUNTER_Type" shortDescription="OS code segment miscopmare counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTCSTABLE_Type" shortDescription="Current table being checksummed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTENTRYINTABLE_Type" shortDescription="Current entry ID in the table being checksummed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EEPROMBASELINE_Type" shortDescription="Baseline checksum for all of Eeprom." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSBASELINE_Type" shortDescription="Baseline checksum for the OS code segment." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFECOREBASELINE_Type" shortDescription="Basline checksum for the cFE core." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTONESHOTADDRESS_Type" shortDescription="Address used in last one shot checksum command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTONESHOTSIZE_Type" shortDescription="Size used in the last one shot checksum command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTONESHOTMAXBYTESPERCYCLE_Type" shortDescription="Max bytes per cycle for last one shot checksum command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTONESHOTCHECKSUM_Type" shortDescription="Checksum of the last one shot checksum command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PASSCOUNTER_Type" shortDescription="Number of times CS has passed through all of its tables." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
+        <xtce:Parameter name="CMDERRCOUNTER" parameterTypeRef="CMDERRCOUNTER_Type" />
+        <xtce:Parameter name="CHECKSUMSTATE" parameterTypeRef="CHECKSUMSTATE_Type" />
+        <xtce:Parameter name="EEPROMCSSTATE" parameterTypeRef="EEPROMCSSTATE_Type" />
+        <xtce:Parameter name="MEMORYCSSTATE" parameterTypeRef="MEMORYCSSTATE_Type" />
+        <xtce:Parameter name="APPCSSTATE" parameterTypeRef="APPCSSTATE_Type" />
+        <xtce:Parameter name="TABLESCSSTATE" parameterTypeRef="TABLESCSSTATE_Type" />
+        <xtce:Parameter name="OSCSSTATE" parameterTypeRef="OSCSSTATE_Type" />
+        <xtce:Parameter name="CFECORECSSTATE" parameterTypeRef="CFECORECSSTATE_Type" />
+        <xtce:Parameter name="CHILDTASKINUSE" parameterTypeRef="CHILDTASKINUSE_Type" />
+        <xtce:Parameter name="ONESHOTTASKINUSE" parameterTypeRef="ONESHOTTASKINUSE_Type" />
+        <xtce:Parameter name="FILLER8" parameterTypeRef="FILLER8_Type" />
+        <xtce:Parameter name="EEPROMCSERRCOUNTER" parameterTypeRef="EEPROMCSERRCOUNTER_Type" />
+        <xtce:Parameter name="MEMORYCSERRCOUNTER" parameterTypeRef="MEMORYCSERRCOUNTER_Type" />
+        <xtce:Parameter name="APPCSERRCOUNTER" parameterTypeRef="APPCSERRCOUNTER_Type" />
+        <xtce:Parameter name="TABLESCSERRCOUNTER" parameterTypeRef="TABLESCSERRCOUNTER_Type" />
+        <xtce:Parameter name="CFECORECSERRCOUNTER" parameterTypeRef="CFECORECSERRCOUNTER_Type" />
+        <xtce:Parameter name="OSCSERRCOUNTER" parameterTypeRef="OSCSERRCOUNTER_Type" />
+        <xtce:Parameter name="CURRENTCSTABLE" parameterTypeRef="CURRENTCSTABLE_Type" />
+        <xtce:Parameter name="CURRENTENTRYINTABLE" parameterTypeRef="CURRENTENTRYINTABLE_Type" />
+        <xtce:Parameter name="EEPROMBASELINE" parameterTypeRef="EEPROMBASELINE_Type" />
+        <xtce:Parameter name="OSBASELINE" parameterTypeRef="OSBASELINE_Type" />
+        <xtce:Parameter name="CFECOREBASELINE" parameterTypeRef="CFECOREBASELINE_Type" />
+        <xtce:Parameter name="LASTONESHOTADDRESS" parameterTypeRef="LASTONESHOTADDRESS_Type" />
+        <xtce:Parameter name="LASTONESHOTSIZE" parameterTypeRef="LASTONESHOTSIZE_Type" />
+        <xtce:Parameter name="LASTONESHOTMAXBYTESPERCYCLE" parameterTypeRef="LASTONESHOTMAXBYTESPERCYCLE_Type" />
+        <xtce:Parameter name="LASTONESHOTCHECKSUM" parameterTypeRef="LASTONESHOTCHECKSUM_Type" />
+        <xtce:Parameter name="PASSCOUNTER" parameterTypeRef="PASSCOUNTER_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CS_HKPACKET" shortDescription="Housekeeping Packet Structure">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CMDERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CHECKSUMSTATE" />
+            <xtce:ParameterRefEntry parameterRef="EEPROMCSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="MEMORYCSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="APPCSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="TABLESCSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="OSCSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CFECORECSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CHILDTASKINUSE" />
+            <xtce:ParameterRefEntry parameterRef="ONESHOTTASKINUSE" />
+            <xtce:ParameterRefEntry parameterRef="FILLER8" />
+            <xtce:ParameterRefEntry parameterRef="EEPROMCSERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="MEMORYCSERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="APPCSERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="TABLESCSERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CFECORECSERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="OSCSERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTCSTABLE" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTENTRYINTABLE" />
+            <xtce:ParameterRefEntry parameterRef="EEPROMBASELINE" />
+            <xtce:ParameterRefEntry parameterRef="OSBASELINE" />
+            <xtce:ParameterRefEntry parameterRef="CFECOREBASELINE" />
+            <xtce:ParameterRefEntry parameterRef="LASTONESHOTADDRESS" />
+            <xtce:ParameterRefEntry parameterRef="LASTONESHOTSIZE" />
+            <xtce:ParameterRefEntry parameterRef="LASTONESHOTMAXBYTESPERCYCLE" />
+            <xtce:ParameterRefEntry parameterRef="LASTONESHOTCHECKSUM" />
+            <xtce:ParameterRefEntry parameterRef="PASSCOUNTER" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2212" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CS_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="ADDRESS_Type" initialValue="0" shortDescription="Address to start checksum." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="ENTRYID_Type" initialValue="0" shortDescription="Address index: 1..MD_DWELL_TABLE_SIZE." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MAXBYTESPERCYCLE_Type" initialValue="0" shortDescription="Max Number of bytes to compute per cycle. Value of Zero to use platform config value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="NAME_Type" characterWidth="8" initialValue="default" shortDescription="Table name to perform a command on.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>320</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="SIZE_Type" initialValue="0" shortDescription="Number of bytes to checksum." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CS_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_REPORT_BASELINE_TABLE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="30" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_REPORT_BASELINE_TABLE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_REPORT_BASELINE_OS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_REPORT_BASELINE_OS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_REPORT_BASELINE_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="23" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_REPORT_BASELINE_MEMORY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_REPORT_BASELINE_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_REPORT_BASELINE_EEPROM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_REPORT_BASELINE_CFECORE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_REPORT_BASELINE_CFECORE_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_REPORT_BASELINE_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="36" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_REPORT_BASELINE_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_RECOMPUTE_BASELINE_TABLE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="31" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_RECOMPUTE_BASELINE_TABLE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_RECOMPUTE_BASELINE_OS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_RECOMPUTE_BASELINE_OS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_RECOMPUTE_BASELINE_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="24" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_RECOMPUTE_BASELINE_MEMORY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_RECOMPUTE_BASELINE_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_RECOMPUTE_BASELINE_EEPROM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_RECOMPUTE_BASELINE_CFECORE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_RECOMPUTE_BASELINE_CFECORE_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_RECOMPUTE_BASELINE_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="37" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_RECOMPUTE_BASELINE_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ONESHOT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ADDRESS" argumentTypeRef="ADDRESS_Type" />
+            <xtce:Argument name="SIZE" argumentTypeRef="SIZE_Type" />
+            <xtce:Argument name="MAXBYTESPERCYCLE" argumentTypeRef="MAXBYTESPERCYCLE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_ONESHOT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ADDRESS" />
+              <xtce:ArgumentRefEntry argumentRef="SIZE" />
+              <xtce:ArgumentRefEntry argumentRef="MAXBYTESPERCYCLE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_GET_ENTRY_ID_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="27" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ADDRESS" argumentTypeRef="ADDRESS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_GET_ENTRY_ID_MEMORY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ADDRESS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_GET_ENTRY_ID_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="20" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ADDRESS" argumentTypeRef="ADDRESS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_GET_ENTRY_ID_EEPROM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ADDRESS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_TABLES">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="28" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_TABLES_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_OS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_OS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_NAME_TABLE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="32" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_ENABLE_NAME_TABLE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_NAME_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="38" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_ENABLE_NAME_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="21" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_MEMORY_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_ENTRY_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="25" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_ENABLE_ENTRY_MEMORY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_ENTRY_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="18" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_ENABLE_ENTRY_EEPROM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_EEPROM_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_CFECORE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_CFECORE_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_APPS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="34" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_APPS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_ENABLE_ALL_CS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_ENABLE_ALL_CS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_TABLES">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="29" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_TABLES_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_OS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_OS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_NAME_TABLE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="33" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_DISABLE_NAME_TABLE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_NAME_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="39" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NAME" argumentTypeRef="NAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_DISABLE_NAME_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="22" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_MEMORY_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_ENTRY_MEMORY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="26" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_DISABLE_ENTRY_MEMORY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_ENTRY_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="19" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENTRYID" argumentTypeRef="ENTRYID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CS_DISABLE_ENTRY_EEPROM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENTRYID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_EEPROM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_EEPROM_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_CFECORE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_CFECORE_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_APPS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="35" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_APPS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_DISABLE_ALL_CS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_DISABLE_ALL_CS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CS_CANCEL_ONESHOT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6303" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CS_CANCEL_ONESHOT_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

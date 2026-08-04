@@ -2,13 +2,13 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example</groupId>
-  <artifactId>myproject</artifactId>
+  <groupId>com.shire</groupId>
+  <artifactId>shire</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>My Project</name>
-  <url>https://example.com</url>
+  <name>SHIRE</name>
+  <url>https://voyagertechnologies.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,6 +35,15 @@
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/yamcs</directory>
+        <targetPath>yamcs</targetPath>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

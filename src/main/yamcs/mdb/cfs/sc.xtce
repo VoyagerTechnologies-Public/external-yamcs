@@ -1,0 +1,542 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="SC" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="SC_HKTLM">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:EnumeratedParameterType name="ATSNUMBER_Type" shortDescription="current ATS number 1 = ATS A, 2 = ATS B">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="A" />
+            <xtce:Enumeration value="1" label="B" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedParameterType>
+        <xtce:EnumeratedParameterType name="ATPSTATE_Type" shortDescription="current ATP state valid values are: 2 = IDLE, 5 = EXECUTING">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="2" label="IDLE" />
+            <xtce:Enumeration value="5" label="EXECUTING" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedParameterType>
+        <xtce:EnumeratedParameterType name="CONTINUEATSONFAILUREFLAG_Type" shortDescription="In the event of ATS execution failure (ats command fails checksum) , the ATS execution will continue if this flag is set to TRUE and will stop if this flag is set to FALSE.">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="STOP" />
+            <xtce:Enumeration value="1" label="CONTINUE" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedParameterType>
+        <xtce:IntegerParameterType name="CMDERRCTR_Type" shortDescription="Counts Request Errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CMDCTR_Type" shortDescription="Counts Ground Requests." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PADDING8_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:EnumeratedParameterType name="SWITCHPENDFLAG_Type" shortDescription="is an ats switch pending? 0 = NO, 1 = YES This means that the ATS switch is waiting until a safe time">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="NO" />
+            <xtce:Enumeration value="1" label="YES" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedParameterType>
+        <xtce:IntegerParameterType name="NUMRTSACTIVE_Type" shortDescription="number of RTSs currently active" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSNUMBER_Type" shortDescription="next RTS number" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSACTIVECTR_Type" shortDescription="Increments when an RTS is started without error." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSACTIVEERRCTR_Type" shortDescription="Increments when an attempt to start an RTS fails." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATSCMDCTR_Type" shortDescription="Total ATS cmd cnter counts commands sent by the ATS." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATSCMDERRCTR_Type" shortDescription="Total ATS cmd Error ctr command errors in the ATS." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSCMDCTR_Type" shortDescription="Counts TOTAL rts cmds that were sent out from ALL active RTSs." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSCMDERRCTR_Type" shortDescription="Counts TOTAL number of errs from ALL RTSs that are active." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTATSERRSEQ_Type" shortDescription="Last ATS Errant Sequence Num Values: 1 or 2." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTATSERRCMD_Type" shortDescription="Last ATS Errant Command Num." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTRTSERRSEQ_Type" shortDescription="Last RTS Errant Sequence Num." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTRTSERRCMD_Type" shortDescription="The OFFSET in the RTS buffer of the command that had an error It will be a WORD value i.e. 1st command had an error, this value would be 0, if the 2nd command started at int8 10 in the buffer, this value would be 5." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPENDCMDARG_Type" shortDescription="ATS selection argument from most recent Append ATS command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPENDENTRYCOUNT_Type" shortDescription="Number of cmd entries in current Append ATS table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPENDBYTECOUNT_Type" shortDescription="Size of cmd entries in current Append ATS table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPENDLOADCOUNT_Type" shortDescription="Total number of Append ATS table loads." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATPCMDNUMBER_Type" shortDescription="current command number" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATPFREEBYTES_1_Type" shortDescription="Free Bytes in each ATS. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATPFREEBYTES_2_Type" shortDescription="Free Bytes in each ATS. byte 2" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NEXTRTSTIME_Type" shortDescription="next RTS cmd Absolute Time" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NEXTATSTIME_Type" shortDescription="Next ATS Command Time (seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_1_Type" shortDescription="RTS 1-16 Executing Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_17_Type" shortDescription="RTS 17-32 Executing Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_33_Type" shortDescription="RTS 33-48 Executing Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_49_Type" shortDescription="RTS 49-64 Executing Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_1_Type" shortDescription="RTS 1-16 Disabled Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_17_Type" shortDescription="RTS 17-32 Disabled Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_33_Type" shortDescription="RTS 33-48 Disabled Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_49_Type" shortDescription="RTS 49-64 Disabled Status" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="ATSNUMBER" parameterTypeRef="ATSNUMBER_Type" />
+        <xtce:Parameter name="ATPSTATE" parameterTypeRef="ATPSTATE_Type" />
+        <xtce:Parameter name="CONTINUEATSONFAILUREFLAG" parameterTypeRef="CONTINUEATSONFAILUREFLAG_Type" />
+        <xtce:Parameter name="CMDERRCTR" parameterTypeRef="CMDERRCTR_Type" />
+        <xtce:Parameter name="CMDCTR" parameterTypeRef="CMDCTR_Type" />
+        <xtce:Parameter name="PADDING8" parameterTypeRef="PADDING8_Type" />
+        <xtce:Parameter name="SWITCHPENDFLAG" parameterTypeRef="SWITCHPENDFLAG_Type" />
+        <xtce:Parameter name="NUMRTSACTIVE" parameterTypeRef="NUMRTSACTIVE_Type" />
+        <xtce:Parameter name="RTSNUMBER" parameterTypeRef="RTSNUMBER_Type" />
+        <xtce:Parameter name="RTSACTIVECTR" parameterTypeRef="RTSACTIVECTR_Type" />
+        <xtce:Parameter name="RTSACTIVEERRCTR" parameterTypeRef="RTSACTIVEERRCTR_Type" />
+        <xtce:Parameter name="ATSCMDCTR" parameterTypeRef="ATSCMDCTR_Type" />
+        <xtce:Parameter name="ATSCMDERRCTR" parameterTypeRef="ATSCMDERRCTR_Type" />
+        <xtce:Parameter name="RTSCMDCTR" parameterTypeRef="RTSCMDCTR_Type" />
+        <xtce:Parameter name="RTSCMDERRCTR" parameterTypeRef="RTSCMDERRCTR_Type" />
+        <xtce:Parameter name="LASTATSERRSEQ" parameterTypeRef="LASTATSERRSEQ_Type" />
+        <xtce:Parameter name="LASTATSERRCMD" parameterTypeRef="LASTATSERRCMD_Type" />
+        <xtce:Parameter name="LASTRTSERRSEQ" parameterTypeRef="LASTRTSERRSEQ_Type" />
+        <xtce:Parameter name="LASTRTSERRCMD" parameterTypeRef="LASTRTSERRCMD_Type" />
+        <xtce:Parameter name="APPENDCMDARG" parameterTypeRef="APPENDCMDARG_Type" />
+        <xtce:Parameter name="APPENDENTRYCOUNT" parameterTypeRef="APPENDENTRYCOUNT_Type" />
+        <xtce:Parameter name="APPENDBYTECOUNT" parameterTypeRef="APPENDBYTECOUNT_Type" />
+        <xtce:Parameter name="APPENDLOADCOUNT" parameterTypeRef="APPENDLOADCOUNT_Type" />
+        <xtce:Parameter name="ATPCMDNUMBER" parameterTypeRef="ATPCMDNUMBER_Type" />
+        <xtce:Parameter name="ATPFREEBYTES_1" parameterTypeRef="ATPFREEBYTES_1_Type" />
+        <xtce:Parameter name="ATPFREEBYTES_2" parameterTypeRef="ATPFREEBYTES_2_Type" />
+        <xtce:Parameter name="NEXTRTSTIME" parameterTypeRef="NEXTRTSTIME_Type" />
+        <xtce:Parameter name="NEXTATSTIME" parameterTypeRef="NEXTATSTIME_Type" />
+        <xtce:Parameter name="RTSEXECUTINGSTATUS_1" parameterTypeRef="RTSEXECUTINGSTATUS_1_Type" />
+        <xtce:Parameter name="RTSEXECUTINGSTATUS_17" parameterTypeRef="RTSEXECUTINGSTATUS_17_Type" />
+        <xtce:Parameter name="RTSEXECUTINGSTATUS_33" parameterTypeRef="RTSEXECUTINGSTATUS_33_Type" />
+        <xtce:Parameter name="RTSEXECUTINGSTATUS_49" parameterTypeRef="RTSEXECUTINGSTATUS_49_Type" />
+        <xtce:Parameter name="RTSDISABLEDSTATUS_1" parameterTypeRef="RTSDISABLEDSTATUS_1_Type" />
+        <xtce:Parameter name="RTSDISABLEDSTATUS_17" parameterTypeRef="RTSDISABLEDSTATUS_17_Type" />
+        <xtce:Parameter name="RTSDISABLEDSTATUS_33" parameterTypeRef="RTSDISABLEDSTATUS_33_Type" />
+        <xtce:Parameter name="RTSDISABLEDSTATUS_49" parameterTypeRef="RTSDISABLEDSTATUS_49_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="SC_HKTLM" shortDescription="Housekeeping Packet Structure">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="ATSNUMBER" />
+            <xtce:ParameterRefEntry parameterRef="ATPSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CONTINUEATSONFAILUREFLAG" />
+            <xtce:ParameterRefEntry parameterRef="CMDERRCTR" />
+            <xtce:ParameterRefEntry parameterRef="CMDCTR" />
+            <xtce:ParameterRefEntry parameterRef="PADDING8" />
+            <xtce:ParameterRefEntry parameterRef="SWITCHPENDFLAG" />
+            <xtce:ParameterRefEntry parameterRef="NUMRTSACTIVE" />
+            <xtce:ParameterRefEntry parameterRef="RTSNUMBER" />
+            <xtce:ParameterRefEntry parameterRef="RTSACTIVECTR" />
+            <xtce:ParameterRefEntry parameterRef="RTSACTIVEERRCTR" />
+            <xtce:ParameterRefEntry parameterRef="ATSCMDCTR" />
+            <xtce:ParameterRefEntry parameterRef="ATSCMDERRCTR" />
+            <xtce:ParameterRefEntry parameterRef="RTSCMDCTR" />
+            <xtce:ParameterRefEntry parameterRef="RTSCMDERRCTR" />
+            <xtce:ParameterRefEntry parameterRef="LASTATSERRSEQ" />
+            <xtce:ParameterRefEntry parameterRef="LASTATSERRCMD" />
+            <xtce:ParameterRefEntry parameterRef="LASTRTSERRSEQ" />
+            <xtce:ParameterRefEntry parameterRef="LASTRTSERRCMD" />
+            <xtce:ParameterRefEntry parameterRef="APPENDCMDARG" />
+            <xtce:ParameterRefEntry parameterRef="APPENDENTRYCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="APPENDBYTECOUNT" />
+            <xtce:ParameterRefEntry parameterRef="APPENDLOADCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="ATPCMDNUMBER" />
+            <xtce:ParameterRefEntry parameterRef="ATPFREEBYTES_1" />
+            <xtce:ParameterRefEntry parameterRef="ATPFREEBYTES_2" />
+            <xtce:ParameterRefEntry parameterRef="NEXTRTSTIME" />
+            <xtce:ParameterRefEntry parameterRef="NEXTATSTIME" />
+            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_1" />
+            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_17" />
+            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_33" />
+            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_49" />
+            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_1" />
+            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_17" />
+            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_33" />
+            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_49" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2218" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="SC_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="ATSID_Type" initialValue="0" shortDescription="The ID of the ATS to start, 1 = ATS_A, 2 = ATS_B." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="CONTINUESTATE_Type" initialValue="0" shortDescription="TRUE or FALSE, to continue ATS after a failure." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FIRSTRTSID_Type" initialValue="0" shortDescription="ID of the first RTS to act on, 1 through SC_NUMBER_OF_RTS." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="LASTRTSID_Type" initialValue="0" shortDescription="ID of the last RTS to act on, 1 through SC_NUMBER_OF_RTS." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="NEWTIME_Type" initialValue="0" shortDescription="the time to 'jump' to" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="PADDING_Type" initialValue="0" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="PARAMETER_Type" initialValue="0" shortDescription="Application specified command parameter. " signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="RTSID_Type" initialValue="0" shortDescription="The ID of the RTS to start, 1 through SC_NUMBER_OF_RTS." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="SC_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6314" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_SC_SEND_HK_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_SWITCH_ATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_SC_SWITCH_ATS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_STOP_RTSGRP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FIRSTRTSID" argumentTypeRef="FIRSTRTSID_Type" />
+            <xtce:Argument name="LASTRTSID" argumentTypeRef="LASTRTSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_STOP_RTSGRP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FIRSTRTSID" />
+              <xtce:ArgumentRefEntry argumentRef="LASTRTSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_STOP_RTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="RTSID" argumentTypeRef="RTSID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_STOP_RTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="RTSID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_STOP_ATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_SC_STOP_ATS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_START_RTSGRP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FIRSTRTSID" argumentTypeRef="FIRSTRTSID_Type" />
+            <xtce:Argument name="LASTRTSID" argumentTypeRef="LASTRTSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_START_RTSGRP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FIRSTRTSID" />
+              <xtce:ArgumentRefEntry argumentRef="LASTRTSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_START_RTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="RTSID" argumentTypeRef="RTSID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_START_RTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="RTSID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_START_ATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ATSID" argumentTypeRef="ATSID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_START_ATS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ATSID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_RESET_COUNTERS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_SC_RESET_COUNTERS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_SC_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_MANAGE_TABLE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="PARAMETER" argumentTypeRef="PARAMETER_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_MANAGE_TABLE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="PARAMETER" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_JUMP_ATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NEWTIME" argumentTypeRef="NEWTIME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_JUMP_ATS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NEWTIME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_ENABLE_RTSGRP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FIRSTRTSID" argumentTypeRef="FIRSTRTSID_Type" />
+            <xtce:Argument name="LASTRTSID" argumentTypeRef="LASTRTSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_ENABLE_RTSGRP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FIRSTRTSID" />
+              <xtce:ArgumentRefEntry argumentRef="LASTRTSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_ENABLE_RTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="RTSID" argumentTypeRef="RTSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_ENABLE_RTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="RTSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_DISABLE_RTSGRP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FIRSTRTSID" argumentTypeRef="FIRSTRTSID_Type" />
+            <xtce:Argument name="LASTRTSID" argumentTypeRef="LASTRTSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_DISABLE_RTSGRP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FIRSTRTSID" />
+              <xtce:ArgumentRefEntry argumentRef="LASTRTSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_DISABLE_RTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="RTSID" argumentTypeRef="RTSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_DISABLE_RTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="RTSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_CONTINUE_ATS_ON_FAILURE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CONTINUESTATE" argumentTypeRef="CONTINUESTATE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_CONTINUE_ATS_ON_FAILURE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CONTINUESTATE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="SC_APPEND_ATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6313" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ATSID" argumentTypeRef="ATSID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_SC_APPEND_ATS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ATSID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

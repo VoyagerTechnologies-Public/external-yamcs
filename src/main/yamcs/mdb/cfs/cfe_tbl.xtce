@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CFE_TBL" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CFE_TBL_TBLREGPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="SIZE_Type" shortDescription="Size, in bytes, of Table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CRC_Type" shortDescription="Most recently calculated CRC of Table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ACTIVEBUFFERADDR_Type" shortDescription="Address of Active Buffer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="INACTIVEBUFFERADDR_Type" shortDescription="Address of Inactive Buffer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="VALIDATIONFUNCPTR_Type" shortDescription="Ptr to Owner App's function that validates tbl contents." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TIMEOFLASTUPDATE_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Time when Table was last updated.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TIMEOFLASTUPDATE_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Time when Table was last updated.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILECREATETIMESECS_Type" shortDescription="File creation time from last file loaded into table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILECREATETIMESUBSECS_Type" shortDescription="File creation time from last file loaded into table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TABLELOADEDONCE_Type" shortDescription="Flag indicating whether table has been loaded once or not." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOADPENDING_Type" shortDescription="Flag indicating an inactive buffer is ready to be copied." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DUMPONLY_Type" shortDescription="Flag indicating Table is NOT to be loaded." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DBLBUFFERED_Type" shortDescription="Flag indicating Table has a dedicated inactive buffer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="NAME_Type" characterWidth="8" shortDescription="Processor specific table name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>304</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LASTFILELOADED_Type" characterWidth="8" shortDescription="Filename of last file loaded into table.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="OWNERAPPNAME_Type" characterWidth="8" shortDescription="Name of owning application.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="CRITICAL_Type" shortDescription="Indicates whether table is Critical or not." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PADDING_Type" shortDescription="Spare byte to maintain byte alignment." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="SIZE" parameterTypeRef="SIZE_Type" />
+        <xtce:Parameter name="CRC" parameterTypeRef="CRC_Type" />
+        <xtce:Parameter name="ACTIVEBUFFERADDR" parameterTypeRef="ACTIVEBUFFERADDR_Type" />
+        <xtce:Parameter name="INACTIVEBUFFERADDR" parameterTypeRef="INACTIVEBUFFERADDR_Type" />
+        <xtce:Parameter name="VALIDATIONFUNCPTR" parameterTypeRef="VALIDATIONFUNCPTR_Type" />
+        <xtce:Parameter name="TIMEOFLASTUPDATE_SECONDS" parameterTypeRef="TIMEOFLASTUPDATE_SECONDS_Type" />
+        <xtce:Parameter name="TIMEOFLASTUPDATE_SUBSECONDS" parameterTypeRef="TIMEOFLASTUPDATE_SUBSECONDS_Type" />
+        <xtce:Parameter name="FILECREATETIMESECS" parameterTypeRef="FILECREATETIMESECS_Type" />
+        <xtce:Parameter name="FILECREATETIMESUBSECS" parameterTypeRef="FILECREATETIMESUBSECS_Type" />
+        <xtce:Parameter name="TABLELOADEDONCE" parameterTypeRef="TABLELOADEDONCE_Type" />
+        <xtce:Parameter name="LOADPENDING" parameterTypeRef="LOADPENDING_Type" />
+        <xtce:Parameter name="DUMPONLY" parameterTypeRef="DUMPONLY_Type" />
+        <xtce:Parameter name="DBLBUFFERED" parameterTypeRef="DBLBUFFERED_Type" />
+        <xtce:Parameter name="NAME" parameterTypeRef="NAME_Type" />
+        <xtce:Parameter name="LASTFILELOADED" parameterTypeRef="LASTFILELOADED_Type" />
+        <xtce:Parameter name="OWNERAPPNAME" parameterTypeRef="OWNERAPPNAME_Type" />
+        <xtce:Parameter name="CRITICAL" parameterTypeRef="CRITICAL_Type" />
+        <xtce:Parameter name="PADDING" parameterTypeRef="PADDING_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_TBL_TBLREGPACKET" shortDescription="Table Registry Info Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="SIZE" />
+            <xtce:ParameterRefEntry parameterRef="CRC" />
+            <xtce:ParameterRefEntry parameterRef="ACTIVEBUFFERADDR" />
+            <xtce:ParameterRefEntry parameterRef="INACTIVEBUFFERADDR" />
+            <xtce:ParameterRefEntry parameterRef="VALIDATIONFUNCPTR" />
+            <xtce:ParameterRefEntry parameterRef="TIMEOFLASTUPDATE_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TIMEOFLASTUPDATE_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="FILECREATETIMESECS" />
+            <xtce:ParameterRefEntry parameterRef="FILECREATETIMESUBSECS" />
+            <xtce:ParameterRefEntry parameterRef="TABLELOADEDONCE" />
+            <xtce:ParameterRefEntry parameterRef="LOADPENDING" />
+            <xtce:ParameterRefEntry parameterRef="DUMPONLY" />
+            <xtce:ParameterRefEntry parameterRef="DBLBUFFERED" />
+            <xtce:ParameterRefEntry parameterRef="NAME" />
+            <xtce:ParameterRefEntry parameterRef="LASTFILELOADED" />
+            <xtce:ParameterRefEntry parameterRef="OWNERAPPNAME" />
+            <xtce:ParameterRefEntry parameterRef="CRITICAL" />
+            <xtce:ParameterRefEntry parameterRef="PADDING" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2060" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_TBL_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="Count of valid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERRCOUNTER_Type" shortDescription="Count of invalid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NUMTABLES_Type" shortDescription="Number of Tables Registered." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NUMLOADPENDING_Type" shortDescription="Number of Tables pending on Applications for their update." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="VALIDATIONCTR_Type" shortDescription="Number of completed table validations." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTVALCRC_Type" shortDescription="Data Integrity Value computed for last table validated." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTVALSTATUS_Type" shortDescription="Returned status from validation function for last table validated." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ACTIVEBUFFER_Type" shortDescription="Indicator of whether table buffer validated was 0=Inactive, 1=Active." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="LASTVALTABLENAME_Type" characterWidth="8" shortDescription="Name of last table validated.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>320</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="SUCCESSVALCTR_Type" shortDescription="Total number of successful table validations." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FAILEDVALCTR_Type" shortDescription="Total number of unsuccessful table validations." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NUMVALREQUESTS_Type" shortDescription="Number of times Table Services has requested validations from Apps." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NUMFREESHAREDBUFS_Type" shortDescription="Number of free Shared Working Buffers." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BYTEALIGNPAD1_Type" shortDescription="Spare byte to ensure longword alignment." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMPOOLHANDLE_Type" shortDescription="Handle to TBL's memory pool." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTUPDATETIME_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Time of last table update.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTUPDATETIME_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Time of last table update.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="LASTUPDATEDTBL_Type" characterWidth="8" shortDescription="Name of the last table updated.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>320</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LASTFILELOADED_Type" characterWidth="8" shortDescription="Path and Name of last table image file loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LASTFILEDUMPED_Type" characterWidth="8" shortDescription="Path and Name of last file dumped to.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="LASTTABLELOADED_Type" characterWidth="8" shortDescription="Name of the last table loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>320</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="PADDING_Type" shortDescription="Spare bytes to maintain byte alignment." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
+        <xtce:Parameter name="ERRCOUNTER" parameterTypeRef="ERRCOUNTER_Type" />
+        <xtce:Parameter name="NUMTABLES" parameterTypeRef="NUMTABLES_Type" />
+        <xtce:Parameter name="NUMLOADPENDING" parameterTypeRef="NUMLOADPENDING_Type" />
+        <xtce:Parameter name="VALIDATIONCTR" parameterTypeRef="VALIDATIONCTR_Type" />
+        <xtce:Parameter name="LASTVALCRC" parameterTypeRef="LASTVALCRC_Type" />
+        <xtce:Parameter name="LASTVALSTATUS" parameterTypeRef="LASTVALSTATUS_Type" />
+        <xtce:Parameter name="ACTIVEBUFFER" parameterTypeRef="ACTIVEBUFFER_Type" />
+        <xtce:Parameter name="LASTVALTABLENAME" parameterTypeRef="LASTVALTABLENAME_Type" />
+        <xtce:Parameter name="SUCCESSVALCTR" parameterTypeRef="SUCCESSVALCTR_Type" />
+        <xtce:Parameter name="FAILEDVALCTR" parameterTypeRef="FAILEDVALCTR_Type" />
+        <xtce:Parameter name="NUMVALREQUESTS" parameterTypeRef="NUMVALREQUESTS_Type" />
+        <xtce:Parameter name="NUMFREESHAREDBUFS" parameterTypeRef="NUMFREESHAREDBUFS_Type" />
+        <xtce:Parameter name="BYTEALIGNPAD1" parameterTypeRef="BYTEALIGNPAD1_Type" />
+        <xtce:Parameter name="MEMPOOLHANDLE" parameterTypeRef="MEMPOOLHANDLE_Type" />
+        <xtce:Parameter name="LASTUPDATETIME_SECONDS" parameterTypeRef="LASTUPDATETIME_SECONDS_Type" />
+        <xtce:Parameter name="LASTUPDATETIME_SUBSECONDS" parameterTypeRef="LASTUPDATETIME_SUBSECONDS_Type" />
+        <xtce:Parameter name="LASTUPDATEDTBL" parameterTypeRef="LASTUPDATEDTBL_Type" />
+        <xtce:Parameter name="LASTFILELOADED" parameterTypeRef="LASTFILELOADED_Type" />
+        <xtce:Parameter name="LASTFILEDUMPED" parameterTypeRef="LASTFILEDUMPED_Type" />
+        <xtce:Parameter name="LASTTABLELOADED" parameterTypeRef="LASTTABLELOADED_Type" />
+        <xtce:Parameter name="PADDING" parameterTypeRef="PADDING_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_TBL_HKPACKET" shortDescription="Table Services Housekeeping Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="ERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="NUMTABLES" />
+            <xtce:ParameterRefEntry parameterRef="NUMLOADPENDING" />
+            <xtce:ParameterRefEntry parameterRef="VALIDATIONCTR" />
+            <xtce:ParameterRefEntry parameterRef="LASTVALCRC" />
+            <xtce:ParameterRefEntry parameterRef="LASTVALSTATUS" />
+            <xtce:ParameterRefEntry parameterRef="ACTIVEBUFFER" />
+            <xtce:ParameterRefEntry parameterRef="LASTVALTABLENAME" />
+            <xtce:ParameterRefEntry parameterRef="SUCCESSVALCTR" />
+            <xtce:ParameterRefEntry parameterRef="FAILEDVALCTR" />
+            <xtce:ParameterRefEntry parameterRef="NUMVALREQUESTS" />
+            <xtce:ParameterRefEntry parameterRef="NUMFREESHAREDBUFS" />
+            <xtce:ParameterRefEntry parameterRef="BYTEALIGNPAD1" />
+            <xtce:ParameterRefEntry parameterRef="MEMPOOLHANDLE" />
+            <xtce:ParameterRefEntry parameterRef="LASTUPDATETIME_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="LASTUPDATETIME_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="LASTUPDATEDTBL" />
+            <xtce:ParameterRefEntry parameterRef="LASTFILELOADED" />
+            <xtce:ParameterRefEntry parameterRef="LASTFILEDUMPED" />
+            <xtce:ParameterRefEntry parameterRef="LASTTABLELOADED" />
+            <xtce:ParameterRefEntry parameterRef="PADDING" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2052" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_TBL_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="ACTIVETBLFLAG_Type" initialValue="0" shortDescription="CFE_TBL_INACTIVE_BUFFER=Inactive Table, CFE_TBL_ACTIVE_BUFFER=Active Table" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="DUMPFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Full Filename where dumped data is to be written.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="LOADFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Filename (and path) of data to be loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="TABLENAME_Type" characterWidth="8" initialValue="default" shortDescription="Full Name of Table to be validated.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>320</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CFE_TBL_VALIDATE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ACTIVETBLFLAG" argumentTypeRef="ACTIVETBLFLAG_Type" />
+            <xtce:Argument name="TABLENAME" argumentTypeRef="TABLENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_VALIDATE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ACTIVETBLFLAG" />
+              <xtce:ArgumentRefEntry argumentRef="TABLENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_TLM_REG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TABLENAME" argumentTypeRef="TABLENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_TLM_REG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TABLENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TBL_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TBL_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_LOAD">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="LOADFILENAME" argumentTypeRef="LOADFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_LOAD_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="LOADFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_DUMP_REG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DUMPFILENAME" argumentTypeRef="DUMPFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_DUMP_REG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DUMPFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_DUMP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ACTIVETBLFLAG" argumentTypeRef="ACTIVETBLFLAG_Type" />
+            <xtce:Argument name="TABLENAME" argumentTypeRef="TABLENAME_Type" />
+            <xtce:Argument name="DUMPFILENAME" argumentTypeRef="DUMPFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_DUMP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ACTIVETBLFLAG" />
+              <xtce:ArgumentRefEntry argumentRef="TABLENAME" />
+              <xtce:ArgumentRefEntry argumentRef="DUMPFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_DELETE_CDS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TABLENAME" argumentTypeRef="TABLENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_DELETE_CDS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TABLENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_ACTIVATE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TABLENAME" argumentTypeRef="TABLENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_ACTIVATE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TABLENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TBL_ABORT_LOAD">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6148" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TABLENAME" argumentTypeRef="TABLENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TBL_ABORT_LOAD_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TABLENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

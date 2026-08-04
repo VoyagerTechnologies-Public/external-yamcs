@@ -1,0 +1,24 @@
+{
+  "band": {
+    "id": "ac74eb58-88b5-435b-962e-e08f0bd58163",
+    "name": "Enabled - Demo Payload",
+    "username": "guest",
+    "shared": true,
+    "type": "PARAMETER_STATES",
+    "description": "",
+    "properties": {
+      "value_mapping_1_value": "1",
+      "value_mapping_0_value": "0",
+      "value_mapping_0_label": "Disabled",
+      "value_mapping_1_color": "#00ff00",
+      "parameter": "/DEMO/DEVICE_ENABLED",
+      "frozen": "false",
+      "value_mapping_0_type": "value",
+      "value_mapping_1_label": "Enabled",
+      "height": "30",
+      "value_mapping_0_color": "#ff0000",
+      "value_mapping_1_type": "value"
+    }
+  },
+  "items": []
+}

@@ -1,0 +1,32 @@
+# SHIRE YAMCS Base Dockerfile
+# Build environment for SHIRE ground software (YAMCS).
+# Published to: ghcr.io/voyagertechnologies-public/shire-yamcs
+#
+# Local build: make container (from gsw/)
+
+FROM maven:3.9.9-eclipse-temurin-17
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+LABEL org.opencontainers.image.title="shire-yamcs" \
+      org.opencontainers.image.description="Build environment for SHIRE YAMCS ground software" \
+      org.opencontainers.image.source="https://github.com/VoyagerTechnologies-public/shire" \
+      org.opencontainers.image.vendor="Voyager Technologies"
+
+WORKDIR /app
+
+# Copy Maven wrapper and POM before source so dependency layer is cached independently
+COPY pom.xml ./
+COPY mvnw mvnw.cmd ./
+COPY .mvn .mvn/
+
+# Install curl (healthcheck) and Python3 (timeline management) in a single layer
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    curl \
+    python3 \
+    python3-requests \
+    && rm -rf /var/lib/apt/lists/*
+
+# Pre-fetch Maven dependencies so builds don't re-download on every run
+RUN mvn dependency:go-offline -B

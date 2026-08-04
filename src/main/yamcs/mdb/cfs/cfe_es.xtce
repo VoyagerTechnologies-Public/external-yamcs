@@ -1,0 +1,1611 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CFE_ES" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CFE_ES_SHELLPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_1_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_2_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 2" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_3_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 3" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_4_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 4" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_5_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 5" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_6_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 6" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_7_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 7" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_8_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 8" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_9_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 9" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_10_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 10" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_11_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 11" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_12_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 12" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_13_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 13" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_14_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 14" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_15_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 15" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_16_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 16" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_17_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 17" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_18_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 18" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_19_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 19" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_20_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 20" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_21_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 21" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_22_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 22" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_23_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 23" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_24_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 24" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_25_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 25" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_26_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 26" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_27_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 27" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_28_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 28" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_29_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 29" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_30_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 30" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_31_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 31" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_32_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 32" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_33_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 33" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_34_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 34" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_35_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 35" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_36_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 36" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_37_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 37" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_38_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 38" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_39_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 39" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_40_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 40" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_41_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 41" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_42_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 42" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_43_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 43" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_44_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 44" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_45_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 45" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_46_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 46" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_47_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 47" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_48_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 48" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_49_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 49" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_50_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 50" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_51_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 51" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_52_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 52" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_53_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 53" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_54_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 54" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_55_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 55" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_56_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 56" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_57_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 57" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_58_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 58" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_59_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 59" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_60_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 60" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_61_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 61" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_62_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 62" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_63_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 63" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SHELLOUTPUT_64_Type" shortDescription="ASCII text string containing output from OS Shell that was received in response to an OS Shell Command. byte 64" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="SHELLOUTPUT_1" parameterTypeRef="SHELLOUTPUT_1_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_2" parameterTypeRef="SHELLOUTPUT_2_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_3" parameterTypeRef="SHELLOUTPUT_3_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_4" parameterTypeRef="SHELLOUTPUT_4_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_5" parameterTypeRef="SHELLOUTPUT_5_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_6" parameterTypeRef="SHELLOUTPUT_6_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_7" parameterTypeRef="SHELLOUTPUT_7_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_8" parameterTypeRef="SHELLOUTPUT_8_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_9" parameterTypeRef="SHELLOUTPUT_9_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_10" parameterTypeRef="SHELLOUTPUT_10_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_11" parameterTypeRef="SHELLOUTPUT_11_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_12" parameterTypeRef="SHELLOUTPUT_12_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_13" parameterTypeRef="SHELLOUTPUT_13_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_14" parameterTypeRef="SHELLOUTPUT_14_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_15" parameterTypeRef="SHELLOUTPUT_15_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_16" parameterTypeRef="SHELLOUTPUT_16_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_17" parameterTypeRef="SHELLOUTPUT_17_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_18" parameterTypeRef="SHELLOUTPUT_18_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_19" parameterTypeRef="SHELLOUTPUT_19_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_20" parameterTypeRef="SHELLOUTPUT_20_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_21" parameterTypeRef="SHELLOUTPUT_21_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_22" parameterTypeRef="SHELLOUTPUT_22_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_23" parameterTypeRef="SHELLOUTPUT_23_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_24" parameterTypeRef="SHELLOUTPUT_24_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_25" parameterTypeRef="SHELLOUTPUT_25_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_26" parameterTypeRef="SHELLOUTPUT_26_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_27" parameterTypeRef="SHELLOUTPUT_27_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_28" parameterTypeRef="SHELLOUTPUT_28_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_29" parameterTypeRef="SHELLOUTPUT_29_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_30" parameterTypeRef="SHELLOUTPUT_30_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_31" parameterTypeRef="SHELLOUTPUT_31_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_32" parameterTypeRef="SHELLOUTPUT_32_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_33" parameterTypeRef="SHELLOUTPUT_33_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_34" parameterTypeRef="SHELLOUTPUT_34_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_35" parameterTypeRef="SHELLOUTPUT_35_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_36" parameterTypeRef="SHELLOUTPUT_36_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_37" parameterTypeRef="SHELLOUTPUT_37_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_38" parameterTypeRef="SHELLOUTPUT_38_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_39" parameterTypeRef="SHELLOUTPUT_39_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_40" parameterTypeRef="SHELLOUTPUT_40_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_41" parameterTypeRef="SHELLOUTPUT_41_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_42" parameterTypeRef="SHELLOUTPUT_42_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_43" parameterTypeRef="SHELLOUTPUT_43_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_44" parameterTypeRef="SHELLOUTPUT_44_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_45" parameterTypeRef="SHELLOUTPUT_45_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_46" parameterTypeRef="SHELLOUTPUT_46_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_47" parameterTypeRef="SHELLOUTPUT_47_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_48" parameterTypeRef="SHELLOUTPUT_48_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_49" parameterTypeRef="SHELLOUTPUT_49_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_50" parameterTypeRef="SHELLOUTPUT_50_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_51" parameterTypeRef="SHELLOUTPUT_51_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_52" parameterTypeRef="SHELLOUTPUT_52_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_53" parameterTypeRef="SHELLOUTPUT_53_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_54" parameterTypeRef="SHELLOUTPUT_54_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_55" parameterTypeRef="SHELLOUTPUT_55_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_56" parameterTypeRef="SHELLOUTPUT_56_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_57" parameterTypeRef="SHELLOUTPUT_57_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_58" parameterTypeRef="SHELLOUTPUT_58_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_59" parameterTypeRef="SHELLOUTPUT_59_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_60" parameterTypeRef="SHELLOUTPUT_60_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_61" parameterTypeRef="SHELLOUTPUT_61_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_62" parameterTypeRef="SHELLOUTPUT_62_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_63" parameterTypeRef="SHELLOUTPUT_63_Type" />
+        <xtce:Parameter name="SHELLOUTPUT_64" parameterTypeRef="SHELLOUTPUT_64_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_ES_SHELLPACKET" shortDescription="OS Shell Output Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_1" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_2" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_3" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_4" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_5" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_6" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_7" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_8" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_9" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_10" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_11" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_12" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_13" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_14" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_15" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_16" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_17" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_18" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_19" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_20" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_21" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_22" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_23" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_24" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_25" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_26" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_27" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_28" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_29" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_30" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_31" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_32" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_33" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_34" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_35" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_36" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_37" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_38" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_39" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_40" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_41" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_42" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_43" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_44" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_45" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_46" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_47" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_48" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_49" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_50" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_51" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_52" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_53" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_54" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_55" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_56" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_57" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_58" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_59" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_60" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_61" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_62" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_63" />
+            <xtce:ParameterRefEntry parameterRef="SHELLOUTPUT_64" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2063" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_ES_POOLSTATSTLM">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="POOLHANDLE_Type" shortDescription="Handle of memory pool whose stats are being telemetered." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="POOLSTATS_POOLSIZE_Type" shortDescription="Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="POOLSTATS_NUMBLOCKSREQUESTED_Type" shortDescription="Number of times a memory block has been allocated. (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="POOLSTATS_CHECKERRCTR_Type" shortDescription="Number of errors detected when freeing a memory block. (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="POOLSTATS_NUMFREEBYTES_Type" shortDescription="Number of bytes never allocated to a block. (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_1_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_1_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_1_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_2_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_2_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_2_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_3_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_3_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_3_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_4_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_4_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_4_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_5_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_5_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_5_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_6_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_6_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_6_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_7_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_7_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_7_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_8_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_8_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_8_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_9_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_9_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_9_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_10_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_10_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_10_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_11_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_11_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_11_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_12_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_12_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_12_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_13_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_13_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_13_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_14_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_14_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_14_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_15_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_15_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_15_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_16_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_16_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_16_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_17_SIZE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_17_NUM_CREATED_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKSTATS_17_NUM_FREE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="POOLHANDLE" parameterTypeRef="POOLHANDLE_Type" />
+        <xtce:Parameter name="POOLSTATS_POOLSIZE" parameterTypeRef="POOLSTATS_POOLSIZE_Type" />
+        <xtce:Parameter name="POOLSTATS_NUMBLOCKSREQUESTED" parameterTypeRef="POOLSTATS_NUMBLOCKSREQUESTED_Type" />
+        <xtce:Parameter name="POOLSTATS_CHECKERRCTR" parameterTypeRef="POOLSTATS_CHECKERRCTR_Type" />
+        <xtce:Parameter name="POOLSTATS_NUMFREEBYTES" parameterTypeRef="POOLSTATS_NUMFREEBYTES_Type" />
+        <xtce:Parameter name="BLOCKSTATS_1_SIZE" parameterTypeRef="BLOCKSTATS_1_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_1_NUM_CREATED" parameterTypeRef="BLOCKSTATS_1_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_1_NUM_FREE" parameterTypeRef="BLOCKSTATS_1_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_2_SIZE" parameterTypeRef="BLOCKSTATS_2_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_2_NUM_CREATED" parameterTypeRef="BLOCKSTATS_2_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_2_NUM_FREE" parameterTypeRef="BLOCKSTATS_2_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_3_SIZE" parameterTypeRef="BLOCKSTATS_3_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_3_NUM_CREATED" parameterTypeRef="BLOCKSTATS_3_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_3_NUM_FREE" parameterTypeRef="BLOCKSTATS_3_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_4_SIZE" parameterTypeRef="BLOCKSTATS_4_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_4_NUM_CREATED" parameterTypeRef="BLOCKSTATS_4_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_4_NUM_FREE" parameterTypeRef="BLOCKSTATS_4_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_5_SIZE" parameterTypeRef="BLOCKSTATS_5_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_5_NUM_CREATED" parameterTypeRef="BLOCKSTATS_5_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_5_NUM_FREE" parameterTypeRef="BLOCKSTATS_5_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_6_SIZE" parameterTypeRef="BLOCKSTATS_6_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_6_NUM_CREATED" parameterTypeRef="BLOCKSTATS_6_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_6_NUM_FREE" parameterTypeRef="BLOCKSTATS_6_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_7_SIZE" parameterTypeRef="BLOCKSTATS_7_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_7_NUM_CREATED" parameterTypeRef="BLOCKSTATS_7_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_7_NUM_FREE" parameterTypeRef="BLOCKSTATS_7_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_8_SIZE" parameterTypeRef="BLOCKSTATS_8_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_8_NUM_CREATED" parameterTypeRef="BLOCKSTATS_8_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_8_NUM_FREE" parameterTypeRef="BLOCKSTATS_8_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_9_SIZE" parameterTypeRef="BLOCKSTATS_9_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_9_NUM_CREATED" parameterTypeRef="BLOCKSTATS_9_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_9_NUM_FREE" parameterTypeRef="BLOCKSTATS_9_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_10_SIZE" parameterTypeRef="BLOCKSTATS_10_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_10_NUM_CREATED" parameterTypeRef="BLOCKSTATS_10_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_10_NUM_FREE" parameterTypeRef="BLOCKSTATS_10_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_11_SIZE" parameterTypeRef="BLOCKSTATS_11_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_11_NUM_CREATED" parameterTypeRef="BLOCKSTATS_11_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_11_NUM_FREE" parameterTypeRef="BLOCKSTATS_11_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_12_SIZE" parameterTypeRef="BLOCKSTATS_12_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_12_NUM_CREATED" parameterTypeRef="BLOCKSTATS_12_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_12_NUM_FREE" parameterTypeRef="BLOCKSTATS_12_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_13_SIZE" parameterTypeRef="BLOCKSTATS_13_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_13_NUM_CREATED" parameterTypeRef="BLOCKSTATS_13_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_13_NUM_FREE" parameterTypeRef="BLOCKSTATS_13_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_14_SIZE" parameterTypeRef="BLOCKSTATS_14_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_14_NUM_CREATED" parameterTypeRef="BLOCKSTATS_14_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_14_NUM_FREE" parameterTypeRef="BLOCKSTATS_14_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_15_SIZE" parameterTypeRef="BLOCKSTATS_15_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_15_NUM_CREATED" parameterTypeRef="BLOCKSTATS_15_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_15_NUM_FREE" parameterTypeRef="BLOCKSTATS_15_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_16_SIZE" parameterTypeRef="BLOCKSTATS_16_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_16_NUM_CREATED" parameterTypeRef="BLOCKSTATS_16_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_16_NUM_FREE" parameterTypeRef="BLOCKSTATS_16_NUM_FREE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_17_SIZE" parameterTypeRef="BLOCKSTATS_17_SIZE_Type" />
+        <xtce:Parameter name="BLOCKSTATS_17_NUM_CREATED" parameterTypeRef="BLOCKSTATS_17_NUM_CREATED_Type" />
+        <xtce:Parameter name="BLOCKSTATS_17_NUM_FREE" parameterTypeRef="BLOCKSTATS_17_NUM_FREE_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_ES_POOLSTATSTLM" shortDescription="Memory Pool Statistics Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="POOLHANDLE" />
+            <xtce:ParameterRefEntry parameterRef="POOLSTATS_POOLSIZE" />
+            <xtce:ParameterRefEntry parameterRef="POOLSTATS_NUMBLOCKSREQUESTED" />
+            <xtce:ParameterRefEntry parameterRef="POOLSTATS_CHECKERRCTR" />
+            <xtce:ParameterRefEntry parameterRef="POOLSTATS_NUMFREEBYTES" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_1_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_1_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_1_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_2_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_2_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_2_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_3_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_3_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_3_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_4_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_4_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_4_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_5_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_5_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_5_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_6_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_6_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_6_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_7_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_7_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_7_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_8_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_8_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_8_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_9_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_9_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_9_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_10_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_10_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_10_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_11_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_11_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_11_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_12_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_12_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_12_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_13_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_13_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_13_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_14_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_14_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_14_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_15_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_15_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_15_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_16_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_16_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_16_NUM_FREE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_17_SIZE" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_17_NUM_CREATED" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKSTATS_17_NUM_FREE" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2064" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_ES_ONEAPPTLM">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="APPINFO_APPID_Type" shortDescription="Application ID for this Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_TYPE_Type" shortDescription="The type of App: CORE or EXTERNAL. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="APPINFO_NAME_Type" characterWidth="8" shortDescription="The Registered Name of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APPINFO_ENTRYPOINT_Type" characterWidth="8" shortDescription="The Entry Point label for the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APPINFO_FILENAME_Type" characterWidth="8" shortDescription="The Filename of the file containing the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="APPINFO_STACKSIZE_Type" shortDescription="The Stack Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_MODULEID_Type" shortDescription="The ID of the Loadable Module for the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_ADDRESSESAREVALID_Type" shortDescription="Indicates that the Code, Data, and BSS addresses/sizes are valid. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_CODEADDRESS_Type" shortDescription="The Address of the Application Code Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_CODESIZE_Type" shortDescription="The Code Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_DATAADDRESS_Type" shortDescription="The Address of the Application Data Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_DATASIZE_Type" shortDescription="The Data Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_BSSADDRESS_Type" shortDescription="The Address of the Application BSS Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_BSSSIZE_Type" shortDescription="The BSS Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_STARTADDRESS_Type" shortDescription="The Start Address of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_EXCEPTIONACTION_Type" shortDescription="What should occur if Application has an exception (Restart Application OR Restart Processor). (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_PRIORITY_Type" shortDescription="The Priority of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_MAINTASKID_Type" shortDescription="The Application's Main Task ID. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_EXECUTIONCOUNTER_Type" shortDescription="The Application's Main Task Execution Counter. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="APPINFO_MAINTASKNAME_Type" characterWidth="8" shortDescription="The Application's Main Task ID. (Parent: For more information, see CFE_ES_AppInfo_t.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="APPINFO_NUMOFCHILDTASKS_Type" shortDescription="Number of Child tasks for an App. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="APPINFO_APPID" parameterTypeRef="APPINFO_APPID_Type" />
+        <xtce:Parameter name="APPINFO_TYPE" parameterTypeRef="APPINFO_TYPE_Type" />
+        <xtce:Parameter name="APPINFO_NAME" parameterTypeRef="APPINFO_NAME_Type" />
+        <xtce:Parameter name="APPINFO_ENTRYPOINT" parameterTypeRef="APPINFO_ENTRYPOINT_Type" />
+        <xtce:Parameter name="APPINFO_FILENAME" parameterTypeRef="APPINFO_FILENAME_Type" />
+        <xtce:Parameter name="APPINFO_STACKSIZE" parameterTypeRef="APPINFO_STACKSIZE_Type" />
+        <xtce:Parameter name="APPINFO_MODULEID" parameterTypeRef="APPINFO_MODULEID_Type" />
+        <xtce:Parameter name="APPINFO_ADDRESSESAREVALID" parameterTypeRef="APPINFO_ADDRESSESAREVALID_Type" />
+        <xtce:Parameter name="APPINFO_CODEADDRESS" parameterTypeRef="APPINFO_CODEADDRESS_Type" />
+        <xtce:Parameter name="APPINFO_CODESIZE" parameterTypeRef="APPINFO_CODESIZE_Type" />
+        <xtce:Parameter name="APPINFO_DATAADDRESS" parameterTypeRef="APPINFO_DATAADDRESS_Type" />
+        <xtce:Parameter name="APPINFO_DATASIZE" parameterTypeRef="APPINFO_DATASIZE_Type" />
+        <xtce:Parameter name="APPINFO_BSSADDRESS" parameterTypeRef="APPINFO_BSSADDRESS_Type" />
+        <xtce:Parameter name="APPINFO_BSSSIZE" parameterTypeRef="APPINFO_BSSSIZE_Type" />
+        <xtce:Parameter name="APPINFO_STARTADDRESS" parameterTypeRef="APPINFO_STARTADDRESS_Type" />
+        <xtce:Parameter name="APPINFO_EXCEPTIONACTION" parameterTypeRef="APPINFO_EXCEPTIONACTION_Type" />
+        <xtce:Parameter name="APPINFO_PRIORITY" parameterTypeRef="APPINFO_PRIORITY_Type" />
+        <xtce:Parameter name="APPINFO_MAINTASKID" parameterTypeRef="APPINFO_MAINTASKID_Type" />
+        <xtce:Parameter name="APPINFO_EXECUTIONCOUNTER" parameterTypeRef="APPINFO_EXECUTIONCOUNTER_Type" />
+        <xtce:Parameter name="APPINFO_MAINTASKNAME" parameterTypeRef="APPINFO_MAINTASKNAME_Type" />
+        <xtce:Parameter name="APPINFO_NUMOFCHILDTASKS" parameterTypeRef="APPINFO_NUMOFCHILDTASKS_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_ES_ONEAPPTLM" shortDescription="Single Application Information Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="APPINFO_APPID" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_TYPE" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_NAME" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_ENTRYPOINT" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_FILENAME" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_STACKSIZE" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_MODULEID" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_ADDRESSESAREVALID" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_CODEADDRESS" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_CODESIZE" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_DATAADDRESS" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_DATASIZE" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_BSSADDRESS" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_BSSSIZE" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_STARTADDRESS" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_EXCEPTIONACTION" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_PRIORITY" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_MAINTASKID" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_EXECUTIONCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_MAINTASKNAME" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_NUMOFCHILDTASKS" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2059" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_ES_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="The ES Application Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERRCOUNTER_Type" shortDescription="The ES Application Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFECORECHECKSUM_Type" shortDescription="Checksum of cFE Core Code." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFEMAJORVERSION_Type" shortDescription="Major Version Number of cFE." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFEMINORVERSION_Type" shortDescription="Minor Version Number of cFE." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFEREVISION_Type" shortDescription="Sub-Minor Version Number of cFE." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFEMISSIONREVISION_Type" shortDescription="Mission Version Number of cFE." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSALMAJORVERSION_Type" shortDescription="OS Abstraction Layer Major Version Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSALMINORVERSION_Type" shortDescription="OS Abstraction Layer Minor Version Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSALREVISION_Type" shortDescription="OS Abstraction Layer Revision Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OSALMISSIONREVISION_Type" shortDescription="OS Abstraction Layer MissionRevision Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PSP_MAJORVERSION_Type" shortDescription="Platform Support Package Major Version Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PSP_MINORVERSION_Type" shortDescription="Platform Support Package Minor Version Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PSP_REVISION_Type" shortDescription="Platform Support Package Revision Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PSP_MISSIONREVISION_Type" shortDescription="Platform Support Package MissionRevision Number." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SYSLOGBYTESUSED_Type" shortDescription="Total number of bytes used in system log." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SYSLOGSIZE_Type" shortDescription="Total size of the system log." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SYSLOGENTRIES_Type" shortDescription="Number of entries in the system log." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SYSLOGMODE_Type" shortDescription="Write/Overwrite Mode." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERLOGINDEX_Type" shortDescription="Current index of the ER Log (wraps around)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERLOGENTRIES_Type" shortDescription="Number of entries made in the ER Log since the power on." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="REGISTEREDCOREAPPS_Type" shortDescription="Number of Applications registered with ES." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="REGISTEREDEXTERNALAPPS_Type" shortDescription="Number of Applications registered with ES." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="REGISTEREDTASKS_Type" shortDescription="Number of Tasks ( main AND child tasks ) registered with ES." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="REGISTEREDLIBS_Type" shortDescription="Number of Libraries registered with ES." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RESETTYPE_Type" shortDescription="Reset type ( PROCESSOR or POWERON )." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RESETSUBTYPE_Type" shortDescription="Reset Sub Type." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PROCESSORRESETS_Type" shortDescription="Number of processor resets since last power on." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXPROCESSORRESETS_Type" shortDescription="Max processor resets before a power on is done." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BOOTSOURCE_Type" shortDescription="Boot source ( as provided from BSP )." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFSTATE_Type" shortDescription="Current state of Performance Analyzer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFMODE_Type" shortDescription="Current mode of Performance Analyzer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFTRIGGERCOUNT_Type" shortDescription="Number of Times Perfomance Analyzer has Triggered." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFFILTERMASK_1_Type" shortDescription="Current Setting of Performance Analyzer Filter 1 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFFILTERMASK_2_Type" shortDescription="Current Setting of Performance Analyzer Filter 2 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFFILTERMASK_3_Type" shortDescription="Current Setting of Performance Analyzer Filter 3 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFFILTERMASK_4_Type" shortDescription="Current Setting of Performance Analyzer Filter 4 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFTRIGGERMASK_1_Type" shortDescription="Current Setting of Performance Analyzer Trigger 1 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFTRIGGERMASK_2_Type" shortDescription="Current Setting of Performance Analyzer Trigger 2 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFTRIGGERMASK_3_Type" shortDescription="Current Setting of Performance Analyzer Trigger 3 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFTRIGGERMASK_4_Type" shortDescription="Current Setting of Performance Analyzer Trigger 4 Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFDATASTART_Type" shortDescription="Identifies First Stored Entry in Performance Analyzer Log." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFDATAEND_Type" shortDescription="Identifies Last Stored Entry in Performance Analyzer Log." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFDATACOUNT_Type" shortDescription="Number of Entries Put Into the Performance Analyzer Log." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PERFDATATOWRITE_Type" shortDescription="Number of Performance Analyzer Log Entries Left to be Written to Log Dump File." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="HEAPBYTESFREE_Type" shortDescription="Number of free bytes remaining in the OS heap." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="HEAPBLOCKSFREE_Type" shortDescription="Number of free blocks remaining in the OS heap." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="HEAPMAXBLOCKSIZE_Type" shortDescription="Number of bytes in the largest free block." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
+        <xtce:Parameter name="ERRCOUNTER" parameterTypeRef="ERRCOUNTER_Type" />
+        <xtce:Parameter name="CFECORECHECKSUM" parameterTypeRef="CFECORECHECKSUM_Type" />
+        <xtce:Parameter name="CFEMAJORVERSION" parameterTypeRef="CFEMAJORVERSION_Type" />
+        <xtce:Parameter name="CFEMINORVERSION" parameterTypeRef="CFEMINORVERSION_Type" />
+        <xtce:Parameter name="CFEREVISION" parameterTypeRef="CFEREVISION_Type" />
+        <xtce:Parameter name="CFEMISSIONREVISION" parameterTypeRef="CFEMISSIONREVISION_Type" />
+        <xtce:Parameter name="OSALMAJORVERSION" parameterTypeRef="OSALMAJORVERSION_Type" />
+        <xtce:Parameter name="OSALMINORVERSION" parameterTypeRef="OSALMINORVERSION_Type" />
+        <xtce:Parameter name="OSALREVISION" parameterTypeRef="OSALREVISION_Type" />
+        <xtce:Parameter name="OSALMISSIONREVISION" parameterTypeRef="OSALMISSIONREVISION_Type" />
+        <xtce:Parameter name="PSP_MAJORVERSION" parameterTypeRef="PSP_MAJORVERSION_Type" />
+        <xtce:Parameter name="PSP_MINORVERSION" parameterTypeRef="PSP_MINORVERSION_Type" />
+        <xtce:Parameter name="PSP_REVISION" parameterTypeRef="PSP_REVISION_Type" />
+        <xtce:Parameter name="PSP_MISSIONREVISION" parameterTypeRef="PSP_MISSIONREVISION_Type" />
+        <xtce:Parameter name="SYSLOGBYTESUSED" parameterTypeRef="SYSLOGBYTESUSED_Type" />
+        <xtce:Parameter name="SYSLOGSIZE" parameterTypeRef="SYSLOGSIZE_Type" />
+        <xtce:Parameter name="SYSLOGENTRIES" parameterTypeRef="SYSLOGENTRIES_Type" />
+        <xtce:Parameter name="SYSLOGMODE" parameterTypeRef="SYSLOGMODE_Type" />
+        <xtce:Parameter name="ERLOGINDEX" parameterTypeRef="ERLOGINDEX_Type" />
+        <xtce:Parameter name="ERLOGENTRIES" parameterTypeRef="ERLOGENTRIES_Type" />
+        <xtce:Parameter name="REGISTEREDCOREAPPS" parameterTypeRef="REGISTEREDCOREAPPS_Type" />
+        <xtce:Parameter name="REGISTEREDEXTERNALAPPS" parameterTypeRef="REGISTEREDEXTERNALAPPS_Type" />
+        <xtce:Parameter name="REGISTEREDTASKS" parameterTypeRef="REGISTEREDTASKS_Type" />
+        <xtce:Parameter name="REGISTEREDLIBS" parameterTypeRef="REGISTEREDLIBS_Type" />
+        <xtce:Parameter name="RESETTYPE" parameterTypeRef="RESETTYPE_Type" />
+        <xtce:Parameter name="RESETSUBTYPE" parameterTypeRef="RESETSUBTYPE_Type" />
+        <xtce:Parameter name="PROCESSORRESETS" parameterTypeRef="PROCESSORRESETS_Type" />
+        <xtce:Parameter name="MAXPROCESSORRESETS" parameterTypeRef="MAXPROCESSORRESETS_Type" />
+        <xtce:Parameter name="BOOTSOURCE" parameterTypeRef="BOOTSOURCE_Type" />
+        <xtce:Parameter name="PERFSTATE" parameterTypeRef="PERFSTATE_Type" />
+        <xtce:Parameter name="PERFMODE" parameterTypeRef="PERFMODE_Type" />
+        <xtce:Parameter name="PERFTRIGGERCOUNT" parameterTypeRef="PERFTRIGGERCOUNT_Type" />
+        <xtce:Parameter name="PERFFILTERMASK_1" parameterTypeRef="PERFFILTERMASK_1_Type" />
+        <xtce:Parameter name="PERFFILTERMASK_2" parameterTypeRef="PERFFILTERMASK_2_Type" />
+        <xtce:Parameter name="PERFFILTERMASK_3" parameterTypeRef="PERFFILTERMASK_3_Type" />
+        <xtce:Parameter name="PERFFILTERMASK_4" parameterTypeRef="PERFFILTERMASK_4_Type" />
+        <xtce:Parameter name="PERFTRIGGERMASK_1" parameterTypeRef="PERFTRIGGERMASK_1_Type" />
+        <xtce:Parameter name="PERFTRIGGERMASK_2" parameterTypeRef="PERFTRIGGERMASK_2_Type" />
+        <xtce:Parameter name="PERFTRIGGERMASK_3" parameterTypeRef="PERFTRIGGERMASK_3_Type" />
+        <xtce:Parameter name="PERFTRIGGERMASK_4" parameterTypeRef="PERFTRIGGERMASK_4_Type" />
+        <xtce:Parameter name="PERFDATASTART" parameterTypeRef="PERFDATASTART_Type" />
+        <xtce:Parameter name="PERFDATAEND" parameterTypeRef="PERFDATAEND_Type" />
+        <xtce:Parameter name="PERFDATACOUNT" parameterTypeRef="PERFDATACOUNT_Type" />
+        <xtce:Parameter name="PERFDATATOWRITE" parameterTypeRef="PERFDATATOWRITE_Type" />
+        <xtce:Parameter name="HEAPBYTESFREE" parameterTypeRef="HEAPBYTESFREE_Type" />
+        <xtce:Parameter name="HEAPBLOCKSFREE" parameterTypeRef="HEAPBLOCKSFREE_Type" />
+        <xtce:Parameter name="HEAPMAXBLOCKSIZE" parameterTypeRef="HEAPMAXBLOCKSIZE_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_ES_HKPACKET" shortDescription="Executive Services Housekeeping Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="ERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CFECORECHECKSUM" />
+            <xtce:ParameterRefEntry parameterRef="CFEMAJORVERSION" />
+            <xtce:ParameterRefEntry parameterRef="CFEMINORVERSION" />
+            <xtce:ParameterRefEntry parameterRef="CFEREVISION" />
+            <xtce:ParameterRefEntry parameterRef="CFEMISSIONREVISION" />
+            <xtce:ParameterRefEntry parameterRef="OSALMAJORVERSION" />
+            <xtce:ParameterRefEntry parameterRef="OSALMINORVERSION" />
+            <xtce:ParameterRefEntry parameterRef="OSALREVISION" />
+            <xtce:ParameterRefEntry parameterRef="OSALMISSIONREVISION" />
+            <xtce:ParameterRefEntry parameterRef="PSP_MAJORVERSION" />
+            <xtce:ParameterRefEntry parameterRef="PSP_MINORVERSION" />
+            <xtce:ParameterRefEntry parameterRef="PSP_REVISION" />
+            <xtce:ParameterRefEntry parameterRef="PSP_MISSIONREVISION" />
+            <xtce:ParameterRefEntry parameterRef="SYSLOGBYTESUSED" />
+            <xtce:ParameterRefEntry parameterRef="SYSLOGSIZE" />
+            <xtce:ParameterRefEntry parameterRef="SYSLOGENTRIES" />
+            <xtce:ParameterRefEntry parameterRef="SYSLOGMODE" />
+            <xtce:ParameterRefEntry parameterRef="ERLOGINDEX" />
+            <xtce:ParameterRefEntry parameterRef="ERLOGENTRIES" />
+            <xtce:ParameterRefEntry parameterRef="REGISTEREDCOREAPPS" />
+            <xtce:ParameterRefEntry parameterRef="REGISTEREDEXTERNALAPPS" />
+            <xtce:ParameterRefEntry parameterRef="REGISTEREDTASKS" />
+            <xtce:ParameterRefEntry parameterRef="REGISTEREDLIBS" />
+            <xtce:ParameterRefEntry parameterRef="RESETTYPE" />
+            <xtce:ParameterRefEntry parameterRef="RESETSUBTYPE" />
+            <xtce:ParameterRefEntry parameterRef="PROCESSORRESETS" />
+            <xtce:ParameterRefEntry parameterRef="MAXPROCESSORRESETS" />
+            <xtce:ParameterRefEntry parameterRef="BOOTSOURCE" />
+            <xtce:ParameterRefEntry parameterRef="PERFSTATE" />
+            <xtce:ParameterRefEntry parameterRef="PERFMODE" />
+            <xtce:ParameterRefEntry parameterRef="PERFTRIGGERCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="PERFFILTERMASK_1" />
+            <xtce:ParameterRefEntry parameterRef="PERFFILTERMASK_2" />
+            <xtce:ParameterRefEntry parameterRef="PERFFILTERMASK_3" />
+            <xtce:ParameterRefEntry parameterRef="PERFFILTERMASK_4" />
+            <xtce:ParameterRefEntry parameterRef="PERFTRIGGERMASK_1" />
+            <xtce:ParameterRefEntry parameterRef="PERFTRIGGERMASK_2" />
+            <xtce:ParameterRefEntry parameterRef="PERFTRIGGERMASK_3" />
+            <xtce:ParameterRefEntry parameterRef="PERFTRIGGERMASK_4" />
+            <xtce:ParameterRefEntry parameterRef="PERFDATASTART" />
+            <xtce:ParameterRefEntry parameterRef="PERFDATAEND" />
+            <xtce:ParameterRefEntry parameterRef="PERFDATACOUNT" />
+            <xtce:ParameterRefEntry parameterRef="PERFDATATOWRITE" />
+            <xtce:ParameterRefEntry parameterRef="HEAPBYTESFREE" />
+            <xtce:ParameterRefEntry parameterRef="HEAPBLOCKSFREE" />
+            <xtce:ParameterRefEntry parameterRef="HEAPMAXBLOCKSIZE" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2048" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_ES_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:StringArgumentType name="APPENTRYPOINT_Type" characterWidth="8" initialValue="default" shortDescription="Symbolic name of Application's entry point.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="APPFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Full path and filename of Application's executable image.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="APPLICATION_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing Application Name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="CDSNAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing name of CDS to delete.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>304</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="CMDSTRING_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing shell command to be executed.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="DATAFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string of full path and filename of file Performance Analyzer data is to be written.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="DUMPFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Full Filename where dumped data is to be written.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="ERLOGFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing full path and filename of file in which ER Log is to be dumped.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="EXCEPTIONACTION_Type" initialValue="0" shortDescription="CFE_ES_APP_EXCEPTION_RESTART_APP=On exception, restart Application, CFE_ES_APP_EXCEPTION_PROC_RESTART=On exception, perform a Processor Reset" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FILTERMASKNUM_Type" initialValue="0" shortDescription="Index into array of Filter Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FILTERMASK_Type" initialValue="0" shortDescription="New Mask for specified entry in array of Filter Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MAXPRCOUNT_Type" initialValue="0" shortDescription="New maximum number of Processor Resets before an automatic Power-On Reset is performed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MODE_Type" initialValue="0" shortDescription="Permissions, passed directly to OS_chmod." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="OUTPUTFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Filename where shell command output is to be written.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="POOLHANDLE_Type" initialValue="0" shortDescription="Handle of Pool whose statistics are to be telemetered" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="PRIORITY_Type" initialValue="0" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="QUERYALLFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing full path and filename of file in which Application data is to be dumped.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="RESTARTTYPE_Type" initialValue="0" shortDescription="CFE_ES_PROCESSOR_RESET=Processor Reset or CFE_ES_POWERON_RESET=Power-On Reset" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="STACKSIZE_Type" initialValue="0" shortDescription="Desired stack size for the new application." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="SYSLOGFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing full path and filename of file in which System Log is to be dumped.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="TRIGGERMASKNUM_Type" initialValue="0" shortDescription="Index into array of Trigger Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="TRIGGERMASK_Type" initialValue="0" shortDescription="New Mask for specified entry in array of Trigger Masks." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="TRIGGERMODE_Type" initialValue="0" shortDescription="Desired trigger position (Start, Center, End)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CFE_ES_WRITE_SYSLOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SYSLOGFILENAME" argumentTypeRef="SYSLOGFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_WRITE_SYSLOG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SYSLOGFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_WRITE_ERLOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ERLOGFILENAME" argumentTypeRef="ERLOGFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_WRITE_ERLOG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ERLOGFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_STOP_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPLICATION" argumentTypeRef="APPLICATION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_STOP_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPLICATION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_START_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPLICATION" argumentTypeRef="APPLICATION_Type" />
+            <xtce:Argument name="APPENTRYPOINT" argumentTypeRef="APPENTRYPOINT_Type" />
+            <xtce:Argument name="APPFILENAME" argumentTypeRef="APPFILENAME_Type" />
+            <xtce:Argument name="STACKSIZE" argumentTypeRef="STACKSIZE_Type" />
+            <xtce:Argument name="EXCEPTIONACTION" argumentTypeRef="EXCEPTIONACTION_Type" />
+            <xtce:Argument name="PRIORITY" argumentTypeRef="PRIORITY_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_START_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPLICATION" />
+              <xtce:ArgumentRefEntry argumentRef="APPENTRYPOINT" />
+              <xtce:ArgumentRefEntry argumentRef="APPFILENAME" />
+              <xtce:ArgumentRefEntry argumentRef="STACKSIZE" />
+              <xtce:ArgumentRefEntry argumentRef="EXCEPTIONACTION" />
+              <xtce:ArgumentRefEntry argumentRef="PRIORITY" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_SHELL_CMD">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CMDSTRING" argumentTypeRef="CMDSTRING_Type" />
+            <xtce:Argument name="OUTPUTFILENAME" argumentTypeRef="OUTPUTFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_SHELL_CMD_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CMDSTRING" />
+              <xtce:ArgumentRefEntry argumentRef="OUTPUTFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_SET_MAX_PR_COUNT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="20" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MAXPRCOUNT" argumentTypeRef="MAXPRCOUNT_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_SET_MAX_PR_COUNT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MAXPRCOUNT" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_SEND_MEM_POOL_STATS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="22" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPLICATION" argumentTypeRef="APPLICATION_Type" />
+            <xtce:Argument name="POOLHANDLE" argumentTypeRef="POOLHANDLE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_SEND_MEM_POOL_STATS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPLICATION" />
+              <xtce:ArgumentRefEntry argumentRef="POOLHANDLE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_RESTART">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="RESTARTTYPE" argumentTypeRef="RESTARTTYPE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_RESTART_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="RESTARTTYPE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_RESTART_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPLICATION" argumentTypeRef="APPLICATION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_RESTART_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPLICATION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_RESET_PR_COUNT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="19" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_ES_RESET_PR_COUNT_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_ES_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_RELOAD_APP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPLICATION" argumentTypeRef="APPLICATION_Type" />
+            <xtce:Argument name="APPFILENAME" argumentTypeRef="APPFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_RELOAD_APP_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPLICATION" />
+              <xtce:ArgumentRefEntry argumentRef="APPFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_QUERY_ONE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPLICATION" argumentTypeRef="APPLICATION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_QUERY_ONE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPLICATION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_QUERY_ALL_TASKS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="24" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="QUERYALLFILENAME" argumentTypeRef="QUERYALLFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_QUERY_ALL_TASKS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="QUERYALLFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_QUERY_ALL">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="QUERYALLFILENAME" argumentTypeRef="QUERYALLFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_QUERY_ALL_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="QUERYALLFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_PERF_STOPDATA">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DATAFILENAME" argumentTypeRef="DATAFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_PERF_STOPDATA_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DATAFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_PERF_STARTDATA">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRIGGERMODE" argumentTypeRef="TRIGGERMODE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_PERF_STARTDATA_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRIGGERMODE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_PERF_SETTRIGMASK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRIGGERMASKNUM" argumentTypeRef="TRIGGERMASKNUM_Type" />
+            <xtce:Argument name="TRIGGERMASK" argumentTypeRef="TRIGGERMASK_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_PERF_SETTRIGMASK_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRIGGERMASKNUM" />
+              <xtce:ArgumentRefEntry argumentRef="TRIGGERMASK" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_PERF_SETFILTERMASK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILTERMASKNUM" argumentTypeRef="FILTERMASKNUM_Type" />
+            <xtce:Argument name="FILTERMASK" argumentTypeRef="FILTERMASK_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_PERF_SETFILTERMASK_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILTERMASKNUM" />
+              <xtce:ArgumentRefEntry argumentRef="FILTERMASK" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_OVERWRITE_SYSLOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="18" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MODE" argumentTypeRef="MODE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_OVERWRITE_SYSLOG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MODE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_ES_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_DUMP_CDS_REG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="23" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DUMPFILENAME" argumentTypeRef="DUMPFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_DUMP_CDS_REG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DUMPFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_DELETE_CDS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="21" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CDSNAME" argumentTypeRef="CDSNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_ES_DELETE_CDS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CDSNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_CLEAR_SYSLOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_ES_CLEAR_SYSLOG_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_CLEAR_ERLOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_ES_CLEAR_ERLOG_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

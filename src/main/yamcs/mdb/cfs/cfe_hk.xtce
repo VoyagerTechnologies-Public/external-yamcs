@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xtce:SpaceSystem xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CFE_HK" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CFE_HK_COMBINED_PKT1">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="COMMANDCOUNTER_Type" shortDescription="EVS  Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="COMMANDERRCOUNTER_Type" shortDescription="EVS  Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MESSAGEFORMATMODE_Type" shortDescription="EVS  Event message format mode (short/long)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MESSAGETRUNCCOUNTER_Type" shortDescription="EVS  Event message truncation counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TIME_CMDCOUNTER_Type" shortDescription="TIME Time Command Execution Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TIME_ERRCOUNTER_Type" shortDescription="TIME Time Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSTATEFLAGS_Type" shortDescription="TIME State Flags." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SB_COMMANDCNT_Type" shortDescription="SB   Count of valid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SB_CMDERRCNT_Type" shortDescription="SB   Count of invalid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NOSUBSCRIBERSCNT_Type" shortDescription="SB   Count pkts sent with no subscribers." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGSENDERRCNT_Type" shortDescription="SB   Count of message send errors." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ES_CMDCOUNTER_Type" shortDescription="ES   The ES Application Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ES_ERRCOUNTER_Type" shortDescription="ES   The ES Application Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CFECORECHECKSUM_Type" shortDescription="ES   Checksum of cFE Core Code." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TBL_CMDCOUNTER_Type" shortDescription="TBL  Count of valid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TBL_ERRCOUNTER_Type" shortDescription="TBL  Count of invalid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="NUMTABLES_Type" shortDescription="TBL  Number of Tables Registered." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst"/>
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="COMMANDCOUNTER" parameterTypeRef="COMMANDCOUNTER_Type"/>
+        <xtce:Parameter name="COMMANDERRCOUNTER" parameterTypeRef="COMMANDERRCOUNTER_Type"/>
+        <xtce:Parameter name="MESSAGEFORMATMODE" parameterTypeRef="MESSAGEFORMATMODE_Type"/>
+        <xtce:Parameter name="MESSAGETRUNCCOUNTER" parameterTypeRef="MESSAGETRUNCCOUNTER_Type"/>
+        <xtce:Parameter name="TIME_CMDCOUNTER" parameterTypeRef="TIME_CMDCOUNTER_Type"/>
+        <xtce:Parameter name="TIME_ERRCOUNTER" parameterTypeRef="TIME_ERRCOUNTER_Type"/>
+        <xtce:Parameter name="CLOCKSTATEFLAGS" parameterTypeRef="CLOCKSTATEFLAGS_Type"/>
+        <xtce:Parameter name="SB_COMMANDCNT" parameterTypeRef="SB_COMMANDCNT_Type"/>
+        <xtce:Parameter name="SB_CMDERRCNT" parameterTypeRef="SB_CMDERRCNT_Type"/>
+        <xtce:Parameter name="NOSUBSCRIBERSCNT" parameterTypeRef="NOSUBSCRIBERSCNT_Type"/>
+        <xtce:Parameter name="MSGSENDERRCNT" parameterTypeRef="MSGSENDERRCNT_Type"/>
+        <xtce:Parameter name="ES_CMDCOUNTER" parameterTypeRef="ES_CMDCOUNTER_Type"/>
+        <xtce:Parameter name="ES_ERRCOUNTER" parameterTypeRef="ES_ERRCOUNTER_Type"/>
+        <xtce:Parameter name="CFECORECHECKSUM" parameterTypeRef="CFECORECHECKSUM_Type"/>
+        <xtce:Parameter name="TBL_CMDCOUNTER" parameterTypeRef="TBL_CMDCOUNTER_Type"/>
+        <xtce:Parameter name="TBL_ERRCOUNTER" parameterTypeRef="TBL_ERRCOUNTER_Type"/>
+        <xtce:Parameter name="NUMTABLES" parameterTypeRef="NUMTABLES_Type"/>
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_HK_COMBINED_PKT1" shortDescription="Housekeeping Combined Packet 1">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="COMMANDCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="COMMANDERRCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="MESSAGEFORMATMODE"/>
+            <xtce:ParameterRefEntry parameterRef="MESSAGETRUNCCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="TIME_CMDCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="TIME_ERRCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="CLOCKSTATEFLAGS"/>
+            <xtce:ParameterRefEntry parameterRef="SB_COMMANDCNT"/>
+            <xtce:ParameterRefEntry parameterRef="SB_CMDERRCNT"/>
+            <xtce:ParameterRefEntry parameterRef="NOSUBSCRIBERSCNT"/>
+            <xtce:ParameterRefEntry parameterRef="MSGSENDERRCNT"/>
+            <xtce:ParameterRefEntry parameterRef="ES_CMDCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="ES_ERRCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="CFECORECHECKSUM"/>
+            <xtce:ParameterRefEntry parameterRef="TBL_CMDCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="TBL_ERRCOUNTER"/>
+            <xtce:ParameterRefEntry parameterRef="NUMTABLES"/>
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2204"/>
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

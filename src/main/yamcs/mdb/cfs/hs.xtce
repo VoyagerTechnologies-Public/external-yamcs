@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="HS" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="HS_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNT_Type" shortDescription="HS Application Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CMDERRCOUNT_Type" shortDescription="HS Application Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTAPPMONSTATE_Type" shortDescription="Status of HS Critical Application Monitor." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTEVENTMONSTATE_Type" shortDescription="Status of HS Critical Events Monitor." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTALIVENESSSTATE_Type" shortDescription="Status of HS Aliveness Indicator." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTCPUHOGSTATE_Type" shortDescription="Status of HS Hogging Indicator." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="STATUSFLAGS_Type" shortDescription="Internal HS Error States." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPAREBYTES_Type" shortDescription="Alignment Spares." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="RESETSPERFORMED_Type" shortDescription="HS Performed Processor Reset Count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXRESETS_Type" shortDescription="HS Maximum Processor Reset Count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EVENTSMONITOREDCOUNT_Type" shortDescription="Total count of Event Messages Monitored by the Critical Events Monitor." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="INVALIDEVENTMONCOUNT_Type" shortDescription="Total count of Invalid Event Monitors Monitored by the Critical Events Monitor." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPMONENABLES_1_Type" shortDescription="Enable states of App Monitor Entries. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MSGACTEXEC_Type" shortDescription="Number of Software Bus Message Actions Executed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="UTILCPUAVG_Type" shortDescription="Current CPU Utilization Average." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="UTILCPUPEAK_Type" shortDescription="Current CPU Utilization Peak." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_1_Type" shortDescription="Execution Counters. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_2_Type" shortDescription="Execution Counters. byte 2" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_3_Type" shortDescription="Execution Counters. byte 3" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_4_Type" shortDescription="Execution Counters. byte 4" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_5_Type" shortDescription="Execution Counters. byte 5" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_6_Type" shortDescription="Execution Counters. byte 6" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_7_Type" shortDescription="Execution Counters. byte 7" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_8_Type" shortDescription="Execution Counters. byte 8" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_9_Type" shortDescription="Execution Counters. byte 9" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_10_Type" shortDescription="Execution Counters. byte 10" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_11_Type" shortDescription="Execution Counters. byte 11" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_12_Type" shortDescription="Execution Counters. byte 12" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_13_Type" shortDescription="Execution Counters. byte 13" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_14_Type" shortDescription="Execution Counters. byte 14" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_15_Type" shortDescription="Execution Counters. byte 15" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_16_Type" shortDescription="Execution Counters. byte 16" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_17_Type" shortDescription="Execution Counters. byte 17" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_18_Type" shortDescription="Execution Counters. byte 18" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_19_Type" shortDescription="Execution Counters. byte 19" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_20_Type" shortDescription="Execution Counters. byte 20" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_21_Type" shortDescription="Execution Counters. byte 21" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_22_Type" shortDescription="Execution Counters. byte 22" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_23_Type" shortDescription="Execution Counters. byte 23" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_24_Type" shortDescription="Execution Counters. byte 24" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_25_Type" shortDescription="Execution Counters. byte 25" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_26_Type" shortDescription="Execution Counters. byte 26" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_27_Type" shortDescription="Execution Counters. byte 27" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_28_Type" shortDescription="Execution Counters. byte 28" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_29_Type" shortDescription="Execution Counters. byte 29" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_30_Type" shortDescription="Execution Counters. byte 30" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_31_Type" shortDescription="Execution Counters. byte 31" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="EXECOUNTS_32_Type" shortDescription="Execution Counters. byte 32" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNT" parameterTypeRef="CMDCOUNT_Type" />
+        <xtce:Parameter name="CMDERRCOUNT" parameterTypeRef="CMDERRCOUNT_Type" />
+        <xtce:Parameter name="CURRENTAPPMONSTATE" parameterTypeRef="CURRENTAPPMONSTATE_Type" />
+        <xtce:Parameter name="CURRENTEVENTMONSTATE" parameterTypeRef="CURRENTEVENTMONSTATE_Type" />
+        <xtce:Parameter name="CURRENTALIVENESSSTATE" parameterTypeRef="CURRENTALIVENESSSTATE_Type" />
+        <xtce:Parameter name="CURRENTCPUHOGSTATE" parameterTypeRef="CURRENTCPUHOGSTATE_Type" />
+        <xtce:Parameter name="STATUSFLAGS" parameterTypeRef="STATUSFLAGS_Type" />
+        <xtce:Parameter name="SPAREBYTES" parameterTypeRef="SPAREBYTES_Type" />
+        <xtce:Parameter name="RESETSPERFORMED" parameterTypeRef="RESETSPERFORMED_Type" />
+        <xtce:Parameter name="MAXRESETS" parameterTypeRef="MAXRESETS_Type" />
+        <xtce:Parameter name="EVENTSMONITOREDCOUNT" parameterTypeRef="EVENTSMONITOREDCOUNT_Type" />
+        <xtce:Parameter name="INVALIDEVENTMONCOUNT" parameterTypeRef="INVALIDEVENTMONCOUNT_Type" />
+        <xtce:Parameter name="APPMONENABLES_1" parameterTypeRef="APPMONENABLES_1_Type" />
+        <xtce:Parameter name="MSGACTEXEC" parameterTypeRef="MSGACTEXEC_Type" />
+        <xtce:Parameter name="UTILCPUAVG" parameterTypeRef="UTILCPUAVG_Type" />
+        <xtce:Parameter name="UTILCPUPEAK" parameterTypeRef="UTILCPUPEAK_Type" />
+        <xtce:Parameter name="EXECOUNTS_1" parameterTypeRef="EXECOUNTS_1_Type" />
+        <xtce:Parameter name="EXECOUNTS_2" parameterTypeRef="EXECOUNTS_2_Type" />
+        <xtce:Parameter name="EXECOUNTS_3" parameterTypeRef="EXECOUNTS_3_Type" />
+        <xtce:Parameter name="EXECOUNTS_4" parameterTypeRef="EXECOUNTS_4_Type" />
+        <xtce:Parameter name="EXECOUNTS_5" parameterTypeRef="EXECOUNTS_5_Type" />
+        <xtce:Parameter name="EXECOUNTS_6" parameterTypeRef="EXECOUNTS_6_Type" />
+        <xtce:Parameter name="EXECOUNTS_7" parameterTypeRef="EXECOUNTS_7_Type" />
+        <xtce:Parameter name="EXECOUNTS_8" parameterTypeRef="EXECOUNTS_8_Type" />
+        <xtce:Parameter name="EXECOUNTS_9" parameterTypeRef="EXECOUNTS_9_Type" />
+        <xtce:Parameter name="EXECOUNTS_10" parameterTypeRef="EXECOUNTS_10_Type" />
+        <xtce:Parameter name="EXECOUNTS_11" parameterTypeRef="EXECOUNTS_11_Type" />
+        <xtce:Parameter name="EXECOUNTS_12" parameterTypeRef="EXECOUNTS_12_Type" />
+        <xtce:Parameter name="EXECOUNTS_13" parameterTypeRef="EXECOUNTS_13_Type" />
+        <xtce:Parameter name="EXECOUNTS_14" parameterTypeRef="EXECOUNTS_14_Type" />
+        <xtce:Parameter name="EXECOUNTS_15" parameterTypeRef="EXECOUNTS_15_Type" />
+        <xtce:Parameter name="EXECOUNTS_16" parameterTypeRef="EXECOUNTS_16_Type" />
+        <xtce:Parameter name="EXECOUNTS_17" parameterTypeRef="EXECOUNTS_17_Type" />
+        <xtce:Parameter name="EXECOUNTS_18" parameterTypeRef="EXECOUNTS_18_Type" />
+        <xtce:Parameter name="EXECOUNTS_19" parameterTypeRef="EXECOUNTS_19_Type" />
+        <xtce:Parameter name="EXECOUNTS_20" parameterTypeRef="EXECOUNTS_20_Type" />
+        <xtce:Parameter name="EXECOUNTS_21" parameterTypeRef="EXECOUNTS_21_Type" />
+        <xtce:Parameter name="EXECOUNTS_22" parameterTypeRef="EXECOUNTS_22_Type" />
+        <xtce:Parameter name="EXECOUNTS_23" parameterTypeRef="EXECOUNTS_23_Type" />
+        <xtce:Parameter name="EXECOUNTS_24" parameterTypeRef="EXECOUNTS_24_Type" />
+        <xtce:Parameter name="EXECOUNTS_25" parameterTypeRef="EXECOUNTS_25_Type" />
+        <xtce:Parameter name="EXECOUNTS_26" parameterTypeRef="EXECOUNTS_26_Type" />
+        <xtce:Parameter name="EXECOUNTS_27" parameterTypeRef="EXECOUNTS_27_Type" />
+        <xtce:Parameter name="EXECOUNTS_28" parameterTypeRef="EXECOUNTS_28_Type" />
+        <xtce:Parameter name="EXECOUNTS_29" parameterTypeRef="EXECOUNTS_29_Type" />
+        <xtce:Parameter name="EXECOUNTS_30" parameterTypeRef="EXECOUNTS_30_Type" />
+        <xtce:Parameter name="EXECOUNTS_31" parameterTypeRef="EXECOUNTS_31_Type" />
+        <xtce:Parameter name="EXECOUNTS_32" parameterTypeRef="EXECOUNTS_32_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="HS_HKPACKET" shortDescription="Housekeeping Packet Structure">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="CMDERRCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTAPPMONSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTEVENTMONSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTALIVENESSSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTCPUHOGSTATE" />
+            <xtce:ParameterRefEntry parameterRef="STATUSFLAGS" />
+            <xtce:ParameterRefEntry parameterRef="SPAREBYTES" />
+            <xtce:ParameterRefEntry parameterRef="RESETSPERFORMED" />
+            <xtce:ParameterRefEntry parameterRef="MAXRESETS" />
+            <xtce:ParameterRefEntry parameterRef="EVENTSMONITOREDCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="INVALIDEVENTMONCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="APPMONENABLES_1" />
+            <xtce:ParameterRefEntry parameterRef="MSGACTEXEC" />
+            <xtce:ParameterRefEntry parameterRef="UTILCPUAVG" />
+            <xtce:ParameterRefEntry parameterRef="UTILCPUPEAK" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_1" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_2" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_3" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_4" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_5" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_6" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_7" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_8" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_9" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_10" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_11" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_12" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_13" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_14" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_15" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_16" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_17" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_18" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_19" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_20" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_21" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_22" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_23" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_24" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_25" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_26" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_27" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_28" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_29" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_30" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_31" />
+            <xtce:ParameterRefEntry parameterRef="EXECOUNTS_32" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2221" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="HS_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="MAXRESETS_Type" initialValue="0" shortDescription=" " signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="HS_SET_MAX_RESETS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MAXRESETS" argumentTypeRef="MAXRESETS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_HS_SET_MAX_RESETS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MAXRESETS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_RESET_RESETS_PERFORMED">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_RESET_RESETS_PERFORMED_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_ENABLE_EVENTMON">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_ENABLE_EVENTMON_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_ENABLE_CPUHOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_ENABLE_CPUHOG_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_ENABLE_APPMON">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_ENABLE_APPMON_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_ENABLE_ALIVENESS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_ENABLE_ALIVENESS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_DISABLE_EVENTMON">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_DISABLE_EVENTMON_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_DISABLE_CPUHOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_DISABLE_CPUHOG_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_DISABLE_APPMON">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_DISABLE_APPMON_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="HS_DISABLE_ALIVENESS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6318" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_HS_DISABLE_ALIVENESS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

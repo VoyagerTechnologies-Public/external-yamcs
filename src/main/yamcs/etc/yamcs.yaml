@@ -13,8 +13,14 @@ services:
 dataDir: yamcs-data
 
 instances:
-  - myproject
+  - shire
 
 # Secret key unique to a particular Yamcs installation.
 # This is used to provide cryptographic signing.
 secretKey: changeme
+
+buckets:
+  - name: cfdpUp
+    path: yamcs-data/cfdpUp
+  - name: cfdpDown
+    path: yamcs-data/cfdpDown
