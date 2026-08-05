@@ -154,18 +154,18 @@ mdb:
   - type: xtce
     args:
       file: mdb/sim_42_truth.xtce
-  - type: xtce
-    args:
-      file: mdb/components/adcs/adcs.xtce
-  - type: xtce
-    args:
-      file: mdb/components/demo/demo.xtce
-  - type: xtce
-    args:
-      file: mdb/components/eps/eps.xtce
-  - type: xtce
-    args:
-      file: mdb/components/radio/radio.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/components/adcs/adcs.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/components/demo/demo.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/components/eps/eps.xtce
+  #- type: xtce
+  #  args:
+  #    file: mdb/components/radio/radio.xtce
 # Configuration for streams created at server startup
 streamConfig:
   tm:
