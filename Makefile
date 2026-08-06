@@ -37,9 +37,14 @@ command-send: ## Send a command (usage: make command-send CMD=/path/to/cmd ARGS=
 command-interactive: ## Start interactive command mode
 	python3 yamcs_commander.py --interactive
 
-container: Dockerfile.yamcs ## Build the YAMCS build container locally (no GHCR auth required)
+container: Dockerfile.yamcs ## Pull or build the YAMCS base image (pulls from GHCR, builds locally if unavailable)
 	@command -v docker >/dev/null 2>&1 || { echo "Error: docker is not installed or not in PATH."; exit 1; }
-	docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .
+	@if docker pull $(YAMCS_IMAGE) 2>/dev/null; then \
+		echo "[container] Pulled $(YAMCS_IMAGE) from GHCR"; \
+	else \
+		echo "[container] Building $(YAMCS_IMAGE) locally..."; \
+		docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .; \
+	fi
 
 copy-comp-gsw-files: ## Copy component GSW files
 	@mkdir -p src/main/yamcs/mdb/components
@@ -74,7 +79,7 @@ logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
 runtime: container copy-comp-gsw-files
-	docker build -t $(RUNTIME_GSW):$(SPACECRAFT) -f Dockerfile.gsw --no-cache --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
+	docker build -t $(RUNTIME_GSW):$(SPACECRAFT) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
 	docker run --rm -it \
