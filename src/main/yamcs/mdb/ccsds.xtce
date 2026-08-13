@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xtce:SpaceSystem xmlns:xtce="http://www.omg.org/space/xtce"
+<xtce:SpaceSystem xmlns:xtce="http://www.omg.org/spec/XTCE/20180204"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="CCSDS"
-    xsi:schemaLocation="http://www.omg.org/space/xtce https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+    xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
     <xtce:TelemetryMetaData>
         <xtce:ParameterTypeSet>
             <xtce:IntegerParameterType name="CCSDS_STREAMID_Type"

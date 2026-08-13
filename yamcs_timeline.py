@@ -151,9 +151,7 @@ class YAMCSTimelineManager:
                             band_ids.append(new_id)
                     elif isinstance(view_band, str):
                         # Already a band ID string
-                        new_id = band_id_map.get(view_band)
-                        if new_id:
-                            band_ids.append(new_id)
+                        band_ids.append(band_id_map.get(view_band, view_band))
                 
                 self._restore_view_with_bands(view_name, band_ids)
         

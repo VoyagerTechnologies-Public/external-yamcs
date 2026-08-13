@@ -5,7 +5,6 @@ import java.nio.ByteBuffer;
 import org.yamcs.TmPacket;
 import org.yamcs.YConfiguration;
 import org.yamcs.tctm.AbstractPacketPreprocessor;
-import org.yamcs.utils.TaiUtcConverter;
 import org.yamcs.utils.TimeEncoding;
 
 public class Truth42PacketPreprocessor extends AbstractPacketPreprocessor {
@@ -56,9 +55,9 @@ public class Truth42PacketPreprocessor extends AbstractPacketPreprocessor {
 
         // Set generation time from dyn_time (seconds since J2000)
         // J2000 epoch: 2000-01-01T12:00:00 UTC
-        long j2000Millis = 946728000000L;
-        long gentime = j2000Millis + (long)(dyn_time * 1000.0f);
-        packet.setGenerationTime(gentime);
+        long j2000UnixMillis = 946728000000L;
+        long unixMillis = j2000UnixMillis + Math.round(dyn_time * 1000.0);
+        packet.setGenerationTime(TimeEncoding.fromUnixMillisec(unixMillis));
 
         return packet;
     }
