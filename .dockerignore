@@ -1,0 +1,4 @@
+# Exclude build artifacts and dev-only files from the shire-yamcs build context
+target/
+docker/
+*.md

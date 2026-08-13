@@ -1,0 +1,1207 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="DS" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="DS_FILEINFOPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="FILEAGE0_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE0_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE0_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT0_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE0_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE0_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME0_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE1_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE1_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE1_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT1_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE1_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE1_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME1_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE2_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE2_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE2_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT2_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE2_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE2_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME2_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE3_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE3_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE3_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT3_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE3_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE3_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME3_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE4_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE4_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE4_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT4_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE4_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE4_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME4_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE5_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE5_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE5_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT5_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE5_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE5_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME5_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE6_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE6_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE6_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT6_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE6_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE6_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME6_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE7_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE7_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE7_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT7_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE7_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE7_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME7_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE8_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE8_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE8_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT8_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE8_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE8_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME8_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE9_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE9_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE9_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT9_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE9_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE9_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME9_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE10_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE10_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE10_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT10_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE10_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE10_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME10_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE11_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE11_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE11_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT11_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE11_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE11_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME11_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE12_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE12_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE12_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT12_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE12_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE12_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME12_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE13_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE13_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE13_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT13_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE13_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE13_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME13_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE14_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE14_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE14_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT14_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE14_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE14_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME14_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="FILEAGE15_Type" shortDescription="File age" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILESIZE15_Type" shortDescription="File Size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILERATE15_Type" shortDescription="File Rate" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SEQUENCECNT15_Type" shortDescription="Sequence Count" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENABLESTATE15_Type" shortDescription="Enable state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OPENSTATE15_Type" shortDescription="Open state" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME15_Type" characterWidth="8" shortDescription="File name">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="FILEAGE0" parameterTypeRef="FILEAGE0_Type" />
+        <xtce:Parameter name="FILESIZE0" parameterTypeRef="FILESIZE0_Type" />
+        <xtce:Parameter name="FILERATE0" parameterTypeRef="FILERATE0_Type" />
+        <xtce:Parameter name="SEQUENCECNT0" parameterTypeRef="SEQUENCECNT0_Type" />
+        <xtce:Parameter name="ENABLESTATE0" parameterTypeRef="ENABLESTATE0_Type" />
+        <xtce:Parameter name="OPENSTATE0" parameterTypeRef="OPENSTATE0_Type" />
+        <xtce:Parameter name="FILENAME0" parameterTypeRef="FILENAME0_Type" />
+        <xtce:Parameter name="FILEAGE1" parameterTypeRef="FILEAGE1_Type" />
+        <xtce:Parameter name="FILESIZE1" parameterTypeRef="FILESIZE1_Type" />
+        <xtce:Parameter name="FILERATE1" parameterTypeRef="FILERATE1_Type" />
+        <xtce:Parameter name="SEQUENCECNT1" parameterTypeRef="SEQUENCECNT1_Type" />
+        <xtce:Parameter name="ENABLESTATE1" parameterTypeRef="ENABLESTATE1_Type" />
+        <xtce:Parameter name="OPENSTATE1" parameterTypeRef="OPENSTATE1_Type" />
+        <xtce:Parameter name="FILENAME1" parameterTypeRef="FILENAME1_Type" />
+        <xtce:Parameter name="FILEAGE2" parameterTypeRef="FILEAGE2_Type" />
+        <xtce:Parameter name="FILESIZE2" parameterTypeRef="FILESIZE2_Type" />
+        <xtce:Parameter name="FILERATE2" parameterTypeRef="FILERATE2_Type" />
+        <xtce:Parameter name="SEQUENCECNT2" parameterTypeRef="SEQUENCECNT2_Type" />
+        <xtce:Parameter name="ENABLESTATE2" parameterTypeRef="ENABLESTATE2_Type" />
+        <xtce:Parameter name="OPENSTATE2" parameterTypeRef="OPENSTATE2_Type" />
+        <xtce:Parameter name="FILENAME2" parameterTypeRef="FILENAME2_Type" />
+        <xtce:Parameter name="FILEAGE3" parameterTypeRef="FILEAGE3_Type" />
+        <xtce:Parameter name="FILESIZE3" parameterTypeRef="FILESIZE3_Type" />
+        <xtce:Parameter name="FILERATE3" parameterTypeRef="FILERATE3_Type" />
+        <xtce:Parameter name="SEQUENCECNT3" parameterTypeRef="SEQUENCECNT3_Type" />
+        <xtce:Parameter name="ENABLESTATE3" parameterTypeRef="ENABLESTATE3_Type" />
+        <xtce:Parameter name="OPENSTATE3" parameterTypeRef="OPENSTATE3_Type" />
+        <xtce:Parameter name="FILENAME3" parameterTypeRef="FILENAME3_Type" />
+        <xtce:Parameter name="FILEAGE4" parameterTypeRef="FILEAGE4_Type" />
+        <xtce:Parameter name="FILESIZE4" parameterTypeRef="FILESIZE4_Type" />
+        <xtce:Parameter name="FILERATE4" parameterTypeRef="FILERATE4_Type" />
+        <xtce:Parameter name="SEQUENCECNT4" parameterTypeRef="SEQUENCECNT4_Type" />
+        <xtce:Parameter name="ENABLESTATE4" parameterTypeRef="ENABLESTATE4_Type" />
+        <xtce:Parameter name="OPENSTATE4" parameterTypeRef="OPENSTATE4_Type" />
+        <xtce:Parameter name="FILENAME4" parameterTypeRef="FILENAME4_Type" />
+        <xtce:Parameter name="FILEAGE5" parameterTypeRef="FILEAGE5_Type" />
+        <xtce:Parameter name="FILESIZE5" parameterTypeRef="FILESIZE5_Type" />
+        <xtce:Parameter name="FILERATE5" parameterTypeRef="FILERATE5_Type" />
+        <xtce:Parameter name="SEQUENCECNT5" parameterTypeRef="SEQUENCECNT5_Type" />
+        <xtce:Parameter name="ENABLESTATE5" parameterTypeRef="ENABLESTATE5_Type" />
+        <xtce:Parameter name="OPENSTATE5" parameterTypeRef="OPENSTATE5_Type" />
+        <xtce:Parameter name="FILENAME5" parameterTypeRef="FILENAME5_Type" />
+        <xtce:Parameter name="FILEAGE6" parameterTypeRef="FILEAGE6_Type" />
+        <xtce:Parameter name="FILESIZE6" parameterTypeRef="FILESIZE6_Type" />
+        <xtce:Parameter name="FILERATE6" parameterTypeRef="FILERATE6_Type" />
+        <xtce:Parameter name="SEQUENCECNT6" parameterTypeRef="SEQUENCECNT6_Type" />
+        <xtce:Parameter name="ENABLESTATE6" parameterTypeRef="ENABLESTATE6_Type" />
+        <xtce:Parameter name="OPENSTATE6" parameterTypeRef="OPENSTATE6_Type" />
+        <xtce:Parameter name="FILENAME6" parameterTypeRef="FILENAME6_Type" />
+        <xtce:Parameter name="FILEAGE7" parameterTypeRef="FILEAGE7_Type" />
+        <xtce:Parameter name="FILESIZE7" parameterTypeRef="FILESIZE7_Type" />
+        <xtce:Parameter name="FILERATE7" parameterTypeRef="FILERATE7_Type" />
+        <xtce:Parameter name="SEQUENCECNT7" parameterTypeRef="SEQUENCECNT7_Type" />
+        <xtce:Parameter name="ENABLESTATE7" parameterTypeRef="ENABLESTATE7_Type" />
+        <xtce:Parameter name="OPENSTATE7" parameterTypeRef="OPENSTATE7_Type" />
+        <xtce:Parameter name="FILENAME7" parameterTypeRef="FILENAME7_Type" />
+        <xtce:Parameter name="FILEAGE8" parameterTypeRef="FILEAGE8_Type" />
+        <xtce:Parameter name="FILESIZE8" parameterTypeRef="FILESIZE8_Type" />
+        <xtce:Parameter name="FILERATE8" parameterTypeRef="FILERATE8_Type" />
+        <xtce:Parameter name="SEQUENCECNT8" parameterTypeRef="SEQUENCECNT8_Type" />
+        <xtce:Parameter name="ENABLESTATE8" parameterTypeRef="ENABLESTATE8_Type" />
+        <xtce:Parameter name="OPENSTATE8" parameterTypeRef="OPENSTATE8_Type" />
+        <xtce:Parameter name="FILENAME8" parameterTypeRef="FILENAME8_Type" />
+        <xtce:Parameter name="FILEAGE9" parameterTypeRef="FILEAGE9_Type" />
+        <xtce:Parameter name="FILESIZE9" parameterTypeRef="FILESIZE9_Type" />
+        <xtce:Parameter name="FILERATE9" parameterTypeRef="FILERATE9_Type" />
+        <xtce:Parameter name="SEQUENCECNT9" parameterTypeRef="SEQUENCECNT9_Type" />
+        <xtce:Parameter name="ENABLESTATE9" parameterTypeRef="ENABLESTATE9_Type" />
+        <xtce:Parameter name="OPENSTATE9" parameterTypeRef="OPENSTATE9_Type" />
+        <xtce:Parameter name="FILENAME9" parameterTypeRef="FILENAME9_Type" />
+        <xtce:Parameter name="FILEAGE10" parameterTypeRef="FILEAGE10_Type" />
+        <xtce:Parameter name="FILESIZE10" parameterTypeRef="FILESIZE10_Type" />
+        <xtce:Parameter name="FILERATE10" parameterTypeRef="FILERATE10_Type" />
+        <xtce:Parameter name="SEQUENCECNT10" parameterTypeRef="SEQUENCECNT10_Type" />
+        <xtce:Parameter name="ENABLESTATE10" parameterTypeRef="ENABLESTATE10_Type" />
+        <xtce:Parameter name="OPENSTATE10" parameterTypeRef="OPENSTATE10_Type" />
+        <xtce:Parameter name="FILENAME10" parameterTypeRef="FILENAME10_Type" />
+        <xtce:Parameter name="FILEAGE11" parameterTypeRef="FILEAGE11_Type" />
+        <xtce:Parameter name="FILESIZE11" parameterTypeRef="FILESIZE11_Type" />
+        <xtce:Parameter name="FILERATE11" parameterTypeRef="FILERATE11_Type" />
+        <xtce:Parameter name="SEQUENCECNT11" parameterTypeRef="SEQUENCECNT11_Type" />
+        <xtce:Parameter name="ENABLESTATE11" parameterTypeRef="ENABLESTATE11_Type" />
+        <xtce:Parameter name="OPENSTATE11" parameterTypeRef="OPENSTATE11_Type" />
+        <xtce:Parameter name="FILENAME11" parameterTypeRef="FILENAME11_Type" />
+        <xtce:Parameter name="FILEAGE12" parameterTypeRef="FILEAGE12_Type" />
+        <xtce:Parameter name="FILESIZE12" parameterTypeRef="FILESIZE12_Type" />
+        <xtce:Parameter name="FILERATE12" parameterTypeRef="FILERATE12_Type" />
+        <xtce:Parameter name="SEQUENCECNT12" parameterTypeRef="SEQUENCECNT12_Type" />
+        <xtce:Parameter name="ENABLESTATE12" parameterTypeRef="ENABLESTATE12_Type" />
+        <xtce:Parameter name="OPENSTATE12" parameterTypeRef="OPENSTATE12_Type" />
+        <xtce:Parameter name="FILENAME12" parameterTypeRef="FILENAME12_Type" />
+        <xtce:Parameter name="FILEAGE13" parameterTypeRef="FILEAGE13_Type" />
+        <xtce:Parameter name="FILESIZE13" parameterTypeRef="FILESIZE13_Type" />
+        <xtce:Parameter name="FILERATE13" parameterTypeRef="FILERATE13_Type" />
+        <xtce:Parameter name="SEQUENCECNT13" parameterTypeRef="SEQUENCECNT13_Type" />
+        <xtce:Parameter name="ENABLESTATE13" parameterTypeRef="ENABLESTATE13_Type" />
+        <xtce:Parameter name="OPENSTATE13" parameterTypeRef="OPENSTATE13_Type" />
+        <xtce:Parameter name="FILENAME13" parameterTypeRef="FILENAME13_Type" />
+        <xtce:Parameter name="FILEAGE14" parameterTypeRef="FILEAGE14_Type" />
+        <xtce:Parameter name="FILESIZE14" parameterTypeRef="FILESIZE14_Type" />
+        <xtce:Parameter name="FILERATE14" parameterTypeRef="FILERATE14_Type" />
+        <xtce:Parameter name="SEQUENCECNT14" parameterTypeRef="SEQUENCECNT14_Type" />
+        <xtce:Parameter name="ENABLESTATE14" parameterTypeRef="ENABLESTATE14_Type" />
+        <xtce:Parameter name="OPENSTATE14" parameterTypeRef="OPENSTATE14_Type" />
+        <xtce:Parameter name="FILENAME14" parameterTypeRef="FILENAME14_Type" />
+        <xtce:Parameter name="FILEAGE15" parameterTypeRef="FILEAGE15_Type" />
+        <xtce:Parameter name="FILESIZE15" parameterTypeRef="FILESIZE15_Type" />
+        <xtce:Parameter name="FILERATE15" parameterTypeRef="FILERATE15_Type" />
+        <xtce:Parameter name="SEQUENCECNT15" parameterTypeRef="SEQUENCECNT15_Type" />
+        <xtce:Parameter name="ENABLESTATE15" parameterTypeRef="ENABLESTATE15_Type" />
+        <xtce:Parameter name="OPENSTATE15" parameterTypeRef="OPENSTATE15_Type" />
+        <xtce:Parameter name="FILENAME15" parameterTypeRef="FILENAME15_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="DS_FILEINFOPKT" shortDescription="DS application file info packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="FILEAGE0" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE0" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE0" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT0" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE0" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE0" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME0" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE1" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE1" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE1" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT1" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE1" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE1" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME1" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE2" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE2" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE2" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT2" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE2" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE2" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME2" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE3" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE3" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE3" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT3" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE3" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE3" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME3" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE4" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE4" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE4" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT4" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE4" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE4" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME4" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE5" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE5" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE5" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT5" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE5" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE5" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME5" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE6" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE6" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE6" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT6" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE6" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE6" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME6" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE7" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE7" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE7" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT7" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE7" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE7" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME7" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE8" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE8" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE8" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT8" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE8" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE8" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME8" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE9" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE9" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE9" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT9" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE9" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE9" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME9" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE10" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE10" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE10" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT10" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE10" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE10" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME10" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE11" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE11" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE11" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT11" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE11" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE11" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME11" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE12" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE12" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE12" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT12" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE12" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE12" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME12" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE13" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE13" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE13" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT13" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE13" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE13" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME13" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE14" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE14" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE14" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT14" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE14" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE14" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME14" />
+            <xtce:ParameterRefEntry parameterRef="FILEAGE15" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE15" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE15" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT15" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE15" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE15" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME15" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2233" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="DS_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDACCEPTEDCOUNTER_Type" shortDescription="Count of valid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CMDREJECTEDCOUNTER_Type" shortDescription="Count of invalid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DESTTBLLOADCOUNTER_Type" shortDescription="Count of destination file table loads." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DESTTBLERRCOUNTER_Type" shortDescription="Count of failed attempts to get table data pointer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILTERTBLLOADCOUNTER_Type" shortDescription="Count of packet filter table loads." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILTERTBLERRCOUNTER_Type" shortDescription="Count of failed attempts to get table data pointer." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPENABLESTATE_Type" shortDescription="Application enable/disable state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE8_Type" shortDescription="Structure alignment padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILEWRITECOUNTER_Type" shortDescription="Count of good destination file writes." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILEWRITEERRCOUNTER_Type" shortDescription="Count of bad destination file writes." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILEUPDATECOUNTER_Type" shortDescription="Count of good updates to secondary header." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILEUPDATEERRCOUNTER_Type" shortDescription="Count of bad updates to secondary header." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DISABLEDPKTCOUNTER_Type" shortDescription="Count of packets discarded (DS was disabled)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="IGNOREDPKTCOUNTER_Type" shortDescription="Count of packets discarded. Incoming packets will be discarded when:." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FILTEREDPKTCOUNTER_Type" shortDescription="Count of packets discarded (failed filter test)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PASSEDPKTCOUNTER_Type" shortDescription="Count of packets that passed filter test." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILTERTBLFILENAME_Type" characterWidth="8" shortDescription="Name of filter table file">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDACCEPTEDCOUNTER" parameterTypeRef="CMDACCEPTEDCOUNTER_Type" />
+        <xtce:Parameter name="CMDREJECTEDCOUNTER" parameterTypeRef="CMDREJECTEDCOUNTER_Type" />
+        <xtce:Parameter name="DESTTBLLOADCOUNTER" parameterTypeRef="DESTTBLLOADCOUNTER_Type" />
+        <xtce:Parameter name="DESTTBLERRCOUNTER" parameterTypeRef="DESTTBLERRCOUNTER_Type" />
+        <xtce:Parameter name="FILTERTBLLOADCOUNTER" parameterTypeRef="FILTERTBLLOADCOUNTER_Type" />
+        <xtce:Parameter name="FILTERTBLERRCOUNTER" parameterTypeRef="FILTERTBLERRCOUNTER_Type" />
+        <xtce:Parameter name="APPENABLESTATE" parameterTypeRef="APPENABLESTATE_Type" />
+        <xtce:Parameter name="SPARE8" parameterTypeRef="SPARE8_Type" />
+        <xtce:Parameter name="FILEWRITECOUNTER" parameterTypeRef="FILEWRITECOUNTER_Type" />
+        <xtce:Parameter name="FILEWRITEERRCOUNTER" parameterTypeRef="FILEWRITEERRCOUNTER_Type" />
+        <xtce:Parameter name="FILEUPDATECOUNTER" parameterTypeRef="FILEUPDATECOUNTER_Type" />
+        <xtce:Parameter name="FILEUPDATEERRCOUNTER" parameterTypeRef="FILEUPDATEERRCOUNTER_Type" />
+        <xtce:Parameter name="DISABLEDPKTCOUNTER" parameterTypeRef="DISABLEDPKTCOUNTER_Type" />
+        <xtce:Parameter name="IGNOREDPKTCOUNTER" parameterTypeRef="IGNOREDPKTCOUNTER_Type" />
+        <xtce:Parameter name="FILTEREDPKTCOUNTER" parameterTypeRef="FILTEREDPKTCOUNTER_Type" />
+        <xtce:Parameter name="PASSEDPKTCOUNTER" parameterTypeRef="PASSEDPKTCOUNTER_Type" />
+        <xtce:Parameter name="FILTERTBLFILENAME" parameterTypeRef="FILTERTBLFILENAME_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="DS_HKPACKET" shortDescription="DS application housekeeping packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDACCEPTEDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CMDREJECTEDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="DESTTBLLOADCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="DESTTBLERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILTERTBLLOADCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILTERTBLERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="APPENABLESTATE" />
+            <xtce:ParameterRefEntry parameterRef="SPARE8" />
+            <xtce:ParameterRefEntry parameterRef="FILEWRITECOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILEWRITEERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILEUPDATECOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILEUPDATEERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="DISABLEDPKTCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="IGNOREDPKTCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILTEREDPKTCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="PASSEDPKTCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="FILTERTBLFILENAME" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2232" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="DS_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="ALGORITHM_N_Type" initialValue="0" shortDescription="Algorithm value N (pass this many)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="ALGORITHM_O_Type" initialValue="0" shortDescription="Algorithm value N (at this offset)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="ALGORITHM_X_Type" initialValue="0" shortDescription="Algorithm value N (out of this many)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="BASENAME_Type" characterWidth="8" initialValue="default" shortDescription="Base portion of filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>0</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="ENABLESTATE_Type" initialValue="0" shortDescription="File enable/disable state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="EXTENSION_Type" characterWidth="8" initialValue="default" shortDescription="Extension portion of filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>64</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="FILENAMETYPE_Type" initialValue="0" shortDescription="Filename type - count vs time." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FILETABLEINDEX_Type" initialValue="0" shortDescription="Index into Destination File Table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FILTERPARMSINDEX_Type" initialValue="0" shortDescription="Index into Filter Parms Array." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="FILTERTYPE_Type" initialValue="0" shortDescription="Filter type (packet count or time)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MAXFILEAGE_Type" initialValue="0" shortDescription="Max file age (seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MAXFILESIZE_Type" initialValue="0" shortDescription="Max file size (bytes) before re-open." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MESSAGEID_Type" initialValue="0" shortDescription="Message ID of existing entry in Packet Filter Table." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="PADDING_Type" initialValue="0" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="PATHNAME_Type" characterWidth="8" initialValue="default" shortDescription="Path portion of filename.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="SEQUENCECOUNT_Type" initialValue="0" shortDescription="Sequence count portion of filename." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="DS_SET_FILTER_TYPE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
+            <xtce:Argument name="FILTERPARMSINDEX" argumentTypeRef="FILTERPARMSINDEX_Type" />
+            <xtce:Argument name="FILTERTYPE" argumentTypeRef="FILTERTYPE_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_FILTER_TYPE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
+              <xtce:ArgumentRefEntry argumentRef="FILTERPARMSINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="FILTERTYPE" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_FILTER_PARMS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
+            <xtce:Argument name="FILTERPARMSINDEX" argumentTypeRef="FILTERPARMSINDEX_Type" />
+            <xtce:Argument name="ALGORITHM_N" argumentTypeRef="ALGORITHM_N_Type" />
+            <xtce:Argument name="ALGORITHM_X" argumentTypeRef="ALGORITHM_X_Type" />
+            <xtce:Argument name="ALGORITHM_O" argumentTypeRef="ALGORITHM_O_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_FILTER_PARMS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
+              <xtce:ArgumentRefEntry argumentRef="FILTERPARMSINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="ALGORITHM_N" />
+              <xtce:ArgumentRefEntry argumentRef="ALGORITHM_X" />
+              <xtce:ArgumentRefEntry argumentRef="ALGORITHM_O" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_FILTER_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
+            <xtce:Argument name="FILTERPARMSINDEX" argumentTypeRef="FILTERPARMSINDEX_Type" />
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_FILTER_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
+              <xtce:ArgumentRefEntry argumentRef="FILTERPARMSINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_TYPE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="FILENAMETYPE" argumentTypeRef="FILENAMETYPE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_TYPE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="FILENAMETYPE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_STATE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="ENABLESTATE" argumentTypeRef="ENABLESTATE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_STATE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="ENABLESTATE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_SIZE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="MAXFILESIZE" argumentTypeRef="MAXFILESIZE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_SIZE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="MAXFILESIZE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_PATH">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="PATHNAME" argumentTypeRef="PATHNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_PATH_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="PATHNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_EXT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="EXTENSION" argumentTypeRef="EXTENSION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_EXT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="EXTENSION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_COUNT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="SEQUENCECOUNT" argumentTypeRef="SEQUENCECOUNT_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_COUNT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="SEQUENCECOUNT" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_BASE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="BASENAME" argumentTypeRef="BASENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_BASE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="BASENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_DEST_AGE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="MAXFILEAGE" argumentTypeRef="MAXFILEAGE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_DEST_AGE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="MAXFILEAGE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_SET_APP_STATE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="ENABLESTATE" argumentTypeRef="ENABLESTATE_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_SET_APP_STATE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="ENABLESTATE" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_DS_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_DS_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_GET_FILE_INFO">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_DS_GET_FILE_INFO_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_CLOSE_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_CLOSE_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_CLOSE_ALL">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_DS_CLOSE_ALL_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_ADD_MID">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_ADD_MID_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

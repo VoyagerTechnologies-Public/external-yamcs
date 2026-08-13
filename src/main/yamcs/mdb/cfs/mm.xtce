@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="MM" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="MM_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="MM Application Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERRCOUNTER_Type" shortDescription="MM Application Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LASTACTION_Type" shortDescription="Last command action executed." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MEMTYPE_Type" shortDescription="Memory type for last command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ADDRESS_Type" shortDescription="Fully resolved address used for last command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DATAVALUE_Type" shortDescription="Last command data value -- may be fill pattern or peek/poke value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BYTESPROCESSED_Type" shortDescription="Bytes processed for last command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="FILENAME_Type" characterWidth="8" shortDescription="Name of the data file used for last command, where applicable.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
+        <xtce:Parameter name="ERRCOUNTER" parameterTypeRef="ERRCOUNTER_Type" />
+        <xtce:Parameter name="LASTACTION" parameterTypeRef="LASTACTION_Type" />
+        <xtce:Parameter name="MEMTYPE" parameterTypeRef="MEMTYPE_Type" />
+        <xtce:Parameter name="ADDRESS" parameterTypeRef="ADDRESS_Type" />
+        <xtce:Parameter name="DATAVALUE" parameterTypeRef="DATAVALUE_Type" />
+        <xtce:Parameter name="BYTESPROCESSED" parameterTypeRef="BYTESPROCESSED_Type" />
+        <xtce:Parameter name="FILENAME" parameterTypeRef="FILENAME_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="MM_HKPACKET" shortDescription="Housekeeping Packet Structure">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="ERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="LASTACTION" />
+            <xtce:ParameterRefEntry parameterRef="MEMTYPE" />
+            <xtce:ParameterRefEntry parameterRef="ADDRESS" />
+            <xtce:ParameterRefEntry parameterRef="DATAVALUE" />
+            <xtce:ParameterRefEntry parameterRef="BYTESPROCESSED" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2183" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="MM_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="APADDING_Type" shortDescription="Structure padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerArgumentType>
+        <xtce:ArrayArgumentType name="APADDING_ArrayType" shortDescription="Structure padding." arrayTypeRef="APADDING_Type">
+          <xtce:DimensionList>
+            <xtce:Dimension>
+              <xtce:StartingIndex>
+                <xtce:FixedValue>0</xtce:FixedValue>
+              </xtce:StartingIndex>
+              <xtce:EndingIndex>
+                <xtce:FixedValue>1</xtce:FixedValue>
+              </xtce:EndingIndex>
+            </xtce:Dimension>
+          </xtce:DimensionList>
+        </xtce:ArrayArgumentType>
+        <xtce:IntegerArgumentType name="BANK_Type" initialValue="0" shortDescription="EEPROM bank number to write-enable." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="CRC_Type" initialValue="0" shortDescription="Data check value." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="DATAARRAY_Type" shortDescription="Data to be loaded." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerArgumentType>
+        <xtce:ArrayArgumentType name="DATAARRAY_ArrayType" shortDescription="Data to be loaded." arrayTypeRef="DATAARRAY_Type">
+          <xtce:DimensionList>
+            <xtce:Dimension>
+              <xtce:StartingIndex>
+                <xtce:FixedValue>0</xtce:FixedValue>
+              </xtce:StartingIndex>
+              <xtce:EndingIndex>
+                <xtce:FixedValue>199</xtce:FixedValue>
+              </xtce:EndingIndex>
+            </xtce:Dimension>
+          </xtce:DimensionList>
+        </xtce:ArrayArgumentType>
+        <xtce:IntegerArgumentType name="DATASIZE_Type" initialValue="0" shortDescription="Size of the data to be written." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="DATA_Type" initialValue="0" shortDescription="Data to be written." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="DESTSYMADDRESS_OFFSET_Type" initialValue="0" shortDescription="Optional offset that is used as the absolute address if the SymName string is NUL. (Parent: Symbolic destination poke address.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="DESTSYMADDRESS_SYMNAME_Type" characterWidth="8" initialValue="default" shortDescription="Symbol name string. (Parent: Symbolic destination poke address.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="FILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Path and Filename of data to be loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="FILLPATTERN_Type" initialValue="0" shortDescription="Fill pattern to use." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MEMTYPE_Type" initialValue="0" shortDescription="Memory type to poke data to." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="NUMOFBYTES_Type" initialValue="0" shortDescription="Number of bytes to be loaded." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="PADDING_Type" initialValue="0" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="SRCSYMADDRESS_OFFSET_Type" initialValue="0" shortDescription="Optional offset that is used as the absolute address if the SymName string is NUL. (Parent: Symbolic source peek address.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="SRCSYMADDRESS_SYMNAME_Type" characterWidth="8" initialValue="default" shortDescription="Symbol name string. (Parent: Symbolic source peek address.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="SYMNAME_Type" characterWidth="8" initialValue="default" shortDescription="Symbol name string.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="MM_SYMTBL_TO_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_SYMTBL_TO_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_MM_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_POKE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DATASIZE" argumentTypeRef="DATASIZE_Type" />
+            <xtce:Argument name="MEMTYPE" argumentTypeRef="MEMTYPE_Type" />
+            <xtce:Argument name="APADDING" argumentTypeRef="APADDING_ArrayType" />
+            <xtce:Argument name="DATA" argumentTypeRef="DATA_Type" />
+            <xtce:Argument name="DESTSYMADDRESS_OFFSET" argumentTypeRef="DESTSYMADDRESS_OFFSET_Type" />
+            <xtce:Argument name="DESTSYMADDRESS_SYMNAME" argumentTypeRef="DESTSYMADDRESS_SYMNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_POKE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DATASIZE" />
+              <xtce:ArgumentRefEntry argumentRef="MEMTYPE" />
+              <xtce:ArgumentRefEntry argumentRef="DATA" />
+              <xtce:ArgumentRefEntry argumentRef="DESTSYMADDRESS_OFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="DESTSYMADDRESS_SYMNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_PEEK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DATASIZE" argumentTypeRef="DATASIZE_Type" />
+            <xtce:Argument name="MEMTYPE" argumentTypeRef="MEMTYPE_Type" />
+            <xtce:Argument name="APADDING" argumentTypeRef="APADDING_ArrayType" />
+            <xtce:Argument name="SRCSYMADDRESS_OFFSET" argumentTypeRef="SRCSYMADDRESS_OFFSET_Type" />
+            <xtce:Argument name="SRCSYMADDRESS_SYMNAME" argumentTypeRef="SRCSYMADDRESS_SYMNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_PEEK_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DATASIZE" />
+              <xtce:ArgumentRefEntry argumentRef="MEMTYPE" />
+              <xtce:ArgumentRefEntry argumentRef="SRCSYMADDRESS_OFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="SRCSYMADDRESS_SYMNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_MM_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_LOOKUP_SYM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SYMNAME" argumentTypeRef="SYMNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_LOOKUP_SYM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SYMNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_LOAD_MEM_WID">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="NUMOFBYTES" argumentTypeRef="NUMOFBYTES_Type" />
+            <xtce:Argument name="APADDING" argumentTypeRef="APADDING_ArrayType" />
+            <xtce:Argument name="CRC" argumentTypeRef="CRC_Type" />
+            <xtce:Argument name="DESTSYMADDRESS_OFFSET" argumentTypeRef="DESTSYMADDRESS_OFFSET_Type" />
+            <xtce:Argument name="DESTSYMADDRESS_SYMNAME" argumentTypeRef="DESTSYMADDRESS_SYMNAME_Type" />
+            <xtce:Argument name="DATAARRAY" argumentTypeRef="DATAARRAY_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_LOAD_MEM_WID_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="NUMOFBYTES" />
+              <xtce:ArgumentRefEntry argumentRef="CRC" />
+              <xtce:ArgumentRefEntry argumentRef="DESTSYMADDRESS_OFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="DESTSYMADDRESS_SYMNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_LOAD_MEM_FROM_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_LOAD_MEM_FROM_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_FILL_MEM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MEMTYPE" argumentTypeRef="MEMTYPE_Type" />
+            <xtce:Argument name="APADDING" argumentTypeRef="APADDING_ArrayType" />
+            <xtce:Argument name="NUMOFBYTES" argumentTypeRef="NUMOFBYTES_Type" />
+            <xtce:Argument name="FILLPATTERN" argumentTypeRef="FILLPATTERN_Type" />
+            <xtce:Argument name="DESTSYMADDRESS_OFFSET" argumentTypeRef="DESTSYMADDRESS_OFFSET_Type" />
+            <xtce:Argument name="DESTSYMADDRESS_SYMNAME" argumentTypeRef="DESTSYMADDRESS_SYMNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_FILL_MEM_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MEMTYPE" />
+              <xtce:ArgumentRefEntry argumentRef="NUMOFBYTES" />
+              <xtce:ArgumentRefEntry argumentRef="FILLPATTERN" />
+              <xtce:ArgumentRefEntry argumentRef="DESTSYMADDRESS_OFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="DESTSYMADDRESS_SYMNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_ENABLE_EEPROM_WRITE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="BANK" argumentTypeRef="BANK_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_ENABLE_EEPROM_WRITE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="BANK" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_DUMP_MEM_TO_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MEMTYPE" argumentTypeRef="MEMTYPE_Type" />
+            <xtce:Argument name="APADDING" argumentTypeRef="APADDING_ArrayType" />
+            <xtce:Argument name="NUMOFBYTES" argumentTypeRef="NUMOFBYTES_Type" />
+            <xtce:Argument name="SRCSYMADDRESS_OFFSET" argumentTypeRef="SRCSYMADDRESS_OFFSET_Type" />
+            <xtce:Argument name="SRCSYMADDRESS_SYMNAME" argumentTypeRef="SRCSYMADDRESS_SYMNAME_Type" />
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_DUMP_MEM_TO_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MEMTYPE" />
+              <xtce:ArgumentRefEntry argumentRef="NUMOFBYTES" />
+              <xtce:ArgumentRefEntry argumentRef="SRCSYMADDRESS_OFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="SRCSYMADDRESS_SYMNAME" />
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_DUMP_IN_EVENT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MEMTYPE" argumentTypeRef="MEMTYPE_Type" />
+            <xtce:Argument name="NUMOFBYTES" argumentTypeRef="NUMOFBYTES_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
+            <xtce:Argument name="SRCSYMADDRESS_OFFSET" argumentTypeRef="SRCSYMADDRESS_OFFSET_Type" />
+            <xtce:Argument name="SRCSYMADDRESS_SYMNAME" argumentTypeRef="SRCSYMADDRESS_SYMNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_DUMP_IN_EVENT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MEMTYPE" />
+              <xtce:ArgumentRefEntry argumentRef="NUMOFBYTES" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
+              <xtce:ArgumentRefEntry argumentRef="SRCSYMADDRESS_OFFSET" />
+              <xtce:ArgumentRefEntry argumentRef="SRCSYMADDRESS_SYMNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="MM_DISABLE_EEPROM_WRITE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6280" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="BANK" argumentTypeRef="BANK_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_MM_DISABLE_EEPROM_WRITE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="BANK" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

@@ -1,0 +1,43 @@
+{
+  "band": {
+    "id": "14df68ed-08f7-4362-af9f-616994ca598b",
+    "name": "Sun Vector",
+    "username": "guest",
+    "shared": true,
+    "type": "PARAMETER_PLOT",
+    "description": "Sun vector in the body frame. For DRM +X is the solar panel side.",
+    "properties": {
+      "trace_3_minMaxOpacity": "0.17",
+      "trace_2_minMax": "true",
+      "trace_1_minMax": "true",
+      "trace_3_minMax": "true",
+      "zeroLineColor": "#ff0000",
+      "trace_1_minMaxOpacity": "0.17",
+      "trace_2_lineColor": "#00ff00",
+      "zeroLineWidth": "0",
+      "trace_2_fill": "false",
+      "trace_3_fill": "false",
+      "trace_1_visible": "true",
+      "minimumFractionDigits": "0",
+      "trace_2_fillColor": "#dddddd",
+      "trace_1_parameter": "/ADCS/SUN_X",
+      "trace_1_lineWidth": "1",
+      "height": "120",
+      "trace_3_lineColor": "#0000ff",
+      "trace_3_parameter": "/ADCS/SUN_Z",
+      "trace_2_minMaxOpacity": "0.17",
+      "trace_1_lineColor": "#ff0000",
+      "trace_2_visible": "true",
+      "frozen": "false",
+      "trace_3_visible": "true",
+      "trace_3_lineWidth": "1",
+      "trace_3_fillColor": "#dddddd",
+      "trace_2_lineWidth": "1",
+      "maximumFractionDigits": "2",
+      "trace_1_fillColor": "#dddddd",
+      "trace_1_fill": "false",
+      "trace_2_parameter": "/ADCS/SUN_Y"
+    }
+  },
+  "items": []
+}

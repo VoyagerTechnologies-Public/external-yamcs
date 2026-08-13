@@ -1,0 +1,738 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CFE_EVS" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CFE_EVS_TLMPKT">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="COMMANDCOUNTER_Type" shortDescription="EVS Command Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="COMMANDERRCOUNTER_Type" shortDescription="EVS Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MESSAGEFORMATMODE_Type" shortDescription="Event message format mode (short/long)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MESSAGETRUNCCOUNTER_Type" shortDescription="Event message truncation counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="UNREGISTEREDAPPCOUNTER_Type" shortDescription="Unregistered application message send counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="OUTPUTPORT_Type" shortDescription="Output port mask." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOGFULLFLAG_Type" shortDescription="Local event log full flag." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOGMODE_Type" shortDescription="Local event logging mode (overwrite/discard)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MESSAGESENDCOUNTER_Type" shortDescription="Event message send counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOGOVERFLOWCOUNTER_Type" shortDescription="Local event log overflow counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOGENABLED_Type" shortDescription="Current event log enable/disable state." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE1_Type" shortDescription="Padding for 32 bit boundary." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE2_Type" shortDescription="Padding for 32 bit boundary." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE3_Type" shortDescription="Padding for 32 bit boundary." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_1_Type" shortDescription="Array of registered application table data. byte 1" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_2_Type" shortDescription="Array of registered application table data. byte 2" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_3_Type" shortDescription="Array of registered application table data. byte 3" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_4_Type" shortDescription="Array of registered application table data. byte 4" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_5_Type" shortDescription="Array of registered application table data. byte 5" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_6_Type" shortDescription="Array of registered application table data. byte 6" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_7_Type" shortDescription="Array of registered application table data. byte 7" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_8_Type" shortDescription="Array of registered application table data. byte 8" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_9_Type" shortDescription="Array of registered application table data. byte 9" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_10_Type" shortDescription="Array of registered application table data. byte 10" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_11_Type" shortDescription="Array of registered application table data. byte 11" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_12_Type" shortDescription="Array of registered application table data. byte 12" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_13_Type" shortDescription="Array of registered application table data. byte 13" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_14_Type" shortDescription="Array of registered application table data. byte 14" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_15_Type" shortDescription="Array of registered application table data. byte 15" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_16_Type" shortDescription="Array of registered application table data. byte 16" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_17_Type" shortDescription="Array of registered application table data. byte 17" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_18_Type" shortDescription="Array of registered application table data. byte 18" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_19_Type" shortDescription="Array of registered application table data. byte 19" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_20_Type" shortDescription="Array of registered application table data. byte 20" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_21_Type" shortDescription="Array of registered application table data. byte 21" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_22_Type" shortDescription="Array of registered application table data. byte 22" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_23_Type" shortDescription="Array of registered application table data. byte 23" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_24_Type" shortDescription="Array of registered application table data. byte 24" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_25_Type" shortDescription="Array of registered application table data. byte 25" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_26_Type" shortDescription="Array of registered application table data. byte 26" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_27_Type" shortDescription="Array of registered application table data. byte 27" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_28_Type" shortDescription="Array of registered application table data. byte 28" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_29_Type" shortDescription="Array of registered application table data. byte 29" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_30_Type" shortDescription="Array of registered application table data. byte 30" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_31_Type" shortDescription="Array of registered application table data. byte 31" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPDATA_32_Type" shortDescription="Array of registered application table data. byte 32" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="COMMANDCOUNTER" parameterTypeRef="COMMANDCOUNTER_Type" />
+        <xtce:Parameter name="COMMANDERRCOUNTER" parameterTypeRef="COMMANDERRCOUNTER_Type" />
+        <xtce:Parameter name="MESSAGEFORMATMODE" parameterTypeRef="MESSAGEFORMATMODE_Type" />
+        <xtce:Parameter name="MESSAGETRUNCCOUNTER" parameterTypeRef="MESSAGETRUNCCOUNTER_Type" />
+        <xtce:Parameter name="UNREGISTEREDAPPCOUNTER" parameterTypeRef="UNREGISTEREDAPPCOUNTER_Type" />
+        <xtce:Parameter name="OUTPUTPORT" parameterTypeRef="OUTPUTPORT_Type" />
+        <xtce:Parameter name="LOGFULLFLAG" parameterTypeRef="LOGFULLFLAG_Type" />
+        <xtce:Parameter name="LOGMODE" parameterTypeRef="LOGMODE_Type" />
+        <xtce:Parameter name="MESSAGESENDCOUNTER" parameterTypeRef="MESSAGESENDCOUNTER_Type" />
+        <xtce:Parameter name="LOGOVERFLOWCOUNTER" parameterTypeRef="LOGOVERFLOWCOUNTER_Type" />
+        <xtce:Parameter name="LOGENABLED" parameterTypeRef="LOGENABLED_Type" />
+        <xtce:Parameter name="SPARE1" parameterTypeRef="SPARE1_Type" />
+        <xtce:Parameter name="SPARE2" parameterTypeRef="SPARE2_Type" />
+        <xtce:Parameter name="SPARE3" parameterTypeRef="SPARE3_Type" />
+        <xtce:Parameter name="APPDATA_1" parameterTypeRef="APPDATA_1_Type" />
+        <xtce:Parameter name="APPDATA_2" parameterTypeRef="APPDATA_2_Type" />
+        <xtce:Parameter name="APPDATA_3" parameterTypeRef="APPDATA_3_Type" />
+        <xtce:Parameter name="APPDATA_4" parameterTypeRef="APPDATA_4_Type" />
+        <xtce:Parameter name="APPDATA_5" parameterTypeRef="APPDATA_5_Type" />
+        <xtce:Parameter name="APPDATA_6" parameterTypeRef="APPDATA_6_Type" />
+        <xtce:Parameter name="APPDATA_7" parameterTypeRef="APPDATA_7_Type" />
+        <xtce:Parameter name="APPDATA_8" parameterTypeRef="APPDATA_8_Type" />
+        <xtce:Parameter name="APPDATA_9" parameterTypeRef="APPDATA_9_Type" />
+        <xtce:Parameter name="APPDATA_10" parameterTypeRef="APPDATA_10_Type" />
+        <xtce:Parameter name="APPDATA_11" parameterTypeRef="APPDATA_11_Type" />
+        <xtce:Parameter name="APPDATA_12" parameterTypeRef="APPDATA_12_Type" />
+        <xtce:Parameter name="APPDATA_13" parameterTypeRef="APPDATA_13_Type" />
+        <xtce:Parameter name="APPDATA_14" parameterTypeRef="APPDATA_14_Type" />
+        <xtce:Parameter name="APPDATA_15" parameterTypeRef="APPDATA_15_Type" />
+        <xtce:Parameter name="APPDATA_16" parameterTypeRef="APPDATA_16_Type" />
+        <xtce:Parameter name="APPDATA_17" parameterTypeRef="APPDATA_17_Type" />
+        <xtce:Parameter name="APPDATA_18" parameterTypeRef="APPDATA_18_Type" />
+        <xtce:Parameter name="APPDATA_19" parameterTypeRef="APPDATA_19_Type" />
+        <xtce:Parameter name="APPDATA_20" parameterTypeRef="APPDATA_20_Type" />
+        <xtce:Parameter name="APPDATA_21" parameterTypeRef="APPDATA_21_Type" />
+        <xtce:Parameter name="APPDATA_22" parameterTypeRef="APPDATA_22_Type" />
+        <xtce:Parameter name="APPDATA_23" parameterTypeRef="APPDATA_23_Type" />
+        <xtce:Parameter name="APPDATA_24" parameterTypeRef="APPDATA_24_Type" />
+        <xtce:Parameter name="APPDATA_25" parameterTypeRef="APPDATA_25_Type" />
+        <xtce:Parameter name="APPDATA_26" parameterTypeRef="APPDATA_26_Type" />
+        <xtce:Parameter name="APPDATA_27" parameterTypeRef="APPDATA_27_Type" />
+        <xtce:Parameter name="APPDATA_28" parameterTypeRef="APPDATA_28_Type" />
+        <xtce:Parameter name="APPDATA_29" parameterTypeRef="APPDATA_29_Type" />
+        <xtce:Parameter name="APPDATA_30" parameterTypeRef="APPDATA_30_Type" />
+        <xtce:Parameter name="APPDATA_31" parameterTypeRef="APPDATA_31_Type" />
+        <xtce:Parameter name="APPDATA_32" parameterTypeRef="APPDATA_32_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_EVS_TLMPKT" shortDescription="Event Services Housekeeping Telemetry Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="COMMANDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="COMMANDERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="MESSAGEFORMATMODE" />
+            <xtce:ParameterRefEntry parameterRef="MESSAGETRUNCCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="UNREGISTEREDAPPCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="OUTPUTPORT" />
+            <xtce:ParameterRefEntry parameterRef="LOGFULLFLAG" />
+            <xtce:ParameterRefEntry parameterRef="LOGMODE" />
+            <xtce:ParameterRefEntry parameterRef="MESSAGESENDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="LOGOVERFLOWCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="LOGENABLED" />
+            <xtce:ParameterRefEntry parameterRef="SPARE1" />
+            <xtce:ParameterRefEntry parameterRef="SPARE2" />
+            <xtce:ParameterRefEntry parameterRef="SPARE3" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_1" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_2" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_3" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_4" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_5" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_6" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_7" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_8" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_9" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_10" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_11" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_12" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_13" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_14" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_15" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_16" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_17" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_18" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_19" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_20" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_21" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_22" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_23" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_24" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_25" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_26" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_27" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_28" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_29" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_30" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_31" />
+            <xtce:ParameterRefEntry parameterRef="APPDATA_32" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2049" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_EVS_PACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:StringParameterType name="PACKETID_APPNAME_Type" characterWidth="8" shortDescription="Application name. (Parent: Event packet information.)">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="PACKETID_EVENTID_Type" shortDescription="Numerical event identifier. (Parent: Event packet information.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PACKETID_EVENTTYPE_Type" shortDescription="Numerical event type identifier. (Parent: Event packet information.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PACKETID_SPACECRAFTID_Type" shortDescription="Spacecraft identifier. (Parent: Event packet information.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PACKETID_PROCESSORID_Type" shortDescription="Numerical processor identifier. (Parent: Event packet information.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="MESSAGE_Type" characterWidth="8" shortDescription="Event message string.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>976</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="SPARE1_Type" shortDescription="Structure padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE2_Type" shortDescription="Structure padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="PACKETID_APPNAME" parameterTypeRef="PACKETID_APPNAME_Type" />
+        <xtce:Parameter name="PACKETID_EVENTID" parameterTypeRef="PACKETID_EVENTID_Type" />
+        <xtce:Parameter name="PACKETID_EVENTTYPE" parameterTypeRef="PACKETID_EVENTTYPE_Type" />
+        <xtce:Parameter name="PACKETID_SPACECRAFTID" parameterTypeRef="PACKETID_SPACECRAFTID_Type" />
+        <xtce:Parameter name="PACKETID_PROCESSORID" parameterTypeRef="PACKETID_PROCESSORID_Type" />
+        <xtce:Parameter name="MESSAGE" parameterTypeRef="MESSAGE_Type" />
+        <xtce:Parameter name="SPARE1" parameterTypeRef="SPARE1_Type" />
+        <xtce:Parameter name="SPARE2" parameterTypeRef="SPARE2_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_EVS_PACKET" shortDescription="Event Message Telemetry Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="PACKETID_APPNAME" />
+            <xtce:ParameterRefEntry parameterRef="PACKETID_EVENTID" />
+            <xtce:ParameterRefEntry parameterRef="PACKETID_EVENTTYPE" />
+            <xtce:ParameterRefEntry parameterRef="PACKETID_SPACECRAFTID" />
+            <xtce:ParameterRefEntry parameterRef="PACKETID_PROCESSORID" />
+            <xtce:ParameterRefEntry parameterRef="MESSAGE" />
+            <xtce:ParameterRefEntry parameterRef="SPARE1" />
+            <xtce:ParameterRefEntry parameterRef="SPARE2" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2056" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_EVS_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:StringArgumentType name="APPDATAFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Filename where applicaton data is to be written.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="APPNAME_Type" characterWidth="8" initialValue="default" shortDescription="Application name to use in the command.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="BITMASK_Type" initialValue="0" shortDescription="BitMask to use in the command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="EVENTID_Type" initialValue="0" shortDescription="Event ID to use in the command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="LOGFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Filename where log data is to be written.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="MASK_Type" initialValue="0" shortDescription="Mask to use in the command." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MODE_Type" initialValue="0" shortDescription="Permissions, passed directly to OS_chmod." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="SPARE_Type" initialValue="0" shortDescription="Padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CFE_EVS_SET_LOG_MODE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="19" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MODE" argumentTypeRef="MODE_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_SET_LOG_MODE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MODE" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_SET_FILTER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+            <xtce:Argument name="EVENTID" argumentTypeRef="EVENTID_Type" />
+            <xtce:Argument name="MASK" argumentTypeRef="MASK_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_SET_FILTER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+              <xtce:ArgumentRefEntry argumentRef="EVENTID" />
+              <xtce:ArgumentRefEntry argumentRef="MASK" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_SET_EVENT_FORMAT_MODE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MODE" argumentTypeRef="MODE_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_SET_EVENT_FORMAT_MODE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MODE" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_RESET_FILTER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+            <xtce:Argument name="EVENTID" argumentTypeRef="EVENTID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_RESET_FILTER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+              <xtce:ArgumentRefEntry argumentRef="EVENTID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_RESET_COUNTERS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_EVS_RESET_COUNTERS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_RESET_APP_COUNTER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_RESET_APP_COUNTER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_RESET_ALL_FILTERS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_RESET_ALL_FILTERS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_NO_OPERATION">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_EVS_NO_OPERATION_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_FILE_WRITE_LOG_DATA">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="18" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="LOGFILENAME" argumentTypeRef="LOGFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_FILE_WRITE_LOG_DATA_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="LOGFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_FILE_WRITE_APP_DATA">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPDATAFILENAME" argumentTypeRef="APPDATAFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_FILE_WRITE_APP_DATA_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPDATAFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_ENABLE_PORTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="BITMASK" argumentTypeRef="BITMASK_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_ENABLE_PORTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="BITMASK" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_ENABLE_EVENT_TYPE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="BITMASK" argumentTypeRef="BITMASK_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_ENABLE_EVENT_TYPE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="BITMASK" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_ENABLE_APP_EVENT_TYPE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+            <xtce:Argument name="BITMASK" argumentTypeRef="BITMASK_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_ENABLE_APP_EVENT_TYPE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+              <xtce:ArgumentRefEntry argumentRef="BITMASK" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_ENABLE_APP_EVENTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_ENABLE_APP_EVENTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_DISABLE_PORTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="BITMASK" argumentTypeRef="BITMASK_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_DISABLE_PORTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="BITMASK" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_DISABLE_EVENT_TYPE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="BITMASK" argumentTypeRef="BITMASK_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_DISABLE_EVENT_TYPE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="BITMASK" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_DISABLE_APP_EVENT_TYPE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+            <xtce:Argument name="BITMASK" argumentTypeRef="BITMASK_Type" />
+            <xtce:Argument name="SPARE" argumentTypeRef="SPARE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_DISABLE_APP_EVENT_TYPE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+              <xtce:ArgumentRefEntry argumentRef="BITMASK" />
+              <xtce:ArgumentRefEntry argumentRef="SPARE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_DISABLE_APP_EVENTS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_DISABLE_APP_EVENTS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_DELETE_EVENT_FILTER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+            <xtce:Argument name="EVENTID" argumentTypeRef="EVENTID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_DELETE_EVENT_FILTER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+              <xtce:ArgumentRefEntry argumentRef="EVENTID" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_CLEAR_LOG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="20" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_EVS_CLEAR_LOG_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_ADD_EVENT_FILTER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6145" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="APPNAME" argumentTypeRef="APPNAME_Type" />
+            <xtce:Argument name="EVENTID" argumentTypeRef="EVENTID_Type" />
+            <xtce:Argument name="MASK" argumentTypeRef="MASK_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_EVS_ADD_EVENT_FILTER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="APPNAME" />
+              <xtce:ArgumentRefEntry argumentRef="EVENTID" />
+              <xtce:ArgumentRefEntry argumentRef="MASK" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

@@ -1,0 +1,1710 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CF" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CF_TRANSPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="ENG_TRANSLEN_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_TRANSVAL_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_NAKS_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_PARTLEN_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_PARTVAL_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_PHASE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_SPARE1_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_SPARE2_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_FLAGS_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_TRANSNUM_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_ATTEMPTS_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_CONDCODE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_DELICODE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_FDOFFSET_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_FDLENGTH_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_CHECKSUM_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_FINALSTAT_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_FILESIZE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_RCVDFILESIZE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_ROLE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_STATE_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENG_STARTTIME_Type" shortDescription=" (Parent: )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="ENG_SRCFILE_Type" characterWidth="8" shortDescription=" (Parent: )">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="ENG_DSTFILE_Type" characterWidth="8" shortDescription=" (Parent: )">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="ENG_TMPFILE_Type" characterWidth="8" shortDescription="  (Parent: )">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:IntegerParameterType name="APP_STATUS_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_CONDCODE_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_PRIORITY_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_CLASS_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_CHANNUM_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_SOURCE_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_NODETYPE_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APP_TRANSNUM_Type" shortDescription=" (Parent:  )" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:StringParameterType name="APP_SRCENTITYID_Type" characterWidth="8" shortDescription=" (Parent:  )">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>128</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_SRCFILE_Type" characterWidth="8" shortDescription=" (Parent:  )">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+        <xtce:StringParameterType name="APP_DSTFILE_Type" characterWidth="8" shortDescription="  (Parent:  )">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="ENG_TRANSLEN" parameterTypeRef="ENG_TRANSLEN_Type" />
+        <xtce:Parameter name="ENG_TRANSVAL" parameterTypeRef="ENG_TRANSVAL_Type" />
+        <xtce:Parameter name="ENG_NAKS" parameterTypeRef="ENG_NAKS_Type" />
+        <xtce:Parameter name="ENG_PARTLEN" parameterTypeRef="ENG_PARTLEN_Type" />
+        <xtce:Parameter name="ENG_PARTVAL" parameterTypeRef="ENG_PARTVAL_Type" />
+        <xtce:Parameter name="ENG_PHASE" parameterTypeRef="ENG_PHASE_Type" />
+        <xtce:Parameter name="ENG_SPARE1" parameterTypeRef="ENG_SPARE1_Type" />
+        <xtce:Parameter name="ENG_SPARE2" parameterTypeRef="ENG_SPARE2_Type" />
+        <xtce:Parameter name="ENG_FLAGS" parameterTypeRef="ENG_FLAGS_Type" />
+        <xtce:Parameter name="ENG_TRANSNUM" parameterTypeRef="ENG_TRANSNUM_Type" />
+        <xtce:Parameter name="ENG_ATTEMPTS" parameterTypeRef="ENG_ATTEMPTS_Type" />
+        <xtce:Parameter name="ENG_CONDCODE" parameterTypeRef="ENG_CONDCODE_Type" />
+        <xtce:Parameter name="ENG_DELICODE" parameterTypeRef="ENG_DELICODE_Type" />
+        <xtce:Parameter name="ENG_FDOFFSET" parameterTypeRef="ENG_FDOFFSET_Type" />
+        <xtce:Parameter name="ENG_FDLENGTH" parameterTypeRef="ENG_FDLENGTH_Type" />
+        <xtce:Parameter name="ENG_CHECKSUM" parameterTypeRef="ENG_CHECKSUM_Type" />
+        <xtce:Parameter name="ENG_FINALSTAT" parameterTypeRef="ENG_FINALSTAT_Type" />
+        <xtce:Parameter name="ENG_FILESIZE" parameterTypeRef="ENG_FILESIZE_Type" />
+        <xtce:Parameter name="ENG_RCVDFILESIZE" parameterTypeRef="ENG_RCVDFILESIZE_Type" />
+        <xtce:Parameter name="ENG_ROLE" parameterTypeRef="ENG_ROLE_Type" />
+        <xtce:Parameter name="ENG_STATE" parameterTypeRef="ENG_STATE_Type" />
+        <xtce:Parameter name="ENG_STARTTIME" parameterTypeRef="ENG_STARTTIME_Type" />
+        <xtce:Parameter name="ENG_SRCFILE" parameterTypeRef="ENG_SRCFILE_Type" />
+        <xtce:Parameter name="ENG_DSTFILE" parameterTypeRef="ENG_DSTFILE_Type" />
+        <xtce:Parameter name="ENG_TMPFILE" parameterTypeRef="ENG_TMPFILE_Type" />
+        <xtce:Parameter name="APP_STATUS" parameterTypeRef="APP_STATUS_Type" />
+        <xtce:Parameter name="APP_CONDCODE" parameterTypeRef="APP_CONDCODE_Type" />
+        <xtce:Parameter name="APP_PRIORITY" parameterTypeRef="APP_PRIORITY_Type" />
+        <xtce:Parameter name="APP_CLASS" parameterTypeRef="APP_CLASS_Type" />
+        <xtce:Parameter name="APP_CHANNUM" parameterTypeRef="APP_CHANNUM_Type" />
+        <xtce:Parameter name="APP_SOURCE" parameterTypeRef="APP_SOURCE_Type" />
+        <xtce:Parameter name="APP_NODETYPE" parameterTypeRef="APP_NODETYPE_Type" />
+        <xtce:Parameter name="APP_TRANSNUM" parameterTypeRef="APP_TRANSNUM_Type" />
+        <xtce:Parameter name="APP_SRCENTITYID" parameterTypeRef="APP_SRCENTITYID_Type" />
+        <xtce:Parameter name="APP_SRCFILE" parameterTypeRef="APP_SRCFILE_Type" />
+        <xtce:Parameter name="APP_DSTFILE" parameterTypeRef="APP_DSTFILE_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CF_TRANSPACKET" shortDescription="CF Application Single Transaction Status Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="ENG_TRANSLEN" />
+            <xtce:ParameterRefEntry parameterRef="ENG_TRANSVAL" />
+            <xtce:ParameterRefEntry parameterRef="ENG_NAKS" />
+            <xtce:ParameterRefEntry parameterRef="ENG_PARTLEN" />
+            <xtce:ParameterRefEntry parameterRef="ENG_PARTVAL" />
+            <xtce:ParameterRefEntry parameterRef="ENG_PHASE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_SPARE1" />
+            <xtce:ParameterRefEntry parameterRef="ENG_SPARE2" />
+            <xtce:ParameterRefEntry parameterRef="ENG_FLAGS" />
+            <xtce:ParameterRefEntry parameterRef="ENG_TRANSNUM" />
+            <xtce:ParameterRefEntry parameterRef="ENG_ATTEMPTS" />
+            <xtce:ParameterRefEntry parameterRef="ENG_CONDCODE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_DELICODE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_FDOFFSET" />
+            <xtce:ParameterRefEntry parameterRef="ENG_FDLENGTH" />
+            <xtce:ParameterRefEntry parameterRef="ENG_CHECKSUM" />
+            <xtce:ParameterRefEntry parameterRef="ENG_FINALSTAT" />
+            <xtce:ParameterRefEntry parameterRef="ENG_FILESIZE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_RCVDFILESIZE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_ROLE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_STATE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_STARTTIME" />
+            <xtce:ParameterRefEntry parameterRef="ENG_SRCFILE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_DSTFILE" />
+            <xtce:ParameterRefEntry parameterRef="ENG_TMPFILE" />
+            <xtce:ParameterRefEntry parameterRef="APP_STATUS" />
+            <xtce:ParameterRefEntry parameterRef="APP_CONDCODE" />
+            <xtce:ParameterRefEntry parameterRef="APP_PRIORITY" />
+            <xtce:ParameterRefEntry parameterRef="APP_CLASS" />
+            <xtce:ParameterRefEntry parameterRef="APP_CHANNUM" />
+            <xtce:ParameterRefEntry parameterRef="APP_SOURCE" />
+            <xtce:ParameterRefEntry parameterRef="APP_NODETYPE" />
+            <xtce:ParameterRefEntry parameterRef="APP_TRANSNUM" />
+            <xtce:ParameterRefEntry parameterRef="APP_SRCENTITYID" />
+            <xtce:ParameterRefEntry parameterRef="APP_SRCFILE" />
+            <xtce:ParameterRefEntry parameterRef="APP_DSTFILE" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2225" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CF_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="Count of valid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERRCOUNTER_Type" shortDescription="Count of invalid commands received." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_SENT_FILE_DATA_BYTES_Type" shortDescription="Sent file data bytes" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_SENT_PDU_Type" shortDescription="Sent PDUs counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_SENT_NAK_SEGMENT_REQUESTS_Type" shortDescription="Sent NAK segment requests counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_RECV_FILE_DATA_BYTES_Type" shortDescription="Received file data bytes" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_RECV_PDU_Type" shortDescription="Received PDUs counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_RECV_ERROR_Type" shortDescription="Received PDUs with error counter, see related event for cause" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_RECV_SPURIOUS_Type" shortDescription="Received PDUs with invalid directive code" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_RECV_DROPPED_Type" shortDescription="Received PDUs dropped due to a transaction error" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_RECV_NAK_SEGMENT_REQUESTS_Type" shortDescription="Received NAK segment requests counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_FILE_OPEN_Type" shortDescription="File open fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_FILE_READ_Type" shortDescription="File read fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_FILE_SEEK_Type" shortDescription="File seek fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_FILE_WRITE_Type" shortDescription="File write fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_FILE_RENAME_Type" shortDescription="File rename fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_DIRECTORY_READ_Type" shortDescription="Directory read fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_CRC_MISMATCH_Type" shortDescription="CRC mismatch fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_FILE_SIZE_MISMATCH_Type" shortDescription="File size mismatch fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_NAK_LIMIT_Type" shortDescription="NAK limit exceeded fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_ACK_LIMIT_Type" shortDescription="ACK limit exceeded fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_INACTIVITY_TIMER_Type" shortDescription="Inactivity timer exceeded counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FAULT_SPARE_Type" shortDescription="Alignment spare to avoid implicit padding" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_1_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_2_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_3_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_4_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_5_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_6_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_Q_SIZE_7_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_POLL_COUNTER_Type" shortDescription="Number of active polling directories" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_PLAYBACK_COUNTER_Type" shortDescription="Number of active playback directories" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH1_FROZEN_Type" shortDescription="Frozen state: 0 == not frozen, else frozen" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_SENT_FILE_DATA_BYTES_Type" shortDescription="Sent file data bytes" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_SENT_PDU_Type" shortDescription="Sent PDUs counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_SENT_NAK_SEGMENT_REQUESTS_Type" shortDescription="Sent NAK segment requests counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_RECV_FILE_DATA_BYTES_Type" shortDescription="Received file data bytes" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_RECV_PDU_Type" shortDescription="Received PDUs counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_RECV_ERROR_Type" shortDescription="Received PDUs with error counter, see related event for cause" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_RECV_SPURIOUS_Type" shortDescription="Received PDUs with invalid directive code" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_RECV_DROPPED_Type" shortDescription="Received PDUs dropped due to a transaction error" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_RECV_NAK_SEGMENT_REQUESTS_Type" shortDescription="Received NAK segment requests counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_FILE_OPEN_Type" shortDescription="File open fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_FILE_READ_Type" shortDescription="File read fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_FILE_SEEK_Type" shortDescription="File seek fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_FILE_WRITE_Type" shortDescription="File write fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_FILE_RENAME_Type" shortDescription="File rename fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_DIRECTORY_READ_Type" shortDescription="Directory read fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_CRC_MISMATCH_Type" shortDescription="CRC mismatch fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_FILE_SIZE_MISMATCH_Type" shortDescription="File size mismatch fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_NAK_LIMIT_Type" shortDescription="NAK limit exceeded fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_ACK_LIMIT_Type" shortDescription="ACK limit exceeded fault counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_INACTIVITY_TIMER_Type" shortDescription="Inactivity timer exceeded counter" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FAULT_SPARE_Type" shortDescription="Alignment spare to avoid implicit padding" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_1_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_2_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_3_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_4_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_5_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_6_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_Q_SIZE_7_Type" shortDescription="Queue size" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_POLL_COUNTER_Type" shortDescription="Number of active polling directories" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_PLAYBACK_COUNTER_Type" shortDescription="Number of active playback directories" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CH2_FROZEN_Type" shortDescription="Frozen state: 0 == not frozen, else frozen" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_1_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_2_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_3_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_4_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_5_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_6_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SPARE_7_Type" shortDescription="" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
+        <xtce:Parameter name="ERRCOUNTER" parameterTypeRef="ERRCOUNTER_Type" />
+        <xtce:Parameter name="SPARE" parameterTypeRef="SPARE_Type" />
+        <xtce:Parameter name="CH1_SENT_FILE_DATA_BYTES" parameterTypeRef="CH1_SENT_FILE_DATA_BYTES_Type" />
+        <xtce:Parameter name="CH1_SENT_PDU" parameterTypeRef="CH1_SENT_PDU_Type" />
+        <xtce:Parameter name="CH1_SENT_NAK_SEGMENT_REQUESTS" parameterTypeRef="CH1_SENT_NAK_SEGMENT_REQUESTS_Type" />
+        <xtce:Parameter name="CH1_RECV_FILE_DATA_BYTES" parameterTypeRef="CH1_RECV_FILE_DATA_BYTES_Type" />
+        <xtce:Parameter name="CH1_RECV_PDU" parameterTypeRef="CH1_RECV_PDU_Type" />
+        <xtce:Parameter name="CH1_RECV_ERROR" parameterTypeRef="CH1_RECV_ERROR_Type" />
+        <xtce:Parameter name="CH1_RECV_SPURIOUS" parameterTypeRef="CH1_RECV_SPURIOUS_Type" />
+        <xtce:Parameter name="CH1_RECV_DROPPED" parameterTypeRef="CH1_RECV_DROPPED_Type" />
+        <xtce:Parameter name="CH1_RECV_NAK_SEGMENT_REQUESTS" parameterTypeRef="CH1_RECV_NAK_SEGMENT_REQUESTS_Type" />
+        <xtce:Parameter name="CH1_FAULT_FILE_OPEN" parameterTypeRef="CH1_FAULT_FILE_OPEN_Type" />
+        <xtce:Parameter name="CH1_FAULT_FILE_READ" parameterTypeRef="CH1_FAULT_FILE_READ_Type" />
+        <xtce:Parameter name="CH1_FAULT_FILE_SEEK" parameterTypeRef="CH1_FAULT_FILE_SEEK_Type" />
+        <xtce:Parameter name="CH1_FAULT_FILE_WRITE" parameterTypeRef="CH1_FAULT_FILE_WRITE_Type" />
+        <xtce:Parameter name="CH1_FAULT_FILE_RENAME" parameterTypeRef="CH1_FAULT_FILE_RENAME_Type" />
+        <xtce:Parameter name="CH1_FAULT_DIRECTORY_READ" parameterTypeRef="CH1_FAULT_DIRECTORY_READ_Type" />
+        <xtce:Parameter name="CH1_FAULT_CRC_MISMATCH" parameterTypeRef="CH1_FAULT_CRC_MISMATCH_Type" />
+        <xtce:Parameter name="CH1_FAULT_FILE_SIZE_MISMATCH" parameterTypeRef="CH1_FAULT_FILE_SIZE_MISMATCH_Type" />
+        <xtce:Parameter name="CH1_FAULT_NAK_LIMIT" parameterTypeRef="CH1_FAULT_NAK_LIMIT_Type" />
+        <xtce:Parameter name="CH1_FAULT_ACK_LIMIT" parameterTypeRef="CH1_FAULT_ACK_LIMIT_Type" />
+        <xtce:Parameter name="CH1_FAULT_INACTIVITY_TIMER" parameterTypeRef="CH1_FAULT_INACTIVITY_TIMER_Type" />
+        <xtce:Parameter name="CH1_FAULT_SPARE" parameterTypeRef="CH1_FAULT_SPARE_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_1" parameterTypeRef="CH1_Q_SIZE_1_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_2" parameterTypeRef="CH1_Q_SIZE_2_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_3" parameterTypeRef="CH1_Q_SIZE_3_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_4" parameterTypeRef="CH1_Q_SIZE_4_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_5" parameterTypeRef="CH1_Q_SIZE_5_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_6" parameterTypeRef="CH1_Q_SIZE_6_Type" />
+        <xtce:Parameter name="CH1_Q_SIZE_7" parameterTypeRef="CH1_Q_SIZE_7_Type" />
+        <xtce:Parameter name="CH1_POLL_COUNTER" parameterTypeRef="CH1_POLL_COUNTER_Type" />
+        <xtce:Parameter name="CH1_PLAYBACK_COUNTER" parameterTypeRef="CH1_PLAYBACK_COUNTER_Type" />
+        <xtce:Parameter name="CH1_FROZEN" parameterTypeRef="CH1_FROZEN_Type" />
+        <xtce:Parameter name="CH2_SENT_FILE_DATA_BYTES" parameterTypeRef="CH2_SENT_FILE_DATA_BYTES_Type" />
+        <xtce:Parameter name="CH2_SENT_PDU" parameterTypeRef="CH2_SENT_PDU_Type" />
+        <xtce:Parameter name="CH2_SENT_NAK_SEGMENT_REQUESTS" parameterTypeRef="CH2_SENT_NAK_SEGMENT_REQUESTS_Type" />
+        <xtce:Parameter name="CH2_RECV_FILE_DATA_BYTES" parameterTypeRef="CH2_RECV_FILE_DATA_BYTES_Type" />
+        <xtce:Parameter name="CH2_RECV_PDU" parameterTypeRef="CH2_RECV_PDU_Type" />
+        <xtce:Parameter name="CH2_RECV_ERROR" parameterTypeRef="CH2_RECV_ERROR_Type" />
+        <xtce:Parameter name="CH2_RECV_SPURIOUS" parameterTypeRef="CH2_RECV_SPURIOUS_Type" />
+        <xtce:Parameter name="CH2_RECV_DROPPED" parameterTypeRef="CH2_RECV_DROPPED_Type" />
+        <xtce:Parameter name="CH2_RECV_NAK_SEGMENT_REQUESTS" parameterTypeRef="CH2_RECV_NAK_SEGMENT_REQUESTS_Type" />
+        <xtce:Parameter name="CH2_FAULT_FILE_OPEN" parameterTypeRef="CH2_FAULT_FILE_OPEN_Type" />
+        <xtce:Parameter name="CH2_FAULT_FILE_READ" parameterTypeRef="CH2_FAULT_FILE_READ_Type" />
+        <xtce:Parameter name="CH2_FAULT_FILE_SEEK" parameterTypeRef="CH2_FAULT_FILE_SEEK_Type" />
+        <xtce:Parameter name="CH2_FAULT_FILE_WRITE" parameterTypeRef="CH2_FAULT_FILE_WRITE_Type" />
+        <xtce:Parameter name="CH2_FAULT_FILE_RENAME" parameterTypeRef="CH2_FAULT_FILE_RENAME_Type" />
+        <xtce:Parameter name="CH2_FAULT_DIRECTORY_READ" parameterTypeRef="CH2_FAULT_DIRECTORY_READ_Type" />
+        <xtce:Parameter name="CH2_FAULT_CRC_MISMATCH" parameterTypeRef="CH2_FAULT_CRC_MISMATCH_Type" />
+        <xtce:Parameter name="CH2_FAULT_FILE_SIZE_MISMATCH" parameterTypeRef="CH2_FAULT_FILE_SIZE_MISMATCH_Type" />
+        <xtce:Parameter name="CH2_FAULT_NAK_LIMIT" parameterTypeRef="CH2_FAULT_NAK_LIMIT_Type" />
+        <xtce:Parameter name="CH2_FAULT_ACK_LIMIT" parameterTypeRef="CH2_FAULT_ACK_LIMIT_Type" />
+        <xtce:Parameter name="CH2_FAULT_INACTIVITY_TIMER" parameterTypeRef="CH2_FAULT_INACTIVITY_TIMER_Type" />
+        <xtce:Parameter name="CH2_FAULT_SPARE" parameterTypeRef="CH2_FAULT_SPARE_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_1" parameterTypeRef="CH2_Q_SIZE_1_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_2" parameterTypeRef="CH2_Q_SIZE_2_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_3" parameterTypeRef="CH2_Q_SIZE_3_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_4" parameterTypeRef="CH2_Q_SIZE_4_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_5" parameterTypeRef="CH2_Q_SIZE_5_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_6" parameterTypeRef="CH2_Q_SIZE_6_Type" />
+        <xtce:Parameter name="CH2_Q_SIZE_7" parameterTypeRef="CH2_Q_SIZE_7_Type" />
+        <xtce:Parameter name="CH2_POLL_COUNTER" parameterTypeRef="CH2_POLL_COUNTER_Type" />
+        <xtce:Parameter name="CH2_PLAYBACK_COUNTER" parameterTypeRef="CH2_PLAYBACK_COUNTER_Type" />
+        <xtce:Parameter name="CH2_FROZEN" parameterTypeRef="CH2_FROZEN_Type" />
+        <xtce:Parameter name="SPARE_1" parameterTypeRef="SPARE_1_Type" />
+        <xtce:Parameter name="SPARE_2" parameterTypeRef="SPARE_2_Type" />
+        <xtce:Parameter name="SPARE_3" parameterTypeRef="SPARE_3_Type" />
+        <xtce:Parameter name="SPARE_4" parameterTypeRef="SPARE_4_Type" />
+        <xtce:Parameter name="SPARE_5" parameterTypeRef="SPARE_5_Type" />
+        <xtce:Parameter name="SPARE_6" parameterTypeRef="SPARE_6_Type" />
+        <xtce:Parameter name="SPARE_7" parameterTypeRef="SPARE_7_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CF_HKPACKET" shortDescription="CF Application housekeeping Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>128</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="ERRCOUNTER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>144</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>160</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_SENT_FILE_DATA_BYTES">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>192</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_SENT_PDU">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>256</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_SENT_NAK_SEGMENT_REQUESTS">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>288</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_RECV_FILE_DATA_BYTES">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>320</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_RECV_PDU">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>384</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_RECV_ERROR">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>416</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_RECV_SPURIOUS">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>448</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_RECV_DROPPED">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>464</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_RECV_NAK_SEGMENT_REQUESTS">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>480</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_FILE_OPEN">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_FILE_READ">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>528</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_FILE_SEEK">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>544</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_FILE_WRITE">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>560</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_FILE_RENAME">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>576</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_DIRECTORY_READ">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>592</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_CRC_MISMATCH">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>608</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_FILE_SIZE_MISMATCH">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>624</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_NAK_LIMIT">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>640</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_ACK_LIMIT">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>656</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_INACTIVITY_TIMER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>672</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FAULT_SPARE">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>688</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_1">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>704</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_2">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>720</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_3">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>736</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_4">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>752</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_5">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>768</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_6">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>784</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_7">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>800</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_POLL_COUNTER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>816</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_PLAYBACK_COUNTER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>824</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH1_FROZEN">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>832</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_SENT_FILE_DATA_BYTES">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>896</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_SENT_PDU">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>960</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_SENT_NAK_SEGMENT_REQUESTS">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>992</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_RECV_FILE_DATA_BYTES">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1024</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_RECV_PDU">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1088</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_RECV_ERROR">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1120</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_RECV_SPURIOUS">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1152</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_RECV_DROPPED">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1168</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_RECV_NAK_SEGMENT_REQUESTS">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1184</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_OPEN">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1216</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_READ">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1232</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_SEEK">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1248</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_WRITE">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1264</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_RENAME">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1280</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_DIRECTORY_READ">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1296</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_CRC_MISMATCH">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1312</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_SIZE_MISMATCH">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1328</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_NAK_LIMIT">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1344</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_ACK_LIMIT">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1360</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_INACTIVITY_TIMER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1376</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FAULT_SPARE">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1392</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_1">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1408</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_2">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1424</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_3">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1440</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_4">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1456</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_5">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1472</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_6">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1488</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_7">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1504</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_POLL_COUNTER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1520</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_PLAYBACK_COUNTER">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1528</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="CH2_FROZEN">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1536</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_1">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1544</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_2">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1552</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_3">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1560</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_4">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1568</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_5">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1576</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_6">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1584</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+            <xtce:ParameterRefEntry parameterRef="SPARE_7">
+              <xtce:LocationInContainerInBits referenceLocation="containerStart">
+                <xtce:FixedValue>1592</xtce:FixedValue>
+              </xtce:LocationInContainerInBits>
+            </xtce:ParameterRefEntry>
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2224" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CF_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="ASPARE_Type" shortDescription="Spare - Unused" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned"/>
+        </xtce:IntegerArgumentType>
+        <xtce:ArrayArgumentType name="ASPARE_ArrayType" shortDescription="Spare - Unused" arrayTypeRef="ASPARE_Type">
+          <xtce:DimensionList>
+            <xtce:Dimension>
+              <xtce:StartingIndex>
+                <xtce:FixedValue>0</xtce:FixedValue>
+              </xtce:StartingIndex>
+              <xtce:EndingIndex>
+                <xtce:FixedValue>2</xtce:FixedValue>
+              </xtce:EndingIndex>
+            </xtce:Dimension>
+          </xtce:DimensionList>
+        </xtce:ArrayArgumentType>
+        <xtce:EnumeratedArgumentType name="CHAN_NUM_Type" initialValue="CHAN 0" shortDescription="CFDP Chan 0 or 1">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="CHAN 0" />
+            <xtce:Enumeration value="1" label="CHAN 1" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:EnumeratedArgumentType name="CHAN_Type" initialValue="CHAN 0" shortDescription="CFDP Chan 0 or 1">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="CHAN 0" />
+            <xtce:Enumeration value="1" label="CHAN 1" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:EnumeratedArgumentType name="CLASS_Type" initialValue="CLASS 2 - WITH FEEDBACK" shortDescription="CFDP Class 1 or 2">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="CLASS 1 - NO FEEDBACK" />
+            <xtce:Enumeration value="1" label="CLASS 2 - WITH FEEDBACK" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:IntegerArgumentType name="DEST_ID_Type" initialValue="23" shortDescription="Destination ID (entity id) - 4 bytes" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:StringArgumentType name="DIRECTORY_Type" characterWidth="8" initialValue="default" shortDescription="Directory name.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:EnumeratedArgumentType name="DIS_EN_Type" initialValue="DISABLE '0'" shortDescription="Disable (0) or Enable (1)">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="DISABLE '0'" />
+            <xtce:Enumeration value="1" label="ENABLE '1'" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:StringArgumentType name="DSTFILENAME_Type" characterWidth="8" initialValue="" shortDescription="Path/Filename at destination">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="DSTPATH_Type" characterWidth="8" initialValue="/tmp/" shortDescription="Path to store files on ground">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="FILENAME_Type" characterWidth="8" initialValue="default" shortDescription="Path and Filename of data to be loaded.">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="GIVE_OR_TAKE_Type" initialValue="0" shortDescription="Give or take semaphore." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:EnumeratedArgumentType name="KEEP_Type" initialValue="KEEP" shortDescription="Keep or delete file after transfer">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="DELETE" />
+            <xtce:Enumeration value="1" label="KEEP" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:StringArgumentType name="PARAM_Type" characterWidth="8" initialValue="?" shortDescription="Parameter to be retrieve">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>256</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:IntegerArgumentType name="PEER_ENTITY_ID_Type" initialValue="23" shortDescription="Destination ID (entity id) - 4 bytes" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:EnumeratedArgumentType name="PRESERVE_Type" initialValue="KEEP" shortDescription="On success, delete (0) or keep (1)">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="DELETE" />
+            <xtce:Enumeration value="1" label="KEEP" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:IntegerArgumentType name="PRIORITY_Type" initialValue="0" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        </xtce:IntegerArgumentType>
+        <xtce:EnumeratedArgumentType name="QUEUE_Type" initialValue="0" shortDescription="Active, or History">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="1" label="ACTIVE" />
+            <xtce:Enumeration value="2" label="HISTORY" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:StringArgumentType name="SRCFILENAME_Type" characterWidth="8" initialValue="/d/" shortDescription="Path/Filename to send">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="SRCPATH_Type" characterWidth="8" initialValue="/ram/" shortDescription="Path to poll">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>512</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="TRANSACTION_NODE_Type" characterWidth="8" initialValue="?" shortDescription="Node to DELETE">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>256</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:StringArgumentType name="TRANSACTION_Type" characterWidth="8" initialValue="?" shortDescription="Transaction to get status">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>256</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+        <xtce:EnumeratedArgumentType name="TYPE_Type" initialValue="ALL" shortDescription="All, Up, Down">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:EnumerationList>
+            <xtce:Enumeration value="0" label="ALL" />
+            <xtce:Enumeration value="1" label="UP" />
+            <xtce:Enumeration value="2" label="DOWN" />
+          </xtce:EnumerationList>
+        </xtce:EnumeratedArgumentType>
+        <xtce:StringArgumentType name="VALUE_Type" characterWidth="8" initialValue="?" shortDescription="Parameter value">
+          <xtce:StringDataEncoding encoding="UTF-8">
+            <xtce:SizeInBits>
+              <xtce:Fixed>
+                <xtce:FixedValue>256</xtce:FixedValue>
+              </xtce:Fixed>
+            </xtce:SizeInBits>
+          </xtce:StringDataEncoding>
+        </xtce:StringArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CF_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6324" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CF_SEND_HK_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_ENADIS_AUTO_SUSPEND">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="26" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="DIS_EN" argumentTypeRef="DIS_EN_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_ENADIS_AUTO_SUSPEND_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="DIS_EN" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>2</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_GIVE_TAKE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="25" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="GIVE_OR_TAKE" argumentTypeRef="GIVE_OR_TAKE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_GIVE_TAKE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="GIVE_OR_TAKE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_QUICK_STAT">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="24" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION" argumentTypeRef="TRANSACTION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_QUICK_STAT_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_KICKSTART">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="23" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_KICKSTART_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>2</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_WRITE_ACTIVE_TRANS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="22" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TYPE" argumentTypeRef="TYPE_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+            <xtce:Argument name="FILENAME" argumentTypeRef="FILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_WRITE_ACTIVE_TRANS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TYPE" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+              <xtce:ArgumentRefEntry argumentRef="FILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_PURGE_QUEUE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="21" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TYPE" argumentTypeRef="TYPE_Type" />
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="QUEUE" argumentTypeRef="QUEUE_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_PURGE_QUEUE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TYPE" />
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="QUEUE" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_DELETE_QUEUE_NODE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="20" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION_NODE" argumentTypeRef="TRANSACTION_NODE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_DELETE_QUEUE_NODE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION_NODE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_DISABLE_DIRECTORY_POLLING">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="19" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_DISABLE_DIRECTORY_POLLING_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_ENABLE_DIRECTORY_POLLING">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="18" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_ENABLE_DIRECTORY_POLLING_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>1</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_DISABLE_DEQUEUE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_DISABLE_DEQUEUE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>2</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_ENABLE_DEQUEUE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="16" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_ENABLE_DEQUEUE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>2</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_WRITE_QUEUE_INFO">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TYPE" argumentTypeRef="TYPE_Type" />
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="QUEUE" argumentTypeRef="QUEUE_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_WRITE_QUEUE_INFO_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TYPE" />
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="QUEUE" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_SEND_CFG_PARAMS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CF_SEND_CFG_PARAMS_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_SET_POLL_PARAMETER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="DIRECTORY" argumentTypeRef="DIRECTORY_Type" />
+            <xtce:Argument name="CLASS" argumentTypeRef="CLASS_Type" />
+            <xtce:Argument name="PRIORITY" argumentTypeRef="PRIORITY_Type" />
+            <xtce:Argument name="PRESERVE" argumentTypeRef="PRESERVE_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+            <xtce:Argument name="PEER_ENTITY_ID" argumentTypeRef="PEER_ENTITY_ID_Type" />
+            <xtce:Argument name="SRCPATH" argumentTypeRef="SRCPATH_Type" />
+            <xtce:Argument name="DSTPATH" argumentTypeRef="DSTPATH_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_SET_POLL_PARAMETER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="DIRECTORY" />
+              <xtce:ArgumentRefEntry argumentRef="CLASS" />
+              <xtce:ArgumentRefEntry argumentRef="PRIORITY" />
+              <xtce:ArgumentRefEntry argumentRef="PRESERVE" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>2</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+              <xtce:ArgumentRefEntry argumentRef="PEER_ENTITY_ID" />
+              <xtce:ArgumentRefEntry argumentRef="SRCPATH" />
+              <xtce:ArgumentRefEntry argumentRef="DSTPATH" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_SEND_TRANS_DIAG">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION" argumentTypeRef="TRANSACTION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_SEND_TRANS_DIAG_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_GET_MIB_PARAMETER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="PARAM" argumentTypeRef="PARAM_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_GET_MIB_PARAMETER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="PARAM" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_SET_MIB_PARAMETER">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="PARAM" argumentTypeRef="PARAM_Type" />
+            <xtce:Argument name="VALUE" argumentTypeRef="VALUE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_SET_MIB_PARAMETER_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="PARAM" />
+              <xtce:ArgumentRefEntry argumentRef="VALUE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_ABANDON">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION" argumentTypeRef="TRANSACTION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_ABANDON_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_CANCEL">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION" argumentTypeRef="TRANSACTION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_CANCEL_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_RESUME">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION" argumentTypeRef="TRANSACTION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_RESUME_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_SUSPEND">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TRANSACTION" argumentTypeRef="TRANSACTION_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_SUSPEND_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TRANSACTION" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_THAW">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CF_THAW_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_FREEZE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CF_FREEZE_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_PLAYBACK_DIR">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CLASS" argumentTypeRef="CLASS_Type" />
+            <xtce:Argument name="CHAN" argumentTypeRef="CHAN_Type" />
+            <xtce:Argument name="PRIORITY" argumentTypeRef="PRIORITY_Type" />
+            <xtce:Argument name="PRESERVE" argumentTypeRef="PRESERVE_Type" />
+            <xtce:Argument name="PEER_ENTITY_ID" argumentTypeRef="PEER_ENTITY_ID_Type" />
+            <xtce:Argument name="SRCPATH" argumentTypeRef="SRCPATH_Type" />
+            <xtce:Argument name="DSTPATH" argumentTypeRef="DSTPATH_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_PLAYBACK_DIR_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CLASS" />
+              <xtce:ArgumentRefEntry argumentRef="CHAN" />
+              <xtce:ArgumentRefEntry argumentRef="PRIORITY" />
+              <xtce:ArgumentRefEntry argumentRef="PRESERVE" />
+              <xtce:ArgumentRefEntry argumentRef="PEER_ENTITY_ID" />
+              <xtce:ArgumentRefEntry argumentRef="SRCPATH" />
+              <xtce:ArgumentRefEntry argumentRef="DSTPATH" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_TX_FILE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CLASS" argumentTypeRef="CLASS_Type" />
+            <xtce:Argument name="KEEP" argumentTypeRef="KEEP_Type" />
+            <xtce:Argument name="CHAN_NUM" argumentTypeRef="CHAN_NUM_Type" />
+            <xtce:Argument name="PRIORITY" argumentTypeRef="PRIORITY_Type" />
+            <xtce:Argument name="DEST_ID" argumentTypeRef="DEST_ID_Type" />
+            <xtce:Argument name="SRCFILENAME" argumentTypeRef="SRCFILENAME_Type" />
+            <xtce:Argument name="DSTFILENAME" argumentTypeRef="DSTFILENAME_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_TX_FILE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CLASS" />
+              <xtce:ArgumentRefEntry argumentRef="KEEP" />
+              <xtce:ArgumentRefEntry argumentRef="CHAN_NUM" />
+              <xtce:ArgumentRefEntry argumentRef="PRIORITY" />
+              <xtce:ArgumentRefEntry argumentRef="DEST_ID" />
+              <xtce:ArgumentRefEntry argumentRef="SRCFILENAME" />
+              <xtce:ArgumentRefEntry argumentRef="DSTFILENAME" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_RESET_COUNTERS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="VALUE" argumentTypeRef="VALUE_Type" />
+            <xtce:Argument name="ASPARE" argumentTypeRef="ASPARE_ArrayType" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CF_RESET_COUNTERS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="VALUE" />
+              <xtce:ArrayArgumentRefEntry argumentRef="ASPARE">
+                <xtce:DimensionList>
+                  <xtce:Dimension>
+                    <xtce:StartingIndex>
+                      <xtce:FixedValue>0</xtce:FixedValue>
+                    </xtce:StartingIndex>
+                    <xtce:EndingIndex>
+                      <xtce:FixedValue>2</xtce:FixedValue>
+                    </xtce:EndingIndex>
+                  </xtce:Dimension>
+                </xtce:DimensionList>
+              </xtce:ArrayArgumentRefEntry>
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CF_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6323" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CF_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

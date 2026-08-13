@@ -11,3 +11,8 @@
 
 # Docker logs for CI
 docker/all.log
+
+# Component GSW files
+src/main/yamcs/mdb/components
+src/main/yamcs/displays/components
+src/main/yamcs/procedures/components

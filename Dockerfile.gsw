@@ -1,0 +1,39 @@
+# SHIRE YAMCS GSW w/ Pre-built Files
+#
+
+FROM ghcr.io/voyagertechnologies-public/shire-yamcs:latest AS builder
+WORKDIR /app
+
+# Copy files
+COPY pom.xml mvnw mvnw.cmd ./
+COPY .mvn .mvn/
+COPY src/ src/
+
+# Build the application
+RUN mvn clean package -DskipTests
+
+# Runtime stage - base from your lab/build image
+FROM ghcr.io/voyagertechnologies-public/shire-yamcs:latest
+WORKDIR /app
+
+# Copy the built application from builder stage
+COPY --from=builder /app/target/*-bundle.tar.gz ./
+RUN tar -xzf *-bundle.tar.gz --strip-components=1 && rm *-bundle.tar.gz
+
+# Copy entrypoint and timeline management scripts
+COPY bin/entrypoint.sh /app/bin/entrypoint.sh
+COPY yamcs_timeline.py /opt/yamcs/yamcs_timeline.py
+COPY load_timelines.sh /opt/yamcs/load_timelines.sh
+COPY timelines/ /opt/yamcs/timelines/
+RUN chmod +x /app/bin/entrypoint.sh /opt/yamcs/yamcs_timeline.py /opt/yamcs/load_timelines.sh
+
+# Expose ports
+EXPOSE 8090 10015/udp 10025/udp
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8090 || exit 1
+
+# Start YAMCS (entrypoint already copied and chmod'd as root)
+ENTRYPOINT ["/app/bin/entrypoint.sh"]
+CMD []

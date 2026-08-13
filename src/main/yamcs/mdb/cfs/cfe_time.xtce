@@ -1,0 +1,686 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CFE_TIME" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
+  <xtce:SpaceSystem name="CFE_TIME_DIAGPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="ATTONEMET_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: MET at time of tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONEMET_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: MET at time of tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONESTCF_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: STCF at time of tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONESTCF_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: STCF at time of tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONEDELAY_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Adjustment for slow tone detection.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONEDELAY_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Adjustment for slow tone detection.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONELATCH_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Local clock latched at time of tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONELATCH_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Local clock latched at time of tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ATTONELEAPS_Type" shortDescription="Leap Seconds at time of tone." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSTATEAPI_Type" shortDescription="Clock state as per API." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TIMESINCETONE_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Time elapsed since the tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TIMESINCETONE_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Time elapsed since the tone.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTLATCH_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Local clock latched just 'now'.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTLATCH_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Local clock latched just 'now'.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTMET_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: MET at this instant.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTMET_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: MET at this instant.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTTAI_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: TAI at this instant.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTTAI_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: TAI at this instant.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTUTC_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: UTC at this instant.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CURRENTUTC_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: UTC at this instant.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSETSTATE_Type" shortDescription="Time has been 'set'." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKFLYSTATE_Type" shortDescription="Current fly-wheel state." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSOURCE_Type" shortDescription="Internal vs external, etc." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSIGNAL_Type" shortDescription="Primary vs redundant, etc." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SERVERFLYSTATE_Type" shortDescription="Used by clients only." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="FORCED2FLY_Type" shortDescription="Commanded into fly-wheel." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSTATEFLAGS_Type" shortDescription="Clock State Flags." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONETIMEDIRECTION_Type" shortDescription="One time STCF adjustment direction (Add = 1, Sub = 2)." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONEHZDIRECTION_Type" shortDescription="1Hz STCF adjustment direction" signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DELAYDIRECTION_Type" shortDescription="Client latency adjustment direction." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONETIMEADJUST_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Previous one-time STCF adjustment.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONETIMEADJUST_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Previous one-time STCF adjustment.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONEHZADJUST_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Current 1Hz STCF adjustment.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ONEHZADJUST_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Current 1Hz STCF adjustment.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONESIGNALLATCH_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Local Clock latched at most recent tone signal.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONESIGNALLATCH_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Local Clock latched at most recent tone signal.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEDATALATCH_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Local Clock latched at arrival of tone data.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEDATALATCH_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Local Clock latched at arrival of tone data.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEMATCHCOUNT_Type" shortDescription="Tone signal / data verification count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEMATCHERRORS_Type" shortDescription="Tone signal / data verification error count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONESIGNALCOUNT_Type" shortDescription="Tone signal detected SB message count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEDATACOUNT_Type" shortDescription="Time at the tone data SB message count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEINTCOUNT_Type" shortDescription="Tone signal ISR execution count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEINTERRORS_Type" shortDescription="Tone signal ISR error count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONETASKCOUNT_Type" shortDescription="Tone task execution count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="VERSIONCOUNT_Type" shortDescription="Count of mods to time at tone reference data (version)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOCALINTCOUNT_Type" shortDescription="Local 1Hz ISR execution count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LOCALTASKCOUNT_Type" shortDescription="Local 1Hz task execution count." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="VIRTUALMET_Type" shortDescription="Software MET." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MINELAPSED_Type" shortDescription="Min tone signal / data pkt arrival window (Sub-seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXELAPSED_Type" shortDescription="Max tone signal / data pkt arrival window (Sub-seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXLOCALCLOCK_SECONDS_Type" shortDescription="Number of seconds since epoch. (Parent: Max local clock value before rollover.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="MAXLOCALCLOCK_SUBSECONDS_Type" shortDescription="Number of subseconds since epoch (LSB = 2^(-32) seconds). (Parent: Max local clock value before rollover.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEOVERLIMIT_Type" shortDescription="Max between tone signal interrupts." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="TONEUNDERLIMIT_Type" shortDescription="Min between tone signal interrupts." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="DATASTORESTATUS_Type" shortDescription="Data Store status (preserved across processor reset)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="ATTONEMET_SECONDS" parameterTypeRef="ATTONEMET_SECONDS_Type" />
+        <xtce:Parameter name="ATTONEMET_SUBSECONDS" parameterTypeRef="ATTONEMET_SUBSECONDS_Type" />
+        <xtce:Parameter name="ATTONESTCF_SECONDS" parameterTypeRef="ATTONESTCF_SECONDS_Type" />
+        <xtce:Parameter name="ATTONESTCF_SUBSECONDS" parameterTypeRef="ATTONESTCF_SUBSECONDS_Type" />
+        <xtce:Parameter name="ATTONEDELAY_SECONDS" parameterTypeRef="ATTONEDELAY_SECONDS_Type" />
+        <xtce:Parameter name="ATTONEDELAY_SUBSECONDS" parameterTypeRef="ATTONEDELAY_SUBSECONDS_Type" />
+        <xtce:Parameter name="ATTONELATCH_SECONDS" parameterTypeRef="ATTONELATCH_SECONDS_Type" />
+        <xtce:Parameter name="ATTONELATCH_SUBSECONDS" parameterTypeRef="ATTONELATCH_SUBSECONDS_Type" />
+        <xtce:Parameter name="ATTONELEAPS" parameterTypeRef="ATTONELEAPS_Type" />
+        <xtce:Parameter name="CLOCKSTATEAPI" parameterTypeRef="CLOCKSTATEAPI_Type" />
+        <xtce:Parameter name="TIMESINCETONE_SECONDS" parameterTypeRef="TIMESINCETONE_SECONDS_Type" />
+        <xtce:Parameter name="TIMESINCETONE_SUBSECONDS" parameterTypeRef="TIMESINCETONE_SUBSECONDS_Type" />
+        <xtce:Parameter name="CURRENTLATCH_SECONDS" parameterTypeRef="CURRENTLATCH_SECONDS_Type" />
+        <xtce:Parameter name="CURRENTLATCH_SUBSECONDS" parameterTypeRef="CURRENTLATCH_SUBSECONDS_Type" />
+        <xtce:Parameter name="CURRENTMET_SECONDS" parameterTypeRef="CURRENTMET_SECONDS_Type" />
+        <xtce:Parameter name="CURRENTMET_SUBSECONDS" parameterTypeRef="CURRENTMET_SUBSECONDS_Type" />
+        <xtce:Parameter name="CURRENTTAI_SECONDS" parameterTypeRef="CURRENTTAI_SECONDS_Type" />
+        <xtce:Parameter name="CURRENTTAI_SUBSECONDS" parameterTypeRef="CURRENTTAI_SUBSECONDS_Type" />
+        <xtce:Parameter name="CURRENTUTC_SECONDS" parameterTypeRef="CURRENTUTC_SECONDS_Type" />
+        <xtce:Parameter name="CURRENTUTC_SUBSECONDS" parameterTypeRef="CURRENTUTC_SUBSECONDS_Type" />
+        <xtce:Parameter name="CLOCKSETSTATE" parameterTypeRef="CLOCKSETSTATE_Type" />
+        <xtce:Parameter name="CLOCKFLYSTATE" parameterTypeRef="CLOCKFLYSTATE_Type" />
+        <xtce:Parameter name="CLOCKSOURCE" parameterTypeRef="CLOCKSOURCE_Type" />
+        <xtce:Parameter name="CLOCKSIGNAL" parameterTypeRef="CLOCKSIGNAL_Type" />
+        <xtce:Parameter name="SERVERFLYSTATE" parameterTypeRef="SERVERFLYSTATE_Type" />
+        <xtce:Parameter name="FORCED2FLY" parameterTypeRef="FORCED2FLY_Type" />
+        <xtce:Parameter name="CLOCKSTATEFLAGS" parameterTypeRef="CLOCKSTATEFLAGS_Type" />
+        <xtce:Parameter name="ONETIMEDIRECTION" parameterTypeRef="ONETIMEDIRECTION_Type" />
+        <xtce:Parameter name="ONEHZDIRECTION" parameterTypeRef="ONEHZDIRECTION_Type" />
+        <xtce:Parameter name="DELAYDIRECTION" parameterTypeRef="DELAYDIRECTION_Type" />
+        <xtce:Parameter name="ONETIMEADJUST_SECONDS" parameterTypeRef="ONETIMEADJUST_SECONDS_Type" />
+        <xtce:Parameter name="ONETIMEADJUST_SUBSECONDS" parameterTypeRef="ONETIMEADJUST_SUBSECONDS_Type" />
+        <xtce:Parameter name="ONEHZADJUST_SECONDS" parameterTypeRef="ONEHZADJUST_SECONDS_Type" />
+        <xtce:Parameter name="ONEHZADJUST_SUBSECONDS" parameterTypeRef="ONEHZADJUST_SUBSECONDS_Type" />
+        <xtce:Parameter name="TONESIGNALLATCH_SECONDS" parameterTypeRef="TONESIGNALLATCH_SECONDS_Type" />
+        <xtce:Parameter name="TONESIGNALLATCH_SUBSECONDS" parameterTypeRef="TONESIGNALLATCH_SUBSECONDS_Type" />
+        <xtce:Parameter name="TONEDATALATCH_SECONDS" parameterTypeRef="TONEDATALATCH_SECONDS_Type" />
+        <xtce:Parameter name="TONEDATALATCH_SUBSECONDS" parameterTypeRef="TONEDATALATCH_SUBSECONDS_Type" />
+        <xtce:Parameter name="TONEMATCHCOUNT" parameterTypeRef="TONEMATCHCOUNT_Type" />
+        <xtce:Parameter name="TONEMATCHERRORS" parameterTypeRef="TONEMATCHERRORS_Type" />
+        <xtce:Parameter name="TONESIGNALCOUNT" parameterTypeRef="TONESIGNALCOUNT_Type" />
+        <xtce:Parameter name="TONEDATACOUNT" parameterTypeRef="TONEDATACOUNT_Type" />
+        <xtce:Parameter name="TONEINTCOUNT" parameterTypeRef="TONEINTCOUNT_Type" />
+        <xtce:Parameter name="TONEINTERRORS" parameterTypeRef="TONEINTERRORS_Type" />
+        <xtce:Parameter name="TONETASKCOUNT" parameterTypeRef="TONETASKCOUNT_Type" />
+        <xtce:Parameter name="VERSIONCOUNT" parameterTypeRef="VERSIONCOUNT_Type" />
+        <xtce:Parameter name="LOCALINTCOUNT" parameterTypeRef="LOCALINTCOUNT_Type" />
+        <xtce:Parameter name="LOCALTASKCOUNT" parameterTypeRef="LOCALTASKCOUNT_Type" />
+        <xtce:Parameter name="VIRTUALMET" parameterTypeRef="VIRTUALMET_Type" />
+        <xtce:Parameter name="MINELAPSED" parameterTypeRef="MINELAPSED_Type" />
+        <xtce:Parameter name="MAXELAPSED" parameterTypeRef="MAXELAPSED_Type" />
+        <xtce:Parameter name="MAXLOCALCLOCK_SECONDS" parameterTypeRef="MAXLOCALCLOCK_SECONDS_Type" />
+        <xtce:Parameter name="MAXLOCALCLOCK_SUBSECONDS" parameterTypeRef="MAXLOCALCLOCK_SUBSECONDS_Type" />
+        <xtce:Parameter name="TONEOVERLIMIT" parameterTypeRef="TONEOVERLIMIT_Type" />
+        <xtce:Parameter name="TONEUNDERLIMIT" parameterTypeRef="TONEUNDERLIMIT_Type" />
+        <xtce:Parameter name="DATASTORESTATUS" parameterTypeRef="DATASTORESTATUS_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_TIME_DIAGPACKET" shortDescription="Time Services Diagnostics Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="ATTONEMET_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONEMET_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONESTCF_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONESTCF_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONEDELAY_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONEDELAY_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONELATCH_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONELATCH_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ATTONELEAPS" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSTATEAPI" />
+            <xtce:ParameterRefEntry parameterRef="TIMESINCETONE_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TIMESINCETONE_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTLATCH_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTLATCH_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTMET_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTMET_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTTAI_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTTAI_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTUTC_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CURRENTUTC_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSETSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKFLYSTATE" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSOURCE" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSIGNAL" />
+            <xtce:ParameterRefEntry parameterRef="SERVERFLYSTATE" />
+            <xtce:ParameterRefEntry parameterRef="FORCED2FLY" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSTATEFLAGS" />
+            <xtce:ParameterRefEntry parameterRef="ONETIMEDIRECTION" />
+            <xtce:ParameterRefEntry parameterRef="ONEHZDIRECTION" />
+            <xtce:ParameterRefEntry parameterRef="DELAYDIRECTION" />
+            <xtce:ParameterRefEntry parameterRef="ONETIMEADJUST_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ONETIMEADJUST_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ONEHZADJUST_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="ONEHZADJUST_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TONESIGNALLATCH_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TONESIGNALLATCH_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TONEDATALATCH_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TONEDATALATCH_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TONEMATCHCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="TONEMATCHERRORS" />
+            <xtce:ParameterRefEntry parameterRef="TONESIGNALCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="TONEDATACOUNT" />
+            <xtce:ParameterRefEntry parameterRef="TONEINTCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="TONEINTERRORS" />
+            <xtce:ParameterRefEntry parameterRef="TONETASKCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="VERSIONCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="LOCALINTCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="LOCALTASKCOUNT" />
+            <xtce:ParameterRefEntry parameterRef="VIRTUALMET" />
+            <xtce:ParameterRefEntry parameterRef="MINELAPSED" />
+            <xtce:ParameterRefEntry parameterRef="MAXELAPSED" />
+            <xtce:ParameterRefEntry parameterRef="MAXLOCALCLOCK_SECONDS" />
+            <xtce:ParameterRefEntry parameterRef="MAXLOCALCLOCK_SUBSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="TONEOVERLIMIT" />
+            <xtce:ParameterRefEntry parameterRef="TONEUNDERLIMIT" />
+            <xtce:ParameterRefEntry parameterRef="DATASTORESTATUS" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2054" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_TIME_HKPACKET">
+    <xtce:TelemetryMetaData>
+      <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="Time Command Execution Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ERRCOUNTER_Type" shortDescription="Time Command Error Counter." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSTATEFLAGS_Type" shortDescription="State Flags." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="CLOCKSTATEAPI_Type" shortDescription="API State." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="LEAPSECONDS_Type" shortDescription="Current Leaps Seconds." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SECONDSMET_Type" shortDescription="Current MET (seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SUBSECSMET_Type" shortDescription="Current MET (sub-seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SECONDSSTCF_Type" shortDescription="Current STCF (seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SUBSECSSTCF_Type" shortDescription="Current STCF (sub-seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SECONDS1HZADJ_Type" shortDescription="Current 1 Hz SCTF adjustment (seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="SUBSECS1HZADJ_Type" shortDescription="Current 1 Hz SCTF adjustment (sub-seconds)." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+      </xtce:ParameterTypeSet>
+      <xtce:ParameterSet>
+        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
+        <xtce:Parameter name="ERRCOUNTER" parameterTypeRef="ERRCOUNTER_Type" />
+        <xtce:Parameter name="CLOCKSTATEFLAGS" parameterTypeRef="CLOCKSTATEFLAGS_Type" />
+        <xtce:Parameter name="CLOCKSTATEAPI" parameterTypeRef="CLOCKSTATEAPI_Type" />
+        <xtce:Parameter name="LEAPSECONDS" parameterTypeRef="LEAPSECONDS_Type" />
+        <xtce:Parameter name="SECONDSMET" parameterTypeRef="SECONDSMET_Type" />
+        <xtce:Parameter name="SUBSECSMET" parameterTypeRef="SUBSECSMET_Type" />
+        <xtce:Parameter name="SECONDSSTCF" parameterTypeRef="SECONDSSTCF_Type" />
+        <xtce:Parameter name="SUBSECSSTCF" parameterTypeRef="SUBSECSSTCF_Type" />
+        <xtce:Parameter name="SECONDS1HZADJ" parameterTypeRef="SECONDS1HZADJ_Type" />
+        <xtce:Parameter name="SUBSECS1HZADJ" parameterTypeRef="SUBSECS1HZADJ_Type" />
+      </xtce:ParameterSet>
+      <xtce:ContainerSet>
+        <xtce:SequenceContainer name="CFE_TIME_HKPACKET" shortDescription="Time Services Housekeeping Packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="ERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSTATEFLAGS" />
+            <xtce:ParameterRefEntry parameterRef="CLOCKSTATEAPI" />
+            <xtce:ParameterRefEntry parameterRef="LEAPSECONDS" />
+            <xtce:ParameterRefEntry parameterRef="SECONDSMET" />
+            <xtce:ParameterRefEntry parameterRef="SUBSECSMET" />
+            <xtce:ParameterRefEntry parameterRef="SECONDSSTCF" />
+            <xtce:ParameterRefEntry parameterRef="SUBSECSSTCF" />
+            <xtce:ParameterRefEntry parameterRef="SECONDS1HZADJ" />
+            <xtce:ParameterRefEntry parameterRef="SUBSECS1HZADJ" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2053" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
+      </xtce:ContainerSet>
+    </xtce:TelemetryMetaData>
+  </xtce:SpaceSystem>
+  <xtce:SpaceSystem name="CFE_TIME_COMMANDS">
+    <xtce:CommandMetaData>
+      <xtce:ArgumentTypeSet>
+        <xtce:IntegerArgumentType name="CLOCKSTATE_Type" initialValue="0" shortDescription="CFE_TIME_INVALID=Spacecraft time has not been accurately set, CFE_TIME_VALID=Spacecraft clock has been accurately set, CFE_TIME_FLYWHEEL=Force into FLYWHEEL mode" signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="-32768" maxInclusive="32767" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="MICROSECONDS_Type" initialValue="0" shortDescription="Subseconds to subtract from the current time calculation" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="SECONDS_Type" initialValue="0" shortDescription="Seconds to subtract from the current time calculation" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="SUBSECONDS_Type" initialValue="0" shortDescription="Subseconds to subtract from the STCF every second" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="TIMESOURCE_Type" initialValue="0" shortDescription="CFE_TIME_USE_INTERN=Internal Source, CFE_TIME_USE_EXTERN=External Source" signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="-32768" maxInclusive="32767" />
+        </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="TONESOURCE_Type" initialValue="0" shortDescription="CFE_TIME_TONE_PRI=Primary Source, CFE_TIME_TONE_RED=Redundant Source" signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="-32768" maxInclusive="32767" />
+        </xtce:IntegerArgumentType>
+      </xtce:ArgumentTypeSet>
+      <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CFE_TIME_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6157" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TIME_SEND_HK_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SUB_DELAY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="6" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SUB_DELAY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SUB_ADJUST">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="12" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SUB_ADJUST_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SUB_1HZADJ">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="14" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="SUBSECONDS" argumentTypeRef="SUBSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SUB_1HZADJ_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="SUBSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_TIME">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="7" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_TIME_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_STCF">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="9" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_STCF_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_STATE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="CLOCKSTATE" argumentTypeRef="CLOCKSTATE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_STATE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="CLOCKSTATE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_SOURCE">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TIMESOURCE" argumentTypeRef="TIMESOURCE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_SOURCE_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TIMESOURCE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_SIGNAL">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="15" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="TONESOURCE" argumentTypeRef="TONESOURCE_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_SIGNAL_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="TONESOURCE" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_MET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="8" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_MET_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_SET_LEAP_SECONDS">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="10" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_SET_LEAP_SECONDS_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_RESET">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TIME_RESET_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_NOOP">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TIME_NOOP_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_DIAG_TLM">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TIME_DIAG_TLM_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_ADD_DELAY">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_ADD_DELAY_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_ADD_ADJUST">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="11" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="MICROSECONDS" argumentTypeRef="MICROSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_ADD_ADJUST_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="MICROSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_TIME_ADD_1HZADJ">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6149" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="13" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="SUBSECONDS" argumentTypeRef="SUBSECONDS_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_CFE_TIME_ADD_1HZADJ_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="SECONDS" />
+              <xtce:ArgumentRefEntry argumentRef="SUBSECONDS" />
+            </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+      </xtce:MetaCommandSet>
+    </xtce:CommandMetaData>
+  </xtce:SpaceSystem>
+</xtce:SpaceSystem>

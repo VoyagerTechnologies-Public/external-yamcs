@@ -1,0 +1,32 @@
+{
+  "band": {
+    "id": "30e1ccbb-6c6d-42e6-911e-c8e9d7060992",
+    "name": "Radio Mode",
+    "username": "guest",
+    "shared": true,
+    "type": "PARAMETER_STATES",
+    "description": "",
+    "properties": {
+      "value_mapping_2_color": "#ffff00",
+      "value_mapping_0_label": "Disabled",
+      "value_mapping_3_value": "3",
+      "value_mapping_3_color": "#00ff00",
+      "value_mapping_1_color": "#0000ff",
+      "value_mapping_2_label": "TX only",
+      "frozen": "false",
+      "value_mapping_1_label": "RX only",
+      "value_mapping_1_type": "value",
+      "value_mapping_1_value": "1",
+      "value_mapping_0_value": "0",
+      "parameter": "/RADIO/RADIO_DEVICE_Mode",
+      "value_mapping_3_type": "value",
+      "value_mapping_2_value": "2",
+      "value_mapping_0_type": "value",
+      "value_mapping_2_type": "value",
+      "value_mapping_3_label": "Duplex",
+      "height": "30",
+      "value_mapping_0_color": "#ff0000"
+    }
+  },
+  "items": []
+}
