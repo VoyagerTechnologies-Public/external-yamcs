@@ -1159,11 +1159,13 @@
         <xtce:IntegerParameterType name="CHILDPREVIOUSCC_Type" shortDescription="Command code previously executed." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="PADDING_Type" shortDescription="Explicit native packet padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="24" encoding="unsigned" />
+        </xtce:IntegerParameterType>
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
         <xtce:Parameter name="COMMANDCOUNTER" parameterTypeRef="COMMANDCOUNTER_Type" />
         <xtce:Parameter name="COMMANDERRCOUNTER" parameterTypeRef="COMMANDERRCOUNTER_Type" />
-        <xtce:Parameter name="SPARE" parameterTypeRef="SPARE_Type" />
         <xtce:Parameter name="NUMOPENFILES" parameterTypeRef="NUMOPENFILES_Type" />
         <xtce:Parameter name="CHILDCMDCOUNTER" parameterTypeRef="CHILDCMDCOUNTER_Type" />
         <xtce:Parameter name="CHILDCMDERRCOUNTER" parameterTypeRef="CHILDCMDERRCOUNTER_Type" />
@@ -1171,13 +1173,13 @@
         <xtce:Parameter name="CHILDQUEUECOUNT" parameterTypeRef="CHILDQUEUECOUNT_Type" />
         <xtce:Parameter name="CHILDCURRENTCC" parameterTypeRef="CHILDCURRENTCC_Type" />
         <xtce:Parameter name="CHILDPREVIOUSCC" parameterTypeRef="CHILDPREVIOUSCC_Type" />
+        <xtce:Parameter name="PADDING" parameterTypeRef="PADDING_Type" />
       </xtce:ParameterSet>
       <xtce:ContainerSet>
         <xtce:SequenceContainer name="FM_HOUSEKEEPINGPKT" shortDescription="Housekeeping telemetry packet">
           <xtce:EntryList>
             <xtce:ParameterRefEntry parameterRef="COMMANDCOUNTER" />
             <xtce:ParameterRefEntry parameterRef="COMMANDERRCOUNTER" />
-            <xtce:ParameterRefEntry parameterRef="SPARE" />
             <xtce:ParameterRefEntry parameterRef="NUMOPENFILES" />
             <xtce:ParameterRefEntry parameterRef="CHILDCMDCOUNTER" />
             <xtce:ParameterRefEntry parameterRef="CHILDCMDERRCOUNTER" />
@@ -1185,6 +1187,7 @@
             <xtce:ParameterRefEntry parameterRef="CHILDQUEUECOUNT" />
             <xtce:ParameterRefEntry parameterRef="CHILDCURRENTCC" />
             <xtce:ParameterRefEntry parameterRef="CHILDPREVIOUSCC" />
+            <xtce:ParameterRefEntry parameterRef="PADDING" />
           </xtce:EntryList>
           <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
             <xtce:RestrictionCriteria>
@@ -1200,6 +1203,11 @@
   <xtce:SpaceSystem name="FM_FREESPACEPKT">
     <xtce:TelemetryMetaData>
       <xtce:ParameterTypeSet>
+        <xtce:IntegerParameterType name="REPORT_TYPE_Type" shortDescription="Filesystem report type." signed="false"><xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" /></xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENTRY_PADDING1_Type" shortDescription="Native entry padding before path." signed="false"><xtce:IntegerDataEncoding sizeInBits="56" encoding="unsigned" /></xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="ENTRY_PADDING2_Type" shortDescription="Explicit and native alignment before counters." signed="false"><xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" /></xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BLOCKS_Type" shortDescription="Filesystem block count." signed="false"><xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" /></xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="BYTES_Type" shortDescription="Filesystem byte count." signed="false"><xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" /></xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="FREESPACE1A_Type" shortDescription="First 32 bit portion of a 64 bit value." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
@@ -1322,58 +1330,106 @@
         </xtce:StringParameterType>
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
-        <xtce:Parameter name="FREESPACE1A" parameterTypeRef="FREESPACE1A_Type" />
-        <xtce:Parameter name="FREESPACE1B" parameterTypeRef="FREESPACE1B_Type" />
+        <xtce:Parameter name="REPORT_TYPE1" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_1" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME1" parameterTypeRef="NAME1_Type" />
-        <xtce:Parameter name="FREESPACE2A" parameterTypeRef="FREESPACE2A_Type" />
-        <xtce:Parameter name="FREESPACE2B" parameterTypeRef="FREESPACE2B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_1" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS1" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES1" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE2" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_2" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME2" parameterTypeRef="NAME2_Type" />
-        <xtce:Parameter name="FREESPACE3A" parameterTypeRef="FREESPACE3A_Type" />
-        <xtce:Parameter name="FREESPACE3B" parameterTypeRef="FREESPACE3B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_2" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS2" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES2" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE3" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_3" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME3" parameterTypeRef="NAME3_Type" />
-        <xtce:Parameter name="FREESPACE4A" parameterTypeRef="FREESPACE4A_Type" />
-        <xtce:Parameter name="FREESPACE4B" parameterTypeRef="FREESPACE4B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_3" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS3" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES3" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE4" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_4" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME4" parameterTypeRef="NAME4_Type" />
-        <xtce:Parameter name="FREESPACE5A" parameterTypeRef="FREESPACE5A_Type" />
-        <xtce:Parameter name="FREESPACE5B" parameterTypeRef="FREESPACE5B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_4" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS4" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES4" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE5" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_5" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME5" parameterTypeRef="NAME5_Type" />
-        <xtce:Parameter name="FREESPACE6A" parameterTypeRef="FREESPACE6A_Type" />
-        <xtce:Parameter name="FREESPACE6B" parameterTypeRef="FREESPACE6B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_5" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS5" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES5" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE6" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_6" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME6" parameterTypeRef="NAME6_Type" />
-        <xtce:Parameter name="FREESPACE7A" parameterTypeRef="FREESPACE7A_Type" />
-        <xtce:Parameter name="FREESPACE7B" parameterTypeRef="FREESPACE7B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_6" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS6" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES6" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE7" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_7" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME7" parameterTypeRef="NAME7_Type" />
-        <xtce:Parameter name="FREESPACE8A" parameterTypeRef="FREESPACE8A_Type" />
-        <xtce:Parameter name="FREESPACE8B" parameterTypeRef="FREESPACE8B_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_7" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS7" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES7" parameterTypeRef="BYTES_Type" />
+        <xtce:Parameter name="REPORT_TYPE8" parameterTypeRef="REPORT_TYPE_Type" />
+        <xtce:Parameter name="ENTRY_PADDING1_8" parameterTypeRef="ENTRY_PADDING1_Type" />
         <xtce:Parameter name="NAME8" parameterTypeRef="NAME8_Type" />
+        <xtce:Parameter name="ENTRY_PADDING2_8" parameterTypeRef="ENTRY_PADDING2_Type" />
+        <xtce:Parameter name="BLOCKS8" parameterTypeRef="BLOCKS_Type" />
+        <xtce:Parameter name="BYTES8" parameterTypeRef="BYTES_Type" />
       </xtce:ParameterSet>
       <xtce:ContainerSet>
         <xtce:SequenceContainer name="FM_FREESPACEPKT" shortDescription="Get Free Space telemetry packet">
           <xtce:EntryList>
-            <xtce:ParameterRefEntry parameterRef="FREESPACE1A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE1B" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE1" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_1" />
             <xtce:ParameterRefEntry parameterRef="NAME1" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE2A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE2B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_1" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS1" />
+            <xtce:ParameterRefEntry parameterRef="BYTES1" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE2" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_2" />
             <xtce:ParameterRefEntry parameterRef="NAME2" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE3A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE3B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_2" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS2" />
+            <xtce:ParameterRefEntry parameterRef="BYTES2" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE3" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_3" />
             <xtce:ParameterRefEntry parameterRef="NAME3" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE4A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE4B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_3" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS3" />
+            <xtce:ParameterRefEntry parameterRef="BYTES3" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE4" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_4" />
             <xtce:ParameterRefEntry parameterRef="NAME4" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE5A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE5B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_4" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS4" />
+            <xtce:ParameterRefEntry parameterRef="BYTES4" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE5" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_5" />
             <xtce:ParameterRefEntry parameterRef="NAME5" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE6A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE6B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_5" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS5" />
+            <xtce:ParameterRefEntry parameterRef="BYTES5" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE6" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_6" />
             <xtce:ParameterRefEntry parameterRef="NAME6" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE7A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE7B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_6" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS6" />
+            <xtce:ParameterRefEntry parameterRef="BYTES6" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE7" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_7" />
             <xtce:ParameterRefEntry parameterRef="NAME7" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE8A" />
-            <xtce:ParameterRefEntry parameterRef="FREESPACE8B" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_7" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS7" />
+            <xtce:ParameterRefEntry parameterRef="BYTES7" />
+            <xtce:ParameterRefEntry parameterRef="REPORT_TYPE8" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING1_8" />
             <xtce:ParameterRefEntry parameterRef="NAME8" />
+            <xtce:ParameterRefEntry parameterRef="ENTRY_PADDING2_8" />
+            <xtce:ParameterRefEntry parameterRef="BLOCKS8" />
+            <xtce:ParameterRefEntry parameterRef="BYTES8" />
           </xtce:EntryList>
           <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
             <xtce:RestrictionCriteria>
@@ -2128,7 +2184,7 @@
           <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
             <xtce:ArgumentAssignmentList>
               <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="19" />
             </xtce:ArgumentAssignmentList>
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
@@ -2304,7 +2360,7 @@
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
-        <xtce:MetaCommand name="FM_DELETE_INT">
+        <xtce:MetaCommand name="FM_DELETE_INT" abstract="true">
           <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
             <xtce:ArgumentAssignmentList>
               <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6284" />

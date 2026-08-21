@@ -1,113 +1,36 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xtce:SpaceSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xtce="http://www.omg.org/spec/XTCE/20180204" name="CI" xsi:schemaLocation="http://www.omg.org/spec/XTCE/20180204 https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd">
   <xtce:SpaceSystem name="CI_HKPACKET">
     <xtce:TelemetryMetaData>
       <xtce:ParameterTypeSet>
-        <xtce:IntegerParameterType name="CMDCOUNTER_Type" shortDescription="Count of all commands received." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="ERRCOUNTER_Type" shortDescription="Count of command errors." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="U8_Type" signed="false"><xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" /></xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="U32_Type" signed="false"><xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" /></xtce:IntegerParameterType>
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
-        <xtce:Parameter name="CMDCOUNTER" parameterTypeRef="CMDCOUNTER_Type" />
-        <xtce:Parameter name="ERRCOUNTER" parameterTypeRef="ERRCOUNTER_Type" />
+        <xtce:Parameter name="COMMAND_COUNTER" parameterTypeRef="U8_Type" />
+        <xtce:Parameter name="COMMAND_ERROR_COUNTER" parameterTypeRef="U8_Type" />
+        <xtce:Parameter name="ENABLE_CHECKSUMS" parameterTypeRef="U8_Type" />
+        <xtce:Parameter name="SOCKET_CONNECTED" parameterTypeRef="U8_Type" />
+        <xtce:Parameter name="INGEST_PACKETS" parameterTypeRef="U32_Type" />
+        <xtce:Parameter name="INGEST_ERRORS" parameterTypeRef="U32_Type" />
       </xtce:ParameterSet>
       <xtce:ContainerSet>
-        <xtce:SequenceContainer name="CI_HKPACKET" shortDescription="Housekeeping Packet Structure">
+        <xtce:SequenceContainer name="CI_HKPACKET" shortDescription="CI Lab housekeeping packet">
           <xtce:EntryList>
-            <xtce:ParameterRefEntry parameterRef="CMDCOUNTER" />
-            <xtce:ParameterRefEntry parameterRef="ERRCOUNTER" />
+            <xtce:ParameterRefEntry parameterRef="COMMAND_COUNTER" /><xtce:ParameterRefEntry parameterRef="COMMAND_ERROR_COUNTER" />
+            <xtce:ParameterRefEntry parameterRef="ENABLE_CHECKSUMS" /><xtce:ParameterRefEntry parameterRef="SOCKET_CONNECTED" />
+            <xtce:ParameterRefEntry parameterRef="INGEST_PACKETS" /><xtce:ParameterRefEntry parameterRef="INGEST_ERRORS" />
           </xtce:EntryList>
-          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
-            <xtce:RestrictionCriteria>
-              <xtce:ComparisonList>
-                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2180" />
-              </xtce:ComparisonList>
-            </xtce:RestrictionCriteria>
-          </xtce:BaseContainer>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM"><xtce:RestrictionCriteria><xtce:ComparisonList><xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2180" /></xtce:ComparisonList></xtce:RestrictionCriteria></xtce:BaseContainer>
         </xtce:SequenceContainer>
       </xtce:ContainerSet>
     </xtce:TelemetryMetaData>
   </xtce:SpaceSystem>
   <xtce:SpaceSystem name="CI_COMMANDS">
-    <xtce:CommandMetaData>
-      <xtce:ArgumentTypeSet />
-      <xtce:MetaCommandSet>
-        <xtce:MetaCommand name="CI_GET_HK">
-          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
-            <xtce:ArgumentAssignmentList>
-              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6277" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
-            </xtce:ArgumentAssignmentList>
-          </xtce:BaseMetaCommand>
-          <xtce:ArgumentList />
-          <xtce:CommandContainer name="CFS_CI_GET_HK_CommandContainer">
-            <xtce:EntryList />
-          </xtce:CommandContainer>
-        </xtce:MetaCommand>
-        <xtce:MetaCommand name="CI_RECONNECT_CC">
-          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
-            <xtce:ArgumentAssignmentList>
-              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="5" />
-            </xtce:ArgumentAssignmentList>
-          </xtce:BaseMetaCommand>
-          <xtce:ArgumentList />
-          <xtce:CommandContainer name="CFS_CI_RECONNECT_CC_CommandContainer">
-            <xtce:EntryList />
-          </xtce:CommandContainer>
-        </xtce:MetaCommand>
-        <xtce:MetaCommand name="CI_REINIT_CC">
-          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
-            <xtce:ArgumentAssignmentList>
-              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="4" />
-            </xtce:ArgumentAssignmentList>
-          </xtce:BaseMetaCommand>
-          <xtce:ArgumentList />
-          <xtce:CommandContainer name="CFS_CI_REINIT_CC_CommandContainer">
-            <xtce:EntryList />
-          </xtce:CommandContainer>
-        </xtce:MetaCommand>
-        <xtce:MetaCommand name="CI_DISCONNECT_CC">
-          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
-            <xtce:ArgumentAssignmentList>
-              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="3" />
-            </xtce:ArgumentAssignmentList>
-          </xtce:BaseMetaCommand>
-          <xtce:ArgumentList />
-          <xtce:CommandContainer name="CFS_CI_DISCONNECT_CC_CommandContainer">
-            <xtce:EntryList />
-          </xtce:CommandContainer>
-        </xtce:MetaCommand>
-        <xtce:MetaCommand name="CI_RESET_COUNTERS_CC">
-          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
-            <xtce:ArgumentAssignmentList>
-              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="2" />
-            </xtce:ArgumentAssignmentList>
-          </xtce:BaseMetaCommand>
-          <xtce:ArgumentList />
-          <xtce:CommandContainer name="CFS_CI_RESET_COUNTERS_CC_CommandContainer">
-            <xtce:EntryList />
-          </xtce:CommandContainer>
-        </xtce:MetaCommand>
-        <xtce:MetaCommand name="CI_NOOP_CC">
-          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
-            <xtce:ArgumentAssignmentList>
-              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
-            </xtce:ArgumentAssignmentList>
-          </xtce:BaseMetaCommand>
-          <xtce:ArgumentList />
-          <xtce:CommandContainer name="CFS_CI_NOOP_CC_CommandContainer">
-            <xtce:EntryList />
-          </xtce:CommandContainer>
-        </xtce:MetaCommand>
-      </xtce:MetaCommandSet>
-    </xtce:CommandMetaData>
+    <xtce:CommandMetaData><xtce:ArgumentTypeSet /><xtce:MetaCommandSet>
+      <xtce:MetaCommand name="CI_SEND_HK"><xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC"><xtce:ArgumentAssignmentList><xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6277" /><xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" /></xtce:ArgumentAssignmentList></xtce:BaseMetaCommand><xtce:ArgumentList /><xtce:CommandContainer name="CI_SEND_HK_Container"><xtce:EntryList /></xtce:CommandContainer></xtce:MetaCommand>
+      <xtce:MetaCommand name="CI_NOOP_CC"><xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC"><xtce:ArgumentAssignmentList><xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" /><xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" /></xtce:ArgumentAssignmentList></xtce:BaseMetaCommand><xtce:ArgumentList /><xtce:CommandContainer name="CI_NOOP_CC_Container"><xtce:EntryList /></xtce:CommandContainer></xtce:MetaCommand>
+      <xtce:MetaCommand name="CI_RESET_COUNTERS_CC"><xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC"><xtce:ArgumentAssignmentList><xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6276" /><xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="1" /></xtce:ArgumentAssignmentList></xtce:BaseMetaCommand><xtce:ArgumentList /><xtce:CommandContainer name="CI_RESET_COUNTERS_CC_Container"><xtce:EntryList /></xtce:CommandContainer></xtce:MetaCommand>
+    </xtce:MetaCommandSet></xtce:CommandMetaData>
   </xtce:SpaceSystem>
 </xtce:SpaceSystem>

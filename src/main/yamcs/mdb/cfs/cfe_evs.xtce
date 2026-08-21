@@ -367,12 +367,12 @@
           <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="MODE_Type" initialValue="0" shortDescription="Permissions, passed directly to OS_chmod." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="SPARE_Type" initialValue="0" shortDescription="Padding." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
       </xtce:ArgumentTypeSet>
       <xtce:MetaCommandSet>
@@ -730,6 +730,18 @@
               <xtce:ArgumentRefEntry argumentRef="EVENTID" />
               <xtce:ArgumentRefEntry argumentRef="MASK" />
             </xtce:EntryList>
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_EVS_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6153" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_EVS_SEND_HK_CommandContainer">
+            <xtce:EntryList />
           </xtce:CommandContainer>
         </xtce:MetaCommand>
       </xtce:MetaCommandSet>

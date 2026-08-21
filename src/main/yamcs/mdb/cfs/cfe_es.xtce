@@ -347,8 +347,11 @@
         <xtce:IntegerParameterType name="POOLHANDLE_Type" shortDescription="Handle of memory pool whose stats are being telemetered." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="POOLSTATS_POOLSIZE_Type" shortDescription="Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
+        <xtce:IntegerParameterType name="POOL_ALIGNMENT_PADDING_Type" shortDescription="Native alignment padding." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="POOLSTATS_POOLSIZE_Type" shortDescription="Size of Memory Pool (in bytes). (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="POOLSTATS_NUMBLOCKSREQUESTED_Type" shortDescription="Number of times a memory block has been allocated. (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -357,10 +360,10 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="POOLSTATS_NUMFREEBYTES_Type" shortDescription="Number of bytes never allocated to a block. (Parent: For more info, see CFE_ES_MemPoolStats_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_1_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_1_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -369,7 +372,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_2_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_2_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -378,7 +381,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_3_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_3_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -387,7 +390,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_4_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_4_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -396,7 +399,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_5_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_5_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -405,7 +408,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_6_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_6_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -414,7 +417,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_7_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_7_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -423,7 +426,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_8_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_8_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -432,7 +435,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_9_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_9_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -441,7 +444,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_10_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_10_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -450,7 +453,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_11_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_11_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -459,7 +462,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_12_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_12_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -468,7 +471,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_13_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_13_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -477,7 +480,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_14_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_14_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -486,7 +489,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_15_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_15_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -495,7 +498,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_16_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_16_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -504,7 +507,7 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_17_SIZE_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="BLOCKSTATS_17_NUM_CREATED_Type" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -515,6 +518,7 @@
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
         <xtce:Parameter name="POOLHANDLE" parameterTypeRef="POOLHANDLE_Type" />
+        <xtce:Parameter name="POOL_ALIGNMENT_PADDING" parameterTypeRef="POOL_ALIGNMENT_PADDING_Type" />
         <xtce:Parameter name="POOLSTATS_POOLSIZE" parameterTypeRef="POOLSTATS_POOLSIZE_Type" />
         <xtce:Parameter name="POOLSTATS_NUMBLOCKSREQUESTED" parameterTypeRef="POOLSTATS_NUMBLOCKSREQUESTED_Type" />
         <xtce:Parameter name="POOLSTATS_CHECKERRCTR" parameterTypeRef="POOLSTATS_CHECKERRCTR_Type" />
@@ -575,6 +579,7 @@
         <xtce:SequenceContainer name="CFE_ES_POOLSTATSTLM" shortDescription="Memory Pool Statistics Packet">
           <xtce:EntryList>
             <xtce:ParameterRefEntry parameterRef="POOLHANDLE" />
+            <xtce:ParameterRefEntry parameterRef="POOL_ALIGNMENT_PADDING" />
             <xtce:ParameterRefEntry parameterRef="POOLSTATS_POOLSIZE" />
             <xtce:ParameterRefEntry parameterRef="POOLSTATS_NUMBLOCKSREQUESTED" />
             <xtce:ParameterRefEntry parameterRef="POOLSTATS_CHECKERRCTR" />
@@ -679,37 +684,40 @@
           </xtce:StringDataEncoding>
         </xtce:StringParameterType>
         <xtce:IntegerParameterType name="APPINFO_STACKSIZE_Type" shortDescription="The Stack Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="APPINFO_MODULEID_Type" shortDescription="The ID of the Loadable Module for the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
+        <xtce:IntegerParameterType name="APPINFO_ALIGNMENT_PADDING1_Type" shortDescription="Native pointer alignment padding." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_ADDRESSESAREVALID_Type" shortDescription="Indicates that the Code, Data, and BSS addresses/sizes are valid. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_CODEADDRESS_Type" shortDescription="The Address of the Application Code Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_CODESIZE_Type" shortDescription="The Code Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_DATAADDRESS_Type" shortDescription="The Address of the Application Data Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_DATASIZE_Type" shortDescription="The Data Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_BSSADDRESS_Type" shortDescription="The Address of the Application BSS Segment. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_BSSSIZE_Type" shortDescription="The BSS Size of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_STARTADDRESS_Type" shortDescription="The Start Address of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_EXCEPTIONACTION_Type" shortDescription="What should occur if Application has an exception (Restart Application OR Restart Processor). (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_ALIGNMENT_PADDING2_Type" shortDescription="Native priority alignment padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="APPINFO_PRIORITY_Type" shortDescription="The Priority of the Application. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -732,6 +740,9 @@
         <xtce:IntegerParameterType name="APPINFO_NUMOFCHILDTASKS_Type" shortDescription="Number of Child tasks for an App. (Parent: For more information, see CFE_ES_AppInfo_t.)" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
+        <xtce:IntegerParameterType name="APPINFO_ALIGNMENT_PADDING3_Type" shortDescription="Native structure tail padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        </xtce:IntegerParameterType>
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
         <xtce:Parameter name="APPINFO_APPID" parameterTypeRef="APPINFO_APPID_Type" />
@@ -740,7 +751,7 @@
         <xtce:Parameter name="APPINFO_ENTRYPOINT" parameterTypeRef="APPINFO_ENTRYPOINT_Type" />
         <xtce:Parameter name="APPINFO_FILENAME" parameterTypeRef="APPINFO_FILENAME_Type" />
         <xtce:Parameter name="APPINFO_STACKSIZE" parameterTypeRef="APPINFO_STACKSIZE_Type" />
-        <xtce:Parameter name="APPINFO_MODULEID" parameterTypeRef="APPINFO_MODULEID_Type" />
+        <xtce:Parameter name="APPINFO_ALIGNMENT_PADDING1" parameterTypeRef="APPINFO_ALIGNMENT_PADDING1_Type" />
         <xtce:Parameter name="APPINFO_ADDRESSESAREVALID" parameterTypeRef="APPINFO_ADDRESSESAREVALID_Type" />
         <xtce:Parameter name="APPINFO_CODEADDRESS" parameterTypeRef="APPINFO_CODEADDRESS_Type" />
         <xtce:Parameter name="APPINFO_CODESIZE" parameterTypeRef="APPINFO_CODESIZE_Type" />
@@ -750,11 +761,13 @@
         <xtce:Parameter name="APPINFO_BSSSIZE" parameterTypeRef="APPINFO_BSSSIZE_Type" />
         <xtce:Parameter name="APPINFO_STARTADDRESS" parameterTypeRef="APPINFO_STARTADDRESS_Type" />
         <xtce:Parameter name="APPINFO_EXCEPTIONACTION" parameterTypeRef="APPINFO_EXCEPTIONACTION_Type" />
+        <xtce:Parameter name="APPINFO_ALIGNMENT_PADDING2" parameterTypeRef="APPINFO_ALIGNMENT_PADDING2_Type" />
         <xtce:Parameter name="APPINFO_PRIORITY" parameterTypeRef="APPINFO_PRIORITY_Type" />
         <xtce:Parameter name="APPINFO_MAINTASKID" parameterTypeRef="APPINFO_MAINTASKID_Type" />
         <xtce:Parameter name="APPINFO_EXECUTIONCOUNTER" parameterTypeRef="APPINFO_EXECUTIONCOUNTER_Type" />
         <xtce:Parameter name="APPINFO_MAINTASKNAME" parameterTypeRef="APPINFO_MAINTASKNAME_Type" />
         <xtce:Parameter name="APPINFO_NUMOFCHILDTASKS" parameterTypeRef="APPINFO_NUMOFCHILDTASKS_Type" />
+        <xtce:Parameter name="APPINFO_ALIGNMENT_PADDING3" parameterTypeRef="APPINFO_ALIGNMENT_PADDING3_Type" />
       </xtce:ParameterSet>
       <xtce:ContainerSet>
         <xtce:SequenceContainer name="CFE_ES_ONEAPPTLM" shortDescription="Single Application Information Packet">
@@ -765,8 +778,8 @@
             <xtce:ParameterRefEntry parameterRef="APPINFO_ENTRYPOINT" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_FILENAME" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_STACKSIZE" />
-            <xtce:ParameterRefEntry parameterRef="APPINFO_MODULEID" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_ADDRESSESAREVALID" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_ALIGNMENT_PADDING1" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_CODEADDRESS" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_CODESIZE" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_DATAADDRESS" />
@@ -775,11 +788,13 @@
             <xtce:ParameterRefEntry parameterRef="APPINFO_BSSSIZE" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_STARTADDRESS" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_EXCEPTIONACTION" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_ALIGNMENT_PADDING2" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_PRIORITY" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_MAINTASKID" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_EXECUTIONCOUNTER" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_MAINTASKNAME" />
             <xtce:ParameterRefEntry parameterRef="APPINFO_NUMOFCHILDTASKS" />
+            <xtce:ParameterRefEntry parameterRef="APPINFO_ALIGNMENT_PADDING3" />
           </xtce:EntryList>
           <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
             <xtce:RestrictionCriteria>
@@ -841,10 +856,10 @@
           <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="SYSLOGBYTESUSED_Type" shortDescription="Total number of bytes used in system log." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="SYSLOGSIZE_Type" shortDescription="Total size of the system log." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="SYSLOGENTRIES_Type" shortDescription="Number of entries in the system log." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -931,13 +946,13 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="HEAPBYTESFREE_Type" shortDescription="Number of free bytes remaining in the OS heap." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="HEAPBLOCKSFREE_Type" shortDescription="Number of free blocks remaining in the OS heap." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="HEAPMAXBLOCKSIZE_Type" shortDescription="Number of bytes in the largest free block." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
@@ -1087,7 +1102,7 @@
           <xtce:StringDataEncoding encoding="UTF-8">
             <xtce:SizeInBits>
               <xtce:Fixed>
-                <xtce:FixedValue>304</xtce:FixedValue>
+                <xtce:FixedValue>320</xtce:FixedValue>
               </xtce:Fixed>
             </xtce:SizeInBits>
           </xtce:StringDataEncoding>
@@ -1129,16 +1144,16 @@
           </xtce:StringDataEncoding>
         </xtce:StringArgumentType>
         <xtce:IntegerArgumentType name="EXCEPTIONACTION_Type" initialValue="0" shortDescription="CFE_ES_APP_EXCEPTION_RESTART_APP=On exception, restart Application, CFE_ES_APP_EXCEPTION_PROC_RESTART=On exception, perform a Processor Reset" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="FILTERMASKNUM_Type" initialValue="0" shortDescription="Index into array of Filter Masks." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="FILTERMASK_Type" initialValue="0" shortDescription="New Mask for specified entry in array of Filter Masks." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="MAXPRCOUNT_Type" initialValue="0" shortDescription="New maximum number of Processor Resets before an automatic Power-On Reset is performed." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -1161,9 +1176,9 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
           <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
         </xtce:IntegerArgumentType>
-        <xtce:IntegerArgumentType name="PRIORITY_Type" initialValue="0" shortDescription="Specify high(1) or low(0) message priority for off-board routing, currently unused." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
+        <xtce:IntegerArgumentType name="PRIORITY_Type" initialValue="0" shortDescription="Application main task priority." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
         </xtce:IntegerArgumentType>
         <xtce:StringArgumentType name="QUERYALLFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing full path and filename of file in which Application data is to be dumped.">
           <xtce:StringDataEncoding encoding="UTF-8">
@@ -1179,8 +1194,7 @@
           <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="STACKSIZE_Type" initialValue="0" shortDescription="Desired stack size for the new application." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+          <xtce:IntegerDataEncoding sizeInBits="64" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerArgumentType>
         <xtce:StringArgumentType name="SYSLOGFILENAME_Type" characterWidth="8" initialValue="default" shortDescription="ASCII text string containing full path and filename of file in which System Log is to be dumped.">
           <xtce:StringDataEncoding encoding="UTF-8">
@@ -1192,12 +1206,12 @@
           </xtce:StringDataEncoding>
         </xtce:StringArgumentType>
         <xtce:IntegerArgumentType name="TRIGGERMASKNUM_Type" initialValue="0" shortDescription="Index into array of Trigger Masks." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="TRIGGERMASK_Type" initialValue="0" shortDescription="New Mask for specified entry in array of Trigger Masks." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
+          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="255" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="TRIGGERMODE_Type" initialValue="0" shortDescription="Desired trigger position (Start, Center, End)." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -1275,11 +1289,13 @@
               <xtce:ArgumentRefEntry argumentRef="APPFILENAME" />
               <xtce:ArgumentRefEntry argumentRef="STACKSIZE" />
               <xtce:ArgumentRefEntry argumentRef="EXCEPTIONACTION" />
+              <xtce:FixedValueEntry name="ALIGNMENT_PADDING_1" sizeInBits="8" binaryValue="00" />
               <xtce:ArgumentRefEntry argumentRef="PRIORITY" />
+              <xtce:FixedValueEntry name="ALIGNMENT_PADDING_2" sizeInBits="32" binaryValue="00000000" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
-        <xtce:MetaCommand name="CFE_ES_SHELL_CMD">
+        <xtce:MetaCommand name="CFE_ES_SHELL_CMD" abstract="true">
           <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
             <xtce:ArgumentAssignmentList>
               <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6150" />
@@ -1602,6 +1618,18 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList />
           <xtce:CommandContainer name="CFS_CFE_ES_CLEAR_ERLOG_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="CFE_ES_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6152" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_ES_SEND_HK_CommandContainer">
             <xtce:EntryList />
           </xtce:CommandContainer>
         </xtce:MetaCommand>

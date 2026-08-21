@@ -674,6 +674,24 @@
             </xtce:RestrictionCriteria>
           </xtce:BaseContainer>
         </xtce:SequenceContainer>
+        <xtce:SequenceContainer name="DS_FILECOMPLETEPKT" shortDescription="DS single-file completion packet">
+          <xtce:EntryList>
+            <xtce:ParameterRefEntry parameterRef="FILEAGE0" />
+            <xtce:ParameterRefEntry parameterRef="FILESIZE0" />
+            <xtce:ParameterRefEntry parameterRef="FILERATE0" />
+            <xtce:ParameterRefEntry parameterRef="SEQUENCECNT0" />
+            <xtce:ParameterRefEntry parameterRef="ENABLESTATE0" />
+            <xtce:ParameterRefEntry parameterRef="OPENSTATE0" />
+            <xtce:ParameterRefEntry parameterRef="FILENAME0" />
+          </xtce:EntryList>
+          <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
+            <xtce:RestrictionCriteria>
+              <xtce:ComparisonList>
+                <xtce:Comparison parameterRef="/CCSDS/CCSDS_STREAMID" value="2234" />
+              </xtce:ComparisonList>
+            </xtce:RestrictionCriteria>
+          </xtce:BaseContainer>
+        </xtce:SequenceContainer>
       </xtce:ContainerSet>
     </xtce:TelemetryMetaData>
   </xtce:SpaceSystem>
@@ -808,7 +826,7 @@
           <xtce:StringDataEncoding encoding="UTF-8">
             <xtce:SizeInBits>
               <xtce:Fixed>
-                <xtce:FixedValue>0</xtce:FixedValue>
+                <xtce:FixedValue>160</xtce:FixedValue>
               </xtce:Fixed>
             </xtce:SizeInBits>
           </xtce:StringDataEncoding>
@@ -851,8 +869,8 @@
           <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="MESSAGEID_Type" initialValue="0" shortDescription="Message ID of existing entry in Packet Filter Table." signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-          <xtce:ValidRange minInclusive="0" maxInclusive="65535" />
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
         </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="PADDING_Type" initialValue="0" shortDescription="" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
@@ -873,6 +891,18 @@
         </xtce:IntegerArgumentType>
       </xtce:ArgumentTypeSet>
       <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="DS_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6332" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_DS_SEND_HK_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
         <xtce:MetaCommand name="DS_SET_FILTER_TYPE">
           <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
             <xtce:ArgumentAssignmentList>
@@ -884,14 +914,12 @@
             <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
             <xtce:Argument name="FILTERPARMSINDEX" argumentTypeRef="FILTERPARMSINDEX_Type" />
             <xtce:Argument name="FILTERTYPE" argumentTypeRef="FILTERTYPE_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_FILTER_TYPE_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
               <xtce:ArgumentRefEntry argumentRef="FILTERPARMSINDEX" />
               <xtce:ArgumentRefEntry argumentRef="FILTERTYPE" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -908,7 +936,6 @@
             <xtce:Argument name="ALGORITHM_N" argumentTypeRef="ALGORITHM_N_Type" />
             <xtce:Argument name="ALGORITHM_X" argumentTypeRef="ALGORITHM_X_Type" />
             <xtce:Argument name="ALGORITHM_O" argumentTypeRef="ALGORITHM_O_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_FILTER_PARMS_CommandContainer">
             <xtce:EntryList>
@@ -917,7 +944,6 @@
               <xtce:ArgumentRefEntry argumentRef="ALGORITHM_N" />
               <xtce:ArgumentRefEntry argumentRef="ALGORITHM_X" />
               <xtce:ArgumentRefEntry argumentRef="ALGORITHM_O" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -932,14 +958,12 @@
             <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
             <xtce:Argument name="FILTERPARMSINDEX" argumentTypeRef="FILTERPARMSINDEX_Type" />
             <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_FILTER_FILE_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
               <xtce:ArgumentRefEntry argumentRef="FILTERPARMSINDEX" />
               <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -1008,13 +1032,11 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
             <xtce:Argument name="PATHNAME" argumentTypeRef="PATHNAME_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_DEST_PATH_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
               <xtce:ArgumentRefEntry argumentRef="PATHNAME" />
             </xtce:EntryList>
           </xtce:CommandContainer>
@@ -1028,13 +1050,11 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
             <xtce:Argument name="EXTENSION" argumentTypeRef="EXTENSION_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_DEST_EXT_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
               <xtce:ArgumentRefEntry argumentRef="EXTENSION" />
             </xtce:EntryList>
           </xtce:CommandContainer>
@@ -1068,13 +1088,11 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
             <xtce:Argument name="BASENAME" argumentTypeRef="BASENAME_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_DEST_BASE_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
               <xtce:ArgumentRefEntry argumentRef="BASENAME" />
             </xtce:EntryList>
           </xtce:CommandContainer>
@@ -1108,12 +1126,10 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="ENABLESTATE" argumentTypeRef="ENABLESTATE_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_SET_APP_STATE_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="ENABLESTATE" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -1162,12 +1178,10 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="FILETABLEINDEX" argumentTypeRef="FILETABLEINDEX_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_CLOSE_FILE_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="FILETABLEINDEX" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -1175,12 +1189,28 @@
           <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
             <xtce:ArgumentAssignmentList>
               <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
-              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="18" />
             </xtce:ArgumentAssignmentList>
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList />
           <xtce:CommandContainer name="CFS_DS_CLOSE_ALL_CommandContainer">
             <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
+        <xtce:MetaCommand name="DS_REMOVE_MID">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6331" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="17" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList>
+            <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
+          </xtce:ArgumentList>
+          <xtce:CommandContainer name="CFS_DS_REMOVE_MID_CommandContainer">
+            <xtce:EntryList>
+              <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
+            </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
         <xtce:MetaCommand name="DS_ADD_MID">
@@ -1192,12 +1222,10 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="MESSAGEID" argumentTypeRef="MESSAGEID_Type" />
-            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_DS_ADD_MID_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="MESSAGEID" />
-              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
