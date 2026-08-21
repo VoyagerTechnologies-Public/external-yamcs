@@ -103,9 +103,7 @@ mdb:
   - type: xtce
     args:
       file: mdb/cfs/cfe_evs.xtce
-  - type: xtce
-    args:
-      file: mdb/cfs/cfe_hk.xtce
+  # cFE HK is not built or started in this mission configuration.
   - type: xtce
     args:
       file: mdb/cfs/cfe_sb.xtce
@@ -115,9 +113,9 @@ mdb:
   - type: xtce
     args:
       file: mdb/cfs/cfe_time.xtce
-  #- type: xtce
-  #  args:
-  #    file: mdb/cfs/ci.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/ci.xtce
   #- type: xtce
   #  args:
   #    file: mdb/cfs/cs.xtce
@@ -148,9 +146,9 @@ mdb:
   - type: xtce
     args:
       file: mdb/cfs/sch.xtce
-  #- type: xtce
-  #  args:
-  #    file: mdb/cfs/to.xtce
+  - type: xtce
+    args:
+      file: mdb/cfs/to.xtce
   - type: xtce
     args:
       file: mdb/sim_42_truth.xtce

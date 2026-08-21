@@ -326,6 +326,18 @@
         </xtce:StringArgumentType>
       </xtce:ArgumentTypeSet>
       <xtce:MetaCommandSet>
+        <xtce:MetaCommand name="CFE_TBL_SEND_HK">
+          <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
+            <xtce:ArgumentAssignmentList>
+              <xtce:ArgumentAssignment argumentName="CCSDS_STREAMID" argumentValue="6156" />
+              <xtce:ArgumentAssignment argumentName="CCSDS_FC" argumentValue="0" />
+            </xtce:ArgumentAssignmentList>
+          </xtce:BaseMetaCommand>
+          <xtce:ArgumentList />
+          <xtce:CommandContainer name="CFS_CFE_TBL_SEND_HK_CommandContainer">
+            <xtce:EntryList />
+          </xtce:CommandContainer>
+        </xtce:MetaCommand>
         <xtce:MetaCommand name="CFE_TBL_VALIDATE">
           <xtce:BaseMetaCommand metaCommandRef="/CCSDS/CCSDS_TC">
             <xtce:ArgumentAssignmentList>

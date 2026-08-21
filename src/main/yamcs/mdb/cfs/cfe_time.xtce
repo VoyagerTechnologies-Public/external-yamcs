@@ -392,6 +392,10 @@
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
           <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
         </xtce:IntegerArgumentType>
+        <xtce:IntegerArgumentType name="LEAPSECONDS_Type" initialValue="0" shortDescription="Leap-second adjustment." signed="true">
+          <xtce:IntegerDataEncoding sizeInBits="16" encoding="twosComplement" byteOrder="leastSignificantByteFirst" />
+          <xtce:ValidRange minInclusive="-32768" maxInclusive="32767" />
+        </xtce:IntegerArgumentType>
         <xtce:IntegerArgumentType name="SUBSECONDS_Type" initialValue="0" shortDescription="Subseconds to subtract from the STCF every second" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
           <xtce:ValidRange minInclusive="0" maxInclusive="4294967295" />
@@ -582,7 +586,7 @@
             </xtce:ArgumentAssignmentList>
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
-            <xtce:Argument name="SECONDS" argumentTypeRef="SECONDS_Type" />
+            <xtce:Argument name="SECONDS" argumentTypeRef="LEAPSECONDS_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_CFE_TIME_SET_LEAP_SECONDS_CommandContainer">
             <xtce:EntryList>

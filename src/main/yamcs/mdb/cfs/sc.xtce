@@ -103,29 +103,14 @@
         <xtce:IntegerParameterType name="NEXTATSTIME_Type" shortDescription="Next ATS Command Time (seconds)." signed="false">
           <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_1_Type" shortDescription="RTS 1-16 Executing Status" signed="false">
+        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_1_Type" shortDescription="RTS 1-15 Executing Status" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_17_Type" shortDescription="RTS 17-32 Executing Status" signed="false">
+        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_1_Type" shortDescription="RTS 1-15 Disabled Status" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_33_Type" shortDescription="RTS 33-48 Executing Status" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSEXECUTINGSTATUS_49_Type" shortDescription="RTS 49-64 Executing Status" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_1_Type" shortDescription="RTS 1-16 Disabled Status" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_17_Type" shortDescription="RTS 17-32 Disabled Status" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_33_Type" shortDescription="RTS 33-48 Disabled Status" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="RTSDISABLEDSTATUS_49_Type" shortDescription="RTS 49-64 Disabled Status" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
+        <xtce:IntegerParameterType name="ALIGNMENT_PADDING_Type" shortDescription="Native housekeeping structure padding." signed="false">
+          <xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" />
         </xtce:IntegerParameterType>
       </xtce:ParameterTypeSet>
       <xtce:ParameterSet>
@@ -158,13 +143,8 @@
         <xtce:Parameter name="NEXTRTSTIME" parameterTypeRef="NEXTRTSTIME_Type" />
         <xtce:Parameter name="NEXTATSTIME" parameterTypeRef="NEXTATSTIME_Type" />
         <xtce:Parameter name="RTSEXECUTINGSTATUS_1" parameterTypeRef="RTSEXECUTINGSTATUS_1_Type" />
-        <xtce:Parameter name="RTSEXECUTINGSTATUS_17" parameterTypeRef="RTSEXECUTINGSTATUS_17_Type" />
-        <xtce:Parameter name="RTSEXECUTINGSTATUS_33" parameterTypeRef="RTSEXECUTINGSTATUS_33_Type" />
-        <xtce:Parameter name="RTSEXECUTINGSTATUS_49" parameterTypeRef="RTSEXECUTINGSTATUS_49_Type" />
         <xtce:Parameter name="RTSDISABLEDSTATUS_1" parameterTypeRef="RTSDISABLEDSTATUS_1_Type" />
-        <xtce:Parameter name="RTSDISABLEDSTATUS_17" parameterTypeRef="RTSDISABLEDSTATUS_17_Type" />
-        <xtce:Parameter name="RTSDISABLEDSTATUS_33" parameterTypeRef="RTSDISABLEDSTATUS_33_Type" />
-        <xtce:Parameter name="RTSDISABLEDSTATUS_49" parameterTypeRef="RTSDISABLEDSTATUS_49_Type" />
+        <xtce:Parameter name="ALIGNMENT_PADDING" parameterTypeRef="ALIGNMENT_PADDING_Type" />
       </xtce:ParameterSet>
       <xtce:ContainerSet>
         <xtce:SequenceContainer name="SC_HKTLM" shortDescription="Housekeeping Packet Structure">
@@ -198,13 +178,8 @@
             <xtce:ParameterRefEntry parameterRef="NEXTRTSTIME" />
             <xtce:ParameterRefEntry parameterRef="NEXTATSTIME" />
             <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_1" />
-            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_17" />
-            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_33" />
-            <xtce:ParameterRefEntry parameterRef="RTSEXECUTINGSTATUS_49" />
             <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_1" />
-            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_17" />
-            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_33" />
-            <xtce:ParameterRefEntry parameterRef="RTSDISABLEDSTATUS_49" />
+            <xtce:ParameterRefEntry parameterRef="ALIGNMENT_PADDING" />
           </xtce:EntryList>
           <xtce:BaseContainer containerRef="/CCSDS/CCSDS_TM">
             <xtce:RestrictionCriteria>
@@ -463,10 +438,12 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="RTSID" argumentTypeRef="RTSID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_SC_ENABLE_RTS_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="RTSID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -497,10 +474,12 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="RTSID" argumentTypeRef="RTSID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_SC_DISABLE_RTS_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="RTSID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -513,10 +492,12 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="CONTINUESTATE" argumentTypeRef="CONTINUESTATE_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_SC_CONTINUE_ATS_ON_FAILURE_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="CONTINUESTATE" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
@@ -529,10 +510,12 @@
           </xtce:BaseMetaCommand>
           <xtce:ArgumentList>
             <xtce:Argument name="ATSID" argumentTypeRef="ATSID_Type" />
+            <xtce:Argument name="PADDING" argumentTypeRef="PADDING_Type" />
           </xtce:ArgumentList>
           <xtce:CommandContainer name="CFS_SC_APPEND_ATS_CommandContainer">
             <xtce:EntryList>
               <xtce:ArgumentRefEntry argumentRef="ATSID" />
+              <xtce:ArgumentRefEntry argumentRef="PADDING" />
             </xtce:EntryList>
           </xtce:CommandContainer>
         </xtce:MetaCommand>
