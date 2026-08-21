@@ -330,9 +330,6 @@
         <xtce:IntegerParameterType name="CH1_Q_SIZE_6_Type" shortDescription="Queue size" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="CH1_Q_SIZE_7_Type" shortDescription="Queue size" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="CH1_POLL_COUNTER_Type" shortDescription="Number of active polling directories" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
@@ -423,9 +420,6 @@
         <xtce:IntegerParameterType name="CH2_Q_SIZE_6_Type" shortDescription="Queue size" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="CH2_Q_SIZE_7_Type" shortDescription="Queue size" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="16" encoding="unsigned" byteOrder="leastSignificantByteFirst" />
-        </xtce:IntegerParameterType>
         <xtce:IntegerParameterType name="CH2_POLL_COUNTER_Type" shortDescription="Number of active polling directories" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
@@ -435,25 +429,7 @@
         <xtce:IntegerParameterType name="CH2_FROZEN_Type" shortDescription="Frozen state: 0 == not frozen, else frozen" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_1_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_2_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_3_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_4_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_5_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_6_Type" shortDescription="" signed="false">
-          <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
-        </xtce:IntegerParameterType>
-        <xtce:IntegerParameterType name="SPARE_7_Type" shortDescription="" signed="false">
+        <xtce:IntegerParameterType name="SPARE_1_Type" shortDescription="Channel 2 alignment spare" signed="false">
           <xtce:IntegerDataEncoding sizeInBits="8" encoding="unsigned" />
         </xtce:IntegerParameterType>
       </xtce:ParameterTypeSet>
@@ -488,7 +464,6 @@
         <xtce:Parameter name="CH1_Q_SIZE_4" parameterTypeRef="CH1_Q_SIZE_4_Type" />
         <xtce:Parameter name="CH1_Q_SIZE_5" parameterTypeRef="CH1_Q_SIZE_5_Type" />
         <xtce:Parameter name="CH1_Q_SIZE_6" parameterTypeRef="CH1_Q_SIZE_6_Type" />
-        <xtce:Parameter name="CH1_Q_SIZE_7" parameterTypeRef="CH1_Q_SIZE_7_Type" />
         <xtce:Parameter name="CH1_POLL_COUNTER" parameterTypeRef="CH1_POLL_COUNTER_Type" />
         <xtce:Parameter name="CH1_PLAYBACK_COUNTER" parameterTypeRef="CH1_PLAYBACK_COUNTER_Type" />
         <xtce:Parameter name="CH1_FROZEN" parameterTypeRef="CH1_FROZEN_Type" />
@@ -519,17 +494,10 @@
         <xtce:Parameter name="CH2_Q_SIZE_4" parameterTypeRef="CH2_Q_SIZE_4_Type" />
         <xtce:Parameter name="CH2_Q_SIZE_5" parameterTypeRef="CH2_Q_SIZE_5_Type" />
         <xtce:Parameter name="CH2_Q_SIZE_6" parameterTypeRef="CH2_Q_SIZE_6_Type" />
-        <xtce:Parameter name="CH2_Q_SIZE_7" parameterTypeRef="CH2_Q_SIZE_7_Type" />
         <xtce:Parameter name="CH2_POLL_COUNTER" parameterTypeRef="CH2_POLL_COUNTER_Type" />
         <xtce:Parameter name="CH2_PLAYBACK_COUNTER" parameterTypeRef="CH2_PLAYBACK_COUNTER_Type" />
         <xtce:Parameter name="CH2_FROZEN" parameterTypeRef="CH2_FROZEN_Type" />
         <xtce:Parameter name="SPARE_1" parameterTypeRef="SPARE_1_Type" />
-        <xtce:Parameter name="SPARE_2" parameterTypeRef="SPARE_2_Type" />
-        <xtce:Parameter name="SPARE_3" parameterTypeRef="SPARE_3_Type" />
-        <xtce:Parameter name="SPARE_4" parameterTypeRef="SPARE_4_Type" />
-        <xtce:Parameter name="SPARE_5" parameterTypeRef="SPARE_5_Type" />
-        <xtce:Parameter name="SPARE_6" parameterTypeRef="SPARE_6_Type" />
-        <xtce:Parameter name="SPARE_7" parameterTypeRef="SPARE_7_Type" />
       </xtce:ParameterSet>
       <xtce:ContainerSet>
         <xtce:SequenceContainer name="CF_HKPACKET" shortDescription="CF Application housekeeping Packet">
@@ -684,214 +652,174 @@
                 <xtce:FixedValue>784</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="CH1_Q_SIZE_7">
+            <xtce:ParameterRefEntry parameterRef="CH1_POLL_COUNTER">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
                 <xtce:FixedValue>800</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="CH1_POLL_COUNTER">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>816</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH1_PLAYBACK_COUNTER">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>824</xtce:FixedValue>
+                <xtce:FixedValue>808</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH1_FROZEN">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>832</xtce:FixedValue>
+                <xtce:FixedValue>816</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_SENT_FILE_DATA_BYTES">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>896</xtce:FixedValue>
+                <xtce:FixedValue>832</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_SENT_PDU">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>960</xtce:FixedValue>
+                <xtce:FixedValue>896</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_SENT_NAK_SEGMENT_REQUESTS">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>992</xtce:FixedValue>
+                <xtce:FixedValue>928</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_RECV_FILE_DATA_BYTES">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1024</xtce:FixedValue>
+                <xtce:FixedValue>960</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_RECV_PDU">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1088</xtce:FixedValue>
+                <xtce:FixedValue>1024</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_RECV_ERROR">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1120</xtce:FixedValue>
+                <xtce:FixedValue>1056</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_RECV_SPURIOUS">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1152</xtce:FixedValue>
+                <xtce:FixedValue>1088</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_RECV_DROPPED">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1168</xtce:FixedValue>
+                <xtce:FixedValue>1104</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_RECV_NAK_SEGMENT_REQUESTS">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1184</xtce:FixedValue>
+                <xtce:FixedValue>1120</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_OPEN">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1216</xtce:FixedValue>
+                <xtce:FixedValue>1152</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_READ">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1232</xtce:FixedValue>
+                <xtce:FixedValue>1168</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_SEEK">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1248</xtce:FixedValue>
+                <xtce:FixedValue>1184</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_WRITE">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1264</xtce:FixedValue>
+                <xtce:FixedValue>1200</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_RENAME">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1280</xtce:FixedValue>
+                <xtce:FixedValue>1216</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_DIRECTORY_READ">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1296</xtce:FixedValue>
+                <xtce:FixedValue>1232</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_CRC_MISMATCH">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1312</xtce:FixedValue>
+                <xtce:FixedValue>1248</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_FILE_SIZE_MISMATCH">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1328</xtce:FixedValue>
+                <xtce:FixedValue>1264</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_NAK_LIMIT">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1344</xtce:FixedValue>
+                <xtce:FixedValue>1280</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_ACK_LIMIT">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1360</xtce:FixedValue>
+                <xtce:FixedValue>1296</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_INACTIVITY_TIMER">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1376</xtce:FixedValue>
+                <xtce:FixedValue>1312</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FAULT_SPARE">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1392</xtce:FixedValue>
+                <xtce:FixedValue>1328</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_1">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1408</xtce:FixedValue>
+                <xtce:FixedValue>1344</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_2">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1424</xtce:FixedValue>
+                <xtce:FixedValue>1360</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_3">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1440</xtce:FixedValue>
+                <xtce:FixedValue>1376</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_4">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1456</xtce:FixedValue>
+                <xtce:FixedValue>1392</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_5">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1472</xtce:FixedValue>
+                <xtce:FixedValue>1408</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_6">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1488</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="CH2_Q_SIZE_7">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1504</xtce:FixedValue>
+                <xtce:FixedValue>1424</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_POLL_COUNTER">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1520</xtce:FixedValue>
+                <xtce:FixedValue>1440</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_PLAYBACK_COUNTER">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1528</xtce:FixedValue>
+                <xtce:FixedValue>1448</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="CH2_FROZEN">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1536</xtce:FixedValue>
+                <xtce:FixedValue>1456</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
             <xtce:ParameterRefEntry parameterRef="SPARE_1">
               <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1544</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="SPARE_2">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1552</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="SPARE_3">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1560</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="SPARE_4">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1568</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="SPARE_5">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1576</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="SPARE_6">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1584</xtce:FixedValue>
-              </xtce:LocationInContainerInBits>
-            </xtce:ParameterRefEntry>
-            <xtce:ParameterRefEntry parameterRef="SPARE_7">
-              <xtce:LocationInContainerInBits referenceLocation="containerStart">
-                <xtce:FixedValue>1592</xtce:FixedValue>
+                <xtce:FixedValue>1464</xtce:FixedValue>
               </xtce:LocationInContainerInBits>
             </xtce:ParameterRefEntry>
           </xtce:EntryList>
