@@ -13,9 +13,9 @@
 #   3. Build and push the image plus its multi-platform manifest:
 #        export IMAGE=ghcr.io/voyagertechnologies-public/shire-yamcs
 #        docker buildx build --platform linux/amd64,linux/arm64 \
-#          --tag "${IMAGE}:latest" --push -f yamcs/Dockerfile.yamcs yamcs
+#          --tag "${IMAGE}:0.0.0" --push -f yamcs/Dockerfile.yamcs yamcs
 #   4. Verify the published platforms:
-#        docker buildx imagetools inspect "${IMAGE}:latest"
+#        docker buildx imagetools inspect "${IMAGE}:0.0.0"
 #
 
 FROM maven:3.9.9-eclipse-temurin-17

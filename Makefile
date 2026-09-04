@@ -5,7 +5,7 @@
 # Variables
 # YAMCS_IMAGE is the GSW-specific build image. Kept separate from BUILD_IMAGE
 # (which the top-level Makefile exports for FSW/sim) so it isn't shadowed.
-YAMCS_IMAGE := ghcr.io/voyagertechnologies-public/shire-yamcs:latest
+YAMCS_IMAGE := ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0
 export MISSION ?= drm
 export RUNTIME_GSW ?= shire-gsw-$(MISSION)
 export SPACECRAFT ?= sat-1

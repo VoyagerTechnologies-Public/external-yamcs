@@ -1,7 +1,7 @@
 # SHIRE YAMCS GSW w/ Pre-built Files
 #
 
-FROM ghcr.io/voyagertechnologies-public/shire-yamcs:latest AS builder
+FROM ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0 AS builder
 WORKDIR /app
 
 # Copy files
@@ -13,7 +13,7 @@ COPY src/ src/
 RUN mvn clean package -DskipTests
 
 # Runtime stage - base from your lab/build image
-FROM ghcr.io/voyagertechnologies-public/shire-yamcs:latest
+FROM ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0
 WORKDIR /app
 
 # Copy the built application from builder stage
