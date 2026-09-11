@@ -52,6 +52,16 @@ services:
       fileListingParserClassName: org.yamcs.filetransfer.CsvListingParser
       fileListingParserArgs:
         timestampMultiplier: 1
+  - class: org.yamcs.shire.CheckoutCfdpUploadService
+    name: checkout-cfdp-upload
+    args:
+      stream: checkout_control
+      cfdpService: cfdp
+      bucket: cfdpUp
+      objectName: AdcsComponent.ycs
+      remotePath: /d/checkout_adcs.ycs
+      localEntity: GSW
+      remoteEntity: FSW
 dataLinks:
   - name: radio-in
     class: org.yamcs.tctm.UdpTmDataLink
@@ -183,5 +193,7 @@ streamConfig:
       processor: "realtime"
       rootContainer: "/CCSDS/CCSDS_TC"
     - name: "tc_backdoor"
+      processor: "realtime"
+    - name: "checkout_control"
       processor: "realtime"
   sqlFile: "etc/extra_streams.sql"

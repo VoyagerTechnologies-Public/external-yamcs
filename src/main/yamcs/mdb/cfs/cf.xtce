@@ -142,7 +142,7 @@
   </xtce:TelemetryMetaData></xtce:SpaceSystem>
   <xtce:SpaceSystem name="CF_EOTPACKET"><xtce:TelemetryMetaData><xtce:ParameterTypeSet>
     <xtce:IntegerParameterType name="U32_Type" signed="false"><xtce:IntegerDataEncoding sizeInBits="32" encoding="unsigned" byteOrder="leastSignificantByteFirst" /></xtce:IntegerParameterType>
-    <xtce:StringParameterType name="FILENAME_Type" characterWidth="8"><xtce:StringDataEncoding encoding="UTF-8"><xtce:SizeInBits><xtce:Fixed><xtce:FixedValue>512</xtce:FixedValue></xtce:Fixed></xtce:SizeInBits></xtce:StringDataEncoding></xtce:StringParameterType>
+    <xtce:StringParameterType name="FILENAME_Type" characterWidth="8"><xtce:StringDataEncoding encoding="UTF-8"><xtce:SizeInBits><xtce:Fixed><xtce:FixedValue>512</xtce:FixedValue></xtce:Fixed><xtce:TerminationChar>00</xtce:TerminationChar></xtce:SizeInBits></xtce:StringDataEncoding></xtce:StringParameterType>
   </xtce:ParameterTypeSet><xtce:ParameterSet>
     <xtce:Parameter name="SEQUENCE_NUMBER" parameterTypeRef="U32_Type" />
     <xtce:Parameter name="CHANNEL" parameterTypeRef="U32_Type" />
