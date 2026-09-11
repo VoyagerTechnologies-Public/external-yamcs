@@ -104,6 +104,15 @@
                     </xtce:EntryList>
                   </xtce:CommandContainer>
             </xtce:MetaCommand>
+            <xtce:MetaCommand name="CFDP_UPLOAD_CHECKOUT"
+                shortDescription="Ground-side command that starts the checkout CFDP upload">
+                <xtce:CommandContainer name="CFDP_UPLOAD_CHECKOUT_CommandContainer">
+                    <xtce:EntryList>
+                        <xtce:FixedValueEntry name="GROUND_ONLY" sizeInBits="64"
+                            binaryValue="0000000000000000" />
+                    </xtce:EntryList>
+                </xtce:CommandContainer>
+            </xtce:MetaCommand>
         </xtce:MetaCommandSet>
     </xtce:CommandMetaData>
 </xtce:SpaceSystem>

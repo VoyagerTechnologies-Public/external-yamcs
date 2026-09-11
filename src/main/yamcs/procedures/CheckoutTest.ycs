@@ -8,6 +8,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_ES/CFE_ES_COMMANDS/CFE_ES_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -21,7 +27,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -30,6 +36,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_ES/CFE_ES_COMMANDS/CFE_ES_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -43,7 +55,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -52,6 +64,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_EVS/CFE_EVS_COMMANDS/CFE_EVS_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -65,7 +83,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -74,6 +92,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_EVS/CFE_EVS_COMMANDS/CFE_EVS_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -87,7 +111,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -96,6 +120,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_SB/CFE_SB_COMMANDS/CFE_SB_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -109,7 +139,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -118,6 +148,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_SB/CFE_SB_COMMANDS/CFE_SB_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -131,7 +167,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -140,6 +176,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_TBL/CFE_TBL_COMMANDS/CFE_TBL_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -153,7 +195,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -162,6 +204,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_TBL/CFE_TBL_COMMANDS/CFE_TBL_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -175,7 +223,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -184,6 +232,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_TIME/CFE_TIME_COMMANDS/CFE_TIME_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -197,7 +251,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -206,6 +260,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/CFE_TIME/CFE_TIME_COMMANDS/CFE_TIME_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -219,11 +279,226 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_RESET_COUNTERS",
+      "extraOptions": [],
+      "arguments": [
+        {
+          "name": "RESET_TYPE",
+          "value": "0"
+        },
+        {
+          "name": "SPARE1",
+          "value": "0"
+        },
+        {
+          "name": "SPARE2",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_NOOP",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "1"
+        },
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/CCSDS/CFDP_UPLOAD_CHECKOUT",
+      "stream": "checkout_control",
+      "extraOptions": [],
+      "arguments": [],
+      "advancement": {
+        "acknowledgment": "Acknowledge_Sent",
+        "wait": 1000
+      }
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_EOTPACKET/DIRECTION",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/TRANSACTION_STATUS",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/SOURCE_ENTITY_ID",
+          "operator": "eq",
+          "value": "23"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/DESTINATION_FILENAME",
+          "operator": "eq",
+          "value": "/d/checkout_adcs.ycs"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/FILE_SIZE",
+          "operator": "gt",
+          "value": "0"
+        }
+      ],
+      "timeout": 180000
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_TX_FILE",
+      "extraOptions": [],
+      "arguments": [
+        {
+          "name": "CFDP_CLASS",
+          "value": "CLASS 2 - WITH FEEDBACK"
+        },
+        {
+          "name": "KEEP_FILE",
+          "value": "DELETE"
+        },
+        {
+          "name": "CHANNEL",
+          "value": "CHANNEL 0"
+        },
+        {
+          "name": "PRIORITY",
+          "value": "0"
+        },
+        {
+          "name": "DESTINATION_ENTITY_ID",
+          "value": "23"
+        },
+        {
+          "name": "SOURCE_FILENAME",
+          "value": "/d/checkout_adcs.ycs"
+        },
+        {
+          "name": "DESTINATION_FILENAME",
+          "value": "checkout_adcs.ycs"
+        }
+      ]
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "2"
+        },
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_EOTPACKET/DIRECTION",
+          "operator": "eq",
+          "value": "1"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/TRANSACTION_STATUS",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/SOURCE_ENTITY_ID",
+          "operator": "eq",
+          "value": "25"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/PEER_ENTITY_ID",
+          "operator": "eq",
+          "value": "23"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/SOURCE_FILENAME",
+          "operator": "eq",
+          "value": "/d/checkout_adcs.ycs"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/DESTINATION_FILENAME",
+          "operator": "eq",
+          "value": "checkout_adcs.ycs"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/FILE_SIZE",
+          "operator": "gt",
+          "value": "0"
+        }
+      ],
+      "timeout": 180000
     },
     {
       "type": "command",
       "name": "/DS/DS_COMMANDS/DS_RESET",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/DS/DS_COMMANDS/DS_SEND_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -241,11 +516,17 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/DS/DS_COMMANDS/DS_NOOP",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/DS/DS_COMMANDS/DS_SEND_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -263,7 +544,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -291,7 +572,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -319,7 +600,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -328,6 +609,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/LC/LC_COMMANDS/LC_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -341,7 +628,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -350,6 +637,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/LC/LC_COMMANDS/LC_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -363,7 +656,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -372,6 +665,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/SC/SC_COMMANDS/SC_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -385,7 +684,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -394,6 +693,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/SC/SC_COMMANDS/SC_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -407,11 +712,17 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/SCH/SCH_COMMANDS/SCH_RESET",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/SCH/SCH_COMMANDS/SCH_SEND_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -429,11 +740,17 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/SCH/SCH_COMMANDS/SCH_NOOP",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/SCH/SCH_COMMANDS/SCH_SEND_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -451,11 +768,129 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/CI/CI_COMMANDS/CI_RESET_COUNTERS_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/CI/CI_COMMANDS/CI_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CI/CI_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CI/CI_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/CI/CI_COMMANDS/CI_NOOP_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/CI/CI_COMMANDS/CI_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CI/CI_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "1"
+        },
+        {
+          "parameter": "/CI/CI_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/TO/TO_COMMANDS/TO_RESET",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/TO/TO_COMMANDS/TO_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/TO/TO_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/TO/TO_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/TO/TO_COMMANDS/TO_NOOP",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/TO/TO_COMMANDS/TO_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/TO/TO_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "1"
+        },
+        {
+          "parameter": "/TO/TO_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/RADIO/RADIO_RST_COUNTERS_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/RADIO/RADIO_REQ_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -473,7 +908,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -501,7 +936,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -529,7 +964,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -557,7 +992,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -566,6 +1001,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/DEMO/DEMO_REQ_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -579,7 +1020,7 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -588,6 +1029,12 @@
       "arguments": []
     },
     {
+      "type": "command",
+      "name": "/DEMO/DEMO_REQ_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
       "type": "verify",
       "condition": [
         {
@@ -601,11 +1048,17 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/ADCS/ADCS_RST_COUNTERS_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/ADCS/ADCS_REQ_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -623,11 +1076,17 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/ADCS/ADCS_NOOP_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/ADCS/ADCS_REQ_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -645,11 +1104,17 @@
           "value": "0"
         }
       ],
-      "timeout": 10000
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/ADCS/ADCS_ENABLE_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/ADCS/ADCS_REQ_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -661,7 +1126,8 @@
           "operator": "eq",
           "value": "1"
         }
-      ]
+      ],
+      "timeout": 30000
     },
     {
       "type": "command",
@@ -683,11 +1149,18 @@
           "operator": "eq",
           "value": "0"
         }
-      ]
+      ],
+      "timeout": 30000
     },
     {
       "type": "command",
       "name": "/ADCS/ADCS_NOOP_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/ADCS/ADCS_REQ_HK",
       "extraOptions": [],
       "arguments": []
     },
@@ -699,7 +1172,8 @@
           "operator": "gte",
           "value": "1"
         }
-      ]
+      ],
+      "timeout": 30000
     },
     {
       "type": "check",
@@ -763,11 +1237,12 @@
           "operator": "gt",
           "value": "-0.02"
         }
-      ]
+      ],
+      "timeout": 120000
     }
   ],
   "advancement": {
-    "acknowledgment": "Acknowledge_Queued",
-    "wait": 0
+    "acknowledgment": "Acknowledge_Sent",
+    "wait": 1000
   }
 }
