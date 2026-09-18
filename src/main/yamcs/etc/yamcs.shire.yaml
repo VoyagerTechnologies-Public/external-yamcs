@@ -100,6 +100,16 @@ dataLinks:
     port: 50042
     updateSimulationTime: true
     packetPreprocessorClassName: org.yamcs.shire.Truth42PacketPreprocessor
+  - name: server-backdoor
+    class: org.yamcs.tctm.UdpTcDataLink
+    stream: tc_server_backdoor
+    host: shire-server
+    port: 50061
+  - name: server-status-in
+    class: org.yamcs.tctm.UdpTmDataLink
+    stream: server_status_data
+    port: 50043
+    packetPreprocessorClassName: org.yamcs.shire.ServerStatusPacketPreprocessor
 mdb:
   - type: xtce
     args:
@@ -174,6 +184,9 @@ mdb:
   - type: xtce
     args:
       file: mdb/components/radio/radio.xtce
+  - type: xtce
+    args:
+      file: mdb/shire_server.xtce
 # Configuration for streams created at server startup
 streamConfig:
   tm:
@@ -183,17 +196,31 @@ streamConfig:
     - name: "truth42_data"
       processor: "realtime"
       rootContainer: "/SIM_42_TRUTH/SIM_42_TRUTH_DATA"
+    - name: "server_status_data"
+      processor: "realtime"
+      rootContainer: "/SHIRE_SERVER/SERVER_STATUS"
     - name: "tm_dump"
   cmdHist: ["cmdhist_realtime", "cmdhist_dump"]
   event: ["events_realtime", "events_dump"]
   param: ["pp_realtime", "pp_dump", "sys_param", "proc_param"]
   parameterAlarm: ["alarms_realtime"]
+  # Streams are matched against each command's fully qualified name in list
+  # order, and the first stream whose tcPatterns matches wins (a stream with
+  # no tcPatterns matches everything). tc_realtime has no patterns, so it
+  # must stay last -- otherwise, being unrestricted, it would swallow every
+  # command (including backdoor and checkout commands) before the more
+  # specific streams below ever get checked.
   tc:
+    - name: "tc_backdoor"
+      processor: "realtime"
+      tcPatterns: ["/DEMO/BACKDOOR_.*"]
+    - name: "tc_server_backdoor"
+      processor: "realtime"
+      tcPatterns: ["/SHIRE_SERVER/BACKDOOR_SERVER_.*"]
+    - name: "checkout_control"
+      processor: "realtime"
+      tcPatterns: ["/CCSDS/CFDP_UPLOAD_CHECKOUT"]
     - name: "tc_realtime"
       processor: "realtime"
       rootContainer: "/CCSDS/CCSDS_TC"
-    - name: "tc_backdoor"
-      processor: "realtime"
-    - name: "checkout_control"
-      processor: "realtime"
   sqlFile: "etc/extra_streams.sql"

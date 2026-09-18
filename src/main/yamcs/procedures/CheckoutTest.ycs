@@ -1239,6 +1239,291 @@
         }
       ],
       "timeout": 120000
+    },
+    {
+      "type": "text",
+      "text": "Shire Server: Pause/Play/Speed backdoor control.\n* Pause the simulation\n* Confirm paused status\n* Resume the simulation\n* Confirm running status\n* Adjust simulation speed while running\n* Confirm speed change"
+    },
+    {
+      "type": "command",
+      "name": "/SHIRE_SERVER/BACKDOOR_SERVER_PAUSE",
+      "comment": "Pause the Simulith Server simulation clock via backdoor.",
+      "stream": "tc_server_backdoor",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/SHIRE_SERVER/PAUSED",
+          "operator": "eq",
+          "value": "PAUSED"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/SHIRE_SERVER/BACKDOOR_SERVER_PLAY",
+      "comment": "Resume the Simulith Server simulation clock via backdoor.",
+      "stream": "tc_server_backdoor",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/SHIRE_SERVER/PAUSED",
+          "operator": "eq",
+          "value": "RUNNING"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "command",
+      "name": "/SHIRE_SERVER/BACKDOOR_SERVER_SET_SPEED",
+      "comment": "Set simulation speed to 2x via backdoor while running so telemetry keeps flowing.",
+      "stream": "tc_server_backdoor",
+      "extraOptions": [],
+      "arguments": [
+        {
+          "name": "SPEED",
+          "value": "2.0"
+        }
+      ]
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/SHIRE_SERVER/SPEED",
+          "operator": "gt",
+          "value": "1.99"
+        },
+        {
+          "parameter": "/SHIRE_SERVER/SPEED",
+          "operator": "lt",
+          "value": "2.01"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "text",
+      "text": "DEMO: Backdoor configuration command.\n* Enable the device\n* Confirm default config\n* Set demo simulator config via backdoor\n* Request fresh housekeeping\n* Confirm config value applied"
+    },
+    {
+      "type": "command",
+      "name": "/DEMO/DEMO_ENABLE_CC",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "name": "/DEMO/DEMO_REQ_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/DEMO/DEVICE_ENABLED",
+          "operator": "eq",
+          "value": "ENABLED"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/DEMO/DEVICE_CONFIG",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000,
+      "comment": "Confirm default config before overriding via backdoor."
+    },
+    {
+      "type": "command",
+      "name": "/DEMO/BACKDOOR_DEMO_SET_CONFIG",
+      "comment": "Set demo simulator config via backdoor.",
+      "stream": "tc_backdoor",
+      "extraOptions": [],
+      "arguments": [
+        {
+          "name": "CONFIG_VALUE",
+          "value": "4660"
+        }
+      ]
+    },
+    {
+      "type": "command",
+      "name": "/DEMO/DEMO_REQ_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/DEMO/DEVICE_CONFIG",
+          "operator": "eq",
+          "value": "4660"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "text",
+      "text": "CF: CFDP file download from spacecraft to ground.\n* Re-upload the checkout file (the earlier copy was deleted on downlink)\n* Confirm upload complete\n* Command a downlink of the file via CF_TX_FILE\n* Confirm command accepted\n* Confirm end-of-transaction downlinked"
+    },
+    {
+      "type": "command",
+      "name": "/CCSDS/CFDP_UPLOAD_CHECKOUT",
+      "stream": "checkout_control",
+      "extraOptions": [],
+      "arguments": [],
+      "advancement": {
+        "acknowledgment": "Acknowledge_Sent",
+        "wait": 1000
+      }
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_EOTPACKET/DIRECTION",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/TRANSACTION_STATUS",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/SOURCE_ENTITY_ID",
+          "operator": "eq",
+          "value": "23"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/DESTINATION_FILENAME",
+          "operator": "eq",
+          "value": "/d/checkout_adcs.ycs"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/FILE_SIZE",
+          "operator": "gt",
+          "value": "0"
+        }
+      ],
+      "timeout": 180000
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_TX_FILE",
+      "comment": "Download the re-uploaded checkout file back to ground.",
+      "extraOptions": [],
+      "arguments": [
+        {
+          "name": "CFDP_CLASS",
+          "value": "CLASS 2 - WITH FEEDBACK"
+        },
+        {
+          "name": "KEEP_FILE",
+          "value": "DELETE"
+        },
+        {
+          "name": "CHANNEL",
+          "value": "CHANNEL 0"
+        },
+        {
+          "name": "PRIORITY",
+          "value": "0"
+        },
+        {
+          "name": "DESTINATION_ENTITY_ID",
+          "value": "23"
+        },
+        {
+          "name": "SOURCE_FILENAME",
+          "value": "/d/checkout_adcs.ycs"
+        },
+        {
+          "name": "DESTINATION_FILENAME",
+          "value": "checkout_adcs_download.ycs"
+        }
+      ]
+    },
+    {
+      "type": "command",
+      "name": "/CF/CF_COMMANDS/CF_SEND_HK",
+      "extraOptions": [],
+      "arguments": []
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_COUNTER",
+          "operator": "eq",
+          "value": "3"
+        },
+        {
+          "parameter": "/CF/CF_HKPACKET/COMMAND_ERROR_COUNTER",
+          "operator": "eq",
+          "value": "0"
+        }
+      ],
+      "timeout": 30000
+    },
+    {
+      "type": "verify",
+      "condition": [
+        {
+          "parameter": "/CF/CF_EOTPACKET/DIRECTION",
+          "operator": "eq",
+          "value": "1"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/TRANSACTION_STATUS",
+          "operator": "eq",
+          "value": "0"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/SOURCE_ENTITY_ID",
+          "operator": "eq",
+          "value": "25"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/PEER_ENTITY_ID",
+          "operator": "eq",
+          "value": "23"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/SOURCE_FILENAME",
+          "operator": "eq",
+          "value": "/d/checkout_adcs.ycs"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/DESTINATION_FILENAME",
+          "operator": "eq",
+          "value": "checkout_adcs_download.ycs"
+        },
+        {
+          "parameter": "/CF/CF_EOTPACKET/FILE_SIZE",
+          "operator": "gt",
+          "value": "0"
+        }
+      ],
+      "timeout": 180000
     }
   ],
   "advancement": {
