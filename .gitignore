@@ -6,13 +6,28 @@
 # Maven output
 /target/
 
-# VSCode
-.vscode/settings.json
+# Metadata
+.DS_Store
+.vscode
+*.tar.gz
+__pycache__
 
 # Docker logs for CI
 docker/all.log
 
-# Component GSW files
+# Component GSW files. mdb/components stays its own entry since
+# mdb/*.xtce below (a loose-file wildcard, not a directory wildcard)
+# doesn't reach it; displays/components and procedures/components are
+# covered by the directory wildcards below instead.
 src/main/yamcs/mdb/components
-src/main/yamcs/displays/components
-src/main/yamcs/procedures/components
+
+# DRM-level GSW files (authored in the outer repo's cfg/<mission>/gsw/,
+# staged here by the same `copy-gsw-files` Makefile target, which already
+# copies this directory by glob). Matched by wildcard instead of by name
+# so a new DRM-level file needs no .gitignore edit. mdb/*.xtce only
+# matches loose files directly in mdb/, not the genuinely tracked
+# mdb/cfs/*.xtce; displays/* and procedures/* also cover the
+# component-staged displays/components and procedures/components above.
+src/main/yamcs/mdb/*.xtce
+src/main/yamcs/displays/*
+src/main/yamcs/procedures/*
