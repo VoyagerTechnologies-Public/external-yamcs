@@ -9,6 +9,7 @@ YAMCS_IMAGE := ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0
 export MISSION ?= drm
 export RUNTIME_GSW ?= shire-gsw-$(MISSION)
 export SPACECRAFT ?= sat-1
+export IMAGE_TAG ?= $(SPACECRAFT)
 
 # Main targets
 help:
@@ -91,7 +92,7 @@ logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
 runtime: container copy-gsw-files
-	docker build -t $(RUNTIME_GSW):$(SPACECRAFT) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
+	docker build -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
 	docker run --rm -it \
