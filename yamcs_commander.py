@@ -507,6 +507,21 @@ DEFAULT_VERIFY_TIMEOUT_MS = 30_000
 DEFAULT_ADVANCEMENT_WAIT_MS = 5_000  # only used if a command step has no
                                       # advancement at step or stack level
 
+# A stack's advancement.wait means two different things to its two
+# consumers, confirmed by reading real YAMCS source (yamcs-web's
+# stack-file.component.ts and yamcs-core's StackExecution.java): the
+# native YAMCS GUI treats it as an unconditional sleep applied AFTER the
+# acknowledgment already succeeded (the ack wait itself has no ceiling at
+# all there), while this poll loop below treats it as a ceiling on
+# observing the ack in the first place. A .ycs author lowering `wait` to
+# cut GUI dead time (e.g. CheckoutTest.ycs's CFDP upload steps, fixed from
+# 180000 to 1000 for exactly this reason) must not also shrink how long
+# we're willing to poll for a real, slow acknowledgment -- so the actual
+# poll ceiling here is never allowed below this floor, regardless of what
+# the .ycs sets `wait` to. A step whose ack genuinely never arrives still
+# fails, just after this floor instead of a possibly much shorter one.
+MIN_ACK_POLL_MS = 30_000
+
 STACK_OPERATORS: Dict[str, Callable[[object, object], bool]] = {
     "eq": operator_module.eq, "gt": operator_module.gt, "lt": operator_module.lt,
     "gte": operator_module.ge, "lte": operator_module.le, "ne": operator_module.ne,
@@ -544,7 +559,7 @@ def _run_command_step(commander: YAMCSCommander, step: Dict,
     advancement = step.get("advancement", stack_advancement)
     if advancement and command_id:
         ack_name = advancement.get("acknowledgment")
-        wait_ms = advancement.get("wait", DEFAULT_ADVANCEMENT_WAIT_MS)
+        wait_ms = max(advancement.get("wait", DEFAULT_ADVANCEMENT_WAIT_MS), MIN_ACK_POLL_MS)
         ack = commander.wait_for_acknowledgment(command_id, ack_name, wait_ms)
         if not (ack["observed"] and ack["ok"]):
             return {"status": "failed",
