@@ -3,7 +3,7 @@
 YAMCS Commander - Python script to send commands to SHIRE via YAMCS
 
 This script demonstrates commanding the spacecraft through YAMCS REST API.
-Works with SHIRE running via 'make start'.
+Works with SHIRE running via 'make start' or 'make scenario'.
 
 Requirements:
     pip install yamcs-client requests
@@ -20,14 +20,22 @@ Usage:
 
     # List available commands
     ./yamcs_commander.py --list
+
+    # Run a YAMCS Stack (.ycs) file headlessly -- the same command/verify/check
+    # sequence you'd otherwise run by hand in Procedures / Stacks in the web UI
+    ./yamcs_commander.py --stack ../cfg/drm/gsw/procedures/CheckoutTest.ycs
 """
 
 import argparse
+import json
+import operator as operator_module
 import os
+import pathlib
 import sys
 import time
+from typing import Callable, Dict, List, Optional
+
 import requests
-from typing import Dict, Optional
 
 try:
     import readline
@@ -42,6 +50,12 @@ except ImportError:
     YAMCS_CLIENT_AVAILABLE = False
     print("Warning: yamcs-client not installed. Falling back to REST API.")
     print("Install with: pip install yamcs-client")
+
+
+class ParameterNotFoundError(RuntimeError):
+    """The parameter doesn't exist in the MDB at all (HTTP 404) -- distinct
+    from a real parameter that just hasn't produced a sample yet, which
+    raises the plain RuntimeError instead and is worth retrying."""
 
 
 class YAMCSCommander:
@@ -152,61 +166,13 @@ class YAMCSCommander:
             
             if wait_for_ack:
                 print("  Waiting for acknowledgment...")
-                
-                # Wait for command to be acknowledged
-                timeout = 10  # seconds
-                start_time = time.time()
-                ack_received = False
-                
-                while time.time() - start_time < timeout:
-                    # Fetch updated command state
-                    try:
-                        # Get command history for this specific command
-                        cmd_url = f"{self.rest_base}/archive/{self.instance}/commands/{issued_command.id}"
-                        response = requests.get(cmd_url, timeout=2)
-                        
-                        if response.status_code == 200:
-                            cmd_data = response.json()
-                            acks = cmd_data.get('acknowledgments', [])
-                            
-                            if acks:
-                                for ack in acks:
-                                    ack_name = ack.get('name', 'Unknown')
-                                    ack_status = ack.get('status', 'Unknown')
-                                    ack_time = ack.get('time', 'N/A')
-                                    print(f"  ✓ {ack_name}: {ack_status} at {ack_time}")
-                                ack_received = True
-                                break
-                    except Exception:
-                        # If REST API fails, try yamcs-client method
-                        try:
-                            cmd_history = self.client.get_command_history(
-                                instance=self.instance,
-                                limit=10
-                            )
-                            
-                            for cmd in cmd_history:
-                                if cmd.id == issued_command.id:
-                                    acks = cmd.acknowledgments
-                                    if acks:
-                                        for ack in acks:
-                                            ack_name = ack.name
-                                            ack_status = ack.status
-                                            ack_time = ack.time
-                                            print(f"  ✓ {ack_name}: {ack_status} at {ack_time}")
-                                        ack_received = True
-                                    break
-                        except Exception:
-                            pass
-                    
-                    if ack_received:
-                        break
-                    
-                    time.sleep(0.25)
-                
-                if not ack_received:
+                result = self.wait_for_acknowledgment(issued_command.id, None, wait_ms=10_000)
+                if result["observed"]:
+                    for ack_name, ack in result["acknowledgments"].items():
+                        print(f"  ✓ {ack_name}: {ack.get('status')} at {ack.get('time')}")
+                else:
                     print("  ℹ No acknowledgment received within timeout (command may still execute)")
-            
+
             return True
         except Exception as e:
             print(f"✗ Error sending command: {e}")
@@ -216,13 +182,13 @@ class YAMCSCommander:
         """Send command using REST API"""
         try:
             url = f"{self.rest_base}/processors/{self.instance}/{self.processor}/commands{command_name}"
-            
-            payload = {}
-            if args:
-                payload['assignment'] = [
-                    {'name': k, 'value': v} for k, v in args.items()
-                ]
-            
+
+            # YAMCS 5.x's IssueCommandRequest takes a flat "args" object
+            # (confirmed live against a running instance -- the older
+            # "assignment": [{"name","value"}] list shape returns HTTP 400,
+            # "Cannot find field: assignment").
+            payload = {"args": args} if args else {}
+
             print(f"Sending command: {command_name}")
             if args:
                 print(f"  Arguments: {args}")
@@ -252,6 +218,108 @@ class YAMCSCommander:
         except Exception as e:
             print(f"Error getting command info: {e}")
             return None
+
+    # ------------------------------------------------------------------
+    # Stack-runner support (headless .ycs execution). Everything below is
+    # REST-only, deliberately not going through the optional yamcs-client
+    # fast path, so behavior doesn't change depending on whether that
+    # package happens to be installed.
+    # ------------------------------------------------------------------
+
+    def issue_command(self, command_name: str, args: Optional[Dict] = None) -> Dict:
+        """REST-only command issue. Unlike send_command(), returns the
+        parsed response dict (its 'id' is needed for ack polling) and
+        raises RuntimeError instead of printing and returning a bool."""
+        url = f"{self.rest_base}/processors/{self.instance}/{self.processor}/commands{command_name}"
+        payload = {"args": args} if args else {}
+        try:
+            response = requests.post(url, json=payload, timeout=5)
+        except requests.exceptions.RequestException as e:
+            raise RuntimeError(f"POST {url} failed: {e}") from e
+        if response.status_code >= 400:
+            raise RuntimeError(
+                f"POST {url} returned HTTP {response.status_code}: {response.text[:500]}")
+        return response.json()
+
+    def get_command_acknowledgments(self, command_id: str) -> Dict[str, Dict[str, str]]:
+        """Fetch and parse the named acknowledgments for a command from its
+        archive history entry. YAMCS reports each acknowledgment as a pair
+        of flat 'attr' entries, '<Name>_Status' and '<Name>_Time' -- there
+        is no top-level 'acknowledgments' list in this API version
+        (confirmed live against a running instance; an earlier version of
+        this method assumed one). Returns {} if the command isn't in the
+        archive yet or has no acknowledgments recorded."""
+        url = f"{self.rest_base}/archive/{self.instance}/commands/{command_id}"
+        try:
+            response = requests.get(url, timeout=2)
+        except requests.exceptions.RequestException:
+            return {}
+        if response.status_code != 200:
+            return {}
+        attrs = {a["name"]: a.get("value", {}) for a in response.json().get("attr", [])}
+        acks: Dict[str, Dict[str, str]] = {}
+        for name, value in attrs.items():
+            if name.endswith("_Status"):
+                acks.setdefault(name[: -len("_Status")], {})["status"] = value.get("stringValue")
+            elif name.endswith("_Time"):
+                acks.setdefault(name[: -len("_Time")], {})["time"] = value.get("stringValue")
+        return acks
+
+    def wait_for_acknowledgment(self, command_id: str, ack_name: Optional[str],
+                                wait_ms: int) -> Dict[str, object]:
+        """Poll until `ack_name` (or, if None, any acknowledgment) appears
+        for `command_id`, up to wait_ms milliseconds. Never raises -- a
+        timeout is a normal outcome to report, not a connectivity error."""
+        deadline = time.time() + wait_ms / 1000.0
+        while True:
+            acks = self.get_command_acknowledgments(command_id)
+            observed = (ack_name in acks) if ack_name is not None else bool(acks)
+            if observed:
+                relevant = {ack_name: acks[ack_name]} if ack_name is not None else acks
+                return {"observed": True,
+                        "ok": all(a.get("status") == "OK" for a in relevant.values()),
+                        "acknowledgments": acks}
+            if time.time() >= deadline:
+                return {"observed": False, "ok": False, "acknowledgments": acks}
+            time.sleep(0.25)
+
+    def get_parameter_value(self, parameter_name: str) -> Dict[str, object]:
+        """GET the current/latest value of a parameter in this processor.
+        Confirmed live: {rest_base}/processors/{instance}/{processor}/parameters{name}
+        returns an 'engValue' object shaped {"type": <TYPE>, "<type>Value": <value>}
+        (e.g. {"type": "FLOAT", "floatValue": 0.0}) -- the value key name
+        varies by type, so it's picked generically as "whichever key in
+        engValue isn't 'type'" rather than hardcoding a type list.
+
+        Raises ParameterNotFoundError (confirmed live: HTTP 404, "No
+        parameter named ...") for a misspelled/nonexistent parameter --
+        retrying that will never help. Raises the plain RuntimeError for a
+        real parameter that simply hasn't produced its first sample yet
+        (HTTP 200, no 'engValue', confirmed live right after boot) --
+        callers should retry that one within their own timeout."""
+        url = f"{self.rest_base}/processors/{self.instance}/{self.processor}/parameters{parameter_name}"
+        try:
+            response = requests.get(url, timeout=5)
+        except requests.exceptions.RequestException as e:
+            raise RuntimeError(f"GET {url} failed: {e}") from e
+        if response.status_code == 404:
+            raise ParameterNotFoundError(f"GET {url}: {response.text[:500]}")
+        if response.status_code != 200:
+            raise RuntimeError(
+                f"GET {url} returned HTTP {response.status_code}: {response.text[:500]}")
+        try:
+            body = response.json()
+        except ValueError as e:
+            raise RuntimeError(f"GET {url} returned non-JSON body: {response.text[:500]}") from e
+        eng_value = body.get("engValue")
+        if not eng_value:
+            raise RuntimeError(
+                f"GET {url}: parameter has no engValue yet "
+                f"(acquisitionStatus={body.get('acquisitionStatus')!r}): {json.dumps(body)[:500]}")
+        value_keys = [k for k in eng_value if k != "type"]
+        if not value_keys:
+            raise RuntimeError(f"GET {url}: engValue has no typed value field: {eng_value}")
+        return {"value": eng_value[value_keys[0]], "type": eng_value.get("type"), "raw": body}
 
     def interactive_mode(self):
         """Run interactive command interface"""
@@ -427,6 +495,178 @@ class YAMCSCommander:
                 pass
 
 
+# ----------------------------------------------------------------------
+# Headless ".ycs" stack execution -- replaces manually opening a stack in
+# Procedures / Stacks in the YAMCS web UI and clicking through it (schema:
+# https://yamcs.org/schema/stack.schema.json). Confirmed step shapes by
+# reading cfg/drm/gsw/procedures/CheckoutTest.ycs and
+# comp/adcs/gsw/procedures/AdcsComponent.ycs directly.
+# ----------------------------------------------------------------------
+
+DEFAULT_VERIFY_TIMEOUT_MS = 30_000
+DEFAULT_ADVANCEMENT_WAIT_MS = 5_000  # only used if a command step has no
+                                      # advancement at step or stack level
+
+# A stack's advancement.wait means two different things to its two
+# consumers, confirmed by reading real YAMCS source (yamcs-web's
+# stack-file.component.ts and yamcs-core's StackExecution.java): the
+# native YAMCS GUI treats it as an unconditional sleep applied AFTER the
+# acknowledgment already succeeded (the ack wait itself has no ceiling at
+# all there), while this poll loop below treats it as a ceiling on
+# observing the ack in the first place. A .ycs author lowering `wait` to
+# cut GUI dead time (e.g. CheckoutTest.ycs's CFDP upload steps, fixed from
+# 180000 to 1000 for exactly this reason) must not also shrink how long
+# we're willing to poll for a real, slow acknowledgment -- so the actual
+# poll ceiling here is never allowed below this floor, regardless of what
+# the .ycs sets `wait` to. A step whose ack genuinely never arrives still
+# fails, just after this floor instead of a possibly much shorter one.
+MIN_ACK_POLL_MS = 30_000
+
+STACK_OPERATORS: Dict[str, Callable[[object, object], bool]] = {
+    "eq": operator_module.eq, "gt": operator_module.gt, "lt": operator_module.lt,
+    "gte": operator_module.ge, "lte": operator_module.le, "ne": operator_module.ne,
+}
+
+
+def load_stack(path: pathlib.Path) -> Dict:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if "steps" not in data:
+        raise ValueError(f"{path}: missing top-level 'steps' array (not a .ycs stack?)")
+    return data
+
+
+def _coerce_expected(expected_raw: str, actual_value: object) -> object:
+    """condition['value'] is always a JSON string, even for numeric
+    compares (confirmed live). Coerce to float only when the live
+    parameter value is itself numeric."""
+    if isinstance(actual_value, (int, float)) and not isinstance(actual_value, bool):
+        try:
+            return float(expected_raw)
+        except ValueError:
+            return expected_raw
+    return expected_raw
+
+
+def _run_command_step(commander: YAMCSCommander, step: Dict,
+                      stack_advancement: Optional[Dict]) -> Dict:
+    name = step["name"]
+    args = {a["name"]: a["value"] for a in step.get("arguments", [])} or None
+    try:
+        response = commander.issue_command(name, args)
+    except RuntimeError as e:
+        return {"status": "failed", "expected": "command accepted", "detail": str(e)}
+    command_id = response.get("id")
+    advancement = step.get("advancement", stack_advancement)
+    if advancement and command_id:
+        ack_name = advancement.get("acknowledgment")
+        wait_ms = max(advancement.get("wait", DEFAULT_ADVANCEMENT_WAIT_MS), MIN_ACK_POLL_MS)
+        ack = commander.wait_for_acknowledgment(command_id, ack_name, wait_ms)
+        if not (ack["observed"] and ack["ok"]):
+            return {"status": "failed",
+                    "expected": f"acknowledgment {ack_name!r} (OK) within {wait_ms}ms",
+                    "actual": ack["acknowledgments"]}
+    return {"status": "passed", "expected": "command accepted", "actual": command_id}
+
+
+def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
+    conditions = step.get("condition", [])
+    timeout_s = step.get("timeout", DEFAULT_VERIFY_TIMEOUT_MS) / 1000.0
+    deadline = time.time() + timeout_s
+    last_actual: Dict[str, object] = {}
+    last_detail: Optional[str] = None
+    while True:
+        all_ok = True
+        last_actual = {}
+        last_detail = None
+        for cond in conditions:
+            param, op_name, expected_raw = cond["parameter"], cond["operator"], cond["value"]
+            comparator = STACK_OPERATORS.get(op_name)
+            if comparator is None:
+                return {"status": "failed", "expected": conditions,
+                        "detail": f"unsupported operator {op_name!r}"}
+            try:
+                observed = commander.get_parameter_value(param)
+            except ParameterNotFoundError as e:
+                # Misspelled/nonexistent parameter: retrying won't help.
+                return {"status": "failed", "expected": conditions, "detail": str(e)}
+            except RuntimeError as e:
+                # Real parameter, no sample yet: keep polling like a
+                # not-yet-matching value would, until this step's timeout.
+                all_ok = False
+                last_actual[param] = None
+                last_detail = str(e)
+                continue
+            actual = observed["value"]
+            last_actual[param] = actual
+            all_ok = all_ok and comparator(actual, _coerce_expected(expected_raw, actual))
+        if all_ok:
+            return {"status": "passed", "expected": conditions, "actual": last_actual}
+        if time.time() >= deadline:
+            return {"status": "failed", "expected": conditions,
+                    "actual": last_actual, "detail": last_detail}
+        time.sleep(0.5)
+
+
+def _run_check_step(commander: YAMCSCommander, step: Dict) -> Dict:
+    """'check' steps are display-only per the stack schema -- they never
+    fail the stack, even if a parameter can't be read (e.g. never
+    generated yet); the read error is recorded for visibility instead."""
+    values: Dict[str, object] = {}
+    errors: List[str] = []
+    for p in step.get("parameters", []):
+        try:
+            values[p["parameter"]] = commander.get_parameter_value(p["parameter"])["value"]
+        except RuntimeError as e:
+            errors.append(str(e))
+    return {"status": "passed", "actual": values, "detail": "; ".join(errors) or None}
+
+
+def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str) -> Dict:
+    """Runs every step of a loaded .ycs stack to completion (never stops
+    at the first failure -- matches how the YAMCS web UI already shows
+    every step's status as it goes) and returns a structured result.
+
+    Prints a line before and after each step (flushed immediately), not
+    just a final summary: a "verify" step can legitimately poll for up to
+    its full timeout (seconds to a couple of minutes), and a silent stack
+    runner mid-poll looks identical to a hung one. The caller
+    (cfg/shire-scenario.py's run_scheduled_verify_stacks) streams this
+    process's stdout live for exactly that reason."""
+    stack_advancement = stack.get("advancement")
+    steps = stack.get("steps", [])
+    results: List[Dict] = []
+    print(f"[stack] {stack_name}: {len(steps)} step(s)", flush=True)
+    for index, step in enumerate(steps):
+        step_type = step.get("type")
+        step_label = step.get("name") or step.get("comment") or step_type
+        print(f"[stack] {index + 1}/{len(steps)} {step_type} {step_label}: starting", flush=True)
+        started = time.monotonic()
+        if step_type == "command":
+            outcome = _run_command_step(commander, step, stack_advancement)
+        elif step_type == "verify":
+            outcome = _run_verify_step(commander, step)
+        elif step_type == "check":
+            outcome = _run_check_step(commander, step)
+        elif step_type == "text":
+            outcome = {"status": "passed", "actual": step.get("text")}
+        else:
+            outcome = {"status": "failed", "detail": f"unknown step type {step_type!r}"}
+        elapsed_s = round(time.monotonic() - started, 3)
+        print(f"[stack] {index + 1}/{len(steps)} {step_type} {step_label}: "
+              f"{outcome['status']} ({elapsed_s}s)", flush=True)
+        results.append({
+            "index": index, "type": step_type,
+            "name": step.get("name") or step.get("comment"),
+            "status": outcome["status"],
+            "expected": outcome.get("expected"), "actual": outcome.get("actual"),
+            "detail": outcome.get("detail"),
+            "elapsed_s": elapsed_s,
+        })
+    failures = [r for r in results if r["status"] == "failed"]
+    return {"stack": stack_name, "passed": not failures,
+            "step_count": len(results), "steps": results, "failures": failures}
+
+
 def parse_args_string(args_string: str) -> Dict:
     """Parse command arguments from string format 'key1=val1,key2=val2'"""
     if not args_string:
@@ -475,18 +715,43 @@ Examples:
                        help='List all available commands')
     parser.add_argument('--interactive', '-i', action='store_true',
                        help='Start interactive command mode')
-    
+    parser.add_argument('--stack', type=pathlib.Path,
+                       help='Run a YAMCS Stack (.ycs) file headlessly and exit 0/1 on pass/fail')
+    parser.add_argument('--report', type=pathlib.Path,
+                       help='With --stack: write the JSON step-by-step result here')
+    parser.add_argument('--connect-timeout-s', type=float, default=30.0,
+                       help='With --stack: seconds to wait for YAMCS to become reachable '
+                            '(default: 30)')
+
     args = parser.parse_args()
-    
+
     # Create commander
     commander = YAMCSCommander(args.yamcs_url, args.instance, args.processor)
-    
+
+    if args.stack:
+        deadline = time.time() + args.connect_timeout_s
+        while not commander.is_connected():
+            if time.time() >= deadline:
+                print(f"✗ Cannot connect to YAMCS at {args.yamcs_url} "
+                      f"within {args.connect_timeout_s}s", file=sys.stderr)
+                return 1
+            time.sleep(1)
+        stack = load_stack(args.stack)
+        result = run_stack(commander, stack, stack_name=str(args.stack))
+        text = json.dumps(result, indent=2, sort_keys=True)
+        if args.report:
+            args.report.write_text(text + "\n", encoding="utf-8")
+        print(text)
+        print(f"[yamcs-stack] {'PASS' if result['passed'] else 'FAIL'}: "
+              f"{len(result['failures'])}/{result['step_count']} step(s) failed")
+        return 0 if result["passed"] else 1
+
     # Check connection
     if not commander.is_connected():
         print(f"✗ Cannot connect to YAMCS at {args.yamcs_url}")
         print("  Make sure SHIRE is running: make start")
         return 1
-    
+
     # Execute requested action
     if args.list:
         commands = commander.list_commands()

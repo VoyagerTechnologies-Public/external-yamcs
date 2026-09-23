@@ -1,5 +1,5 @@
 # Makefile for SHIRE GSW (YAMCS)
-.PHONY: all clean command-list command-send command-interactive container copy-comp-gsw-files help logs runtime start stop shell test timeline-list timeline-save timeline-load
+.PHONY: all clean command-list command-send command-interactive container copy-gsw-files help logs runtime start stop shell test timeline-list timeline-save timeline-load
 .DEFAULT_GOAL := help
 
 # Variables
@@ -9,6 +9,7 @@ YAMCS_IMAGE := ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0
 export MISSION ?= drm
 export RUNTIME_GSW ?= shire-gsw-$(MISSION)
 export SPACECRAFT ?= sat-1
+export IMAGE_TAG ?= $(SPACECRAFT)
 
 # Main targets
 help:
@@ -27,6 +28,9 @@ clean: stop ## Clean up GSW build artifacts and containers
 	@rm -rf src/main/yamcs/mdb/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/displays/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/procedures/components 2>/dev/null || true
+	@rm -f src/main/yamcs/mdb/ccsds.xtce src/main/yamcs/mdb/sim_42_truth.xtce \
+		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/displays/SpaceVehicle.par \
+		src/main/yamcs/procedures/CheckoutTest.ycs 2>/dev/null || true
 
 command-list: ## List all available YAMCS commands
 	python3 yamcs_commander.py --list
@@ -46,7 +50,7 @@ container: Dockerfile.yamcs ## Pull or build the YAMCS base image (pulls from GH
 		docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .; \
 	fi
 
-copy-comp-gsw-files: ## Copy component GSW files
+copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 	@mkdir -p src/main/yamcs/mdb/components
 	@rm -rf src/main/yamcs/mdb/components/*
 	@for comp_dir in ../comp/*/gsw; do \
@@ -74,12 +78,21 @@ copy-comp-gsw-files: ## Copy component GSW files
 			cp -f "$$proc_dir"/* "src/main/yamcs/procedures/components/$$comp_name/" 2>/dev/null || true; \
 		fi; \
 	done
+	@# DRM-level GSW files (not tied to one component): authored in
+	@# ../cfg/$(MISSION)/gsw/, staged here the same way as the
+	@# per-component files above. Not committed in this submodule (see
+	@# .gitignore) -- always freshly copied from the outer repo.
+	@if [ -d ../cfg/$(MISSION)/gsw ]; then \
+		cp -f ../cfg/$(MISSION)/gsw/*.xtce src/main/yamcs/mdb/ 2>/dev/null || true; \
+		cp -f ../cfg/$(MISSION)/gsw/displays/* src/main/yamcs/displays/ 2>/dev/null || true; \
+		cp -f ../cfg/$(MISSION)/gsw/procedures/* src/main/yamcs/procedures/ 2>/dev/null || true; \
+	fi
 
 logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
-runtime: container copy-comp-gsw-files
-	docker build -t $(RUNTIME_GSW):$(SPACECRAFT) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
+runtime: container copy-gsw-files
+	docker build -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
 	docker run --rm -it \
