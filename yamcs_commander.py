@@ -527,6 +527,20 @@ STACK_OPERATORS: Dict[str, Callable[[object, object], bool]] = {
     "gte": operator_module.ge, "lte": operator_module.le, "ne": operator_module.ne,
 }
 
+# "approx" is NOT part of the official YAMCS stack schema
+# (https://yamcs.org/schema/stack.schema.json) -- every other operator
+# compares a parameter to condition['value'], a static literal, which is
+# all the real YAMCS web UI's stack editor/runner understands. "approx"
+# instead compares a parameter to another *live* parameter
+# (condition['reference_parameter']) within condition['tolerance'], which
+# only this headless commander (used by `make scenario`/verify_stacks)
+# evaluates. A .ycs using it still opens fine in the YAMCS web UI, but a
+# human running it there would see this condition simply never resolve,
+# since the UI has no 'reference_parameter'/'tolerance' concept -- so
+# "approx" conditions belong only in stacks that are exclusively driven
+# through verify_stacks, never ones also intended for manual GUI use.
+APPROX_OPERATOR = "approx"
+
 
 def load_stack(path: pathlib.Path) -> Dict:
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -568,6 +582,20 @@ def _run_command_step(commander: YAMCSCommander, step: Dict,
     return {"status": "passed", "expected": "command accepted", "actual": command_id}
 
 
+def _read_param(commander: YAMCSCommander, param: str) -> tuple:
+    """Reads a single parameter's live value. Returns (value, error_detail);
+    exactly one is None. Re-raises ParameterNotFoundError for a
+    misspelled/nonexistent parameter (not worth retrying)."""
+    try:
+        return commander.get_parameter_value(param)["value"], None
+    except ParameterNotFoundError:
+        raise
+    except RuntimeError as e:
+        # Real parameter, no sample yet: keep polling like a not-yet-matching
+        # value would, until the step's timeout.
+        return None, str(e)
+
+
 def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
     conditions = step.get("condition", [])
     timeout_s = step.get("timeout", DEFAULT_VERIFY_TIMEOUT_MS) / 1000.0
@@ -579,26 +607,39 @@ def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
         last_actual = {}
         last_detail = None
         for cond in conditions:
-            param, op_name, expected_raw = cond["parameter"], cond["operator"], cond["value"]
+            param, op_name = cond["parameter"], cond["operator"]
+
+            if op_name == APPROX_OPERATOR:
+                ref_param = cond["reference_parameter"]
+                tolerance = float(cond["tolerance"])
+                try:
+                    actual, detail = _read_param(commander, param)
+                    reference, ref_detail = _read_param(commander, ref_param)
+                except ParameterNotFoundError as e:
+                    return {"status": "failed", "expected": conditions, "detail": str(e)}
+                last_actual[param] = actual
+                last_actual[ref_param] = reference
+                if actual is None or reference is None:
+                    all_ok = False
+                    last_detail = detail or ref_detail
+                    continue
+                all_ok = all_ok and abs(float(actual) - float(reference)) <= tolerance
+                continue
+
             comparator = STACK_OPERATORS.get(op_name)
             if comparator is None:
                 return {"status": "failed", "expected": conditions,
                         "detail": f"unsupported operator {op_name!r}"}
             try:
-                observed = commander.get_parameter_value(param)
+                actual, detail = _read_param(commander, param)
             except ParameterNotFoundError as e:
-                # Misspelled/nonexistent parameter: retrying won't help.
                 return {"status": "failed", "expected": conditions, "detail": str(e)}
-            except RuntimeError as e:
-                # Real parameter, no sample yet: keep polling like a
-                # not-yet-matching value would, until this step's timeout.
-                all_ok = False
-                last_actual[param] = None
-                last_detail = str(e)
-                continue
-            actual = observed["value"]
             last_actual[param] = actual
-            all_ok = all_ok and comparator(actual, _coerce_expected(expected_raw, actual))
+            if actual is None:
+                all_ok = False
+                last_detail = detail
+                continue
+            all_ok = all_ok and comparator(actual, _coerce_expected(cond["value"], actual))
         if all_ok:
             return {"status": "passed", "expected": conditions, "actual": last_actual}
         if time.time() >= deadline:
