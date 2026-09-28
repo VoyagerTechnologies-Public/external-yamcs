@@ -97,5 +97,26 @@ class TestLiteralConditionRegression(unittest.TestCase):
         self.assertEqual(commander.get_parameter_value.call_count, 1)
 
 
+class TestSimulatedVerifyTiming(unittest.TestCase):
+    def test_verify_elapsed_uses_decoded_simulation_clock(self):
+        commander = MagicMock()
+        clock_samples = iter((75.0, 97.0))
+
+        def get_parameter(name):
+            if name == "/SIM_42_TRUTH/DYN_TIME":
+                return {"value": next(clock_samples)}
+            return {"value": 1}
+
+        commander.get_parameter_value.side_effect = get_parameter
+        stack = {"steps": [{"type": "verify", "condition": [
+            {"parameter": "/ADCS/DEVICE_ENABLED", "operator": "eq", "value": "1"}]}]}
+        result = yc.run_stack(commander, stack, stack_name="test",
+                              sim_time_parameter="/SIM_42_TRUTH/DYN_TIME")
+        self.assertTrue(result["passed"])
+        self.assertEqual(result["steps"][0]["sim_elapsed_s"], 22.0)
+        self.assertEqual(result["steps"][0]["sim_start_s"], 75.0)
+        self.assertEqual(result["steps"][0]["sim_end_s"], 97.0)
+
+
 if __name__ == "__main__":
     unittest.main()

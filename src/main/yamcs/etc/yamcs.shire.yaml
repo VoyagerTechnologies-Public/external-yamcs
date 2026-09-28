@@ -71,7 +71,7 @@ dataLinks:
     packetPreprocessorArgs:
       useLocalGenerationTime: true
   - name: radio-out
-    class: org.yamcs.tctm.UdpTcDataLink
+    class: org.yamcs.shire.DeferredUdpTcDataLink
     stream: tc_realtime
     host: shire-cryptolib
     port: 12345
@@ -84,13 +84,13 @@ dataLinks:
     packetPreprocessorArgs:
       useLocalGenerationTime: true
   - name: debug-out
-    class: org.yamcs.tctm.UdpTcDataLink
+    class: org.yamcs.shire.DeferredUdpTcDataLink
     stream: tc_realtime
     host: shire-fsw
     port: 1234
     commandPostprocessorClassName: org.yamcs.tctm.cfs.CfsCommandPostprocessor
   - name: sim-backdoor
-    class: org.yamcs.tctm.UdpTcDataLink
+    class: org.yamcs.shire.DeferredUdpTcDataLink
     stream: tc_backdoor
     host: shire-director
     port: 50060
@@ -101,7 +101,7 @@ dataLinks:
     updateSimulationTime: true
     packetPreprocessorClassName: org.yamcs.shire.Truth42PacketPreprocessor
   - name: server-backdoor
-    class: org.yamcs.tctm.UdpTcDataLink
+    class: org.yamcs.shire.DeferredUdpTcDataLink
     stream: tc_server_backdoor
     host: shire-server
     port: 50061

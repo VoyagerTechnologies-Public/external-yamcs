@@ -662,7 +662,16 @@ def _run_check_step(commander: YAMCSCommander, step: Dict) -> Dict:
     return {"status": "passed", "actual": values, "detail": "; ".join(errors) or None}
 
 
-def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str) -> Dict:
+def _sim_time(commander: YAMCSCommander, parameter: str) -> Optional[float]:
+    """Sample the latest decoded simulation clock, when available."""
+    try:
+        return float(commander.get_parameter_value(parameter)["value"])
+    except (RuntimeError, TypeError, ValueError, KeyError):
+        return None
+
+
+def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str,
+              sim_time_parameter: Optional[str] = None) -> Dict:
     """Runs every step of a loaded .ycs stack to completion (never stops
     at the first failure -- matches how the YAMCS web UI already shows
     every step's status as it goes) and returns a structured result.
@@ -682,6 +691,8 @@ def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str) -> Dic
         step_label = step.get("name") or step.get("comment") or step_type
         print(f"[stack] {index + 1}/{len(steps)} {step_type} {step_label}: starting", flush=True)
         started = time.monotonic()
+        sim_start_s = (_sim_time(commander, sim_time_parameter)
+                       if sim_time_parameter and step_type == "verify" else None)
         if step_type == "command":
             outcome = _run_command_step(commander, step, stack_advancement)
         elif step_type == "verify":
@@ -692,17 +703,28 @@ def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str) -> Dic
             outcome = {"status": "passed", "actual": step.get("text")}
         else:
             outcome = {"status": "failed", "detail": f"unknown step type {step_type!r}"}
+        sim_end_s = (_sim_time(commander, sim_time_parameter)
+                     if sim_time_parameter and step_type == "verify" else None)
         elapsed_s = round(time.monotonic() - started, 3)
         print(f"[stack] {index + 1}/{len(steps)} {step_type} {step_label}: "
               f"{outcome['status']} ({elapsed_s}s)", flush=True)
-        results.append({
+        step_result = {
             "index": index, "type": step_type,
             "name": step.get("name") or step.get("comment"),
             "status": outcome["status"],
             "expected": outcome.get("expected"), "actual": outcome.get("actual"),
             "detail": outcome.get("detail"),
             "elapsed_s": elapsed_s,
-        })
+        }
+        if sim_time_parameter and step_type == "verify":
+            step_result.update({
+                "sim_start_s": sim_start_s,
+                "sim_end_s": sim_end_s,
+                "sim_elapsed_s": (round(sim_end_s - sim_start_s, 3)
+                                  if sim_start_s is not None and sim_end_s is not None
+                                  and sim_end_s >= sim_start_s else None),
+            })
+        results.append(step_result)
     failures = [r for r in results if r["status"] == "failed"]
     return {"stack": stack_name, "passed": not failures,
             "step_count": len(results), "steps": results, "failures": failures}
@@ -760,6 +782,9 @@ Examples:
                        help='Run a YAMCS Stack (.ycs) file headlessly and exit 0/1 on pass/fail')
     parser.add_argument('--report', type=pathlib.Path,
                        help='With --stack: write the JSON step-by-step result here')
+    parser.add_argument('--sim-time-parameter',
+                       help='With --stack: sample this Yamcs parameter before and after '
+                            'each verify step to record simulated elapsed time')
     parser.add_argument('--connect-timeout-s', type=float, default=30.0,
                        help='With --stack: seconds to wait for YAMCS to become reachable '
                             '(default: 30)')
@@ -778,7 +803,8 @@ Examples:
                 return 1
             time.sleep(1)
         stack = load_stack(args.stack)
-        result = run_stack(commander, stack, stack_name=str(args.stack))
+        result = run_stack(commander, stack, stack_name=str(args.stack),
+                           sim_time_parameter=args.sim_time_parameter)
         text = json.dumps(result, indent=2, sort_keys=True)
         if args.report:
             args.report.write_text(text + "\n", encoding="utf-8")
