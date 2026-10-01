@@ -10,6 +10,7 @@ export MISSION ?= drm
 export RUNTIME_GSW ?= shire-gsw-$(MISSION)
 export SPACECRAFT ?= sat-1
 export IMAGE_TAG ?= $(SPACECRAFT)
+VISUAL_ASSET_CONTEXT := ../build/visualization-assets/$(MISSION)/$(SPACECRAFT)
 
 # Main targets
 help:
@@ -23,13 +24,11 @@ help:
 all: runtime ## Build and prepare GSW for runtime
 
 clean: stop ## Clean up GSW build artifacts and containers
-	docker rmi $(RUNTIME_GSW):$(SPACECRAFT) 2>/dev/null || true
-	docker volume rm gsw-data 2>/dev/null || true
 	@rm -rf src/main/yamcs/mdb/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/displays/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/procedures/components 2>/dev/null || true
 	@rm -f src/main/yamcs/mdb/ccsds.xtce src/main/yamcs/mdb/sim_42_truth.xtce \
-		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/displays/SpaceVehicle.par \
+		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/mdb/shire_visual.xtce src/main/yamcs/displays/SpaceVehicle.par \
 		src/main/yamcs/procedures/CheckoutTest.ycs 2>/dev/null || true
 
 command-list: ## List all available YAMCS commands
@@ -92,7 +91,8 @@ logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
 runtime: container copy-gsw-files
-	docker build -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
+	python3 ../cfg/shire-visual-assets.py --mission $(MISSION) --spacecraft $(SPACECRAFT) --output $(VISUAL_ASSET_CONTEXT)
+	docker build --build-context visual-assets=$(VISUAL_ASSET_CONTEXT) -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
 	docker run --rm -it \

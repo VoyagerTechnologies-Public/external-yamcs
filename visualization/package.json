@@ -1,0 +1,9 @@
+{
+  "name": "shire-visualization",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {"build": "tsc --noEmit && vite build"},
+  "dependencies": {"cesium": "1.145.0"},
+  "devDependencies": {"@types/node": "^22.15.0", "typescript": "~5.9.3", "vite": "^7.3.0"}
+}

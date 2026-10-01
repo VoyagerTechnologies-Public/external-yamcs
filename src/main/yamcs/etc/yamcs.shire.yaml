@@ -17,8 +17,8 @@ services:
       realtimeFiller:
         enabled: true
       backFiller:
-        enabled: false
-        warmupTime: 60
+        enabled: true
+        warmupTime: 0
   - class: org.yamcs.plists.ParameterListService
   - class: org.yamcs.timeline.TimelineService
   - class: org.yamcs.cfdp.CfdpService
@@ -100,6 +100,11 @@ dataLinks:
     port: 50042
     updateSimulationTime: true
     packetPreprocessorClassName: org.yamcs.shire.Truth42PacketPreprocessor
+  - name: visual-in
+    class: org.yamcs.shire.BufferedVisualTmDataLink
+    stream: visual_data
+    port: 50044
+    packetPreprocessorClassName: org.yamcs.shire.VisualPacketPreprocessor
   - name: server-backdoor
     class: org.yamcs.shire.DeferredUdpTcDataLink
     stream: tc_server_backdoor
@@ -174,6 +179,9 @@ mdb:
       file: mdb/sim_42_truth.xtce
   - type: xtce
     args:
+      file: mdb/shire_visual.xtce
+  - type: xtce
+    args:
       file: mdb/components/adcs/adcs.xtce
   - type: xtce
     args:
@@ -196,6 +204,9 @@ streamConfig:
     - name: "truth42_data"
       processor: "realtime"
       rootContainer: "/SIM_42_TRUTH/SIM_42_TRUTH_DATA"
+    - name: "visual_data"
+      processor: "realtime"
+      rootContainer: "/SHIRE_VISUAL/SHIRE_VISUAL_DATA"
     - name: "server_status_data"
       processor: "realtime"
       rootContainer: "/SHIRE_SERVER/SERVER_STATUS"
