@@ -76,7 +76,7 @@ const trailLines=viewer.scene.primitives.add(new C.PolylineCollection());
 const trailSegments: C.Polyline[] = [];
 let activeTrailCount=0;
 let trailDirty = true;
-const sun = makeLine(C.Color.YELLOW.withAlpha(.35),2);
+const sun = makeLine(C.Color.YELLOW.withAlpha(.7),2);
 const axes = [C.Color.RED,C.Color.LIME,C.Color.DEEPSKYBLUE].map(color => makeLine(color,3));
 let mode: 'live'|'replay' = archivedOnly ? 'replay' : 'live';
 let transitionId=0;
@@ -93,7 +93,7 @@ let pendingUtc: number | undefined;
 let recordHz = 20;
 let lastHeadPoll=0;
 let headPolling=false;
-let frameRate = 5;
+let frameRate = 30;
 let playbackSpeed = 1;
 let bookmarks: {utc:number; note:string}[] = [];
 let observedRun = expectedRun;
@@ -293,7 +293,7 @@ function render() {
         if(!line) {
           line=trailLines.add({positions:points,width:2,
             material:C.Material.fromType(C.Material.PolylineDashType,{
-              color:C.Color.fromCssColorString('#ffad38').withAlpha(.85),
+              color:C.Color.fromCssColorString('#b0b7c1').withAlpha(.9),
               gapColor:C.Color.TRANSPARENT,dashLength:20,dashPattern:0xFF00
             })});
           trailSegments.push(line);
@@ -471,7 +471,7 @@ timeline.oninput=async()=>{
   if(token===transitionId)render();
 };
 cameraInput.onchange=()=>{cameraMode='';render();};
-fpsInput.onchange=()=>{frameRate=Math.max(1,Math.min(60,Number(fpsInput.value)||5));fpsInput.value=String(frameRate);};
+fpsInput.onchange=()=>{frameRate=Math.max(1,Math.min(60,Number(fpsInput.value)||30));fpsInput.value=String(frameRate);};
 const updatePlaybackSpeed=()=>{
   const value=speedInput.valueAsNumber;
   if(Number.isFinite(value)&&value>0)

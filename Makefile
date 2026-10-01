@@ -40,14 +40,9 @@ command-send: ## Send a command (usage: make command-send CMD=/path/to/cmd ARGS=
 command-interactive: ## Start interactive command mode
 	python3 yamcs_commander.py --interactive
 
-container: Dockerfile.yamcs ## Pull or build the YAMCS base image (pulls from GHCR, builds locally if unavailable)
+container: Dockerfile.yamcs ## Build the YAMCS development image from this checkout
 	@command -v docker >/dev/null 2>&1 || { echo "Error: docker is not installed or not in PATH."; exit 1; }
-	@if docker pull $(YAMCS_IMAGE) 2>/dev/null; then \
-		echo "[container] Pulled $(YAMCS_IMAGE) from GHCR"; \
-	else \
-		echo "[container] Building $(YAMCS_IMAGE) locally..."; \
-		docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .; \
-	fi
+	@docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .
 
 copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 	@mkdir -p src/main/yamcs/mdb/components
@@ -90,9 +85,9 @@ copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
-runtime: container copy-gsw-files
+runtime: copy-gsw-files
 	python3 ../cfg/shire-visual-assets.py --mission $(MISSION) --spacecraft $(SPACECRAFT) --output $(VISUAL_ASSET_CONTEXT)
-	docker build --build-context visual-assets=$(VISUAL_ASSET_CONTEXT) -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
+	docker build --pull=false --network=none --build-context visual-assets=$(VISUAL_ASSET_CONTEXT) -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
 	docker run --rm -it \
@@ -109,7 +104,7 @@ stop: ## Stop and remove GSW container
 	docker stop $(RUNTIME_GSW) 2>/dev/null || true
 	docker rm $(RUNTIME_GSW) 2>/dev/null || true
 
-test: ## Run tests
+test: container ## Run tests
 	docker run --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) ./mvnw test
 
 timeline-list: ## List all timeline views

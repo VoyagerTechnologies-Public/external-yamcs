@@ -9,7 +9,7 @@
 @media(max-width:800px){#map-panel{top:auto;bottom:18px;width:min(260px,calc(100vw - 36px))}aside{max-height:calc(100vh - 220px)}}
 
 .swatch{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 4px 0 5px;vertical-align:middle;background:var(--swatch)}
-.trail-color{--swatch:#71efff}.orbit-color{--swatch:#ffad38}.axis-x{--swatch:#ff0000}.axis-y{--swatch:#00ff00}.axis-z{--swatch:#00bfff}.sun-color{--swatch:#ffff00;opacity:.55}.predicted-color{--swatch:#ff9b32}.shadow-color{--swatch:#c746ff}.current-color{--swatch:#ffdc69}
+.trail-color{--swatch:#71efff}.orbit-color{--swatch:#b0b7c1}.axis-x{--swatch:#ff0000}.axis-y{--swatch:#00ff00}.axis-z{--swatch:#00bfff}.sun-color{--swatch:#ffff00;opacity:.7}.predicted-color{--swatch:#ff9b32}.shadow-color{--swatch:#c746ff}.current-color{--swatch:#ffdc69}
 .swatch.orbit-color,.swatch.predicted-color,.swatch.shadow-color,.swatch.trail-color{width:18px;height:4px;border-radius:0}
 .swatch.orbit-color,.swatch.predicted-color{background:repeating-linear-gradient(90deg,var(--swatch) 0 8px,transparent 8px 13px)}
 .swatch.shadow-color{box-shadow:0 0 0 2px #101827}
