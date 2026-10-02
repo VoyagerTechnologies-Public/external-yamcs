@@ -1,3 +1,3 @@
-FROM maven:3.9.9-eclipse-temurin-17
+FROM maven:3.9.16-eclipse-temurin-17-noble@sha256:1a352420f7aba21f5ad08df31bab55f74c013fb491f1ae8ab1dd7ff9ed698584
 
 WORKDIR /yamcs

@@ -26,7 +26,8 @@ buckets:
   - name: cfdpDown
     path: yamcs-data/cfdpDown
 yamcs-web:
-  extraHeaderHTML: '<script defer src="/visualization/yamcs-sidebar.js"></script>'
+  extraHeaderHTML: '<script defer src="/visualization/yamcs-sidebar.js?mode=replay"></script>'
+  tc: false
   siteLinks:
     - label: Visualization
       url: /visualization/

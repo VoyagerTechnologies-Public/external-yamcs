@@ -1,0 +1,28 @@
+# Lockfile-matched offline viewer build environment.
+# Local native-platform build: make container (from repo root)
+# Published to: ghcr.io/voyagertechnologies-public/shire-viewer-base
+#
+# Manual multi-platform GHCR publish (from repo root):
+#   1. Create a classic GitHub token with write:packages and permission to
+#      publish to VoyagerTechnologies-Public. Authorize SSO if required.
+#   2. Set CR_PAT in your shell, then log in:
+#        printf '%s' "$CR_PAT" | docker login ghcr.io -u YOUR_GITHUB_USER --password-stdin
+#   3. Create and bootstrap a multi-platform builder (one time):
+#        docker buildx create --name shire-multiarch --driver docker-container --use
+#        docker buildx inspect --bootstrap
+#   4. Build and push the image plus its multi-platform manifest:
+#        export IMAGE=ghcr.io/voyagertechnologies-public/shire-viewer-base
+#        docker buildx build --platform linux/amd64,linux/arm64 \
+#          --tag "${IMAGE}:0.0.0" --push -f yamcs/Dockerfile.viewer-base yamcs
+#   5. Verify the published platforms:
+#        docker buildx imagetools inspect "${IMAGE}:0.0.0"
+#
+FROM node:24-bookworm-slim@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+WORKDIR /viewer
+COPY visualization/package.json visualization/package-lock.json ./
+RUN npm ci && mkdir /baseline && \
+    cp package.json package-lock.json /baseline/
+LABEL org.opencontainers.image.title="shire-viewer-base" \
+      org.opencontainers.image.description="Lockfile-matched viewer build environment for SHIRE" \
+      org.opencontainers.image.source="https://github.com/VoyagerTechnologies-Public/shire" \
+      org.opencontainers.image.vendor="Voyager Technologies"

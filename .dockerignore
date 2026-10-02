@@ -2,3 +2,6 @@
 target/
 docker/
 *.md
+
+visualization/node_modules/
+visualization/dist/

@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Replay mode serves the retained native archive with no startup automation.
+if [ "${YAMCS_REPLAY_ONLY:-0}" = "1" ]; then
+  cp /app/etc/yamcs-replay.yaml /app/etc/yamcs.yaml
+  cp /app/etc/yamcs.shire-replay.yaml /app/etc/yamcs.shire.yaml
+  exec /app/bin/yamcsd "$@"
+fi
+
 # Copy default displays and stacks into Yamcs data storage on first run
 DATA_DIR=/app/yamcs-data
 
@@ -55,6 +62,11 @@ fi
 # Start Yamcs in background so we can register objects through its storage API, then wait on it
 /app/bin/yamcsd "$@" &
 YAMCS_PID=$!
+shutdown() {
+  kill -TERM "$YAMCS_PID" 2>/dev/null || true
+  wait "$YAMCS_PID" 2>/dev/null || true
+}
+trap shutdown TERM INT
 
 wait_for_api() {
   local retries=60
@@ -95,6 +107,19 @@ if wait_for_api; then
   # Register displays and stacks (non-fatal on failures)
   register_bucket_files displays || true
   register_bucket_files stacks || true
+  # This is run metadata, not a second telemetry store. The mission database
+  # and configuration are frozen once in the same retained Yamcs database.
+  if [ -n "${SHIRE_RUN_ID:-}" ]; then
+    metadata=$(printf '{"runId":"%s","mission":"%s","spacecraft":"%s","visualHz":%s,"createdUtc":"%s"}' \
+      "$SHIRE_RUN_ID" "${SHIRE_MISSION:-unknown}" "${SHIRE_SPACECRAFT:-unknown}" "${SHIRE_VISUAL_HZ:-20}" "$(date -u +%FT%TZ)")
+    curl -fsS -X POST -H 'Content-Type: application/json' --data-binary "$metadata" \
+      'http://localhost:8090/api/storage/buckets/shireRuns/objects/run.json' >/dev/null || echo 'Warning: run metadata upload failed'
+    tar -C /app -czf /tmp/shire-mdb-config.tar.gz etc mdb
+    curl -fsS -X POST -H 'Content-Type: application/gzip' \
+      --data-binary @/tmp/shire-mdb-config.tar.gz \
+      'http://localhost:8090/api/storage/buckets/shireRuns/objects/mission-database-config.tar.gz' >/dev/null || echo 'Warning: mission database snapshot upload failed'
+    rm -f /tmp/shire-mdb-config.tar.gz
+  fi
   
   # Load timeline views if available (try multiple file locations)
   if [ -f /opt/yamcs/timelines/complete_timeline.json ]; then

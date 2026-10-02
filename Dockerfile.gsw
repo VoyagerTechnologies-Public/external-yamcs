@@ -1,4 +1,15 @@
-# SHIRE YAMCS GSW w/ Pre-built Files
+# SHIRE YAMCS GSW with offline Cesium visualization.
+FROM ghcr.io/voyagertechnologies-public/shire-viewer-base:0.0.0 AS viewer
+WORKDIR /viewer
+COPY visualization/package*.json ./
+RUN cmp /baseline/package.json package.json && \
+    cmp /baseline/package-lock.json package-lock.json
+COPY visualization/ ./
+COPY --from=visual-assets /earth-imagery.* /viewer/public/
+COPY --from=visual-assets /model.glb /viewer/public/model.glb
+COPY --from=visual-assets /model-asset.json /viewer/public/model-asset.json
+RUN npm run build
+
 #
 
 FROM ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0 AS builder
@@ -10,15 +21,17 @@ COPY .mvn .mvn/
 COPY src/ src/
 
 # Build the application
-RUN mvn clean package -DskipTests
+RUN cmp /baseline-pom.xml pom.xml && mvn -o -B clean package -DskipTests
 
-# Runtime stage - base from your lab/build image
-FROM ghcr.io/voyagertechnologies-public/shire-yamcs:0.0.0
+# Keep Maven and the JDK in the build stage; Yamcs needs only Java 17 at runtime.
+FROM ghcr.io/voyagertechnologies-public/shire-yamcs-runtime:0.0.0
 WORKDIR /app
 
 # Copy the built application from builder stage
 COPY --from=builder /app/target/*-bundle.tar.gz ./
 RUN tar -xzf *-bundle.tar.gz --strip-components=1 && rm *-bundle.tar.gz
+
+COPY --from=viewer /viewer/dist/ /app/shire-static/visualization/
 
 # Copy entrypoint and timeline management scripts
 COPY bin/entrypoint.sh /app/bin/entrypoint.sh
