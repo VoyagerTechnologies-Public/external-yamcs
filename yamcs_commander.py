@@ -680,7 +680,7 @@ def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str,
     just a final summary: a "verify" step can legitimately poll for up to
     its full timeout (seconds to a couple of minutes), and a silent stack
     runner mid-poll looks identical to a hung one. The caller
-    (cfg/shire-scenario.py's run_scheduled_verify_stacks) streams this
+    (tools/shire-scenario.py's run_scheduled_verify_stacks) streams this
     process's stdout live for exactly that reason."""
     stack_advancement = stack.get("advancement")
     steps = stack.get("steps", [])

@@ -86,7 +86,7 @@ logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
 runtime: copy-gsw-files
-	python3 ../cfg/shire-visual-assets.py --mission $(MISSION) --spacecraft $(SPACECRAFT) --output $(VISUAL_ASSET_CONTEXT)
+	python3 ../tools/shire-visual-assets.py --mission $(MISSION) --spacecraft $(SPACECRAFT) --output $(VISUAL_ASSET_CONTEXT)
 	docker build --pull=false --network=none --build-context visual-assets=$(VISUAL_ASSET_CONTEXT) -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
