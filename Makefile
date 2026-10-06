@@ -10,6 +10,7 @@ export MISSION ?= drm
 export RUNTIME_GSW ?= shire-gsw-$(MISSION)
 export SPACECRAFT ?= sat-1
 export IMAGE_TAG ?= $(SPACECRAFT)
+VISUAL_ASSET_CONTEXT := ../build/visualization-assets/$(MISSION)/$(SPACECRAFT)
 
 # Main targets
 help:
@@ -23,13 +24,11 @@ help:
 all: runtime ## Build and prepare GSW for runtime
 
 clean: stop ## Clean up GSW build artifacts and containers
-	docker rmi $(RUNTIME_GSW):$(SPACECRAFT) 2>/dev/null || true
-	docker volume rm gsw-data 2>/dev/null || true
 	@rm -rf src/main/yamcs/mdb/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/displays/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/procedures/components 2>/dev/null || true
 	@rm -f src/main/yamcs/mdb/ccsds.xtce src/main/yamcs/mdb/sim_42_truth.xtce \
-		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/displays/SpaceVehicle.par \
+		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/mdb/shire_visual.xtce src/main/yamcs/displays/SpaceVehicle.par \
 		src/main/yamcs/procedures/CheckoutTest.ycs 2>/dev/null || true
 
 command-list: ## List all available YAMCS commands
@@ -41,14 +40,9 @@ command-send: ## Send a command (usage: make command-send CMD=/path/to/cmd ARGS=
 command-interactive: ## Start interactive command mode
 	python3 yamcs_commander.py --interactive
 
-container: Dockerfile.yamcs ## Pull or build the YAMCS base image (pulls from GHCR, builds locally if unavailable)
+container: Dockerfile.yamcs ## Build the YAMCS development image from this checkout
 	@command -v docker >/dev/null 2>&1 || { echo "Error: docker is not installed or not in PATH."; exit 1; }
-	@if docker pull $(YAMCS_IMAGE) 2>/dev/null; then \
-		echo "[container] Pulled $(YAMCS_IMAGE) from GHCR"; \
-	else \
-		echo "[container] Building $(YAMCS_IMAGE) locally..."; \
-		docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .; \
-	fi
+	@docker build -t $(YAMCS_IMAGE) -f Dockerfile.yamcs .
 
 copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 	@mkdir -p src/main/yamcs/mdb/components
@@ -91,8 +85,9 @@ copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
 
-runtime: container copy-gsw-files
-	docker build -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
+runtime: copy-gsw-files
+	python3 ../tools/shire-visual-assets.py --mission $(MISSION) --spacecraft $(SPACECRAFT) --output $(VISUAL_ASSET_CONTEXT)
+	docker build --pull=false --network=none --build-context visual-assets=$(VISUAL_ASSET_CONTEXT) -t $(RUNTIME_GSW):$(IMAGE_TAG) -f Dockerfile.gsw --build-arg USER_ID=$(shell id -u) --build-arg GROUP_ID=$(shell id -g) .
 
 start: ## Start GSW container
 	docker run --rm -it \
@@ -109,7 +104,7 @@ stop: ## Stop and remove GSW container
 	docker stop $(RUNTIME_GSW) 2>/dev/null || true
 	docker rm $(RUNTIME_GSW) 2>/dev/null || true
 
-test: ## Run tests
+test: container ## Run tests
 	docker run --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) ./mvnw test
 
 timeline-list: ## List all timeline views
