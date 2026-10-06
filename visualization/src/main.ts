@@ -3,6 +3,7 @@ import 'cesium/Build/Cesium/Widgets/widgets.css';
 import './style.css';
 import {decode, j2000Millis, sampleDate, type Sample} from './packet';
 import {expectedGroundTrack, type ForecastPoint} from './orbit';
+import {fetchGroundTrack} from './ground-track';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const status = $('status');
@@ -163,25 +164,12 @@ function drawGroundTrack(position: C.Cartesian3, anchor: Sample) {
 }
 async function loadGroundTrack(center: number) {
   if(!first||!last) return;
-  const from=Math.max(first.utc,center-1800),to=Math.min(last.utc,center+1800);
+  const from=Math.max(first.utc,center-1800),to=Math.min(last.utc,center);
   if(trackCoverage && center>=trackCoverage[0] && center<=trackCoverage[1]) return;
   const serial=++trackSerial;
-  const query=new URLSearchParams({name:packetName,order:'asc',limit:'400',
-    start:new Date(j2000Millis+from*1000).toISOString(),
-    stop:new Date(j2000Millis+to*1000).toISOString()});
-  let lastRead=from;
-  for(let count=0;count<12000;) {
-    const page=await list(query);
-    if(serial!==trackSerial) return;
-    for(const packet of page.packets||[]) {
-      const sample=packetSample(packet);
-      if(sample) {recordTrack(sample);lastRead=sample.utc;}
-    }
-    count+=(page.packets||[]).length;
-    if(!page.continuationToken||count>=12000) break;
-    query.set('next',page.continuationToken);
-  }
-  trackCoverage=[from,lastRead];
+  const coverage=await fetchGroundTrack({from,to,packetName,list,
+    decode:packetSample,record:recordTrack,isCurrent:()=>serial===trackSerial});
+  if(serial===trackSerial) trackCoverage=coverage;
 }
 function orientation(s: Sample): C.Quaternion {
   const [x,y,z,w] = s.q; // 42: vector first, scalar last; CBN maps N to body.

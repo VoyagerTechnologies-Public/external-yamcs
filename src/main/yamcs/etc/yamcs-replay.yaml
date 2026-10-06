@@ -30,5 +30,5 @@ yamcs-web:
   tc: false
   siteLinks:
     - label: Visualization
-      url: /visualization/
+      url: /visualization/?mode=replay
       external: true

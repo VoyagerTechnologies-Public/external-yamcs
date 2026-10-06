@@ -8,7 +8,7 @@ COPY visualization/ ./
 COPY --from=visual-assets /earth-imagery.* /viewer/public/
 COPY --from=visual-assets /model.glb /viewer/public/model.glb
 COPY --from=visual-assets /model-asset.json /viewer/public/model-asset.json
-RUN npm run build
+RUN node --test test/*.test.ts && npm run build
 
 #
 
