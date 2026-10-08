@@ -77,6 +77,9 @@ mdb:
 - type: xtce
   args:
     file: mdb/shire_server.xtce
+- type: xtce
+  args:
+    file: mdb/shire_ground.xtce
 streamConfig:
   tm:
   - name: tm_realtime
