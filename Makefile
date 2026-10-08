@@ -81,14 +81,14 @@ copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 		cp -f ../cfg/$(MISSION)/gsw/displays/* src/main/yamcs/displays/ 2>/dev/null || true; \
 		cp -f ../cfg/$(MISSION)/gsw/procedures/* src/main/yamcs/procedures/ 2>/dev/null || true; \
 	fi
-
-logs: ## Show GSW container logs
-	docker logs -f $(RUNTIME_GSW)
-
+	@# Resolved EPS wiring overrides the checked-in default MDB and stacks.
 	@if [ -f ../build/$(MISSION)/scenario/eps.xtce ]; then cp -f ../build/$(MISSION)/scenario/eps.xtce src/main/yamcs/mdb/components/eps/eps.xtce; fi
 	@if [ -d ../build/$(MISSION)/scenario/eps-stacks ]; then \
 		cp -f ../build/$(MISSION)/scenario/eps-stacks/*.ycs src/main/yamcs/procedures/components/eps/; \
 	fi
+
+logs: ## Show GSW container logs
+	docker logs -f $(RUNTIME_GSW)
 
 runtime: copy-gsw-files
 	python3 ../tools/shire-visual-assets.py --mission $(MISSION) --spacecraft $(SPACECRAFT) --output $(VISUAL_ASSET_CONTEXT)
