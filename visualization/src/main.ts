@@ -4,6 +4,7 @@ import './style.css';
 import {decode, j2000Millis, sampleDate, type Sample} from './packet';
 import {expectedGroundTrack, type ForecastPoint} from './orbit';
 import {fetchGroundTrack} from './ground-track';
+import {EpsPanel} from './eps-panel';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const status = $('status');
@@ -14,6 +15,7 @@ const cameraInput = $<HTMLSelectElement>('camera');
 const speedInput = $<HTMLInputElement>('speed');
 const bookList = $('bookmarks');
 const groundMap = $<HTMLCanvasElement>('ground-map');
+const epsPanel = new EpsPanel($('eps-panel'));
 const params = new URLSearchParams(location.search);
 const archivedOnly = params.get('mode') === 'replay';
 const expectedRun = params.get('run') || '';
@@ -248,6 +250,7 @@ function placeCamera(position: C.Cartesian3) {
   cameraMode=selected;
 }
 function render() {
+  epsPanel.update(mode, currentUtc ? j2000Millis + currentUtc*1000 : 0);
   const selection=selectedState(currentUtc);
   if (!selection) return;
   const {state, gap}=selection;
@@ -378,17 +381,29 @@ function connectLive() {
   const url=`${location.protocol==='https:'?'wss':'ws'}://${location.host}/api/websocket`;
   const active=new WebSocket(url,'json');
   socket=active;
-  active.onopen=()=>active.send(JSON.stringify({type:'packets',id:1,options:{instance:'shire',stream:'visual_data'}}));
+  active.onopen=()=>{
+    if(socket!==active || mode!=='live') return;
+    active.send(JSON.stringify({type:'packets',id:1,options:{instance:'shire',stream:'visual_data'}}));
+    epsPanel.subscribe(active);
+  };
   active.onmessage=e=>{
     const message=JSON.parse(e.data);
+    if(socket!==active || mode!=='live') return;
+    if(message.type==='parameters') epsPanel.receive(message.data);
     if(message.type==='packets') {const s=packetSample(message.data); if(s)push(s);}
-    if(message.type==='reply'&&message.data?.exception)status.textContent=JSON.stringify(message.data.exception);
+    if(message.type==='reply'&&message.data?.exception) {
+      if(message.data.replyTo===2) epsPanel.subscriptionError(JSON.stringify(message.data.exception));
+      else status.textContent=JSON.stringify(message.data.exception);
+    }
   };
   active.onclose=()=>{
-    if(socket===active&&mode==='live') setTimeout(()=>{
-      // A pending reconnect must never undo an operator's later Pause.
-      if(socket===active&&mode==='live') connectLive();
-    },2000);
+    if(socket===active&&mode==='live') {
+      epsPanel.subscriptionError('EPS telemetry disconnected; reconnecting…');
+      setTimeout(()=>{
+        // A pending reconnect must never undo an operator's later Pause.
+        if(socket===active&&mode==='live') connectLive();
+      },2000);
+    }
   };
 }
 async function loadBookmarks() {

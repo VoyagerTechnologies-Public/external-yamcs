@@ -27,6 +27,8 @@ Usage:
 """
 
 import argparse
+import datetime as dt
+import copy
 import json
 import operator as operator_module
 import os
@@ -596,8 +598,58 @@ def _read_param(commander: YAMCSCommander, param: str) -> tuple:
         return None, str(e)
 
 
-def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
-    conditions = step.get("condition", [])
+def _run_verify_step(commander: YAMCSCommander, step: Dict, *, require_fresh: bool = False,
+                     transaction_baselines: Optional[Dict] = None,
+                     acquisition_baselines=None) -> Dict:
+    conditions = list(step.get("condition", []))
+    samples = {}
+    baselines = {}
+    # A positive-count assertion proves a new transaction. A nonnegative
+    # metric only requires a fresh packet, including an unchanged error count.
+    advancing_counters = set()
+    for condition in conditions:
+        if condition['parameter'] not in (transaction_baselines or {}): continue
+        try: bound = float(condition['value'])
+        except (TypeError, ValueError): continue
+        if (condition.get('operator') == 'gt' and bound >= 0
+                or condition.get('operator') == 'gte' and bound > 0):
+            advancing_counters.add(condition['parameter'])
+    def parameter(param):
+        return commander.get_parameter_value(param)
+    if require_fresh:
+        for cond in conditions:
+            param = cond["parameter"]
+            try:
+                namespace = param.rsplit('/', 1)[0]
+                if namespace in (acquisition_baselines or {}):
+                    baselines[param] = acquisition_baselines[namespace]
+                else: baselines[param] = parameter(param)["raw"].get("acquisitionTime")
+            except RuntimeError:
+                baselines[param] = None
+    def read(param):
+        if not require_fresh:
+            try: return parameter(param)['value'], None
+            except ParameterNotFoundError: raise
+            except RuntimeError as exc: return None, str(exc)
+        try:
+            result = parameter(param)
+        except ParameterNotFoundError: raise
+        except RuntimeError as exc: return None, str(exc)
+        stamp = result["raw"].get("acquisitionTime")
+        samples[param] = {"acquisitionTime": stamp,
+                          "generationTime": result["raw"].get("generationTime"),
+                          "source": result["raw"].get("source", "FSW telemetry")}
+        if stamp is None or (baselines.get(param) is not None and stamp <= baselines[param]):
+            return None, "waiting for fresh acquisition: " + param
+        baseline = (transaction_baselines or {}).get(param)
+        if baseline is not None and param in advancing_counters:
+            # FSW transaction counters wrap at their packet encoding width.
+            # A reset or backwards jump is not evidence of a new transaction.
+            modulus = 256 if param.endswith(('DEVICE_ERR_COUNT', 'DeviceErrorCount')) else 65536
+            delta = (int(result['value']) - int(baseline)) % modulus
+            if not 0 < delta < modulus // 2:
+                return None, "waiting for a new FSW device transaction: " + param
+        return result["value"], None
     timeout_s = step.get("timeout", DEFAULT_VERIFY_TIMEOUT_MS) / 1000.0
     deadline = time.time() + timeout_s
     last_actual: Dict[str, object] = {}
@@ -613,8 +665,8 @@ def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
                 ref_param = cond["reference_parameter"]
                 tolerance = float(cond["tolerance"])
                 try:
-                    actual, detail = _read_param(commander, param)
-                    reference, ref_detail = _read_param(commander, ref_param)
+                    actual, detail = read(param)
+                    reference, ref_detail = read(ref_param)
                 except ParameterNotFoundError as e:
                     return {"status": "failed", "expected": conditions, "detail": str(e)}
                 last_actual[param] = actual
@@ -631,7 +683,7 @@ def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
                 return {"status": "failed", "expected": conditions,
                         "detail": f"unsupported operator {op_name!r}"}
             try:
-                actual, detail = _read_param(commander, param)
+                actual, detail = read(param)
             except ParameterNotFoundError as e:
                 return {"status": "failed", "expected": conditions, "detail": str(e)}
             last_actual[param] = actual
@@ -641,10 +693,10 @@ def _run_verify_step(commander: YAMCSCommander, step: Dict) -> Dict:
                 continue
             all_ok = all_ok and comparator(actual, _coerce_expected(cond["value"], actual))
         if all_ok:
-            return {"status": "passed", "expected": conditions, "actual": last_actual}
+            return {"status": "passed", "expected": conditions, "actual": last_actual, "samples": samples}
         if time.time() >= deadline:
             return {"status": "failed", "expected": conditions,
-                    "actual": last_actual, "detail": last_detail}
+                    "actual": last_actual, "detail": last_detail, "samples": samples}
         time.sleep(0.5)
 
 
@@ -665,13 +717,32 @@ def _run_check_step(commander: YAMCSCommander, step: Dict) -> Dict:
 def _sim_time(commander: YAMCSCommander, parameter: str) -> Optional[float]:
     """Sample the latest decoded simulation clock, when available."""
     try:
-        return float(commander.get_parameter_value(parameter)["value"])
+        value = float(commander.get_parameter_value(parameter)["value"])
+        return value / 1e9 if parameter.endswith("/SIM_TIME_NS") else value
     except (RuntimeError, TypeError, ValueError, KeyError):
         return None
 
 
+def _wait_for_fsw_enable_state(commander, parameter, timeout_s=10.0):
+    """Wait for startup telemetry before deciding whether to send ENABLE once."""
+    deadline = time.monotonic() + timeout_s
+    while True:
+        try:
+            enabled = commander.get_parameter_value(parameter)['value']
+        except ParameterNotFoundError:
+            raise
+        except (RuntimeError, requests.RequestException):
+            if time.monotonic() >= deadline:
+                raise RuntimeError('FSW enable state unavailable: ' + parameter)
+            time.sleep(0.1)
+            continue
+        if enabled not in (0, 1, 'DISABLED', 'ENABLED'):
+            raise RuntimeError('Invalid FSW enable state: ' + str(enabled))
+        return enabled
+
+
 def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str,
-              sim_time_parameter: Optional[str] = None) -> Dict:
+              sim_time_parameter: Optional[str] = None, require_fresh: bool = False) -> Dict:
     """Runs every step of a loaded .ycs stack to completion (never stops
     at the first failure -- matches how the YAMCS web UI already shows
     every step's status as it goes) and returns a structured result.
@@ -682,29 +753,71 @@ def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str,
     runner mid-poll looks identical to a hung one. The caller
     (tools/shire-scenario.py's run_scheduled_verify_stacks) streams this
     process's stdout live for exactly that reason."""
+    stack = copy.deepcopy(stack)
+    transaction_baselines = {}
+    acquisition_baselines = {}
+    def clock():
+        return _sim_time(commander, sim_time_parameter) if sim_time_parameter else None
     stack_advancement = stack.get("advancement")
     steps = stack.get("steps", [])
     results: List[Dict] = []
+    recovery_start_s = None
     print(f"[stack] {stack_name}: {len(steps)} step(s)", flush=True)
     for index, step in enumerate(steps):
         step_type = step.get("type")
         step_label = step.get("name") or step.get("comment") or step_type
         print(f"[stack] {index + 1}/{len(steps)} {step_type} {step_label}: starting", flush=True)
         started = time.monotonic()
-        sim_start_s = (_sim_time(commander, sim_time_parameter)
-                       if sim_time_parameter and step_type == "verify" else None)
+        wall_start = dt.datetime.now(dt.timezone.utc).isoformat()
+        sim_start_s = clock()
+        diagnostic = {}
+        comment = step.get('comment', '')
+        if comment == 'EPS RF probe via radio-out': diagnostic['transport'] = 'radio'
+        if comment.startswith('Enable if disabled: '):
+            diagnostic['enable_if_disabled'] = comment.removeprefix('Enable if disabled: ')
         if step_type == "command":
-            outcome = _run_command_step(commander, step, stack_advancement)
+            if require_fresh:
+                counters = {
+                    'EPS': ('/EPS/DEVICE_COUNT', '/EPS/DEVICE_ERR_COUNT'),
+                    'DEMO': ('/DEMO/DEVICE_COUNT', '/DEMO/DEVICE_ERR_COUNT'),
+                    'ADCS': ('/ADCS/DEVICE_COUNT', '/ADCS/DEVICE_ERR_COUNT'),
+                    'RADIO': ('/RADIO/RADIO_HK_DeviceCount', '/RADIO/RADIO_HK_DeviceErrorCount'),
+                }
+                # EPS stacks use one HK packet per application. Record its
+                # acquisition before sending, so a prompt response is accepted
+                # without waiting for a second periodic publication.
+                for namespace, param in {'/EPS': '/EPS/CMD_COUNT',
+                        '/DEMO': counters['DEMO'][0], '/ADCS': counters['ADCS'][0],
+                        '/RADIO': counters['RADIO'][0]}.items():
+                    if not step.get('name', '').startswith(namespace+'/'): continue
+                    try: acquisition_baselines[namespace] = commander.get_parameter_value(param)['raw'].get('acquisitionTime')
+                    except RuntimeError: pass
+                for name, parameters in counters.items():
+                    if step.get('name') == f'/{name}/{name}_REQ_HK':
+                        for param in parameters:
+                            try: transaction_baselines[param] = float(commander.get_parameter_value(param)['value'])
+                            except RuntimeError: pass
+            try:
+                enabled = None
+                if diagnostic.get('enable_if_disabled'):
+                    enabled = _wait_for_fsw_enable_state(commander, diagnostic['enable_if_disabled'])
+                if enabled in (1, 'ENABLED'):
+                    outcome = {'status': 'passed', 'actual': enabled,
+                               'detail': 'FSW device already enabled; enable command omitted'}
+                else: outcome = _run_command_step(commander, step, stack_advancement)
+            except (RuntimeError, requests.RequestException) as exc:
+                outcome = {'status': 'failed', 'detail': str(exc)}
         elif step_type == "verify":
-            outcome = _run_verify_step(commander, step)
+            outcome = _run_verify_step(commander, step, require_fresh=require_fresh,
+                                       transaction_baselines=transaction_baselines,
+                                       acquisition_baselines=acquisition_baselines)
         elif step_type == "check":
             outcome = _run_check_step(commander, step)
         elif step_type == "text":
             outcome = {"status": "passed", "actual": step.get("text")}
         else:
             outcome = {"status": "failed", "detail": f"unknown step type {step_type!r}"}
-        sim_end_s = (_sim_time(commander, sim_time_parameter)
-                     if sim_time_parameter and step_type == "verify" else None)
+        sim_end_s = clock()
         elapsed_s = round(time.monotonic() - started, 3)
         print(f"[stack] {index + 1}/{len(steps)} {step_type} {step_label}: "
               f"{outcome['status']} ({elapsed_s}s)", flush=True)
@@ -714,9 +827,11 @@ def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str,
             "status": outcome["status"],
             "expected": outcome.get("expected"), "actual": outcome.get("actual"),
             "detail": outcome.get("detail"),
-            "elapsed_s": elapsed_s,
+            "elapsed_s": elapsed_s, "wall_start": wall_start,
+            "wall_end": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "samples": outcome.get("samples"),
         }
-        if sim_time_parameter and step_type == "verify":
+        if sim_time_parameter:
             step_result.update({
                 "sim_start_s": sim_start_s,
                 "sim_end_s": sim_end_s,
@@ -724,6 +839,9 @@ def run_stack(commander: YAMCSCommander, stack: Dict, *, stack_name: str,
                                   if sim_start_s is not None and sim_end_s is not None
                                   and sim_end_s >= sim_start_s else None),
             })
+        if step_label == 'RECOVERY_BEGIN': recovery_start_s = sim_start_s
+        if step_label == 'startup restored' and recovery_start_s is not None and sim_end_s is not None:
+            step_result['phase_elapsed_s'] = sim_end_s - recovery_start_s
         results.append(step_result)
     failures = [r for r in results if r["status"] == "failed"]
     return {"stack": stack_name, "passed": not failures,
@@ -782,6 +900,8 @@ Examples:
                        help='Run a YAMCS Stack (.ycs) file headlessly and exit 0/1 on pass/fail')
     parser.add_argument('--report', type=pathlib.Path,
                        help='With --stack: write the JSON step-by-step result here')
+    parser.add_argument('--require-fresh', action='store_true',
+                        help='Require newly acquired telemetry and new successful EPS device transactions')
     parser.add_argument('--sim-time-parameter',
                        help='With --stack: sample this Yamcs parameter before and after '
                             'each verify step to record simulated elapsed time')
@@ -804,7 +924,7 @@ Examples:
             time.sleep(1)
         stack = load_stack(args.stack)
         result = run_stack(commander, stack, stack_name=str(args.stack),
-                           sim_time_parameter=args.sim_time_parameter)
+                           sim_time_parameter=args.sim_time_parameter, require_fresh=args.require_fresh)
         text = json.dumps(result, indent=2, sort_keys=True)
         if args.report:
             args.report.write_text(text + "\n", encoding="utf-8")

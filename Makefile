@@ -28,7 +28,7 @@ clean: stop ## Clean up GSW build artifacts and containers
 	@rm -rf src/main/yamcs/displays/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/procedures/components 2>/dev/null || true
 	@rm -f src/main/yamcs/mdb/ccsds.xtce src/main/yamcs/mdb/sim_42_truth.xtce \
-		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/mdb/shire_visual.xtce src/main/yamcs/displays/SpaceVehicle.par \
+		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/mdb/shire_ground.xtce src/main/yamcs/mdb/shire_visual.xtce src/main/yamcs/displays/SpaceVehicle.par \
 		src/main/yamcs/procedures/CheckoutTest.ycs 2>/dev/null || true
 
 command-list: ## List all available YAMCS commands
@@ -81,6 +81,11 @@ copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 		cp -f ../cfg/$(MISSION)/gsw/displays/* src/main/yamcs/displays/ 2>/dev/null || true; \
 		cp -f ../cfg/$(MISSION)/gsw/procedures/* src/main/yamcs/procedures/ 2>/dev/null || true; \
 	fi
+	@# Resolved EPS wiring overrides the checked-in default MDB and stacks.
+	@if [ -f ../build/$(MISSION)/scenario/eps.xtce ]; then cp -f ../build/$(MISSION)/scenario/eps.xtce src/main/yamcs/mdb/components/eps/eps.xtce; fi
+	@if [ -d ../build/$(MISSION)/scenario/eps-stacks ]; then \
+		cp -f ../build/$(MISSION)/scenario/eps-stacks/*.ycs src/main/yamcs/procedures/components/eps/; \
+	fi
 
 logs: ## Show GSW container logs
 	docker logs -f $(RUNTIME_GSW)
@@ -106,6 +111,7 @@ stop: ## Stop and remove GSW container
 
 test: container ## Run tests
 	docker run --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) ./mvnw test
+	docker run --rm --network none --entrypoint sh -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) test-uplink-selection.sh
 
 timeline-list: ## List all timeline views
 	python3 yamcs_timeline.py list

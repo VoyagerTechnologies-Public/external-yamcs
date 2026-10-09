@@ -62,6 +62,13 @@ services:
       remotePath: /d/checkout_adcs.ycs
       localEntity: GSW
       remoteEntity: FSW
+  - class: org.yamcs.shire.UplinkSelectionService
+    name: uplink-selection
+    args:
+      stream: ground_control
+      primaryLink: debug-out
+      alternateLink: radio-out
+      leaseSeconds: 30
 dataLinks:
   - name: radio-in
     class: org.yamcs.tctm.UdpTmDataLink
@@ -195,6 +202,9 @@ mdb:
   - type: xtce
     args:
       file: mdb/shire_server.xtce
+  - type: xtce
+    args:
+      file: mdb/shire_ground.xtce
 # Configuration for streams created at server startup
 streamConfig:
   tm:
@@ -224,13 +234,16 @@ streamConfig:
   tc:
     - name: "tc_backdoor"
       processor: "realtime"
-      tcPatterns: ["/DEMO/BACKDOOR_.*"]
+      tcPatterns: ["/DEMO/BACKDOOR_.*", "/EPS/BACKDOOR_EPS_.*"]
     - name: "tc_server_backdoor"
       processor: "realtime"
       tcPatterns: ["/SHIRE_SERVER/BACKDOOR_SERVER_.*"]
     - name: "checkout_control"
       processor: "realtime"
       tcPatterns: ["/CCSDS/CFDP_UPLOAD_CHECKOUT"]
+    - name: "ground_control"
+      processor: "realtime"
+      tcPatterns: ["/SHIRE_GROUND/.*"]
     - name: "tc_realtime"
       processor: "realtime"
       rootContainer: "/CCSDS/CCSDS_TC"
