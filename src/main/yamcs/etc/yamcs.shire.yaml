@@ -234,7 +234,7 @@ streamConfig:
   tc:
     - name: "tc_backdoor"
       processor: "realtime"
-      tcPatterns: ["/DEMO/BACKDOOR_.*", "/EPS/BACKDOOR_EPS_.*"]
+      tcPatterns: ["/DEMO/BACKDOOR_.*", "/EPS/BACKDOOR_EPS_.*", "/RADIO/BACKDOOR_RADIO_.*"]
     - name: "tc_server_backdoor"
       processor: "realtime"
       tcPatterns: ["/SHIRE_SERVER/BACKDOOR_SERVER_.*"]
