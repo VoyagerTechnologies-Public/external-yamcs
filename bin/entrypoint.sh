@@ -59,6 +59,14 @@ if [ -d /app/procedures ] && [ -z "$(ls -A "$DATA_DIR/storage/buckets/stacks/obj
   fi
 fi
 
+# Seed the CFDP upload bucket with files built for uplink (RTS tables and the like) so a procedure or the File
+# transfer page can send them. The bucket is a plain directory, so copying is enough.
+if [ -d /app/uplink ] && [ -n "$(ls -A /app/uplink 2>/dev/null)" ]; then
+  mkdir -p "$DATA_DIR/cfdpUp"
+  cp -f /app/uplink/* "$DATA_DIR/cfdpUp/" 2>/dev/null || true
+  echo "Staged uplink files into the cfdpUp bucket: $(ls /app/uplink | tr '\n' ' ')"
+fi
+
 # Start Yamcs in background so we can register objects through its storage API, then wait on it
 /app/bin/yamcsd "$@" &
 YAMCS_PID=$!

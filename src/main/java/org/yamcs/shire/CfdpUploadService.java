@@ -2,8 +2,11 @@ package org.yamcs.shire;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 
 import org.yamcs.AbstractYamcsService;
 import org.yamcs.InitException;
@@ -14,6 +17,8 @@ import org.yamcs.cfdp.CfdpService;
 import org.yamcs.cmdhistory.CommandHistoryPublisher;
 import org.yamcs.cmdhistory.CommandHistoryPublisher.AckStatus;
 import org.yamcs.cmdhistory.StreamCommandHistoryPublisher;
+import org.yamcs.cmdhistory.protobuf.Cmdhistory.Assignment;
+import org.yamcs.cmdhistory.protobuf.Cmdhistory.AssignmentInfo;
 import org.yamcs.commanding.PreparedCommand;
 import org.yamcs.filetransfer.FileTransfer;
 import org.yamcs.filetransfer.TransferMonitor;
@@ -25,16 +30,23 @@ import org.yamcs.yarch.StreamSubscriber;
 import org.yamcs.yarch.Tuple;
 
 /**
- * Turns the checkout stack's ground command into a CFDP upload.
+ * Turns ground commands into CFDP uploads.
  *
- * <p>The command is routed to a dedicated Yamcs stream, so it is never sent to
- * the spacecraft as a telecommand. Acknowledge_Sent is published only after the
+ * <p>Two commands are handled. {@code /CCSDS/CFDP_UPLOAD_CHECKOUT} uploads the checkout stack's fixed payload.
+ * {@code /CCSDS/CFDP_UPLOAD} uploads any object already in the upload bucket to a path the command names, which is
+ * how a procedure uplinks a table or a patch that was built with the flight software.
+ *
+ * <p>The commands are routed to a dedicated Yamcs stream, so they are never sent to
+ * the spacecraft as telecommands. Acknowledge_Sent is published only after the
  * CFDP transaction completes, which makes the stack wait without operator input.
  */
-public class CheckoutCfdpUploadService extends AbstractYamcsService
+public class CfdpUploadService extends AbstractYamcsService
         implements StreamSubscriber, TransferMonitor {
 
-    private static final String EXPECTED_COMMAND = "/CCSDS/CFDP_UPLOAD_CHECKOUT";
+    private static final String CHECKOUT_COMMAND = "/CCSDS/CFDP_UPLOAD_CHECKOUT";
+    private static final String UPLOAD_COMMAND = "/CCSDS/CFDP_UPLOAD";
+    private static final Pattern OBJECT_NAME = Pattern.compile("[A-Za-z0-9][A-Za-z0-9_.-]{0,127}");
+    private static final Pattern REMOTE_PATH = Pattern.compile("/[A-Za-z0-9_./-]{1,200}");
     private static final String PAYLOAD_RESOURCE = "/yamcs/procedures/components/adcs/AdcsComponent.ycs";
 
     private final Map<Long, CommandId> pendingCommands = new ConcurrentHashMap<>();
@@ -47,6 +59,7 @@ public class CheckoutCfdpUploadService extends AbstractYamcsService
     private String remotePath;
     private String localEntity;
     private String remoteEntity;
+    private List<String> remotePrefixes;
 
     @Override
     public void init(String yamcsInstance, String serviceName, YConfiguration config) throws InitException {
@@ -57,6 +70,8 @@ public class CheckoutCfdpUploadService extends AbstractYamcsService
         remotePath = config.getString("remotePath", "/d/checkout_adcs.ycs");
         localEntity = config.getString("localEntity", "GSW");
         remoteEntity = config.getString("remoteEntity", "FSW");
+        // A parameterized upload may only write where uploads belong, never over flight software in /cf.
+        remotePrefixes = config.containsKey("remotePrefixes") ? config.<String>getList("remotePrefixes") : List.of("/d/");
     }
 
     @Override
@@ -100,20 +115,23 @@ public class CheckoutCfdpUploadService extends AbstractYamcsService
             return;
         }
 
-        if (!EXPECTED_COMMAND.equals(commandId.getCommandName())) {
-            acknowledge(commandId, AckStatus.NOK, "Unsupported checkout control command");
-            return;
+        String commandName = commandId.getCommandName();
+        if (UPLOAD_COMMAND.equals(commandName)) {
+            uploadBucketObject(commandId, tuple);
+        } else if (CHECKOUT_COMMAND.equals(commandName)) {
+            uploadCheckoutPayload(commandId);
+        } else {
+            acknowledge(commandId, AckStatus.NOK, "Unsupported upload control command");
         }
+    }
 
+    private void uploadCheckoutPayload(CommandId commandId) {
         try (InputStream in = getClass().getResourceAsStream(PAYLOAD_RESOURCE)) {
             if (in == null) {
                 throw new IOException("Missing checkout payload " + PAYLOAD_RESOURCE);
             }
             byte[] payload = in.readAllBytes();
-            Bucket bucket = YamcsServer.getServer().getBucketManager().getBucket(bucketName);
-            if (bucket == null) {
-                throw new IOException("Unknown Yamcs bucket " + bucketName);
-            }
+            Bucket bucket = uploadBucket();
 
             bucket.putObjectAsync(objectName, "application/json", Map.of(), payload)
                     .whenComplete((unused, error) -> {
@@ -122,14 +140,68 @@ public class CheckoutCfdpUploadService extends AbstractYamcsService
                                     "Could not stage CFDP upload: " + error.getMessage());
                             return;
                         }
-                        startUpload(commandId, bucket);
+                        startUpload(commandId, bucket, objectName, remotePath);
                     });
         } catch (Exception e) {
             acknowledge(commandId, AckStatus.NOK, "Could not stage CFDP upload: " + e.getMessage());
         }
     }
 
-    private void startUpload(CommandId commandId, Bucket bucket) {
+    private void uploadBucketObject(CommandId commandId, Tuple tuple) {
+        try {
+            Map<String, String> arguments = new HashMap<>();
+            // The stream tuple already carries the command's argument assignments.
+            AssignmentInfo info = (AssignmentInfo) tuple.getColumn(PreparedCommand.CNAME_ASSIGNMENTS);
+            if (info != null) {
+                for (Assignment assignment : info.getAssignmentList()) {
+                    arguments.put(assignment.getName(), assignment.getValue().getStringValue());
+                }
+            }
+            String object = arguments.getOrDefault("OBJECT_NAME", "");
+            String path = arguments.getOrDefault("REMOTE_PATH", "");
+            String problem = validate(object, path);
+            if (problem != null) {
+                acknowledge(commandId, AckStatus.NOK, problem);
+                return;
+            }
+
+            Bucket bucket = uploadBucket();
+            bucket.findObjectAsync(object).whenComplete((properties, error) -> {
+                if (error != null || properties == null) {
+                    acknowledge(commandId, AckStatus.NOK,
+                            "No object " + object + " in bucket " + bucketName);
+                    return;
+                }
+                startUpload(commandId, bucket, object, path);
+            });
+        } catch (Exception e) {
+            acknowledge(commandId, AckStatus.NOK, "Could not start CFDP upload: " + e.getMessage());
+        }
+    }
+
+    /** Returns why an upload request is refused, or null when it is acceptable. */
+    String validate(String object, String path) {
+        if (!OBJECT_NAME.matcher(object).matches()) {
+            return "OBJECT_NAME must be a plain file name, got '" + object + "'";
+        }
+        if (!REMOTE_PATH.matcher(path).matches() || path.contains("..") || path.endsWith("/")) {
+            return "REMOTE_PATH must be an absolute file path, got '" + path + "'";
+        }
+        if (remotePrefixes.stream().noneMatch(path::startsWith)) {
+            return "REMOTE_PATH must start with " + String.join(" or ", remotePrefixes) + ", got '" + path + "'";
+        }
+        return null;
+    }
+
+    private Bucket uploadBucket() throws IOException {
+        Bucket bucket = YamcsServer.getServer().getBucketManager().getBucket(bucketName);
+        if (bucket == null) {
+            throw new IOException("Unknown Yamcs bucket " + bucketName);
+        }
+        return bucket;
+    }
+
+    private void startUpload(CommandId commandId, Bucket bucket, String object, String path) {
         try {
             TransferOptions options = new TransferOptions();
             options.setReliable(true);
@@ -137,7 +209,7 @@ public class CheckoutCfdpUploadService extends AbstractYamcsService
             options.setCreatePath(true);
 
             FileTransfer transfer = cfdpService.startUpload(
-                    localEntity, bucket, objectName, remoteEntity, remotePath, options);
+                    localEntity, bucket, object, remoteEntity, path, options);
             pendingCommands.put(transfer.getId(), commandId);
             handleTerminalState(transfer);
         } catch (Exception e) {
