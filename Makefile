@@ -83,6 +83,8 @@ copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 	fi
 	@# Resolved EPS wiring overrides the checked-in default MDB and stacks.
 	@if [ -f ../build/$(MISSION)/scenario/eps.xtce ]; then cp -f ../build/$(MISSION)/scenario/eps.xtce src/main/yamcs/mdb/components/eps/eps.xtce; fi
+	@# Resolved telemetry limits (yellow and red XTCE alarm ranges) replace the definitions they apply to.
+	@if [ -d ../build/$(MISSION)/scenario/mdb ]; then cp -rf ../build/$(MISSION)/scenario/mdb/. src/main/yamcs/mdb/; fi
 	@if [ -d ../build/$(MISSION)/scenario/eps-stacks ]; then \
 		cp -f ../build/$(MISSION)/scenario/eps-stacks/*.ycs src/main/yamcs/procedures/components/eps/; \
 	fi

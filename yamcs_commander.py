@@ -543,6 +543,16 @@ STACK_OPERATORS: Dict[str, Callable[[object, object], bool]] = {
 # through verify_stacks, never ones also intended for manual GUI use.
 APPROX_OPERATOR = "approx"
 
+# "monitoring" is also NOT part of the official stack schema. It checks a parameter's YAMCS monitoring result
+# (the alarm level its yellow and red limits put it at) against condition['value'], one of MONITORING_RESULTS,
+# for example {"parameter": "/EPS/BATTERY_VOLTAGE", "operator": "monitoring", "value": "WARNING"}. YAMCS reports
+# IN_LIMITS for a limited parameter that is inside its ranges and WARNING for yellow and CRITICAL for red. A
+# parameter with no limits has no monitoring result, which fails the step at once instead of polling to the
+# timeout, since waiting can never fix a missing limit. Like "approx", the web UI cannot evaluate it, so stacks
+# using it are for verify_stacks only.
+MONITORING_OPERATOR = "monitoring"
+MONITORING_RESULTS = ("IN_LIMITS", "WATCH", "WARNING", "DISTRESS", "CRITICAL", "SEVERE")
+
 
 def load_stack(path: pathlib.Path) -> Dict:
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -676,6 +686,27 @@ def _run_verify_step(commander: YAMCSCommander, step: Dict, *, require_fresh: bo
                     last_detail = detail or ref_detail
                     continue
                 all_ok = all_ok and abs(float(actual) - float(reference)) <= tolerance
+                continue
+
+            if op_name == MONITORING_OPERATOR:
+                if cond["value"] not in MONITORING_RESULTS:
+                    return {"status": "failed", "expected": conditions,
+                            "detail": f"monitoring value {cond['value']!r} is not one of {', '.join(MONITORING_RESULTS)}"}
+                try:
+                    sample = parameter(param)
+                except ParameterNotFoundError as e:
+                    return {"status": "failed", "expected": conditions, "detail": str(e)}
+                except RuntimeError as e:
+                    all_ok = False
+                    last_actual[param] = None
+                    last_detail = str(e)
+                    continue
+                actual = sample.get("raw", {}).get("monitoringResult")
+                last_actual[param] = actual
+                if actual is None:
+                    return {"status": "failed", "expected": conditions, "actual": last_actual,
+                            "detail": f"{param} has no monitoring result, so no limits are defined for it"}
+                all_ok = all_ok and actual == cond["value"]
                 continue
 
             comparator = STACK_OPERATORS.get(op_name)
