@@ -553,6 +553,17 @@ APPROX_OPERATOR = "approx"
 MONITORING_OPERATOR = "monitoring"
 MONITORING_RESULTS = ("IN_LIMITS", "WATCH", "WARNING", "DISTRESS", "CRITICAL", "SEVERE")
 
+# "unchanged" and "advances" are also NOT part of the official stack schema. They watch a parameter over time instead
+# of comparing it to a literal. "unchanged" holds the step for condition['value'] milliseconds, after a short settle,
+# and fails if the value changes, so a stack can pause the simulation clock for longer than a watchdog and prove that
+# time stood still. "advances" passes once the value is greater than it was when the step began, which proves the
+# clock resumed. A step using either must use only that operator. Like "approx", the web UI cannot evaluate them, so
+# stacks using them are for verify_stacks only.
+UNCHANGED_OPERATOR = "unchanged"
+ADVANCES_OPERATOR = "advances"
+MOTION_OPERATORS = (UNCHANGED_OPERATOR, ADVANCES_OPERATOR)
+MOTION_SETTLE_S = 1.0
+
 
 def load_stack(path: pathlib.Path) -> Dict:
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -608,10 +619,63 @@ def _read_param(commander: YAMCSCommander, param: str) -> tuple:
         return None, str(e)
 
 
+def _run_motion_step(commander: YAMCSCommander, step: Dict, conditions: List[Dict]) -> Dict:
+    """Evaluate "unchanged" and "advances" conditions, which compare a parameter with its own earlier value."""
+    operators = {condition["operator"] for condition in conditions}
+    if len(operators) != 1:
+        return {"status": "failed", "expected": conditions,
+                "detail": f"{', '.join(MOTION_OPERATORS)} cannot be mixed with other operators in one step"}
+    operator = operators.pop()
+    parameters = [condition["parameter"] for condition in conditions]
+
+    def sample() -> Dict[str, object]:
+        return {name: commander.get_parameter_value(name)["value"] for name in parameters}
+
+    deadline = time.time() + step.get("timeout", DEFAULT_VERIFY_TIMEOUT_MS) / 1000.0
+    try:
+        if operator == UNCHANGED_OPERATOR:
+            try:
+                hold_s = max(float(condition["value"]) for condition in conditions) / 1000.0
+            except (KeyError, TypeError, ValueError):
+                return {"status": "failed", "expected": conditions,
+                        "detail": "unchanged needs a hold time in milliseconds as its value"}
+            time.sleep(MOTION_SETTLE_S)
+            baseline = sample()
+            hold_until = time.time() + hold_s
+            while True:
+                current = sample()
+                if current != baseline:
+                    return {"status": "failed", "expected": conditions, "actual": current,
+                            "detail": f"changed during the hold from {baseline}"}
+                if time.time() >= hold_until:
+                    return {"status": "passed", "expected": conditions, "actual": current}
+                time.sleep(0.5)
+        baseline = None
+        while True:
+            try:
+                current = sample()
+                if baseline is None:
+                    baseline = current
+                elif all(float(current[name]) > float(baseline[name]) for name in parameters):
+                    return {"status": "passed", "expected": conditions, "actual": current}
+            except ParameterNotFoundError:
+                raise
+            except RuntimeError:
+                pass
+            if time.time() >= deadline:
+                return {"status": "failed", "expected": conditions, "actual": baseline,
+                        "detail": "the value never rose above its value at the start of the step"}
+            time.sleep(0.5)
+    except (ParameterNotFoundError, RuntimeError) as exc:
+        return {"status": "failed", "expected": conditions, "detail": str(exc)}
+
+
 def _run_verify_step(commander: YAMCSCommander, step: Dict, *, require_fresh: bool = False,
                      transaction_baselines: Optional[Dict] = None,
                      acquisition_baselines=None) -> Dict:
     conditions = list(step.get("condition", []))
+    if any(condition.get("operator") in MOTION_OPERATORS for condition in conditions):
+        return _run_motion_step(commander, step, conditions)
     samples = {}
     baselines = {}
     # A positive-count assertion proves a new transaction. A nonnegative

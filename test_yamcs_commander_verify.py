@@ -257,6 +257,91 @@ class TestMonitoringCondition(unittest.TestCase):
         self.assertEqual(yc._run_verify_step(commander, step)["status"], "passed")
 
 
+class _FakeClock:
+    """A clock whose sleep advances time, so hold and timeout logic runs instantly."""
+    def __init__(self):
+        self.now = 1000.0
+
+    def time(self):
+        return self.now
+
+    def sleep(self, seconds):
+        self.now += seconds
+
+
+class TestMotionConditions(unittest.TestCase):
+    """"unchanged" and "advances" compare a parameter with its own earlier value."""
+    PARAM = "/SHIRE_VISUAL/SIM_TIME"
+
+    def run_step(self, operator, values, value="8000", timeout=2000):
+        """values is the parameter's reading on each successive sample, repeating the last."""
+        clock = _FakeClock()
+        readings = iter(values)
+        last = {"value": values[-1]}
+
+        def get(_):
+            try:
+                last["value"] = next(readings)
+            except StopIteration:
+                pass
+            return {"value": last["value"]}
+
+        commander = MagicMock()
+        commander.get_parameter_value.side_effect = get
+        step = {"condition": [{"parameter": self.PARAM, "operator": operator, "value": value}], "timeout": timeout}
+        with patch.object(yc.time, "time", clock.time), patch.object(yc.time, "sleep", clock.sleep):
+            result = yc._run_verify_step(commander, step)
+        return result, clock
+
+    def test_unchanged_passes_and_holds_for_the_whole_time(self):
+        result, clock = self.run_step("unchanged", [54.36], value="12000")
+        self.assertEqual(result["status"], "passed")
+        self.assertGreaterEqual(clock.now - 1000.0, 12.0 + yc.MOTION_SETTLE_S)
+
+    def test_unchanged_fails_when_the_value_moves_during_the_hold(self):
+        result, _ = self.run_step("unchanged", [54.36, 54.36, 54.37], value="12000")
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(result["actual"], {self.PARAM: 54.37})
+        self.assertIn("changed during the hold", result["detail"])
+
+    def test_unchanged_needs_a_numeric_hold_time(self):
+        result, _ = self.run_step("unchanged", [54.36], value="long")
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("hold time", result["detail"])
+
+    def test_advances_passes_once_the_value_rises_above_the_first_sample(self):
+        result, _ = self.run_step("advances", [54.36, 54.36, 54.41], value="")
+        self.assertEqual(result["status"], "passed")
+        self.assertEqual(result["actual"], {self.PARAM: 54.41})
+
+    def test_advances_fails_at_the_timeout_when_the_value_never_rises(self):
+        result, clock = self.run_step("advances", [54.36], value="", timeout=3000)
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(result["actual"], {self.PARAM: 54.36})
+        self.assertIn("never rose", result["detail"])
+        self.assertLessEqual(clock.now - 1000.0, 4.0)
+
+    def test_a_motion_operator_cannot_share_a_step_with_another_operator(self):
+        commander = MagicMock()
+        step = {"condition": [
+            {"parameter": self.PARAM, "operator": "advances", "value": ""},
+            {"parameter": self.PARAM, "operator": "gt", "value": "0"}]}
+        result = yc._run_verify_step(commander, step)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("cannot be mixed", result["detail"])
+        commander.get_parameter_value.assert_not_called()
+
+    def test_a_nonexistent_parameter_fails_at_once(self):
+        commander = MagicMock()
+        commander.get_parameter_value.side_effect = yc.ParameterNotFoundError("no such parameter")
+        step = {"condition": [{"parameter": "/BOGUS", "operator": "advances", "value": ""}], "timeout": 5000}
+        clock = _FakeClock()
+        with patch.object(yc.time, "time", clock.time), patch.object(yc.time, "sleep", clock.sleep):
+            result = yc._run_verify_step(commander, step)
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(commander.get_parameter_value.call_count, 1)
+
+
 class TestLiteralConditionRegression(unittest.TestCase):
     """The refactor that introduced _read_param() must not change behavior
     for the pre-existing literal-value operators."""
