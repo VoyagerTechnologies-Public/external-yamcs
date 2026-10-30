@@ -120,6 +120,7 @@ stop: ## Stop and remove GSW container
 test: container ## Run tests
 	docker run --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) ./mvnw test
 	docker run --rm --network none --entrypoint sh -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) test-uplink-selection.sh
+	docker run --rm --network none --entrypoint sh -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) test-upload-validation.sh
 
 timeline-list: ## List all timeline views
 	python3 yamcs_timeline.py list

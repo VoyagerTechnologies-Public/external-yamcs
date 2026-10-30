@@ -284,6 +284,9 @@ class TestMotionConditions(unittest.TestCase):
                 last["value"] = next(readings)
             except StopIteration:
                 pass
+            if isinstance(last["value"], Exception):
+                failure, last["value"] = last["value"], values[-1]
+                raise failure
             return {"value": last["value"]}
 
         commander = MagicMock()
@@ -320,6 +323,16 @@ class TestMotionConditions(unittest.TestCase):
         self.assertEqual(result["actual"], {self.PARAM: 54.36})
         self.assertIn("never rose", result["detail"])
         self.assertLessEqual(clock.now - 1000.0, 4.0)
+
+    def test_advances_keeps_sampling_through_a_transient_read_failure(self):
+        result, _ = self.run_step("advances", [54.36, RuntimeError("YAMCS did not answer"), 54.36, 54.41], value="")
+        self.assertEqual(result["status"], "passed")
+        self.assertEqual(result["actual"], {self.PARAM: 54.41})
+
+    def test_unchanged_reports_a_read_failure_during_the_hold_as_a_failure(self):
+        result, _ = self.run_step("unchanged", [54.36, RuntimeError("YAMCS did not answer")], value="12000")
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("YAMCS did not answer", result["detail"])
 
     def test_a_motion_operator_cannot_share_a_step_with_another_operator(self):
         commander = MagicMock()
