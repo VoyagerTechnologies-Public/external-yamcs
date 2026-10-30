@@ -31,3 +31,6 @@ src/main/yamcs/mdb/components
 src/main/yamcs/mdb/*.xtce
 src/main/yamcs/displays/*
 src/main/yamcs/procedures/*
+
+# Flight software files staged for CFDP uplink by `copy-gsw-files`.
+src/main/yamcs/uplink

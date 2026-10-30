@@ -27,6 +27,7 @@ clean: stop ## Clean up GSW build artifacts and containers
 	@rm -rf src/main/yamcs/mdb/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/displays/components 2>/dev/null || true
 	@rm -rf src/main/yamcs/procedures/components 2>/dev/null || true
+	@rm -rf src/main/yamcs/uplink 2>/dev/null || true
 	@rm -f src/main/yamcs/mdb/ccsds.xtce src/main/yamcs/mdb/sim_42_truth.xtce \
 		src/main/yamcs/mdb/shire_server.xtce src/main/yamcs/mdb/shire_ground.xtce src/main/yamcs/mdb/shire_visual.xtce src/main/yamcs/displays/SpaceVehicle.par \
 		src/main/yamcs/procedures/CheckoutTest.ycs 2>/dev/null || true
@@ -83,6 +84,13 @@ copy-gsw-files: ## Copy component and DRM-level GSW files from the outer repo
 	fi
 	@# Resolved EPS wiring overrides the checked-in default MDB and stacks.
 	@if [ -f ../build/$(MISSION)/scenario/eps.xtce ]; then cp -f ../build/$(MISSION)/scenario/eps.xtce src/main/yamcs/mdb/components/eps/eps.xtce; fi
+	@# Files built with the flight software for the ground to uplink (up_*, such as RTS tables) go into the
+	@# image so the entrypoint can put them in the CFDP upload bucket.
+	@mkdir -p src/main/yamcs/uplink
+	@rm -f src/main/yamcs/uplink/*
+	@cp -f ../build/$(MISSION)/$(SPACECRAFT)/fsw/exe/cpu1/cf/up_* src/main/yamcs/uplink/ 2>/dev/null || true
+	@# Resolved telemetry limits (yellow and red XTCE alarm ranges) replace the definitions they apply to.
+	@if [ -d ../build/$(MISSION)/scenario/mdb ]; then cp -rf ../build/$(MISSION)/scenario/mdb/. src/main/yamcs/mdb/; fi
 	@if [ -d ../build/$(MISSION)/scenario/eps-stacks ]; then \
 		cp -f ../build/$(MISSION)/scenario/eps-stacks/*.ycs src/main/yamcs/procedures/components/eps/; \
 	fi
@@ -112,6 +120,7 @@ stop: ## Stop and remove GSW container
 test: container ## Run tests
 	docker run --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) ./mvnw test
 	docker run --rm --network none --entrypoint sh -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) test-uplink-selection.sh
+	docker run --rm --network none --entrypoint sh -v $(CURDIR):$(CURDIR) -w $(CURDIR) --user $(shell id -u):$(shell id -g) $(YAMCS_IMAGE) test-upload-validation.sh
 
 timeline-list: ## List all timeline views
 	python3 yamcs_timeline.py list

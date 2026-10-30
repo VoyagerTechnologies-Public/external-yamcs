@@ -52,7 +52,7 @@ services:
       fileListingParserClassName: org.yamcs.filetransfer.CsvListingParser
       fileListingParserArgs:
         timestampMultiplier: 1
-  - class: org.yamcs.shire.CheckoutCfdpUploadService
+  - class: org.yamcs.shire.CfdpUploadService
     name: checkout-cfdp-upload
     args:
       stream: checkout_control
@@ -240,7 +240,7 @@ streamConfig:
       tcPatterns: ["/SHIRE_SERVER/BACKDOOR_SERVER_.*"]
     - name: "checkout_control"
       processor: "realtime"
-      tcPatterns: ["/CCSDS/CFDP_UPLOAD_CHECKOUT"]
+      tcPatterns: ["/CCSDS/CFDP_UPLOAD_CHECKOUT", "/CCSDS/CFDP_UPLOAD"]
     - name: "ground_control"
       processor: "realtime"
       tcPatterns: ["/SHIRE_GROUND/.*"]
